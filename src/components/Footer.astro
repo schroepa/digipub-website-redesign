@@ -1,0 +1,58 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer style="background:#1a1a1a;" class="mt-0">
+
+  <!-- CTA Section: Logo+Social left, Calendly right -->
+  <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+    <!-- Left: Logo + Text + Social -->
+    <div>
+      <p class="text-white/50 text-xs font-mono uppercase tracking-widest mb-6">Was ist dein Projekt?</p>
+      <img
+        src="https://www.digipub.de/wp-content/uploads/2021/07/DIGI_PUB1.png"
+        alt="DigiPub"
+        class="h-16 mb-6"
+      />
+      <p class="text-white/60 text-sm leading-relaxed mb-8 max-w-xs">
+        Mehrwert entsteht durch Klarheit: Wir schärfen Nutzen, Haltung und Prozesse – für Kunden, Mitarbeitende und eine stärkere Marke.
+      </p>
+      <!-- Social Icons -->
+      <div class="flex gap-4">
+        <a href="https://www.facebook.com/DigiPubSeo" target="_blank" rel="noopener" class="text-white/40 hover:text-white transition-colors" aria-label="Facebook">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/digipub.de/" target="_blank" rel="noopener" class="text-white/40 hover:text-white transition-colors" aria-label="Instagram">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/digipub-de/" target="_blank" rel="noopener" class="text-white/40 hover:text-white transition-colors" aria-label="LinkedIn">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Calendly -->
+    <div>
+      <p class="text-white/50 text-xs font-mono uppercase tracking-widest mb-6">Kostenloses Erstgespräch buchen</p>
+      <div
+        class="calendly-inline-widget rounded-xl overflow-hidden"
+        data-url="https://calendly.com/nigronet/30min?embed_domain=www.digipub.de&embed_type=Inline&back=1&month=2026-06"
+        style="min-width:280px;height:700px;"
+      ></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/30 text-xs font-mono">© DigiPub {year}</p>
+      <div class="flex gap-6">
+        <a href="/kontakt" class="text-white/30 hover:text-white/60 text-xs transition-colors">Kontakt / Impressum</a>
+        <a href="/datenschutzerklaerung" class="text-white/30 hover:text-white/60 text-xs transition-colors">Datenschutzerklärung</a>
+        <a href="/cookie-richtlinie" class="text-white/30 hover:text-white/60 text-xs transition-colors">Cookie-Richtlinie</a>
+      </div>
+    </div>
+  </div>
+</footer>

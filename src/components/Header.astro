@@ -1,0 +1,93 @@
+---
+const nav = [
+  {
+    label: "Leistungen",
+    href: "/leistungen",
+    children: [
+      { label: "Marken-Aufbau / Branding", href: "/leistungen/markenaufbau-branding" },
+      { label: "SEO / GEO", href: "/leistungen/seo-geo" },
+      { label: "Designsystem", href: "/leistungen/designsystem" },
+      { label: "Automatisierung", href: "/leistungen/automatisierung" },
+      { label: "KI-Implementierung", href: "/leistungen/ki-implementierung" },
+    ],
+  },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Referenzen", href: "/referenzen" },
+  { label: "Kontakt", href: "/kontakt" },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header style="background:#1a1a1a;" class="sticky top-0 z-50 shadow-md">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
+
+    <!-- Logo -->
+    <a href="/" class="shrink-0">
+      <img
+        src="https://www.digipub.de/wp-content/uploads/2021/07/DIGI_PUB1.png"
+        alt="DigiPub"
+        class="h-10 w-auto"
+      />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-1">
+      {nav.map((item) => (
+        <div class="relative group">
+          <a
+            href={item.href}
+            class={`px-4 py-2 text-sm rounded transition-colors flex items-center gap-1
+              ${currentPath.startsWith(item.href) ? "text-white bg-white/10" : "text-white/80 hover:text-white hover:bg-white/10"}`}
+          >
+            {item.label}
+            {item.children && (
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            )}
+          </a>
+          {item.children && (
+            <div class="absolute top-full left-0 pt-1 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150">
+              <div style="background:#1a1a1a;" class="rounded-lg p-1 min-w-[220px] shadow-xl border border-white/10">
+                {item.children.map((child) => (
+                  <a href={child.href} class="block px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded transition-colors">
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </nav>
+
+    <!-- Mobile btn -->
+    <button id="mob-btn" class="md:hidden p-2 text-white">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mob-menu" class="md:hidden hidden border-t border-white/10 px-6 py-4">
+    {nav.map((item) => (
+      <div>
+        <a href={item.href} class="block py-3 text-sm text-white/80 hover:text-white border-b border-white/5 transition-colors">
+          {item.label}
+        </a>
+        {item.children?.map((child) => (
+          <a href={child.href} class="block py-2 pl-4 text-xs text-white/50 hover:text-white/80 transition-colors">
+            → {child.label}
+          </a>
+        ))}
+      </div>
+    ))}
+  </div>
+</header>
+
+<script>
+  document.getElementById("mob-btn")?.addEventListener("click", () => {
+    document.getElementById("mob-menu")?.classList.toggle("hidden");
+  });
+</script>
