@@ -69,7 +69,7 @@ const sections = [
   <section id="takeaways" class="bg-white py-16">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
       <div class="md:col-span-2">
-        <h2 class="text-3xl font-bold text-[#1a1a1a] mb-8">Key-Takeaways</h2>
+        <h2 class="text-3xl font-bold text-[#1a1a1a] mb-8">Key-Takeways</h2>
         <ul class="space-y-4">
           {[
             ["Markenaufbau bedeutet heute:", "den echten Mehrwert eines Unternehmens sichtbar, verständlich und vertrauenswürdig zu machen."],
@@ -120,7 +120,7 @@ const sections = [
         <h3 class="text-xl font-bold text-[#1a1a1a] mb-4">Markenbildung als Übersetzungsleistung</h3>
         <p class="text-gray-700 leading-relaxed mb-4">Digitale Systeme, Automatisierung und KI erzeugen eine Rückkopplung in die Organisation:</p>
         <ul class="space-y-2 mb-4">
-          {["Teams arbeiten anders","Entscheidungen werden datengetriebener","Kundenerwartungen steigen","Kommunikation wird schneller, spezifischer, personalisierter"].map((item) => (
+          {["Teams arbeiten anders", "Entscheidungen werden datengetriebener", "Kundenerwartungen steigen", "Kommunikation wird schneller, spezifischer, personalisierter"].map((item) => (
             <li class="flex gap-2 text-gray-700">
               <span>•</span> {item}
             </li>
@@ -140,7 +140,13 @@ const sections = [
         <h3 class="text-2xl font-bold text-[#1a1a1a] mb-4">Unser Ansatz</h3>
         <p class="text-gray-700 leading-relaxed mb-4">Markenaufbau beginnt beim <strong>Verstehen</strong>:</p>
         <ul class="space-y-2 mb-6">
-          {["Was ist der echte Mehrwert?","Wer sind die Menschen dahinter?","Welche Zielgruppe soll erreicht werden","Welche Sprache spricht die Zielgruppe?","Welche Prozesse, Produkte oder digitalen Services prägen die Marke heute und in Zukunft?"].map((item) => (
+          {[
+            "Was ist der echte Mehrwert?",
+            "Wer sind die Menschen dahinter?",
+            "Welche Zielgruppe soll erreicht werden",
+            "Welche Sprache spricht die Zielgruppe?",
+            "Welche Prozesse, Produkte oder digitalen Services prägen die Marke heute und in Zukunft?",
+          ].map((item) => (
             <li class="flex gap-2 text-gray-700">
               <span>•</span> {item}
             </li>
@@ -189,10 +195,10 @@ const sections = [
     </div>
   </section>
 
-  <!-- GRAUER BANNER: Leistungen im Markenaufbau -->
+  <!-- GRAUER BANNER: Leistungen im Marken-Aufbau -->
   <section class="py-10" style="background:#f0f0f0;">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-black text-[#1a1a1a]">Leistungen im Markenaufbau</h2>
+      <h2 class="text-4xl md:text-5xl font-black text-[#1a1a1a]">Leistungen im Marken-Aufbau</h2>
     </div>
   </section>
 
@@ -203,38 +209,75 @@ const sections = [
         {
           title: "Strategische Markenentwicklung",
           intro: "Wir definieren die Grundlagen für eine starke, klare Positionierung:",
-          items: ["Werte, Mission, Vision","Markenversprechen & Nutzerargumentation","Wettbewerb & Alleinstellung (USP / UVP)","Leitplanken für Kommunikation, Tonalität und Markenverhalten","Übertragung in digitale Angebote, Touchpoints und Services"],
-          ziel: "Die Marke erhält einen Kompass, der intern wie extern Orientierung schafft."
+          items: [
+            "Werte, Mission, Vision",
+            "Markenversprechen & Nutzerargumentation",
+            "Wettbewerb & Alleinstellung (USP / UVP)",
+            "Leitplanken für Kommunikation, Tonalität und Markenverhalten",
+            "Übertragung in digitale Angebote, Touchpoints und Services",
+          ],
+          ziel: "Die Marke erhält einen Kompass, der intern wie extern Orientierung schafft.",
         },
         {
           title: "Visuelle Identität & digitales Designsystem",
-          intro: "Eine starke Marke braucht eine visuelle Sprache, die Wiedererkennung erzeugt, analog und digital. Wir entwickeln.",
-          items: ["Logo & Markenzeichen","Farb- & Formwelten","Typografie","Iconografie & Bildstil","Komponenten für Websites, mobile Anwendungen und digitale Plattformen","Regeln für KI-generierte Bilder, damit sie authentisch, konsistent und nicht austauschbar wirken"],
-          ziel: "Eine konsistente, funktionale Markenwelt, die auf allen Kanälen einheitlich wirkt."
+          intro: "Eine starke Marke braucht eine visuelle Sprache, die Wiedererkennung erzeugt, analog und digital. Wir entwickeln:",
+          items: [
+            "Logo & Markenzeichen",
+            "Farb- & Formwelten",
+            "Typografie",
+            "Iconografie & Bildstil",
+            "Komponenten für Websites, mobile Anwendungen und digitale Plattformen",
+            "Regeln für KI-generierte Bilder, damit sie authentisch, konsistent und nicht austauschbar wirken",
+          ],
+          ziel: "Eine konsistente, funktionale Markenwelt, die auf allen Kanälen einheitlich wirkt.",
         },
         {
           title: "Marken-Kommunikation & Zielgruppen-Ansprache",
           intro: "Marke wird durch Sprache erlebbar. Wir entwickeln eine Kommunikation, die präzise auf Zielgruppen abgestimmt ist:",
-          items: ["Tonalitätsleitfäden","Argumentationslinien für Entscheidungsträger (B2B) und Konsumenten (B2C)","Nutzenbotschaften, die echten Mehrwert klar formulieren","Storytelling, das die reale Identität des Unternehmens sichtbar macht","Guidelines für KI-gestützte Contentproduktion (Stimme, Stil, Narrative)"],
-          ziel: "Eine Sprache, die Vertrauen aufbaut und die Zielgruppe emotional wie rational abholt."
+          items: [
+            "Tonalitätsleitfäden",
+            "Argumentationslinien für Entscheidungsträger (B2B) und Konsumenten (B2C)",
+            "Nutzenbotschaften, die echten Mehrwert klar formulieren",
+            "Storytelling, das die reale Identität des Unternehmens sichtbar macht",
+            "Guidelines für KI-gestützte Contentproduktion (Stimme, Stil, Narrative)",
+          ],
+          ziel: "Eine Sprache, die Vertrauen aufbaut und die Zielgruppe emotional wie rational abholt.",
         },
         {
           title: "Zielgruppenrelevanz & Nutzerzentrierung",
           intro: "Markenaufbau ist nur erfolgreich, wenn die Botschaft die Menschen trifft, für die sie gemacht ist. Wir analysieren:",
-          items: ["Bedürfnisse & Erwartungen","Mediennutzung","Entscheidungsverhalten","Barrieren & Pain Points","Chancen für personalisierte Kommunikation"],
+          items: [
+            "Bedürfnisse & Erwartungen",
+            "Mediennutzung",
+            "Entscheidungsverhalten",
+            "Barrieren & Pain Points",
+            "Chancen für personalisierte Kommunikation",
+          ],
           ziel: "Die Marke spricht die Sprache der Zielgruppe, nicht die des Unternehmens. Stichwort: Interner Sprech",
         },
         {
           title: "Vertrauen, Autorität & Erfahrung (SEO/GEO & EEAT)",
           intro: "Vertrauen ist heute ein technisches und inhaltliches Thema. Wir entwickeln Marken so, dass sie auch für Suchmaschinen, KI-Suchsysteme und Bewertungsalgorithmen vertrauenswürdig wirken:",
-          items: ["EEAT (Experience, Expertise, Authoritativeness, Trustworthiness)","GEO (Generative Engine Optimization)","Social Proof, Cases, Referenzen","Konsistente Datenstruktur (Schema, Knowledge Panels, digitale Identität)","Guidelines für Content, der KI-Antwortsysteme zuverlässig bedient"],
-          ziel: "Die Marke wird sichtbar, glaubwürdig und relevant, für Menschen und Maschinen."
+          items: [
+            "EEAT (Experience, Expertise, Authoritativeness, Trustworthiness)",
+            "GEO (Generative Engine Optimization)",
+            "Social Proof, Cases, Referenzen",
+            "Konsistente Datenstruktur (Schema, Knowledge Panels, digitale Identität)",
+            "Guidelines für Content, der KI-Antwortsysteme zuverlässig bedient",
+          ],
+          ziel: "Die Marke wird sichtbar, glaubwürdig und relevant, für Menschen und Maschinen.",
         },
         {
           title: "Markenbekanntheit & nachhaltige Sichtbarkeit",
           intro: "Wir begleiten die Marke auf dem Weg zum Markt:",
-          items: ["Storylines für Social Media & PR","Einführungskampagnen","Contentstrategien","Employer Branding und interne Kommunikation","Erfolgsmessung & datenbasierte Optimierung"],
-          ziel: "Die Marke verankert sich langfristig im Markt und im Gedächtnis der Zielgruppe."
+          items: [
+            "Storylines für Social Media & PR",
+            "Einführungskampagnen",
+            "Contentstrategien",
+            "Employer Branding und interne Kommunikation",
+            "Erfolgsmessung & datenbasierte Optimierung",
+          ],
+          ziel: "Die Marke verankert sich langfristig im Markt und im Gedächtnis der Zielgruppe.",
         },
       ].map((l) => (
         <div class="bg-white rounded-2xl shadow-md p-8 flex flex-col">
