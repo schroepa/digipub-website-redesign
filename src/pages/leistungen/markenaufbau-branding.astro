@@ -7,257 +7,246 @@ import Layout from "../../layouts/Layout.astro";
   description="Gemeinsam machen wir Ihren Mehrwert zur Marke - verstaendlich, konsistent und vertrauenswuerdig ueber alle Touchpoints."
 >
 
-<style>
-  .section-banner { background:#f4f4f4; padding:2.5rem 0; }
-  .card { background:#fff; border-radius:1.25rem; box-shadow:0 2px 24px 0 rgba(0,0,0,0.08); padding:2rem; }
-  .card-dark { background:#1a1a1a; border-radius:1.25rem; padding:2rem; display:flex; align-items:center; justify-content:center; text-align:center; min-height:160px; }
-  .sticky-nav { position:sticky; top:64px; z-index:40; background:#fff; border-bottom:1px solid #e5e5e5; box-shadow:0 1px 4px rgba(0,0,0,0.05); }
-  .nav-pill { display:inline-block; padding:0.375rem 1rem; border-radius:9999px; font-size:0.875rem; color:#666; white-space:nowrap; transition:background 0.15s,color 0.15s; text-decoration:none; }
-  .nav-pill:hover { background:#f0f0f0; color:#1a1a1a; }
-  .cta-box { background:#1a1a1a; border-radius:1.25rem; padding:2.5rem 2rem; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:1rem; }
-  .erzaehl-btn { display:block; border:2px solid #d97706; border-radius:0.875rem; padding:1.25rem 2rem; color:#d97706; font-weight:700; font-size:1.75rem; text-decoration:none; transition:background 0.2s,color 0.2s; width:100%; text-align:center; line-height:1.3; }
-  .erzaehl-btn:hover { background:#d97706; color:#1a1a1a; }
-  .du-box { border:2px solid #e5e5e5; border-radius:1.25rem; padding:2.5rem 2rem; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
-  .bul li { display:flex; gap:0.625rem; align-items:flex-start; color:#444; line-height:1.6; margin-bottom:0.5rem; }
-  .bul li::before { content:"•"; color:#1a1a1a; font-weight:700; flex-shrink:0; margin-top:0.05rem; }
-</style>
-
-  <section class="bg-white pt-16 pb-10">
+  <!-- HERO -->
+  <section class="bg-white pt-16 pb-20">
     <div class="max-w-7xl mx-auto px-6">
-      <a href="/leistungen" class="text-sm text-gray-400 hover:text-gray-600 mb-10 block">&larr; Leistungen</a>
-      <h1 class="text-4xl md:text-6xl font-bold text-[#1a1a1a] tracking-tight mb-3 leading-tight">Digitaler Markenaufbau heute</h1>
-      <h2 class="text-xl md:text-2xl text-gray-500 font-normal mb-10">Warum moderne Markenführung digitaler wird</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-        <p class="text-lg text-gray-700 leading-relaxed">Markenaufbau heute bedeutet, den echten Mehrwert eines Unternehmens über <strong>alle analogen und digitalen Touchpoints</strong> hinweg sichtbar, erlebbar und vertrauenswürdig zu machen.</p>
-        <p class="text-lg text-gray-700 leading-relaxed">Unternehmen, die ihre Marke neu ausrichten, verbinden <strong>Strategie, Design, Sprache und digitale Prozesse</strong> zu einem System, das Wiedererkennbarkeit schafft, Vertrauen stärkt und Wachstum fördert.</p>
-      </div>
-    </div>
-  </section>
+      <a href="/leistungen" class="text-sm text-gray-400 hover:text-gray-600 mb-12 block">&larr; Leistungen</a>
 
-  <nav class="sticky-nav">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex gap-1 overflow-x-auto py-3" style="scrollbar-width:none;">
-        <a href="#takeaways" class="nav-pill">Key Takeaways</a>
-        <a href="#digital" class="nav-pill">Digital gedacht</a>
-        <a href="#ansatz" class="nav-pill">Unser Ansatz</a>
-        <a href="#leistungen" class="nav-pill">Leistungen</a>
-        <a href="#wieso" class="nav-pill">Wieso DigiPub?</a>
-      </div>
-    </div>
-  </nav>
-
-  <section class="bg-white py-10">
-    <div class="max-w-7xl mx-auto px-6">
-      <div style="border-radius:1.25rem;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.12);">
-        <img src="https://www.digipub.de/wp-content/uploads/2025/11/u2637499129_Aufsteigende_Digitale_Treppe_in_den_Himmel_-ar_1_82697a3c-1fc2-462e-9cb1-95b02a9d72c2_1.png" alt="Der Digitale Markenaufbau" style="width:100%;display:block;" loading="eager" />
-      </div>
-    </div>
-  </section>
-
-  <section id="takeaways" class="bg-white py-16">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-        <div class="md:col-span-2">
-          <h2 class="text-3xl font-bold text-[#1a1a1a] mb-8">Key-Takeaways</h2>
-          <ul class="bul space-y-3">
-            <li><span><strong>Markenaufbau bedeutet heute:</strong> den echten Mehrwert eines Unternehmens sichtbar, verständlich und vertrauenswürdig zu machen.</span></li>
-            <li><span><strong>Digitaler Wandel &amp; Marke sind untrennbar:</strong> Jede Veränderung in Prozessen, Services oder Strukturen formt auch die Außenwirkung.</span></li>
-            <li><span><strong>Mehrwert ist Marke:</strong> Eine starke Marke entsteht dort, wo Nutzen, Zielgruppenverständnis und klare Kommunikation zusammenkommen.</span></li>
-            <li><span><strong>Konsistenz über alle Touchpoints:</strong> Design, Sprache und digitale Systeme müssen eine erkennbare, glaubwürdige Welt erzeugen.</span></li>
-            <li><span><strong>Vertrauen als Kern:</strong> Durch klare Positionierung, relevante Inhalte und EEAT-/GEO-Prinzipien entsteht Autorität im Markt.</span></li>
-          </ul>
-        </div>
-        <div class="cta-box">
-          <p style="color:#d97706;font-weight:700;font-size:1.1rem;">Mehrwert ist Marke</p>
-          <a href="mailto:kontakt@digipub.de" class="erzaehl-btn">Erzähl<br />mal!</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-banner">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-2xl font-bold text-[#1a1a1a]">Markenaufbau muss digital gedacht werden!</h2>
-    </div>
-  </div>
-
-  <section id="digital" class="bg-white py-14">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="card">
-        <h3 class="text-xl font-bold text-[#1a1a1a] mb-4">Markenaufbau als Transformationsprozess</h3>
-        <p class="text-gray-700 leading-relaxed mb-4">Unternehmen, die bisher vor allem analoge Produkte oder Dienstleistungen anbieten, stehen vor einem tiefgreifenden Wandel: Digitalisierung verändert Strukturen, Prozesse, Kundenverhalten und damit zwangsläufig die Marke.</p>
-        <p class="text-gray-700 leading-relaxed">Markenaufbau ist deshalb mehr als Logo und Kommunikation. Er ist ein <strong>Transformationsprozess</strong>, der Außenwirkung und Innenleben des Unternehmens miteinander verbindet.</p>
-      </div>
-      <div class="card">
-        <h3 class="text-xl font-bold text-[#1a1a1a] mb-4">Markenbildung als Übersetzungsleistung</h3>
-        <p class="text-gray-700 leading-relaxed mb-4">Digitale Systeme, Automatisierung und KI erzeugen eine Rückkopplung in die Organisation:</p>
-        <ul class="bul mb-4">
-          <li><span>Teams arbeiten anders</span></li>
-          <li><span>Entscheidungen werden datengetriebener</span></li>
-          <li><span>Kundenerwartungen steigen</span></li>
-          <li><span>Kommunikation wird schneller, spezifischer, personalisierter</span></li>
-        </ul>
-        <p class="text-gray-700 leading-relaxed">Markenbildung übersetzt diese Veränderungen in <strong>klare Positionierung</strong>, <strong>passende Sprache</strong>, <strong>kohärentes Design</strong> und <strong>spürbaren Mehrwert</strong>.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="ansatz" class="bg-white pb-14">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-      <div class="card">
-        <h3 class="text-2xl font-bold text-[#1a1a1a] mb-4">Unser Ansatz</h3>
-        <p class="text-gray-700 leading-relaxed mb-4">Markenaufbau beginnt beim <strong>Verstehen</strong>:</p>
-        <ul class="bul mb-6">
-          <li><span>Was ist der echte Mehrwert?</span></li>
-          <li><span>Wer sind die Menschen dahinter?</span></li>
-          <li><span>Welche Zielgruppe soll erreicht werden?</span></li>
-          <li><span>Welche Sprache spricht die Zielgruppe?</span></li>
-          <li><span>Welche Prozesse, Produkte oder digitalen Services prägen die Marke heute und in Zukunft?</span></li>
-        </ul>
-        <p class="text-gray-700 leading-relaxed">Diese Fragen stammen aus der strategischen SEO- und GEO-Arbeit, denn Sichtbarkeit entsteht dort, wo <strong>Relevanz</strong>, <strong>Nutzerintention</strong> und <strong>Markenversprechen</strong> übereinstimmen.</p>
-      </div>
-      <div style="border-radius:1.25rem;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.12);">
-        <img src="https://www.digipub.de/wp-content/uploads/2026/01/u2637499129_Aufsteigende_Digitale_Treppe_in_den_Himmel.jpg" alt="Unser Ansatz" style="width:100%;display:block;object-fit:cover;" loading="lazy" />
-      </div>
-    </div>
-  </section>
-
-  <div style="background:#1a1a1a;padding:2.5rem 0;">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <p style="color:#d97706;font-size:1.25rem;font-weight:700;">Daraus entsteht eine Marke, die authentisch, nutzerzentriert und zukunftsfähig ist.</p>
-    </div>
-  </div>
-
-  <section class="bg-white py-14">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="du-box">
-        <p class="text-lg text-[#1a1a1a] mb-2">Wer kennt deinen Mehrwert besser als</p>
-        <p class="font-black text-[#1a1a1a]" style="font-size:5rem;line-height:1;">DU?</p>
-      </div>
-      <div class="cta-box">
-        <p style="color:#d97706;font-weight:700;font-size:1.1rem;">Wir hören erstmal zu</p>
-        <a href="mailto:kontakt@digipub.de" class="erzaehl-btn">Erzähl<br />mal!</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-banner">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-black text-[#1a1a1a]">Leistungen im Marken-Aufbau</h2>
-    </div>
-  </div>
-
-  <section id="leistungen" class="bg-white py-14">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="card">
-        <h3 class="text-lg font-bold text-[#1a1a1a] mb-3">Strategische Markenentwicklung</h3>
-        <p class="text-gray-700 mb-3">Wir definieren die Grundlagen für eine starke, klare Positionierung:</p>
-        <ul class="bul mb-4">
-          <li><span>Werte, Mission, Vision</span></li>
-          <li><span>Markenversprechen &amp; Nutzenargumentation</span></li>
-          <li><span>Wettbewerb &amp; Alleinstellung (USP / UVP)</span></li>
-          <li><span>Leitplanken für Kommunikation, Tonalität und Markenverhalten</span></li>
-          <li><span>Übertragung in digitale Angebote, Touchpoints und Services</span></li>
-        </ul>
-        <p class="font-bold text-[#1a1a1a] pt-3" style="border-top:1px solid #eee;">Ziel: Die Marke erhält einen Kompass, der intern wie extern Orientierung schafft.</p>
-      </div>
-      <div class="card">
-        <h3 class="text-lg font-bold text-[#1a1a1a] mb-3">Visuelle Identität &amp; digitales Designsystem</h3>
-        <p class="text-gray-700 mb-3">Eine starke Marke braucht eine visuelle Sprache, die Wiedererkennung erzeugt, analog und digital. Wir entwickeln:</p>
-        <ul class="bul mb-4">
-          <li><span>Logo &amp; Markenzeichen</span></li>
-          <li><span>Farb- &amp; Formwelten</span></li>
-          <li><span>Typografie</span></li>
-          <li><span>Iconografie &amp; Bildstil</span></li>
-          <li><span>Komponenten für Websites, mobile Anwendungen und digitale Plattformen</span></li>
-          <li><span>Regeln für KI-generierte Bilder, damit sie authentisch, konsistent und nicht austauschbar wirken</span></li>
-        </ul>
-        <p class="font-bold text-[#1a1a1a] pt-3" style="border-top:1px solid #eee;">Ziel: Eine konsistente, funktionale Markenwelt, die auf allen Kanälen einheitlich wirkt.</p>
-      </div>
-      <div class="card">
-        <h3 class="text-lg font-bold text-[#1a1a1a] mb-3">Marken-Kommunikation &amp; Zielgruppen-Ansprache</h3>
-        <p class="text-gray-700 mb-3">Marke wird durch Sprache erlebbar. Wir entwickeln eine Kommunikation, die <strong>präzise auf Zielgruppen abgestimmt</strong> ist:</p>
-        <ul class="bul mb-4">
-          <li><span>Tonalitätsleitfäden</span></li>
-          <li><span>Argumentationslinien für Entscheidungsträger (B2B) und Konsumenten (B2C)</span></li>
-          <li><span>Nutzenbotschaften, die echten Mehrwert klar formulieren</span></li>
-          <li><span>Storytelling, das die reale Identität des Unternehmens sichtbar macht</span></li>
-          <li><span>Guidelines für KI-gestützte Contentproduktion (Stimme, Stil, Narrative)</span></li>
-        </ul>
-        <p class="font-bold text-[#1a1a1a] pt-3" style="border-top:1px solid #eee;">Ziel: Eine Sprache, die Vertrauen aufbaut und die Zielgruppe emotional wie rational abholt.</p>
-      </div>
-      <div class="card">
-        <h3 class="text-lg font-bold text-[#1a1a1a] mb-3">Zielgruppenrelevanz &amp; Nutzerzentrierung</h3>
-        <p class="text-gray-700 mb-3">Markenaufbau ist nur erfolgreich, wenn die Botschaft die Menschen trifft, für die sie gemacht ist. Wir analysieren:</p>
-        <ul class="bul mb-4">
-          <li><span>Bedürfnisse &amp; Erwartungen</span></li>
-          <li><span>Mediennutzung</span></li>
-          <li><span>Entscheidungsverhalten</span></li>
-          <li><span>Barrieren &amp; Pain Points</span></li>
-          <li><span>Chancen für personalisierte Kommunikation</span></li>
-        </ul>
-        <p class="font-bold text-[#1a1a1a] pt-3" style="border-top:1px solid #eee;">Ziel: Die Marke spricht die Sprache der Zielgruppe, nicht die des Unternehmens. Stichwort: Interner Sprech.</p>
-      </div>
-      <div class="card">
-        <h3 class="text-lg font-bold text-[#1a1a1a] mb-3">Vertrauen, Autorität &amp; Erfahrung (SEO/GEO &amp; EEAT)</h3>
-        <p class="text-gray-700 mb-3">Vertrauen ist heute ein technisches und inhaltliches Thema. Wir entwickeln Marken so, dass sie auch für Suchmaschinen, KI-Suchsysteme und Bewertungsalgorithmen <strong>vertrauenswürdig</strong> wirken:</p>
-        <ul class="bul mb-4">
-          <li><span>EEAT (Experience, Expertise, Authoritativeness, Trustworthiness)</span></li>
-          <li><span>GEO (Generative Engine Optimization)</span></li>
-          <li><span>Social Proof, Cases, Referenzen</span></li>
-          <li><span>Konsistente Datenstruktur (Schema, Knowledge Panels, digitale Identität)</span></li>
-          <li><span>Guidelines für Content, der KI-Antwortsysteme zuverlässig bedient</span></li>
-        </ul>
-        <p class="font-bold text-[#1a1a1a] pt-3" style="border-top:1px solid #eee;">Ziel: Die Marke wird sichtbar, glaubwürdig und relevant, für Menschen und Maschinen.</p>
-      </div>
-      <div class="card">
-        <h3 class="text-lg font-bold text-[#1a1a1a] mb-3">Markenbekanntheit &amp; nachhaltige Sichtbarkeit</h3>
-        <p class="text-gray-700 mb-3">Wir begleiten die Marke auf dem Weg zum Markt:</p>
-        <ul class="bul mb-4">
-          <li><span>Storylines für Social Media &amp; PR</span></li>
-          <li><span>Einführungskampagnen</span></li>
-          <li><span>Contentstrategien</span></li>
-          <li><span>Employer Branding und interne Kommunikation</span></li>
-          <li><span>Erfolgsmessung &amp; datenbasierte Optimierung</span></li>
-        </ul>
-        <p class="font-bold text-[#1a1a1a] pt-3" style="border-top:1px solid #eee;">Ziel: Die Marke verankert sich langfristig im Markt und im Gedächtnis der Zielgruppe.</p>
-      </div>
-    </div>
-  </section>
-
-  <div id="wieso" class="section-banner">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-[#1a1a1a] mb-4">Wieso mit DigiPub?</h2>
-      <p class="text-gray-700 leading-relaxed max-w-4xl">Markenaufbau heute bedeutet, den echten Mehrwert eines Unternehmens sichtbar, erlebbar und vertrauenswürdig zu machen, über alle analogen und digitalen Touchpoints hinweg. Unternehmen, die ihre Marke neu ausrichten, verbinden Strategie, Design, Sprache und digitale Prozesse zu einem System, das Wiedererkennbarkeit schafft, Vertrauen stärkt und Wachstum fördert.</p>
-    </div>
-  </div>
-
-  <section class="bg-white py-14">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="card-dark"><p style="color:#d97706;font-weight:700;font-size:1.05rem;line-height:1.5;">Wir <strong>teilen Wissen</strong>, statt es in Silos zu halten.</p></div>
-      <div class="card-dark"><p style="color:#d97706;font-weight:700;font-size:1.05rem;line-height:1.5;">Mitarbeitende wachsen aktiv mit.</p></div>
-      <div class="card-dark"><p style="color:#d97706;font-weight:700;font-size:1.05rem;line-height:1.5;">Ein echtes Gegenüber für nachhaltige Weiterentwicklung.</p></div>
-      <div class="card-dark"><p style="color:#d97706;font-weight:700;font-size:1.05rem;line-height:1.5;">Wir arbeiten vom aktuellen Reifegrad aus.</p></div>
-      <div class="card-dark"><p style="color:#d97706;font-weight:700;font-size:1.05rem;line-height:1.5;">Tiefe Zusammenarbeit verbessert Prozesse nachhaltig.</p></div>
-      <div class="card-dark"><p style="color:#d97706;font-weight:700;font-size:1.05rem;line-height:1.5;">Gemeinsame Entwicklung statt Ergebnisübergabe.</p></div>
-    </div>
-  </section>
-
-  <section class="bg-white pb-16">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="du-box" style="gap:2rem;">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-end mb-20">
         <div>
-          <p class="text-lg text-[#1a1a1a] mb-1">Wer kennt deinen Mehrwert besser als</p>
+          <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">Leistung 01</p>
+          <h1 class="text-5xl md:text-7xl font-bold text-[#1a1a1a] tracking-tight leading-none mb-6">
+            Marken&shy;aufbau.<br />
+            <span class="text-gray-400">Neu gedacht.</span>
+          </h1>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            Den echten Mehrwert sichtbar machen &mdash; über alle analogen und digitalen Touchpoints hinweg. Vertrauenswürdig, konsistent, zukunftsfähig.
+          </p>
+        </div>
+        <div>
+          <div style="border-radius:1rem;overflow:hidden;">
+            <img
+              src="https://www.digipub.de/wp-content/uploads/2025/11/u2637499129_Aufsteigende_Digitale_Treppe_in_den_Himmel_-ar_1_82697a3c-1fc2-462e-9cb1-95b02a9d72c2_1.png"
+              alt="Markenaufbau"
+              style="width:100%;display:block;"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- INTRO TEXT 2-spaltig -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 border-t border-gray-100 pt-12">
+        <p class="text-gray-700 leading-relaxed">
+          Markenaufbau heute bedeutet, den echten Mehrwert eines Unternehmens über <strong>alle analogen und digitalen Touchpoints</strong> hinweg sichtbar, erlebbar und vertrauenswürdig zu machen.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Unternehmen, die ihre Marke neu ausrichten, verbinden <strong>Strategie, Design, Sprache und digitale Prozesse</strong> zu einem System, das Wiedererkennbarkeit schafft, Vertrauen stärkt und Wachstum fördert.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY TAKEAWAYS als nummerierte Liste -->
+  <section class="bg-gray-50 py-20 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-10">Key Takeaways</p>
+      <div class="space-y-0">
+        {[
+          ["Markenaufbau bedeutet heute", "Den echten Mehrwert eines Unternehmens sichtbar, verständlich und vertrauenswürdig machen."],
+          ["Digitaler Wandel &amp; Marke", "Jede Veränderung in Prozessen, Services oder Strukturen formt auch die Außenwirkung."],
+          ["Mehrwert ist Marke", "Eine starke Marke entsteht dort, wo Nutzen, Zielgruppenverständnis und klare Kommunikation zusammenkommen."],
+          ["Konsistenz über alle Touchpoints", "Design, Sprache und digitale Systeme müssen eine erkennbare, glaubwürdige Welt erzeugen."],
+          ["Vertrauen als Kern", "Durch klare Positionierung, relevante Inhalte und EEAT-/GEO-Prinzipien entsteht Autorität im Markt."],
+        ].map(([title, text], i) => (
+          <div class="grid grid-cols-12 gap-6 py-6 border-t border-gray-200 items-start">
+            <span class="col-span-1 font-mono text-xs text-gray-300 pt-1">0{i+1}</span>
+            <strong class="col-span-4 text-[#1a1a1a] font-semibold" set:html={title} />
+            <p class="col-span-7 text-gray-600 leading-relaxed">{text}</p>
+          </div>
+        ))}
+        <div class="border-t border-gray-200"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIGITAL GEDACHT: großes Statement + 2 Texte -->
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-5xl font-bold text-[#1a1a1a] tracking-tight mb-16 max-w-2xl leading-tight">
+        Markenaufbau muss digital gedacht werden.
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-lg font-semibold text-[#1a1a1a] mb-4">Als Transformationsprozess</h3>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Unternehmen, die bisher vor allem analoge Produkte oder Dienstleistungen anbieten, stehen vor einem tiefgreifenden Wandel: Digitalisierung verändert Strukturen, Prozesse, Kundenverhalten und damit zwangsläufig die Marke.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Markenaufbau ist deshalb mehr als Logo und Kommunikation. Er ist ein <strong>Transformationsprozess</strong>, der Außenwirkung und Innenleben des Unternehmens miteinander verbindet.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-[#1a1a1a] mb-4">Als Übersetzungsleistung</h3>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Digitale Systeme, Automatisierung und KI erzeugen eine Rückkopplung in die Organisation: Teams arbeiten anders, Entscheidungen werden datengetriebener, Kundenerwartungen steigen, Kommunikation wird schneller und spezifischer.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Markenbildung übersetzt diese Veränderungen in <strong>klare Positionierung</strong>, <strong>passende Sprache</strong>, <strong>kohärentes Design</strong> und <strong>spürbaren Mehrwert</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNSER ANSATZ: Text + Bild -->
+  <section class="bg-gray-50 py-20 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-6">Unser Ansatz</p>
+        <h2 class="text-3xl font-bold text-[#1a1a1a] mb-6 tracking-tight">Verstehen kommt vor Gestalten.</h2>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          Markenaufbau beginnt beim <strong>Verstehen</strong>: Was ist der echte Mehrwert? Wer sind die Menschen dahinter? Welche Zielgruppe soll erreicht werden? Welche Prozesse, Produkte oder digitalen Services prägen die Marke heute und in Zukunft?
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-8">
+          Diese Fragen stammen aus der strategischen SEO- und GEO-Arbeit, denn Sichtbarkeit entsteht dort, wo <strong>Relevanz</strong>, <strong>Nutzerintention</strong> und <strong>Markenversprechen</strong> übereinstimmen.
+        </p>
+        <p class="text-lg font-semibold text-[#1a1a1a] italic">
+          Daraus entsteht eine Marke, die authentisch, nutzerzentriert und zukunftsfähig ist.
+        </p>
+      </div>
+      <div style="border-radius:1rem;overflow:hidden;">
+        <img
+          src="https://www.digipub.de/wp-content/uploads/2026/01/u2637499129_Aufsteigende_Digitale_Treppe_in_den_Himmel.jpg"
+          alt="Unser Ansatz"
+          style="width:100%;display:block;"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- DU? CTA -->
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+      <div class="flex flex-col justify-center">
+        <p class="text-sm text-gray-400 mb-2">Wer kennt deinen Mehrwert besser als</p>
+        <p class="font-black text-[#1a1a1a] leading-none mb-6" style="font-size:clamp(5rem,10vw,8rem);">DU?</p>
+        <p class="text-gray-500">Wir hören erstmal zu.</p>
+      </div>
+      <div style="background:#1a1a1a;border-radius:1.25rem;padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.25rem;text-align:center;">
+        <p style="color:#d97706;font-weight:700;font-size:1.1rem;">Wir hören erstmal zu</p>
+        <a href="mailto:kontakt@digipub.de" style="display:block;border:2px solid #d97706;border-radius:0.75rem;padding:1.5rem 2rem;color:#d97706;font-weight:700;font-size:2rem;text-decoration:none;width:100%;transition:background 0.2s;">
+          Erzähl<br />mal!
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section class="bg-gray-50 py-20 border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">Was wir konkret tun</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-[#1a1a1a] tracking-tight mb-16">Leistungen im Marken-Aufbau</h2>
+
+      <div class="space-y-0">
+        {[
+          {
+            num: "01",
+            title: "Strategische Markenentwicklung",
+            text: "Wir definieren die Grundlagen für eine starke, klare Positionierung: Werte, Mission, Vision, Markenversprechen, Alleinstellung (USP/UVP), Leitplanken für Kommunikation und Tonalität sowie Übertragung in digitale Angebote und Services.",
+            ziel: "Die Marke erhält einen Kompass, der intern wie extern Orientierung schafft."
+          },
+          {
+            num: "02",
+            title: "Visuelle Identität &amp; digitales Designsystem",
+            text: "Logo, Farb- &amp; Formwelten, Typografie, Iconografie, Bildstil, Komponenten für Websites und mobile Anwendungen sowie Regeln für KI-generierte Bilder, damit sie authentisch, konsistent und nicht austauschbar wirken.",
+            ziel: "Eine konsistente, funktionale Markenwelt, die auf allen Kanälen einheitlich wirkt."
+          },
+          {
+            num: "03",
+            title: "Marken-Kommunikation &amp; Zielgruppen-Ansprache",
+            text: "Tonalitätsleitfäden, Argumentationslinien für B2B und B2C, Nutzenbotschaften, Storytelling und Guidelines für KI-gestützte Contentproduktion. Präzise auf Zielgruppen abgestimmt.",
+            ziel: "Eine Sprache, die Vertrauen aufbaut und die Zielgruppe emotional wie rational abholt."
+          },
+          {
+            num: "04",
+            title: "Zielgruppenrelevanz &amp; Nutzerzentrierung",
+            text: "Analyse von Bedürfnissen, Erwartungen, Mediennutzung, Entscheidungsverhalten, Barrieren und Pain Points sowie Chancen für personalisierte Kommunikation.",
+            ziel: "Die Marke spricht die Sprache der Zielgruppe, nicht die des Unternehmens."
+          },
+          {
+            num: "05",
+            title: "Vertrauen, Autorität &amp; Erfahrung (SEO/GEO &amp; EEAT)",
+            text: "EEAT, GEO, Social Proof, konsistente Datenstruktur (Schema, Knowledge Panels, digitale Identität) und Guidelines für Content, der KI-Antwortsysteme zuverlässig bedient.",
+            ziel: "Die Marke wird sichtbar, glaubwürdig und relevant &mdash; für Menschen und Maschinen."
+          },
+          {
+            num: "06",
+            title: "Markenbekanntheit &amp; nachhaltige Sichtbarkeit",
+            text: "Storylines für Social Media &amp; PR, Einführungskampagnen, Contentstrategien, Employer Branding und datenbasierte Optimierung.",
+            ziel: "Die Marke verankert sich langfristig im Markt und im Gedächtnis der Zielgruppe."
+          },
+        ].map((l) => (
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 py-8 border-t border-gray-200 items-start">
+            <span class="md:col-span-1 font-mono text-xs text-gray-300 pt-1">{l.num}</span>
+            <h3 class="md:col-span-3 text-base font-semibold text-[#1a1a1a] leading-snug" set:html={l.title} />
+            <p class="md:col-span-5 text-gray-600 leading-relaxed text-sm" set:html={l.text} />
+            <p class="md:col-span-3 text-sm text-[#1a1a1a] font-semibold leading-snug" set:html={`Ziel: ${l.ziel}`} />
+          </div>
+        ))}
+        <div class="border-t border-gray-200"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WIESO DIGIPUB -->
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-6">Warum DigiPub</p>
+      <h2 class="text-4xl font-bold text-[#1a1a1a] tracking-tight mb-4">Wieso mit DigiPub?</h2>
+      <p class="text-gray-600 leading-relaxed max-w-3xl mb-16">
+        Markenaufbau heute bedeutet, den echten Mehrwert eines Unternehmens sichtbar, erlebbar und vertrauenswürdig zu machen, über alle analogen und digitalen Touchpoints hinweg. Strategie, Design, Sprache und digitale Prozesse werden zu einem System.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div style="background:#1a1a1a;border-radius:1rem;padding:2rem;display:flex;align-items:center;justify-content:center;min-height:140px;text-align:center;">
+          <p style="color:#d97706;font-weight:600;line-height:1.5;">Wir teilen Wissen, statt es in Silos zu halten.</p>
+        </div>
+        <div style="background:#1a1a1a;border-radius:1rem;padding:2rem;display:flex;align-items:center;justify-content:center;min-height:140px;text-align:center;">
+          <p style="color:#d97706;font-weight:600;line-height:1.5;">Mitarbeitende wachsen aktiv mit.</p>
+        </div>
+        <div style="background:#1a1a1a;border-radius:1rem;padding:2rem;display:flex;align-items:center;justify-content:center;min-height:140px;text-align:center;">
+          <p style="color:#d97706;font-weight:600;line-height:1.5;">Ein echtes Gegenüber für nachhaltige Weiterentwicklung.</p>
+        </div>
+        <div style="background:#1a1a1a;border-radius:1rem;padding:2rem;display:flex;align-items:center;justify-content:center;min-height:140px;text-align:center;">
+          <p style="color:#d97706;font-weight:600;line-height:1.5;">Wir arbeiten vom aktuellen Reifegrad aus.</p>
+        </div>
+        <div style="background:#1a1a1a;border-radius:1rem;padding:2rem;display:flex;align-items:center;justify-content:center;min-height:140px;text-align:center;">
+          <p style="color:#d97706;font-weight:600;line-height:1.5;">Tiefe Zusammenarbeit verbessert Prozesse nachhaltig.</p>
+        </div>
+        <div style="background:#1a1a1a;border-radius:1rem;padding:2rem;display:flex;align-items:center;justify-content:center;min-height:140px;text-align:center;">
+          <p style="color:#d97706;font-weight:600;line-height:1.5;">Gemeinsame Entwicklung statt Ergebnisübergabe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-gray-50 py-20 border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div style="border:2px solid #e5e5e5;border-radius:1.25rem;padding:2.5rem;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:2rem;text-align:center;">
+        <div>
+          <p class="text-gray-500 mb-2">Wer kennt deinen Mehrwert besser als</p>
           <p class="font-black text-[#1a1a1a]" style="font-size:5rem;line-height:1;">DU?</p>
         </div>
         <div style="width:100%;">
-          <p class="text-gray-500 mb-4">Was ist dein Projekt?</p>
-          <a href="mailto:kontakt@digipub.de" style="display:inline-block;padding:0.625rem 1.5rem;background:#e5e5e5;color:#1a1a1a;font-weight:500;border-radius:0.5rem;text-decoration:none;margin-bottom:2rem;">Kontakt aufnehmen</a>
-          <div><img src="https://www.digipub.de/wp-content/uploads/2021/07/DIGI_PUB1.png" alt="DigiPub" style="height:4rem;opacity:0.5;margin:0 auto;display:block;" /></div>
+          <p class="text-gray-400 text-sm mb-4">Was ist dein Projekt?</p>
+          <a href="mailto:kontakt@digipub.de" style="display:inline-block;padding:0.75rem 2rem;background:#1a1a1a;color:#fff;font-weight:500;border-radius:0.5rem;text-decoration:none;margin-bottom:2rem;">Kontakt aufnehmen</a>
+          <div><img src="https://www.digipub.de/wp-content/uploads/2021/07/DIGI_PUB1.png" alt="DigiPub" style="height:3.5rem;opacity:0.4;margin:0 auto;display:block;" /></div>
         </div>
       </div>
       <div style="border:2px solid #e5e5e5;border-radius:1.25rem;padding:2rem;">
-        <p class="font-semibold text-[#1a1a1a] mb-4 text-center">Buche ein kostenloses Erstgespräch</p>
+        <p class="font-semibold text-[#1a1a1a] mb-4 text-center">Kostenloses Erstgespräch buchen</p>
         <div class="calendly-inline-widget" data-url="https://calendly.com/nigronet?embed_domain=www.digipub.de&embed_type=Inline" style="min-width:280px;height:500px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       </div>
