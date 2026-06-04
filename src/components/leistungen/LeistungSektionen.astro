@@ -1,0 +1,43 @@
+---
+import { getAssetUrl } from "../../lib/directus";
+
+interface Props {
+  section1: { title: string; text: string; bold: string; imageId?: string; imageFallback: string; imageAlt: string };
+  section2: { title: string; text: string; bold: string; imageId?: string; imageFallback: string; imageAlt: string };
+}
+const { section1, section2 } = Astro.props;
+
+const img1 = section1.imageId ? getAssetUrl(section1.imageId, 1024) : section1.imageFallback;
+const img2 = section2.imageId ? getAssetUrl(section2.imageId, 1024) : section2.imageFallback;
+---
+<section class="bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-20">
+    <div class="space-y-20">
+
+      <!-- Bild links, Text rechts -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="rounded-xl overflow-hidden shadow-md order-1">
+          <img src={img1} alt={section1.imageAlt} class="w-full object-cover" loading="lazy" />
+        </div>
+        <div class="order-2">
+          <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-4 leading-snug">{section1.title}</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">{section1.text}</p>
+          <p class="font-semibold text-[#1a1a1a]">{section1.bold}</p>
+        </div>
+      </div>
+
+      <!-- Text links, Bild rechts -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="order-1">
+          <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-4 leading-snug">{section2.title}</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">{section2.text}</p>
+          <p class="font-semibold text-[#1a1a1a]">{section2.bold}</p>
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-md order-2">
+          <img src={img2} alt={section2.imageAlt} class="w-full object-cover" loading="lazy" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  text1: string;
+  text2: string;
+  bold: string;
+}
+const { title, text1, text2, bold } = Astro.props;
+---
+<section style="background:#1a1a1a;">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-semibold text-white mb-8">{title}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div>
+        <p class="text-white/70 leading-relaxed mb-6">{text1}</p>
+        <p class="text-white/70 leading-relaxed">{text2}</p>
+      </div>
+      <div class="flex flex-col justify-between gap-8">
+        <p class="text-white text-xl font-semibold leading-snug">{bold}</p>
+        <div class="grid grid-cols-2 gap-4">
+          <a href="mailto:kontakt@digipub.de" class="flex items-center justify-center text-center bg-white/5 border border-white/10 rounded-xl p-6 hover:border-white/30 transition-colors text-white font-semibold text-lg">
+            Wer kennt deinen<br />Mehrwert besser als<br /><span class="text-4xl font-black">DU?</span>
+          </a>
+          <a href="mailto:kontakt@digipub.de" class="flex flex-col items-center justify-center text-center bg-white/5 border border-white/10 rounded-xl p-6 hover:border-white/30 transition-colors gap-2">
+            <span class="text-white/60 text-sm">Wir hören erstmal zu</span>
+            <span class="text-white font-bold text-2xl border border-white/30 rounded-lg px-4 py-2 w-full text-center">Erzähl mal!</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

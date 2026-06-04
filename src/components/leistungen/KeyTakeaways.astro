@@ -1,0 +1,21 @@
+---
+import type { KeyTakeaway } from "../../lib/directus";
+
+interface Props {
+  items: KeyTakeaway[];
+}
+const { items } = Astro.props;
+---
+<section class="bg-gray-50 border-y border-gray-200">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-10">Key-Takeaways</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {items.map((item) => (
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="font-semibold text-[#1a1a1a] mb-2">{item.title}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{item.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

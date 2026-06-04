@@ -1,0 +1,23 @@
+---
+import type { LeistungCard } from "../../lib/directus";
+
+interface Props {
+  title: string;
+  cards: LeistungCard[];
+}
+const { title, cards } = Astro.props;
+---
+<section class="bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-20">
+    <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-10">{title}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {cards.map((card) => (
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="font-semibold text-[#1a1a1a] mb-3">{card.title}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">{card.text}</p>
+          <p class="text-sm font-semibold text-[#1a1a1a] border-t border-gray-100 pt-3">Ziel: {card.ziel}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
