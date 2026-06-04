@@ -1,0 +1,94 @@
+---
+const sections = [
+  { id: "section-einleitung", label: "Einleitung" },
+  { id: "section-takeaways", label: "Key Takeaways" },
+  { id: "section-vertiefung", label: "Vertiefung" },
+  { id: "section-ansatz",    label: "Unser Ansatz" },
+  { id: "section-leistungen", label: "Leistungen" },
+  { id: "section-wieso",     label: "Wieso DigiPub" },
+  { id: "section-kontakt",   label: "Gespräch buchen" },
+];
+---
+
+<!-- Nur auf xl-Screens sichtbar -->
+<nav
+  id="leistung-progress"
+  aria-label="Seitennavigation"
+  class="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col items-center gap-3"
+>
+  {sections.map((s) => (
+    <a
+      href={`#${s.id}`}
+      data-target={s.id}
+      class="progress-dot group relative flex items-center justify-end"
+      aria-label={s.label}
+    >
+      <!-- Tooltip links vom Dot -->
+      <span class="
+        tooltip
+        absolute right-5 whitespace-nowrap
+        text-xs font-medium text-[#1a1a1a] bg-white
+        px-2.5 py-1 rounded-md shadow-sm border border-gray-200
+        opacity-0 group-hover:opacity-100
+        translate-x-1 group-hover:translate-x-0
+        transition-all duration-150 pointer-events-none
+        select-none
+      ">
+        {s.label}
+      </span>
+
+      <!-- Der Dot -->
+      <span class="
+        dot
+        block w-2.5 h-2.5 rounded-full
+        bg-white border-2 border-gray-400
+        shadow-sm
+        transition-all duration-200
+        group-hover:border-[#1a1a1a] group-hover:scale-110
+      "></span>
+    </a>
+  ))}
+</nav>
+
+<style>
+  .progress-dot.active .dot {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+    transform: scale(1.2);
+  }
+</style>
+
+<script>
+  const dots = document.querySelectorAll<HTMLAnchorElement>(".progress-dot");
+  const ids = Array.from(dots).map((d) => d.dataset.target!);
+
+  // Smooth scroll
+  dots.forEach((dot) => {
+    dot.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.getElementById(dot.dataset.target!);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // Aktiven Abschnitt tracken
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          dots.forEach((d) => d.classList.toggle("active", d.dataset.target === id));
+        }
+      });
+    },
+    { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+  );
+
+  ids.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  // Ersten Dot initial aktivieren
+  if (dots[0]) dots[0].classList.add("active");
+</script>

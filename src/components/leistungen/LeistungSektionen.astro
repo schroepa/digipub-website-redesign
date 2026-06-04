@@ -10,7 +10,7 @@ const { section1, section2 } = Astro.props;
 const img1 = section1.imageId ? getAssetUrl(section1.imageId, 1024) : section1.imageFallback;
 const img2 = section2.imageId ? getAssetUrl(section2.imageId, 1024) : section2.imageFallback;
 ---
-<section class="bg-white">
+<section id="section-vertiefung" class="bg-white">
   <div class="max-w-7xl mx-auto px-6 py-20">
     <div class="space-y-20">
 

@@ -10,6 +10,7 @@ import UnserAnsatz from "../../components/leistungen/UnserAnsatz.astro";
 import LeistungKacheln from "../../components/leistungen/LeistungKacheln.astro";
 import WiesoDigiPub from "../../components/leistungen/WiesoDigiPub.astro";
 import FinalCTA from "../../components/leistungen/FinalCTA.astro";
+import LeistungProgress from "../../components/leistungen/LeistungProgress.astro";
 
 const slug = "ki-implementierung";
 const cms = await getLeistung(slug);
@@ -20,6 +21,7 @@ const d = cms ?? leistungenFallback[slug];
   title="KI-Implementierung | Fortschritt mit Augenmaß | DigiPub"
   description="KI im Unternehmen: Klarheit vor Technologie. Wir identifizieren die richtigen Use-Cases und setzen KI dort ein, wo sie messbaren Mehrwert schafft."
 >
+  <LeistungProgress />
   <LeistungHero
     number={d.number}
     title={d.title}
