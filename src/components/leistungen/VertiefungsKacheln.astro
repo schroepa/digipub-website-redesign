@@ -1,0 +1,66 @@
+---
+interface Card {
+  title: string;
+  text: string;   // Zeilen mit "- " Prefix werden als <li> gerendert
+  bold: string;
+}
+interface Props {
+  left: Card;
+  right: Card;
+}
+const { left, right } = Astro.props;
+
+function renderText(text: string) {
+  const lines = text.split('\n').filter(l => l.trim());
+  const segments: Array<{ type: 'text' | 'bullets'; items: string[] }> = [];
+  let currentBullets: string[] = [];
+
+  for (const line of lines) {
+    if (line.trimStart().startsWith('- ')) {
+      currentBullets.push(line.trimStart().slice(2));
+    } else {
+      if (currentBullets.length) {
+        segments.push({ type: 'bullets', items: [...currentBullets] });
+        currentBullets = [];
+      }
+      segments.push({ type: 'text', items: [line] });
+    }
+  }
+  if (currentBullets.length) segments.push({ type: 'bullets', items: currentBullets });
+  return segments;
+}
+---
+
+<section id="section-vertiefung" class="bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- Linke Kachel -->
+      <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+        <h3 class="text-xl font-semibold text-[#1a1a1a] mb-4 leading-snug">{left.title}</h3>
+        {renderText(left.text).map(seg =>
+          seg.type === 'bullets'
+            ? <ul class="list-disc list-inside space-y-1 text-gray-600 text-sm leading-relaxed mb-4">
+                {seg.items.map(item => <li>{item}</li>)}
+              </ul>
+            : <p class="text-gray-600 leading-relaxed mb-4">{seg.items[0]}</p>
+        )}
+        {left.bold && <p class="font-semibold text-[#1a1a1a] mt-2">{left.bold}</p>}
+      </div>
+
+      <!-- Rechte Kachel -->
+      <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+        <h3 class="text-xl font-semibold text-[#1a1a1a] mb-4 leading-snug">{right.title}</h3>
+        {renderText(right.text).map(seg =>
+          seg.type === 'bullets'
+            ? <ul class="list-disc list-inside space-y-1 text-gray-600 text-sm leading-relaxed mb-4">
+                {seg.items.map(item => <li>{item}</li>)}
+              </ul>
+            : <p class="text-gray-600 leading-relaxed mb-4">{seg.items[0]}</p>
+        )}
+        {right.bold && <p class="font-semibold text-[#1a1a1a] mt-2">{right.bold}</p>}
+      </div>
+
+    </div>
+  </div>
+</section>

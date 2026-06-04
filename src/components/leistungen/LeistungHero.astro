@@ -4,8 +4,9 @@ interface Props {
   title: string;
   subtitle: string;
   heroText: string;
+  heroText2: string;
 }
-const { number, title, subtitle, heroText } = Astro.props;
+const { number, title, subtitle, heroText, heroText2 } = Astro.props;
 ---
 <section class="bg-white py-16 text-center border-b border-gray-200">
   <div class="max-w-7xl mx-auto px-6">
@@ -13,10 +14,11 @@ const { number, title, subtitle, heroText } = Astro.props;
       <a href="/leistungen" class="hover:text-gray-600">&larr; Leistungen</a>
       &middot; {number}
     </p>
-    <h1 class="text-5xl md:text-7xl font-semibold text-[#1a1a1a] tracking-tight mb-4">
-      {title}
-    </h1>
-    <p class="text-xl text-gray-500 mb-6">{subtitle}</p>
-    <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed">{heroText}</p>
+    <h1 class="text-5xl md:text-7xl font-semibold text-[#1a1a1a] tracking-tight mb-4">{title}</h1>
+    <p class="text-xl text-gray-500 mb-10">{subtitle}</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-5xl mx-auto">
+      <p class="text-gray-600 leading-relaxed">{heroText}</p>
+      <p class="text-gray-600 leading-relaxed">{heroText2}</p>
+    </div>
   </div>
 </section>

@@ -22,14 +22,15 @@ export const leistungenFallback: Record<string, Leistung> = {
     section1_image: undefined,
 
     section2_title: "Markenbildung als Übersetzungsleistung",
-    section2_text: "Digitale Systeme, Automatisierung und KI erzeugen eine Rückkopplung in die Organisation: Teams arbeiten anders, Entscheidungen werden datengetriebener, Kundenerwartungen steigen, Kommunikation wird schneller, spezifischer, personalisierter.",
-    section2_bold: "Markenbildung übersetzt diese Veränderungen in klare Positionierung, passende Sprache, kohärentes Design und spürbaren Mehrwert.",
+    section2_text: "Digitale Systeme, Automatisierung und KI erzeugen eine Rückkopplung in die Organisation:\n- Teams arbeiten anders\n- Entscheidungen werden datengetriebener\n- Kundenerwartungen steigen\n- Kommunikation wird schneller, spezifischer, personalisierter\nMarkenbildung übersetzt diese Veränderungen in klare Positionierung, passende Sprache, kohärentes Design und spürbaren Mehrwert.",
+    section2_bold: "",
     section2_image: undefined,
 
     ansatz_title: "Unser Ansatz",
-    ansatz_text_1: "Markenaufbau beginnt beim Verstehen: Was ist der echte Mehrwert? Wer sind die Menschen dahinter? Welche Zielgruppe soll erreicht werden? Welche Sprache spricht die Zielgruppe? Welche Prozesse, Produkte oder digitalen Services prägen die Marke heute und in Zukunft?",
+    ansatz_text_1: "Markenaufbau beginnt beim Verstehen:\n- Was ist der echte Mehrwert?\n- Wer sind die Menschen dahinter?\n- Welche Zielgruppe soll erreicht werden?\n- Welche Sprache spricht die Zielgruppe?\n- Welche Prozesse, Produkte oder digitalen Services prägen die Marke heute und in Zukunft?",
     ansatz_text_2: "Diese Fragen stammen aus der strategischen SEO- und GEO-Arbeit, denn Sichtbarkeit entsteht dort, wo Relevanz, Nutzerintention und Markenversprechen übereinstimmen.",
     ansatz_bold: "Daraus entsteht eine Marke, die authentisch, nutzerzentriert und zukunftsfähig ist.",
+    ansatz_image: undefined,
 
     leistungen_title: "Leistungen im Marken-Aufbau",
     key_takeaways: [

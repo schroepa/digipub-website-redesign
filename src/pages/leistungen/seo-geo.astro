@@ -2,15 +2,18 @@
 import Layout from "../../layouts/Layout.astro";
 import { getLeistung } from "../../lib/directus";
 import { leistungenFallback } from "../../lib/leistungen-data";
+import LeistungProgress from "../../components/leistungen/LeistungProgress.astro";
 import LeistungHero from "../../components/leistungen/LeistungHero.astro";
 import LeistungIntro from "../../components/leistungen/LeistungIntro.astro";
 import KeyTakeaways from "../../components/leistungen/KeyTakeaways.astro";
-import LeistungSektionen from "../../components/leistungen/LeistungSektionen.astro";
+import TitelBalken from "../../components/leistungen/TitelBalken.astro";
+import VertiefungsKacheln from "../../components/leistungen/VertiefungsKacheln.astro";
 import UnserAnsatz from "../../components/leistungen/UnserAnsatz.astro";
+import StatementBar from "../../components/leistungen/StatementBar.astro";
+import SimpleCTA from "../../components/leistungen/SimpleCTA.astro";
 import LeistungKacheln from "../../components/leistungen/LeistungKacheln.astro";
 import WiesoDigiPub from "../../components/leistungen/WiesoDigiPub.astro";
-import FinalCTA from "../../components/leistungen/FinalCTA.astro";
-import LeistungProgress from "../../components/leistungen/LeistungProgress.astro";
+import CalendlySection from "../../components/leistungen/CalendlySection.astro";
 
 const slug = "seo-geo";
 const cms = await getLeistung(slug);
@@ -22,18 +25,16 @@ const d = cms ?? leistungenFallback[slug];
   description="SEO bleibt die Grundlage, GEO ergänzt sie. Wir sorgen dafür, dass deine Inhalte ranken und in generativen Antworten zitiert werden."
 >
   <LeistungProgress />
+
   <LeistungHero
     number={d.number}
     title={d.title}
     subtitle={d.subtitle}
     heroText={d.hero_text}
+    heroText2={d.intro_text_2}
   />
 
   <LeistungIntro
-    title={d.intro_title}
-    text1={d.intro_text_1}
-    bold={d.intro_bold}
-    text2={d.intro_text_2}
     imageId={d.intro_image}
     imageFallback="/images/leistungen/seo-hero.png"
     imageAlt="SEO und GEO in KI-Zeiten"
@@ -41,39 +42,25 @@ const d = cms ?? leistungenFallback[slug];
 
   <KeyTakeaways items={d.key_takeaways} />
 
-  <LeistungSektionen
-    section1={{
-      title: d.section1_title,
-      text: d.section1_text,
-      bold: d.section1_bold,
-      imageId: d.section1_image,
-      imageFallback: "/images/leistungen/seo-section1.png",
-      imageAlt: "GEO baut auf SEO auf",
-    }}
-    section2={{
-      title: d.section2_title,
-      text: d.section2_text,
-      bold: d.section2_bold,
-      imageId: d.section2_image,
-      imageFallback: "/images/leistungen/seo-hero.png",
-      imageAlt: "SEO und GEO als Rückkopplung",
-    }}
+  <TitelBalken title={d.intro_title} />
+
+  <VertiefungsKacheln
+    left={{ title: d.section1_title, text: d.section1_text, bold: d.section1_bold }}
+    right={{ title: d.section2_title, text: d.section2_text, bold: d.section2_bold }}
   />
 
   <UnserAnsatz
     title={d.ansatz_title}
     text1={d.ansatz_text_1}
     text2={d.ansatz_text_2}
-    bold={d.ansatz_bold}
+    imageId={d.ansatz_image}
+    imageFallback="/images/leistungen/seo-section1.png"
+    imageAlt="Unser Ansatz SEO/GEO"
   />
 
+  <StatementBar text={d.ansatz_bold} />
+  <SimpleCTA />
   <LeistungKacheln title={d.leistungen_title} cards={d.leistungen_cards} />
-
-  <WiesoDigiPub
-    title={d.wieso_title}
-    subtitle={d.wieso_subtitle}
-    items={d.wieso_items}
-  />
-
-  <FinalCTA />
+  <WiesoDigiPub title={d.wieso_title} subtitle={d.wieso_subtitle} items={d.wieso_items} />
+  <CalendlySection />
 </Layout>

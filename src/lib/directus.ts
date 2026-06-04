@@ -57,6 +57,7 @@ export interface Leistung {
   ansatz_text_1: string;
   ansatz_text_2: string;
   ansatz_bold: string;
+  ansatz_image?: string;
 
   leistungen_title: string;
   key_takeaways: KeyTakeaway[];
