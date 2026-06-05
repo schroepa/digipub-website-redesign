@@ -126,6 +126,7 @@ export interface CaseStudy {
   title: string; subtitle: string; description: string; excerpt: string;
   kunde: string; branche: string; tags: string;
   hero_image?: string; kunde_logo?: string;
+  intro_text?: string;
   ausgangslage_text: string;
   ziele_left_title: string; ziele_left_text: string;
   ziele_right_title: string; ziele_right_text: string;

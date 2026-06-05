@@ -4,6 +4,7 @@ import { getCaseStudy } from "../../lib/directus";
 import { caseStudiesFallback, caseStudiesOrder } from "../../lib/case-studies-data";
 import CaseStudyHero from "../../components/case-studies/CaseStudyHero.astro";
 import CaseStudyContent from "../../components/case-studies/CaseStudyContent.astro";
+import CaseStudyIntroText from "../../components/case-studies/CaseStudyIntroText.astro";
 import DarkCTA from "../../components/DarkCTA.astro";
 
 export async function getStaticPaths() {
@@ -44,6 +45,8 @@ const logoFallbacks: Record<string, string> = {
     heroImageFallback={heroFallbacks[slug] ?? "/images/case-studies/smart-catering-hero.jpg"}
     kundeLogoId={d.kunde_logo}
   />
+
+  {d.intro_text && <CaseStudyIntroText text={d.intro_text} />}
 
   <CaseStudyContent
     ausgangslageText={d.ausgangslage_text}
