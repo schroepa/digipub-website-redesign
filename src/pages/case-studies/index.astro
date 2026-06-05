@@ -1,51 +1,57 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { getCaseStudies, getAssetUrl } from "../../lib/directus";
+import { caseStudiesFallback, caseStudiesOrder } from "../../lib/case-studies-data";
 
-const caseStudies = [
-  {
-    slug: "relaunch-seo",
-    client: "Relaunch SEO",
-    title: "Mit SEO besser durch den Relaunch",
-    excerpt: "Ein Website Relaunch bringt neue Strukturen, Inhalte und Technik – doch genau das birgt Risiken für Sichtbarkeit und Rankings. Wer die SEO Perspektive frühzeitig einbezieht, sichert nicht nur die bestehende Performance.",
-    img: "https://www.digipub.de/wp-content/uploads/2025/04/u2637499129_Bitte_kreire_mir_ein_Bild_zum_Thema_Relaunch_SEO._c0329f22-7da5-4fc7-a629-f331caee7e41_2-1-1024x574.png",
-    tags: ["SEO", "Relaunch", "Content"],
-  },
-];
+const cmsCases = await getCaseStudies();
+const cases = cmsCases.length > 0
+  ? cmsCases
+  : caseStudiesOrder.map(slug => caseStudiesFallback[slug]);
 ---
 
-<Layout title="Case Studies | DigiPub" description="Einblicke in Projekte und Ergebnisse von DigiPub.">
-  <section class="bg-white py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <h1 class="text-5xl md:text-6xl font-semibold text-[#1a1a1a] tracking-tight mb-4">Case Studies</h1>
-      <p class="text-gray-500 text-xl mb-16">Einblicke in Projekte, Prozesse und Ergebnisse.</p>
+<Layout title="Case Studies | DigiPub" description="Einblicke in unsere Projekte: Markenaufbau, SEO, Designsysteme, Automatisierung und KI.">
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {caseStudies.map((cs) => (
-          <a href={`/case-studies/${cs.slug}`} class="group border border-gray-100 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
-            <div class="aspect-video overflow-hidden">
-              <img src={cs.img} alt={cs.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-            </div>
+  <!-- Hero -->
+  <section class="bg-white py-16 text-center border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">Einblicke in unsere Arbeit</p>
+      <h1 class="text-5xl md:text-7xl font-semibold text-[#1a1a1a] tracking-tight mb-4">Case Studies</h1>
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto">
+        Wie Unternehmen mit DigiPub sichtbarer, klarer und digitaler werden.
+      </p>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section class="bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {cases.map(cs => (
+          <a href={`/case-studies/${cs.slug}`} class="group bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+            {cs.hero_image
+              ? <img src={getAssetUrl(cs.hero_image, 800)} alt={cs.title} class="w-full aspect-video object-cover" loading="lazy" />
+              : <div class="w-full aspect-video bg-gray-100 flex items-center justify-center">
+                  <span class="text-gray-300 text-sm font-mono">Bild folgt</span>
+                </div>
+            }
             <div class="p-6">
-              <p class="text-xs text-gray-400 font-mono mb-3">{cs.client}</p>
-              <h2 class="text-lg font-semibold text-[#1a1a1a] group-hover:text-gray-600 transition-colors mb-3 leading-snug">{cs.title}</h2>
-              <p class="text-gray-500 text-sm leading-relaxed line-clamp-3 mb-4">{cs.excerpt}</p>
-              <div class="flex flex-wrap gap-2">
-                {cs.tags.map((tag) => (
-                  <span class="font-mono text-xs text-gray-400 border border-gray-200 px-2 py-1 rounded-sm">{tag}</span>
+              <div class="flex flex-wrap gap-2 mb-3">
+                {cs.tags.split(',').map(t => (
+                  <span class="text-xs font-mono text-gray-400 uppercase tracking-widest">{t.trim()}</span>
                 ))}
+              </div>
+              <h2 class="font-semibold text-[#1a1a1a] text-lg leading-snug mb-2 group-hover:opacity-70 transition-opacity">{cs.title}</h2>
+              <p class="text-gray-500 text-sm leading-relaxed mb-4">{cs.excerpt}</p>
+              <div class="flex gap-4 text-xs text-gray-400">
+                <span>{cs.kunde}</span>
+                <span>·</span>
+                <span>{cs.branche}</span>
               </div>
             </div>
           </a>
         ))}
-
-        <!-- Platzhalter für zukünftige Case Studies -->
-        <div class="border border-dashed border-gray-200 rounded-xl p-8 flex items-center justify-center text-center">
-          <div>
-            <p class="text-gray-300 font-mono text-sm mb-2">Weitere Case Studies</p>
-            <p class="text-gray-200 text-xs">folgen in Kürze</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
+
 </Layout>

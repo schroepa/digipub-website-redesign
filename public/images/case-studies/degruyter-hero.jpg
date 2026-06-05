@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name='robots' content='noindex, follow' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Seite wurde nicht gefunden. - DigiPub | Digitalisierung, Automatisierung &amp; Sichtbarkeit Strategie</title>
+	<meta property="og:locale" content="de_DE" />
+	<meta property="og:title" content="Seite wurde nicht gefunden. - DigiPub | Digitalisierung, Automatisierung &amp; Sichtbarkeit Strategie" />
+	<meta property="og:site_name" content="DigiPub | Digitalisierung, Automatisierung &amp; Sichtbarkeit Strategie" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/www.digipub.de\/#website","url":"https:\/\/www.digipub.de\/","name":"DigiPub | Mehrwert ist Marke","description":"Mehrwert entsteht durch Klarheit: Wir schärfen Nutzen, Haltung und Prozesse – für Kunden, Mitarbeitende und eine stärkere Marke.","publisher":{"@id":"https:\/\/www.digipub.de\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.digipub.de\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"de"},{"@type":"Organization","@id":"https:\/\/www.digipub.de\/#organization","name":"Template","url":"https:\/\/www.digipub.de\/","logo":{"@type":"ImageObject","inLanguage":"de","@id":"https:\/\/www.digipub.de\/#\/schema\/logo\/image\/","url":"https:\/\/www.digipub.de\/wp-content\/uploads\/2021\/07\/DIGI_PUB1.png","contentUrl":"https:\/\/www.digipub.de\/wp-content\/uploads\/2021\/07\/DIGI_PUB1.png","width":220,"height":168,"caption":"Template"},"image":{"@id":"https:\/\/www.digipub.de\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.facebook.com\/DigiPubSeo","https:\/\/www.linkedin.com\/company\/digipub-marketing\/?viewAsMember=true"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel="alternate" type="application/rss+xml" title="DigiPub | Digitalisierung, Automatisierung &amp; Sichtbarkeit Strategie &raquo; Feed" href="https://www.digipub.de/feed/" />
+<link rel="alternate" type="application/rss+xml" title="DigiPub | Digitalisierung, Automatisierung &amp; Sichtbarkeit Strategie &raquo; Kommentar-Feed" href="https://www.digipub.de/comments/feed/" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.digipub.de/wp-includes/css/dist/block-library/style.min.css?ver=7.0' media='all' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='cmplz-general-css' href='https://www.digipub.de/wp-content/plugins/complianz-gdpr/assets/css/cookieblocker.min.css?ver=1777149694' media='all' />
+<link rel='stylesheet' id='hello-elementor-css' href='https://www.digipub.de/wp-content/themes/hello-elementor/style.min.css?ver=3.3.0' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://www.digipub.de/wp-content/themes/hello-elementor/theme.min.css?ver=3.3.0' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://www.digipub.de/wp-content/themes/hello-elementor/header-footer.min.css?ver=3.3.0' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://www.digipub.de/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.0.6' media='all' />
+<link rel='stylesheet' id='widget-menu-anchor-css' href='https://www.digipub.de/wp-content/plugins/elementor/assets/css/widget-menu-anchor.min.css?ver=4.0.6' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://www.digipub.de/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.0.6' media='all' />
+<link rel='stylesheet' id='e-motion-fx-css' href='https://www.digipub.de/wp-content/plugins/elementor-pro/assets/css/modules/motion-fx.min.css?ver=3.28.3' media='all' />
+<link rel='stylesheet' id='widget-nav-menu-css' href='https://www.digipub.de/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=3.28.3' media='all' />
+<link rel='stylesheet' id='e-sticky-css' href='https://www.digipub.de/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=3.28.3' media='all' />
+<link rel='stylesheet' id='elementor-icons-css' href='https://www.digipub.de/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.48.0' media='all' />
+<link rel='stylesheet' id='elementor-post-7-css' href='https://www.digipub.de/wp-content/uploads/elementor/css/post-7.css?ver=1780592338' media='all' />
+<link rel='stylesheet' id='elementor-post-15-css' href='https://www.digipub.de/wp-content/uploads/elementor/css/post-15.css?ver=1780592338' media='all' />
+<link rel='stylesheet' id='elementor-post-527-css' href='https://www.digipub.de/wp-content/uploads/elementor/css/post-527.css?ver=1780592338' media='all' />
+<link rel='stylesheet' id='elementor-icons-shared-0-css' href='https://www.digipub.de/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' media='all' />
+<link rel='stylesheet' id='elementor-icons-fa-solid-css' href='https://www.digipub.de/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3' media='all' />
+<script id="jquery-core-js" src="https://www.digipub.de/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://www.digipub.de/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+
+<!-- Google Tag (gtac.js) durch Site-Kit hinzugefügt -->
+<!-- Von Site Kit hinzugefügtes Google-Analytics-Snippet -->
+<script id="google_gtagjs-js" src="https://www.googletagmanager.com/gtag/js?id=GT-WRFMSWLT" async></script>
+<script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["www.digipub.de"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-WRFMSWLT");
+ window._googlesitekit = window._googlesitekit || {}; window._googlesitekit.throttledEvents = []; window._googlesitekit.gtagEvent = (name, data) => { var key = JSON.stringify( { name, data } ); if ( !! window._googlesitekit.throttledEvents[ key ] ) { return; } window._googlesitekit.throttledEvents[ key ] = true; setTimeout( () => { delete window._googlesitekit.throttledEvents[ key ]; }, 5 ); gtag( "event", name, { ...data, event_source: "site-kit" } ); }; 
+//# sourceURL=google_gtagjs-js-after
+</script>
+<link rel="https://api.w.org/" href="https://www.digipub.de/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.digipub.de/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.0" />
+<meta name="generator" content="Site Kit by Google 1.178.0" /><meta name="ti-site-data" content="eyJyIjoiMTowITc6MCEzMDowIiwibyI6Imh0dHBzOlwvXC93d3cuZGlnaXB1Yi5kZT90aS1vbmxpbmUtdXNlcnMtZ29vZ2xlPTEmYW1wO3A9JTJGd3AtY29udGVudCUyRnVwbG9hZHMlMkYyMDIzJTJGMDElMkZXYWx0ZXItZGUtR3J1eXRlci1DYXNlLVN0dWR5LmpwZyZhbXA7X3dwbm9uY2U9M2Q3ZGJjOTNkMCJ9" />			<style>.cmplz-hidden {
+					display: none !important;
+				}</style><meta name="generator" content="Elementor 4.0.6; settings: css_print_method-external, google_font-enabled, font_display-auto">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/plain" data-service="google-analytics" data-category="statistics" async data-cmplz-src="https://www.googletagmanager.com/gtag/js?id=UA-49400453-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-49400453-1');
+</script>
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://www.digipub.de/wp-content/uploads/2026/05/DIGI_PUB_Logo-Favicon_32px.png" sizes="32x32" />
+<link rel="icon" href="https://www.digipub.de/wp-content/uploads/2026/05/DIGI_PUB_Logo-Favicon_32px.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.digipub.de/wp-content/uploads/2026/05/DIGI_PUB_Logo-Favicon_32px.png" />
+<meta name="msapplication-TileImage" content="https://www.digipub.de/wp-content/uploads/2026/05/DIGI_PUB_Logo-Favicon_32px.png" />
+<style id="wp-custom-css">
+/* Fade In Option */
+
+.header-2 {
+ opacity: 0;
+ -moz-transition: opacity .25s ease-out!important;
+  -webkit-transition: opacity .25s ease-out!important;
+  transition: opacity .25s ease-out!important;
+}
+.nav-cta {
+	float: right;    
+}
+
+.elementor-sticky--effects.header-2  {
+ opacity: 1!important;
+}
+
+/* End Of Fade In Option */
+</style>
+</head>
+<body data-cmplz=1 class="error404 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-frontend theme-default elementor-default elementor-kit-7">
+
+
+<a class="skip-link screen-reader-text" href="#content">Zum Inhalt wechseln</a>
+
+		<div data-elementor-type="header" data-elementor-id="15" class="elementor elementor-15 elementor-location-header" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-d1bce33 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d1bce33" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-846d605" data-id="846d605" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-bc78363 elementor-widget elementor-widget-menu-anchor" data-id="bc78363" data-element_type="widget" data-e-type="widget" data-widget_type="menu-anchor.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-menu-anchor" id="top"></div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-ebf9978 elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="ebf9978" data-element_type="widget" data-e-type="widget" data-widget_type="theme-site-logo.default">
+				<div class="elementor-widget-container">
+											<a href="https://www.digipub.de">
+			<img width="220" height="168" src="https://www.digipub.de/wp-content/uploads/2021/07/DIGI_PUB1.png" class="attachment-full size-full wp-image-1103" alt="" />				</a>
+											</div>
+				</div>
+				<div class="elementor-element elementor-element-75ea5ed elementor-widget__width-initial elementor-fixed elementor-align-left elementor-widget elementor-widget-button" data-id="75ea5ed" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;fixed&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;motion_fx_opacity_effect&quot;:&quot;yes&quot;,&quot;motion_fx_opacity_range&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:4}},&quot;motion_fx_range&quot;:&quot;page&quot;,&quot;motion_fx_opacity_direction&quot;:&quot;out-in&quot;,&quot;motion_fx_opacity_level&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-md" href="#top">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<i aria-hidden="true" class="fas fa-long-arrow-alt-up"></i>			</span>
+								</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7c4bf04 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7c4bf04" data-element_type="section" data-e-type="section" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-726b749" data-id="726b749" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f027bb5 elementor-nav-menu--dropdown-mobile elementor-nav-menu--stretch elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="f027bb5" data-element_type="widget" data-e-type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menü" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-background e--animation-fade">
+				<ul id="menu-1-f027bb5" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1116"><a href="https://www.digipub.de/" class="elementor-item"><img src="https://www.digipub.de/wp-content/uploads/2022/06/Icon.png" alt="Home" width ="20px" height="20px"></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2715"><a href="#" class="elementor-item elementor-item-anchor">Leistungen</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2718"><a href="https://www.digipub.de/markenaufbau-branding/" class="elementor-sub-item">Marken-Aufbau / Branding</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2716"><a href="https://www.digipub.de/seo-geo/" class="elementor-sub-item">SEO / GEO</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2813"><a href="https://www.digipub.de/designsystem/" class="elementor-sub-item">Designsystem</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2717"><a href="https://www.digipub.de/automatisierung/" class="elementor-sub-item">Automatisierung</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2782"><a href="https://www.digipub.de/ki-implementierung/" class="elementor-sub-item">KI-Implementierung</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3114"><a href="https://www.digipub.de/case-studies/" class="elementor-item">Case Studies</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3164"><a href="https://www.digipub.de/referenzen/" class="elementor-item">Referenzen</a></li>
+<li class="nav-cta menu-item menu-item-type-custom menu-item-object-custom menu-item-2721"><a href="/kontakt" class="elementor-item">Kontakt</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-f027bb5" class="elementor-nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1116"><a href="https://www.digipub.de/" class="elementor-item" tabindex="-1"><img src="https://www.digipub.de/wp-content/uploads/2022/06/Icon.png" alt="Home" width ="20px" height="20px"></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2715"><a href="#" class="elementor-item elementor-item-anchor" tabindex="-1">Leistungen</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2718"><a href="https://www.digipub.de/markenaufbau-branding/" class="elementor-sub-item" tabindex="-1">Marken-Aufbau / Branding</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2716"><a href="https://www.digipub.de/seo-geo/" class="elementor-sub-item" tabindex="-1">SEO / GEO</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2813"><a href="https://www.digipub.de/designsystem/" class="elementor-sub-item" tabindex="-1">Designsystem</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2717"><a href="https://www.digipub.de/automatisierung/" class="elementor-sub-item" tabindex="-1">Automatisierung</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2782"><a href="https://www.digipub.de/ki-implementierung/" class="elementor-sub-item" tabindex="-1">KI-Implementierung</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3114"><a href="https://www.digipub.de/case-studies/" class="elementor-item" tabindex="-1">Case Studies</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3164"><a href="https://www.digipub.de/referenzen/" class="elementor-item" tabindex="-1">Referenzen</a></li>
+<li class="nav-cta menu-item menu-item-type-custom menu-item-object-custom menu-item-2721"><a href="/kontakt" class="elementor-item" tabindex="-1">Kontakt</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		<main id="content" class="site-main">
+
+			<div class="page-header">
+			<h1 class="entry-title">Diese Seite konnte nicht gefunden werden.</h1>
+		</div>
+	
+	<div class="page-content">
+		<p>An diesem Ort konnte nichts gefunden werden.</p>
+	</div>
+
+</main>
+		<div data-elementor-type="footer" data-elementor-id="527" class="elementor elementor-527 elementor-location-footer" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-11c73ca elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="11c73ca" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-21bc32d" data-id="21bc32d" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1c0bc29 elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="1c0bc29" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menü" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-fade">
+				<ul id="menu-1-1c0bc29" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1258"><a href="https://www.digipub.de/kontakt-impressum/" class="elementor-item">Kontakt / Impressum</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-731"><a rel="privacy-policy" href="https://www.digipub.de/datenschutzerklaerung/" class="elementor-item">Datenschutzerklärung</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1508"><a href="https://www.digipub.de/cookie-richtlinie-eu/" class="elementor-item">Cookie-Richtlinie (EU)</a></li>
+</ul>			</nav>
+						<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-1c0bc29" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1258"><a href="https://www.digipub.de/kontakt-impressum/" class="elementor-item" tabindex="-1">Kontakt / Impressum</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-731"><a rel="privacy-policy" href="https://www.digipub.de/datenschutzerklaerung/" class="elementor-item" tabindex="-1">Datenschutzerklärung</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1508"><a href="https://www.digipub.de/cookie-richtlinie-eu/" class="elementor-item" tabindex="-1">Cookie-Richtlinie (EU)</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-bd32e41 elementor-widget elementor-widget-shortcode" data-id="bd32e41" data-element_type="widget" data-e-type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-shortcode"><pre class="ti-widget" style="display: none"><template id="trustindex-google-widget-html"><div class=" ti-widget  ti-goog ti-disable-font ti-show-rating-text ti-review-text-mode-readmore ti-text-align-left" data-no-translation="true" data-time-locale="vor %d %s|Heute|Tag|Tagen|Woche|Wochen|Monat|Monaten|Jahr|Jahren" data-plugin-version="13.2.9" data-layout-id="34" data-layout-category="slider" data-set-id="dark-minimal" data-pid="" data-language="de" data-close-locale="Schließen" data-review-target-width="300" data-css-version="2" data-reply-by-locale="Antwort des Eigentümers" data-only-rating-locale="Dieser Nutzer hat lediglich eine Bewertung abgegeben." data-pager-autoplay-timeout="6"> <div class="ti-widget-container ti-col-3"> <div class="ti-header ti-header-grid source-Google"> <div class="ti-fade-container"> <div class="ti-rating-text"> <strong class="ti-rating ti-rating-large"> AUSGEZEICHNET </strong> </div> <span class="ti-stars star-lg"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-rating-text"> <span class="nowrap">Basierend auf <strong>16 Bewertungen</strong></span> </div> <div class="ti-large-logo"> <div class="ti-v-center"> <trustindex-image class="ti-logo-fb" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/logo.svg" width="150" height="25" loading="lazy" alt="Google"></trustindex-image> </div> </div> </div> </div> <div class="ti-reviews-container"> <div class="ti-controls"> <div class="ti-next" aria-label="Nächste Bewertung" role="button" tabindex="0"></div> <div class="ti-prev" aria-label="Vorherige Bewertung" role="button" tabindex="0"></div> </div> <div class="ti-reviews-container-wrapper">  <div data-empty="0" data-time="1772668800" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-platform-icon ti-with-tooltip"> <span class="ti-tooltip">Gepostet auf </span> <trustindex-image data-imgurl="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="" width="20" height="20" loading="lazy"></trustindex-image> </div> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a/ACg8ocIPjarV2M6pEsg0F2612OqFml9nDI1zMFk0Hl2jpQaKBMX2oA=w40-h40-c-rp-mo-br100" alt="Friederike Peck profile picture" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Friederike Peck </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Ich bin äußerst zufrieden mit der Zusammenarbeit. Das engagierte Team von DigiPub bietet kompetente Beratung und individuell angepasste Unterstützung. Ganz besonders habe ich die zuverlässige und transparente Arbeitsweise geschätzt. Klare Empfehlung!<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Ausblenden" data-open-text="Weiterlesen"></span> </div> </div>  <div data-empty="0" data-time="1772582400" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-platform-icon ti-with-tooltip"> <span class="ti-tooltip">Gepostet auf </span> <trustindex-image data-imgurl="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="" width="20" height="20" loading="lazy"></trustindex-image> </div> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a/ACg8ocIqF264Q1edFuP-lnBKfdHtl9kIpVZdD4H-SWUzIyUrcYnVAA=w40-h40-c-rp-mo-ba3-br100" alt="Patrick Gerharts profile picture" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Patrick Gerharts </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Wir arbeiten bei Smart Catering by Sander mit verschiedenen Projekten mit Digipub zusammen, insbesondere im Bereich digitaler Inhalte und Designprozesse rund um Figma. Die Zusammenarbeit ist durchweg sehr professionell, strukturiert und gleichzeitig angenehm unkompliziert.
+
+Besonders schätzen wir die schnelle Kommunikation, die hohe Verlässlichkeit und das gute Verständnis für unsere Anforderungen. Ideen werden nicht nur umgesetzt, sondern oft auch sinnvoll weitergedacht.
+
+So macht Zusammenarbeit wirklich Spaß. Vielen Dank an das Team von Digipub für die bisherige Partnerschaft.<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Ausblenden" data-open-text="Weiterlesen"></span> </div> </div>  <div data-empty="0" data-time="1761264000" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-platform-icon ti-with-tooltip"> <span class="ti-tooltip">Gepostet auf </span> <trustindex-image data-imgurl="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="" width="20" height="20" loading="lazy"></trustindex-image> </div> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a-/ALV-UjVELeZA-CWyYuLwJ3ydtnBBWW40FvJjQZyfunJZBqAvm85fx-9T=w40-h40-c-rp-mo-ba6-br100" alt="Maximilian Beyer profile picture" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Maximilian Beyer </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Unsere Zusammenarbeit mit der DigiPub SEO Agentur zur Optimierung unserer Website war ein voller Erfolg. Von Beginn an überzeugte DigiPub durch ein tiefes Verständnis für die SEO-Herausforderungen unserer Branche und entwickelte maßgeschneiderte Lösungen, die unsere Rankings spürbar verbessert haben.
+
+Besonders positiv fiel die Zusammenarbeit in den Workshops für unser Content-Team auf. DigiPub vermittelte uns praxisnahes Wissen zur Suchmaschinenoptimierung – mit klarem Fokus auf Keyword-Recherche, On-Page-Optimierung und SEO-Content-Strategien. Die Schulungen waren so aufgebaut, dass unser Team das Gelernte sofort in die Praxis umsetzen konnte.
+
+Die Optimierung unserer Kategorieseiten erfolgte in enger Zusammenarbeit, wobei die Agentur jederzeit professionell und lösungsorientiert agierte. Dank präziser Maßnahmen wie der Verbesserung der Meta-Tags, internen Verlinkungen und der gezielten Anpassung von Content-Elementen konnten wir deutliche Steigerungen in den organischen Rankings verzeichnen. Unsere Sichtbarkeit für relevante Suchbegriffe wurde in kurzer Zeit signifikant verbessert.
+
+Fazit: Die Zusammenarbeit mit DigiPub war äußerst gewinnbringend. Ihr umfassendes SEO-Know-how und die praxisnahe Betreuung haben uns nachhaltig weitergebracht. Ich kann die Agentur wärmstens empfehlen und blicke sehr positiv auf unsere gemeinsame Arbeit zurück.<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Ausblenden" data-open-text="Weiterlesen"></span> </div> </div>  <div data-empty="0" data-time="1726790400" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-platform-icon ti-with-tooltip"> <span class="ti-tooltip">Gepostet auf </span> <trustindex-image data-imgurl="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="" width="20" height="20" loading="lazy"></trustindex-image> </div> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a-/ALV-UjVMDyhj6VCMLW5jQNM8KsC3ENGFJ9x22X2Y7u35M7PsqtXIYS8=w40-h40-c-rp-mo-br100" alt="Tim Schneider profile picture" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Tim Schneider </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Nicolas ist nicht nur ein mega Typ, mit dem man gerne zusammenarbeitet, er hat es auch fachlich einfach drauf. Sein strategischer Weitblick und seine Fähigkeit, ein optimales Kundenverständnis aufzubauen, machen ihn für jedes Marketing-Team zum absoluten MVP. Danke für die Zusammenarbeit.<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Ausblenden" data-open-text="Weiterlesen"></span> </div> </div>  <div data-empty="0" data-time="1726531200" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-platform-icon ti-with-tooltip"> <span class="ti-tooltip">Gepostet auf </span> <trustindex-image data-imgurl="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="" width="20" height="20" loading="lazy"></trustindex-image> </div> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a/ACg8ocKq9Uug7v9bylRAZ_uIzPMgeDCFJa8-Yhzrcbcmp_UH42ZVtw=w40-h40-c-rp-mo-br100" alt="Anna Teusch profile picture" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Anna Teusch </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->sehr kompetentes und freundliches Team! Die Zusammenarbeit war überaus effizient und effektiv, die Tipps hilfreich!<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Ausblenden" data-open-text="Weiterlesen"></span> </div> </div>  <div data-empty="0" data-time="1635897600" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-platform-icon ti-with-tooltip"> <span class="ti-tooltip">Gepostet auf </span> <trustindex-image data-imgurl="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="" width="20" height="20" loading="lazy"></trustindex-image> </div> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a-/ALV-UjVLD9SNyum4nrs9xwGNvfWO5-ZLmzWX_qAqG6d9Rw0OdGI1jOpZ=w40-h40-c-rp-mo-ba2-br100" alt="Jens Koenig profile picture" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Jens Koenig </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Wenn ich 10 Sterne vergeben könnte, dann würde DigiPub diese sofort bekommen. Ganz Ehrlich!
+Super Fachwissen, anschaulich vermittelt und hochprofessionell aufbereitet. Nicht nur das: Nach genauer Umsetzung der gefunden Fehler und Vorschläge, ist die Sichtbarkeit und das organische Suchvolumen auf meiner Homepage in kurzer Zeit (ich rede von Wochen) angestiegen und das, obwohl ich noch garnicht alles umgesetzt hatte. Darüber hinaus ist Nicolas einfach ein sympathischer, authentischer und kompetenter Mensch. So macht die Zusammenarbeit Spaß. Lieber Nicolas: Danke Dir! Gerne immer wieder und somit: sehr zu empfehlen!<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Ausblenden" data-open-text="Weiterlesen"></span> </div> </div>  <div data-empty="0" data-time="1612051200" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-platform-icon ti-with-tooltip"> <span class="ti-tooltip">Gepostet auf </span> <trustindex-image data-imgurl="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="" width="20" height="20" loading="lazy"></trustindex-image> </div> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a-/ALV-UjVWPovUgE1-GjwjMLySDnRhMe2Fa2y41WpuhmGd-CR8er0vQ_-c=w40-h40-c-rp-mo-ba4-br100" alt="Filip Krzyzynski profile picture" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Filip Krzyzynski </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Sympathisch und Kompetent. Herr Grossmann hat mir in meinem Projekt sehr weitergeholfen. Ich freue mich auf eine langfristige Zusammenarbeit!
+Von mir gibt's eine klare Empfehlung.
+Gruß,
+Filip<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Ausblenden" data-open-text="Weiterlesen"></span> </div> </div>  <div data-empty="0" data-time="1592524800" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-platform-icon ti-with-tooltip"> <span class="ti-tooltip">Gepostet auf </span> <trustindex-image data-imgurl="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="" width="20" height="20" loading="lazy"></trustindex-image> </div> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a/ACg8ocLcZQCeRIftRh8UXANBYtxNaHA33aLa5NbPu7pEMCnqGLxn-w=w40-h40-c-rp-mo-br100" alt="Jörg Holtkamp profile picture" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Jörg Holtkamp </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Nicolas gab eine super Einführung in SEO. Sehr fundiert und für so ein nerdiges Thema wirklich gut und verständlich vemittelt.<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Ausblenden" data-open-text="Weiterlesen"></span> </div> </div>  <div data-empty="0" data-time="1586390400" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-platform-icon ti-with-tooltip"> <span class="ti-tooltip">Gepostet auf </span> <trustindex-image data-imgurl="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="" width="20" height="20" loading="lazy"></trustindex-image> </div> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a/ACg8ocLIEZDl9S3Sr7H7EmvNVIK4UH1h0E8d1dgzYjGf_v9tqnVymA=w40-h40-c-rp-mo-br100" alt="Monica Witzmann profile picture" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Monica Witzmann </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Vielen Dank an Nicolas Grossman für das wertvolle SEO Seminar als Einstieg in dieses Thema! Ich freue mich auf die weitere Zusammenarbeit bei der Optimierung meiner Webseite<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Ausblenden" data-open-text="Weiterlesen"></span> </div> </div>  <div data-empty="0" data-time="1575504000" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-platform-icon ti-with-tooltip"> <span class="ti-tooltip">Gepostet auf </span> <trustindex-image data-imgurl="https://cdn.trustindex.io/assets/platform/Google/icon.svg" alt="" width="20" height="20" loading="lazy"></trustindex-image> </div> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a/ACg8ocLAWC4YScKilqxIfu3vplZeGd4gpWomIb8mAzWLMi-EeCHZIg=w40-h40-c-rp-mo-br100" alt="Ralf Grümme profile picture" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Ralf Grümme </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 1" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 2" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 3" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 4" width="17" height="17" loading="lazy"></trustindex-image><trustindex-image class="ti-star" data-imgurl="https://cdn.trustindex.io/assets/platform/Google/star/f.svg" alt="Google star 5" width="17" height="17" loading="lazy"></trustindex-image></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Fünf Sterne de Luxe. Das DigiPub Team ist super kompetent unterwegs in Sachen SEO und hat uns da sehr weitergebracht. Darüber hinaus schätzen wir DigiPub schon seit mehreren Jahren als sehr guten und versierten Dienstleister beim Projektmanagement und der Pflege unseres CMS für die Fütterung unserer Website inkl. komplexer html Umbauten unserer statischen Seiten.<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Ausblenden" data-open-text="Weiterlesen"></span> </div> </div>  </div> <div class="ti-controls-line"> <div class="dot"></div> </div> </div>   </div> </div> </template></pre><div data-src="https://cdn.trustindex.io/loader.js?wp-widget" data-template-id="trustindex-google-widget-html" data-css-url="https://www.digipub.de/wp-content/uploads/trustindex-google-widget.css?1776254802"></div></div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-08d793c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="08d793c" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0a11c5a" data-id="0a11c5a" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-15aa11b elementor-widget elementor-widget-text-editor" data-id="15aa11b" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>© DigiPub 2022</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/frontend/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+<!-- Consent Management powered by Complianz | GDPR/CCPA Cookie Consent https://wordpress.org/plugins/complianz-gdpr -->
+<div id="cmplz-cookiebanner-container"><div class="cmplz-cookiebanner cmplz-hidden banner-1 bottom-right-view-preferences optin cmplz-center cmplz-categories-type-view-preferences" aria-modal="true" data-nosnippet="true" role="dialog" aria-live="polite" aria-labelledby="cmplz-header-1-optin" aria-describedby="cmplz-message-1-optin">
+	<div class="cmplz-header">
+		<div class="cmplz-logo"></div>
+		<div class="cmplz-title" id="cmplz-header-1-optin">Cookie-Zustimmung verwalten</div>
+		<div class="cmplz-close" tabindex="0" role="button" aria-label="Dialog schließen">
+			<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+		</div>
+	</div>
+
+	<div class="cmplz-divider cmplz-divider-header"></div>
+	<div class="cmplz-body">
+		<div class="cmplz-message" id="cmplz-message-1-optin">Um dir ein optimales Erlebnis zu bieten, verwenden wir Technologien wie Cookies, um Geräteinformationen zu speichern und/oder darauf zuzugreifen. Wenn du diesen Technologien zustimmst, können wir Daten wie das Surfverhalten oder eindeutige IDs auf dieser Website verarbeiten. Wenn du deine Zustimmung nicht erteilst oder zurückziehst, können bestimmte Merkmale und Funktionen beeinträchtigt werden.</div>
+		<!-- categories start -->
+		<div class="cmplz-categories">
+			<details class="cmplz-category cmplz-functional" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Funktional</span>
+							<span class='cmplz-always-active'>
+								<span class="cmplz-banner-checkbox">
+									<input type="checkbox"
+										   id="cmplz-functional-optin"
+										   data-category="cmplz_functional"
+										   class="cmplz-consent-checkbox cmplz-functional"
+										   size="40"
+										   value="1"/>
+									<label class="cmplz-label" for="cmplz-functional-optin"><span class="screen-reader-text">Funktional</span></label>
+								</span>
+								Immer aktiv							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-functional">Die technische Speicherung oder der Zugang ist unbedingt erforderlich für den rechtmäßigen Zweck, die Nutzung eines bestimmten Dienstes zu ermöglichen, der vom Teilnehmer oder Nutzer ausdrücklich gewünscht wird, oder für den alleinigen Zweck, die Übertragung einer Nachricht über ein elektronisches Kommunikationsnetz durchzuführen.</span>
+				</div>
+			</details>
+
+			<details class="cmplz-category cmplz-preferences" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Vorlieben</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-preferences-optin"
+									   data-category="cmplz_preferences"
+									   class="cmplz-consent-checkbox cmplz-preferences"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-preferences-optin"><span class="screen-reader-text">Vorlieben</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-preferences">Die technische Speicherung oder der Zugriff ist für den rechtmäßigen Zweck der Speicherung von Präferenzen erforderlich, die nicht vom Abonnenten oder Benutzer angefordert wurden.</span>
+				</div>
+			</details>
+
+			<details class="cmplz-category cmplz-statistics" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Statistiken</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-statistics-optin"
+									   data-category="cmplz_statistics"
+									   class="cmplz-consent-checkbox cmplz-statistics"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-statistics-optin"><span class="screen-reader-text">Statistiken</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-statistics">Die technische Speicherung oder der Zugriff, der ausschließlich zu statistischen Zwecken erfolgt.</span>
+					<span class="cmplz-description-statistics-anonymous">Die technische Speicherung oder der Zugriff, der ausschließlich zu anonymen statistischen Zwecken verwendet wird. Ohne eine Vorladung, die freiwillige Zustimmung deines Internetdienstanbieters oder zusätzliche Aufzeichnungen von Dritten können die zu diesem Zweck gespeicherten oder abgerufenen Informationen allein in der Regel nicht dazu verwendet werden, dich zu identifizieren.</span>
+				</div>
+			</details>
+			<details class="cmplz-category cmplz-marketing" >
+				<summary>
+						<span class="cmplz-category-header">
+							<span class="cmplz-category-title">Marketing</span>
+							<span class="cmplz-banner-checkbox">
+								<input type="checkbox"
+									   id="cmplz-marketing-optin"
+									   data-category="cmplz_marketing"
+									   class="cmplz-consent-checkbox cmplz-marketing"
+									   size="40"
+									   value="1"/>
+								<label class="cmplz-label" for="cmplz-marketing-optin"><span class="screen-reader-text">Marketing</span></label>
+							</span>
+							<span class="cmplz-icon cmplz-open">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"  height="18" ><path d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z"/></svg>
+							</span>
+						</span>
+				</summary>
+				<div class="cmplz-description">
+					<span class="cmplz-description-marketing">Die technische Speicherung oder der Zugriff ist erforderlich, um Nutzerprofile zu erstellen, um Werbung zu versenden oder um den Nutzer auf einer Website oder über mehrere Websites hinweg zu ähnlichen Marketingzwecken zu verfolgen.</span>
+				</div>
+			</details>
+		</div><!-- categories end -->
+			</div>
+
+	<div class="cmplz-links cmplz-information">
+		<ul>
+			<li><a class="cmplz-link cmplz-manage-options cookie-statement" href="#" data-relative_url="#cmplz-manage-consent-container">Optionen verwalten</a></li>
+			<li><a class="cmplz-link cmplz-manage-third-parties cookie-statement" href="#" data-relative_url="#cmplz-cookies-overview">Dienste verwalten</a></li>
+			<li><a class="cmplz-link cmplz-manage-vendors tcf cookie-statement" href="#" data-relative_url="#cmplz-tcf-wrapper">Verwalten von {vendor_count}-Lieferanten</a></li>
+			<li><a class="cmplz-link cmplz-external cmplz-read-more-purposes tcf" target="_blank" rel="noopener noreferrer nofollow" href="https://cookiedatabase.org/tcf/purposes/" aria-label="Weitere Informationen zu den Zwecken von TCF findest du in der Cookie-Datenbank.">Lese mehr über diese Zwecke</a></li>
+		</ul>
+			</div>
+
+	<div class="cmplz-divider cmplz-footer"></div>
+
+	<div class="cmplz-buttons">
+		<button class="cmplz-btn cmplz-accept">Akzeptieren</button>
+		<button class="cmplz-btn cmplz-deny">Ablehnen</button>
+		<button class="cmplz-btn cmplz-view-preferences">Einstellungen ansehen</button>
+		<button class="cmplz-btn cmplz-save-preferences">Einstellungen speichern</button>
+		<a class="cmplz-btn cmplz-manage-options tcf cookie-statement" href="#" data-relative_url="#cmplz-manage-consent-container">Einstellungen ansehen</a>
+			</div>
+
+	
+	<div class="cmplz-documents cmplz-links">
+		<ul>
+			<li><a class="cmplz-link cookie-statement" href="#" data-relative_url="">{title}</a></li>
+			<li><a class="cmplz-link privacy-statement" href="#" data-relative_url="">{title}</a></li>
+			<li><a class="cmplz-link impressum" href="#" data-relative_url="">{title}</a></li>
+		</ul>
+			</div>
+</div>
+</div>
+					<div id="cmplz-manage-consent" data-nosnippet="true"><button class="cmplz-btn cmplz-hidden cmplz-manage-consent manage-consent-1">Zustimmung verwalten</button>
+
+</div>			<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script id="elementor-webpack-runtime-js" src="https://www.digipub.de/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.0.6"></script>
+<script id="elementor-frontend-modules-js" src="https://www.digipub.de/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.0.6"></script>
+<script id="jquery-ui-core-js" src="https://www.digipub.de/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3"></script>
+<script id="elementor-frontend-js-extra">
+var PremiumSettings = {"ajaxurl":"https://www.digipub.de/wp-admin/admin-ajax.php","nonce":"fe1a641eb7"};
+//# sourceURL=elementor-frontend-js-extra
+</script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Auf Facebook teilen","shareOnTwitter":"Auf Twitter teilen","pinIt":"Anheften","download":"Download","downloadImage":"Bild downloaden","fullscreen":"Vollbild","zoom":"Zoom","share":"Teilen","playVideo":"Video abspielen","previous":"Zur\u00fcck","next":"Weiter","close":"Schlie\u00dfen","a11yCarouselPrevSlideMessage":"Vorheriger Slide","a11yCarouselNextSlideMessage":"N\u00e4chster Slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobil Hochformat","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobil Querformat","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Hochformat","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Querformat","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Breitbild","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.0.6","is_static":false,"experimentalFeatures":{"container":true,"nested-elements":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true},"urls":{"assets":"https:\/\/www.digipub.de\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.digipub.de\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.digipub.de\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"b5b4fdaab4","atomicFormsSendForm":"29316586e1"},"swiperClass":"swiper","settings":{"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":0,"title":"Seite wurde nicht gefunden. - DigiPub | Digitalisierung, Automatisierung &amp; Sichtbarkeit Strategie","excerpt":""}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://www.digipub.de/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.0.6"></script>
+<script id="smartmenus-js" src="https://www.digipub.de/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1"></script>
+<script id="e-sticky-js" src="https://www.digipub.de/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.28.3"></script>
+<script id="googlesitekit-events-provider-wpforms-js" src="https://www.digipub.de/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-wpforms-087b09462076035a76b2.js" defer></script>
+<script id="pa-elements-handler-js" src="https://www.digipub.de/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/elements-handler.min.js?ver=4.11.75"></script>
+<script id="cmplz-cookiebanner-js-extra">
+var complianz = {"prefix":"cmplz_","user_banner_id":"1","set_cookies":[],"block_ajax_content":"","banner_version":"25228","version":"7.4.6","store_consent":"","do_not_track_enabled":"","consenttype":"optin","region":"eu","geoip":"","dismiss_timeout":"","disable_cookiebanner":"","soft_cookiewall":"1","dismiss_on_scroll":"","cookie_expiry":"365","url":"https://www.digipub.de/wp-json/complianz/v1/","locale":"lang=de&locale=de_DE","set_cookies_on_root":"","cookie_domain":"","current_policy_id":"14","cookie_path":"/","categories":{"statistics":"Statistiken","marketing":"Marketing"},"tcf_active":"","placeholdertext":"Klicke hier, um {category}-Cookies zu akzeptieren und diesen Inhalt zu aktivieren","css_file":"https://www.digipub.de/wp-content/uploads/complianz/css/banner-{banner_id}-{type}.css?v=25228","page_links":{"eu":{"cookie-statement":{"title":"Cookie-Richtlinie ","url":"https://www.digipub.de/cookie-richtlinie-eu/"},"privacy-statement":{"title":"Datenschutzerkl\u00e4rung","url":"https://www.digipub.de/datenschutzerklaerung/"},"impressum":{"title":"Kontakt / Impressum","url":"https://www.digipub.de/kontakt-impressum/"}},"us":{"impressum":{"title":"Kontakt / Impressum","url":"https://www.digipub.de/kontakt-impressum/"}},"uk":{"impressum":{"title":"Kontakt / Impressum","url":"https://www.digipub.de/kontakt-impressum/"}},"ca":{"impressum":{"title":"Kontakt / Impressum","url":"https://www.digipub.de/kontakt-impressum/"}},"au":{"impressum":{"title":"Kontakt / Impressum","url":"https://www.digipub.de/kontakt-impressum/"}},"za":{"impressum":{"title":"Kontakt / Impressum","url":"https://www.digipub.de/kontakt-impressum/"}},"br":{"impressum":{"title":"Kontakt / Impressum","url":"https://www.digipub.de/kontakt-impressum/"}}},"tm_categories":"","forceEnableStats":"","preview":"","clean_cookies":"","aria_label":"Klicke hier, um {category}-Cookies zu akzeptieren und diesen Inhalt zu aktivieren"};
+//# sourceURL=cmplz-cookiebanner-js-extra
+</script>
+<script defer id="cmplz-cookiebanner-js" src="https://www.digipub.de/wp-content/plugins/complianz-gdpr/cookiebanner/js/complianz.min.js?ver=1777149695"></script>
+<script id="cmplz-cookiebanner-js-after">
+		if ('undefined' != typeof window.jQuery) {
+			jQuery(document).ready(function ($) {
+				$(document).on('elementor/popup/show', () => {
+					let rev_cats = cmplz_categories.reverse();
+					for (let key in rev_cats) {
+						if (rev_cats.hasOwnProperty(key)) {
+							let category = cmplz_categories[key];
+							if (cmplz_has_consent(category)) {
+								document.querySelectorAll('[data-category="' + category + '"]').forEach(obj => {
+									cmplz_remove_placeholder(obj);
+								});
+							}
+						}
+					}
+
+					let services = cmplz_get_services_on_page();
+					for (let key in services) {
+						if (services.hasOwnProperty(key)) {
+							let service = services[key].service;
+							let category = services[key].category;
+							if (cmplz_has_service_consent(service, category)) {
+								document.querySelectorAll('[data-service="' + service + '"]').forEach(obj => {
+									cmplz_remove_placeholder(obj);
+								});
+							}
+						}
+					}
+				});
+			});
+		}
+    
+    
+//# sourceURL=cmplz-cookiebanner-js-after
+</script>
+<script data-ccm-injected="1" async data-wp-strategy="async" id="trustindex-loader-js-js" src="https://cdn.trustindex.io/loader.js?ver=1"></script>
+<script id="elementor-pro-webpack-runtime-js" src="https://www.digipub.de/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.28.3"></script>
+<script id="wp-hooks-js" src="https://www.digipub.de/wp-includes/js/dist/hooks.min.js?ver=7496969728ca0f95732d"></script>
+<script id="wp-i18n-js" src="https://www.digipub.de/wp-includes/js/dist/i18n.min.js?ver=781d11515ad3d91786ec"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.digipub.de\/wp-admin\/admin-ajax.php","nonce":"138cc8d76d","urls":{"assets":"https:\/\/www.digipub.de\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.digipub.de\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"de_DE","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.digipub.de\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://www.digipub.de/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.28.3"></script>
+<script id="pro-elements-handlers-js" src="https://www.digipub.de/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.28.3"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://www.digipub.de/wp-includes/js/wp-emoji-release.min.js?ver=7.0"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://www.digipub.de/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html>

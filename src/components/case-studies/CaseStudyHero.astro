@@ -1,0 +1,37 @@
+---
+import { getAssetUrl } from "../../lib/directus";
+interface Props {
+  title: string; subtitle: string; description: string;
+  kunde: string; branche: string; tags: string;
+  heroImageId?: string; heroImageFallback: string;
+  kundeLogoId?: string;
+}
+const { title, subtitle, description, kunde, branche, tags, heroImageId, heroImageFallback, kundeLogoId } = Astro.props;
+const imgSrc = heroImageId ? getAssetUrl(heroImageId, 1200) : heroImageFallback;
+---
+<section class="bg-white py-16 border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-sm text-gray-400 mb-4">
+      <a href="/case-studies" class="hover:text-gray-600">&larr; Case Studies</a>
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
+      <div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          {tags.split(',').map(t => (
+            <span class="text-xs font-mono text-gray-400 uppercase tracking-widest bg-gray-100 px-2 py-1 rounded">{t.trim()}</span>
+          ))}
+        </div>
+        <h1 class="text-4xl md:text-5xl font-semibold text-[#1a1a1a] tracking-tight mb-4 leading-tight">{title}</h1>
+        <p class="text-xl text-gray-500 mb-6">{subtitle}</p>
+        <p class="text-gray-600 leading-relaxed mb-6">{description}</p>
+        <div class="flex gap-6 text-sm text-gray-500">
+          <div><span class="font-mono text-xs text-gray-400 uppercase tracking-widest block mb-1">Kunde</span>{kunde}</div>
+          <div><span class="font-mono text-xs text-gray-400 uppercase tracking-widest block mb-1">Branche</span>{branche}</div>
+        </div>
+      </div>
+      <div class="rounded-xl overflow-hidden shadow-md">
+        <img src={imgSrc} alt={title} class="w-full object-cover max-h-[400px]" loading="eager" />
+      </div>
+    </div>
+  </div>
+</section>

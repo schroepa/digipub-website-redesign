@@ -1,0 +1,49 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCaseStudy } from "../../lib/directus";
+import { caseStudiesFallback, caseStudiesOrder } from "../../lib/case-studies-data";
+import CaseStudyHero from "../../components/case-studies/CaseStudyHero.astro";
+import CaseStudyContent from "../../components/case-studies/CaseStudyContent.astro";
+import SimpleCTA from "../../components/leistungen/SimpleCTA.astro";
+import CalendlySection from "../../components/leistungen/CalendlySection.astro";
+
+export async function getStaticPaths() {
+  return caseStudiesOrder.map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const cms = await getCaseStudy(slug);
+const d = cms ?? caseStudiesFallback[slug];
+
+if (!d) return Astro.redirect('/case-studies');
+---
+
+<Layout title={`${d.title} | DigiPub`} description={d.excerpt}>
+
+  <CaseStudyHero
+    title={d.title}
+    subtitle={d.subtitle}
+    description={d.description}
+    kunde={d.kunde}
+    branche={d.branche}
+    tags={d.tags}
+    heroImageId={d.hero_image}
+    heroImageFallback={`/images/case-studies/${slug}-hero.jpg`}
+    kundeLogoId={d.kunde_logo}
+  />
+
+  <CaseStudyContent
+    ausgangslageText={d.ausgangslage_text}
+    zielesLeftTitle={d.ziele_left_title}
+    zielesLeftText={d.ziele_left_text}
+    zielesRightTitle={d.ziele_right_title}
+    zielesRightText={d.ziele_right_text}
+    vorgehenItems={d.vorgehen_items}
+    ergebnisText={d.ergebnis_text}
+    kpis={d.kpis}
+  />
+
+  <SimpleCTA />
+  <CalendlySection />
+
+</Layout>

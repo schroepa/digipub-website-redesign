@@ -100,6 +100,42 @@ export async function getPost(slug: string) {
   } catch { return null; }
 }
 
+// ── Case Studies ─────────────────────────────────────────────────────────────
+
+export interface VorgehenItem { title: string; text: string; }
+export interface KPI { value: string; label: string; }
+
+export interface CaseStudy {
+  id: number; status: string; slug: string; date_created: string;
+  title: string; subtitle: string; description: string; excerpt: string;
+  kunde: string; branche: string; tags: string;
+  hero_image?: string; kunde_logo?: string;
+  ausgangslage_text: string;
+  ziele_left_title: string; ziele_left_text: string;
+  ziele_right_title: string; ziele_right_text: string;
+  vorgehen_items: VorgehenItem[];
+  ergebnis_text: string;
+  kpis: KPI[];
+}
+
+export async function getCaseStudies(): Promise<CaseStudy[]> {
+  try {
+    return (await directus.request(readItems("digipub_case_studies" as any, {
+      filter: { status: { _eq: "published" } },
+      sort: ["-date_created"],
+    }))) as CaseStudy[];
+  } catch { return []; }
+}
+
+export async function getCaseStudy(slug: string): Promise<CaseStudy | null> {
+  try {
+    const items = await directus.request(readItems("digipub_case_studies" as any, {
+      filter: { slug: { _eq: slug }, status: { _eq: "published" } }, limit: 1,
+    }));
+    return (items[0] as CaseStudy) || null;
+  } catch { return null; }
+}
+
 // ── Leistungen ───────────────────────────────────────────────────────────────
 
 export async function getLeistung(slug: string): Promise<Leistung | null> {

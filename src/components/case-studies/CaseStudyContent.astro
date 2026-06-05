@@ -1,0 +1,114 @@
+---
+import type { VorgehenItem, KPI } from "../../lib/directus";
+
+interface Props {
+  ausgangslageText: string;
+  zielesLeftTitle: string; zielesLeftText: string;
+  zielesRightTitle: string; zielesRightText: string;
+  vorgehenItems: VorgehenItem[];
+  ergebnisText: string;
+  kpis: KPI[];
+}
+const { ausgangslageText, zielesLeftTitle, zielesLeftText, zielesRightTitle, zielesRightText, vorgehenItems, ergebnisText, kpis } = Astro.props;
+
+function renderText(text: string) {
+  const lines = text.split('\n').filter(l => l.trim());
+  const out: Array<{type:'text'|'bullets', items:string[]}> = [];
+  let bullets: string[] = [];
+  for (const l of lines) {
+    if (l.trimStart().startsWith('- ')) { bullets.push(l.trimStart().slice(2)); }
+    else { if (bullets.length) { out.push({type:'bullets',items:[...bullets]}); bullets=[]; } out.push({type:'text',items:[l]}); }
+  }
+  if (bullets.length) out.push({type:'bullets',items:bullets});
+  return out;
+}
+---
+
+<!-- Ausgangslage -->
+<section class="bg-gray-50 border-y border-gray-200">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-8">Ausgangslage</h2>
+    <div class="max-w-3xl">
+      {renderText(ausgangslageText).map(s =>
+        s.type === 'bullets'
+          ? <ul class="list-disc list-inside space-y-2 text-gray-600 leading-relaxed mb-4">{s.items.map(i=><li>{i}</li>)}</ul>
+          : <p class="text-gray-600 leading-relaxed mb-4">{s.items[0]}</p>
+      )}
+    </div>
+  </div>
+</section>
+
+<!-- Ziele -->
+<section class="bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-10">Ziele der Maßnahmen</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+        <h3 class="font-semibold text-[#1a1a1a] mb-4">{zielesLeftTitle}</h3>
+        {renderText(zielesLeftText).map(s =>
+          s.type === 'bullets'
+            ? <ul class="list-disc list-inside space-y-2 text-gray-600 text-sm leading-relaxed">{s.items.map(i=><li>{i}</li>)}</ul>
+            : <p class="text-gray-600 text-sm leading-relaxed mb-2">{s.items[0]}</p>
+        )}
+      </div>
+      <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+        <h3 class="font-semibold text-[#1a1a1a] mb-4">{zielesRightTitle}</h3>
+        {renderText(zielesRightText).map(s =>
+          s.type === 'bullets'
+            ? <ul class="list-disc list-inside space-y-2 text-gray-600 text-sm leading-relaxed">{s.items.map(i=><li>{i}</li>)}</ul>
+            : <p class="text-gray-600 text-sm leading-relaxed mb-2">{s.items[0]}</p>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vorgehen -->
+<section style="background:#1a1a1a;">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-2xl md:text-3xl font-semibold text-white mb-10">Unser Vorgehen</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {vorgehenItems.map((item, i) => (
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-white/30 transition-colors">
+          <div class="flex items-start gap-4">
+            <span class="text-xs font-mono text-gray-500 mt-1 shrink-0">{String(i+1).padStart(2,'0')}</span>
+            <div>
+              <h3 class="font-semibold text-white mb-2">{item.title}</h3>
+              <p class="text-white/60 text-sm leading-relaxed">{item.text}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- KPIs (wenn vorhanden) -->
+{kpis.length > 0 && (
+  <section class="bg-gray-50 border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {kpis.map(kpi => (
+          <div class="text-center">
+            <p class="text-3xl md:text-4xl font-black text-[#1a1a1a] mb-1">{kpi.value}</p>
+            <p class="text-sm text-gray-500">{kpi.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Ergebnis -->
+<section class="bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-8">Ergebnis & Learnings</h2>
+    <div class="max-w-3xl">
+      {renderText(ergebnisText).map(s =>
+        s.type === 'bullets'
+          ? <ul class="list-disc list-inside space-y-2 text-gray-600 leading-relaxed mb-4">{s.items.map(i=><li>{i}</li>)}</ul>
+          : <p class="text-gray-600 leading-relaxed mb-4">{s.items[0]}</p>
+      )}
+    </div>
+  </div>
+</section>
