@@ -1,0 +1,58 @@
+---
+// Dunkle CTA-Sektion: Logo + Text + SoMe links, Calendly Popup rechts
+---
+
+<section style="background:#1a1a1a;">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+      <!-- Links: Logo + Text + Social -->
+      <div class="flex flex-col items-center text-center gap-6">
+        <img
+          src="https://www.digipub.de/wp-content/uploads/2021/07/DIGI_PUB1.png"
+          alt="DigiPub"
+          class="h-24 opacity-90"
+          loading="lazy"
+        />
+        <p class="text-white/60 text-sm leading-relaxed max-w-xs">
+          Mehrwert entsteht durch Klarheit: Wir schärfen Nutzen, Haltung und Prozesse – für Kunden, Mitarbeitende und eine stärkere Marke.
+        </p>
+        <div class="flex gap-5">
+          <a href="https://www.facebook.com/DigiPubSeo" target="_blank" rel="noopener" aria-label="Facebook" class="text-white/30 hover:text-white transition-colors">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/digipub.de/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white/30 hover:text-white transition-colors">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/digipub-de/" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-white/30 hover:text-white transition-colors">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Rechts: Text + Button -->
+      <div class="flex flex-col gap-5">
+        <p class="text-xs font-mono text-white/40 uppercase tracking-widest">Kostenloses Erstgespräch</p>
+        <h2 class="text-2xl md:text-3xl font-semibold text-white leading-snug">
+          Direkt einen Termin buchen
+        </h2>
+        <p class="text-white/60 leading-relaxed">
+          Kein Pitch, kein Verkauf – wir hören erstmal zu. Erzähl uns von deinem Projekt und wir schauen gemeinsam, wo wir ansetzen können.
+        </p>
+        <div>
+          <button
+            onclick="Calendly.initPopupWidget({url:'https://calendly.com/nigronet?embed_domain=digipub.de&embed_type=popup'});return false;"
+            class="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded transition-opacity cursor-pointer"
+            style="background:#d97706; color:#fff;"
+          >
+            Jetzt Termin buchen
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+<script is:inline src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>

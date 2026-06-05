@@ -4,8 +4,7 @@ import { getCaseStudy } from "../../lib/directus";
 import { caseStudiesFallback, caseStudiesOrder } from "../../lib/case-studies-data";
 import CaseStudyHero from "../../components/case-studies/CaseStudyHero.astro";
 import CaseStudyContent from "../../components/case-studies/CaseStudyContent.astro";
-import SimpleCTA from "../../components/leistungen/SimpleCTA.astro";
-import CalendlySection from "../../components/leistungen/CalendlySection.astro";
+import DarkCTA from "../../components/DarkCTA.astro";
 
 export async function getStaticPaths() {
   return caseStudiesOrder.map(slug => ({ params: { slug } }));
@@ -59,7 +58,6 @@ const logoFallbacks: Record<string, string> = {
     kpis={d.kpis}
   />
 
-  <SimpleCTA />
-  <CalendlySection />
+  <DarkCTA />
 
 </Layout>
