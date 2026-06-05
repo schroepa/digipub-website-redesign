@@ -16,6 +16,13 @@ const cms = await getCaseStudy(slug);
 const d = cms ?? caseStudiesFallback[slug];
 
 if (!d) return Astro.redirect('/case-studies');
+
+const heroFallbacks: Record<string, string> = {
+  "smart-catering":    "/images/case-studies/smart-catering-hero.jpg",
+  "portazon":          "/images/case-studies/portazon-hero.png",
+  "haidacher":         "/images/case-studies/haidacher-hero.png",
+  "walter-de-gruyter": "/images/case-studies/degruyter-hero.png",
+};
 ---
 
 <Layout title={`${d.title} | DigiPub`} description={d.excerpt}>
@@ -28,7 +35,7 @@ if (!d) return Astro.redirect('/case-studies');
     branche={d.branche}
     tags={d.tags}
     heroImageId={d.hero_image}
-    heroImageFallback={`/images/case-studies/${slug}-hero.jpg`}
+    heroImageFallback={heroFallbacks[slug] ?? "/images/case-studies/smart-catering-hero.jpg"}
     kundeLogoId={d.kunde_logo}
   />
 

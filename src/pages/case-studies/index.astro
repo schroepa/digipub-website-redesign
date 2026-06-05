@@ -1,6 +1,13 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCaseStudies, getAssetUrl } from "../../lib/directus";
+
+const heroFallbacks: Record<string, string> = {
+  "smart-catering":    "/images/case-studies/smart-catering-hero.jpg",
+  "portazon":          "/images/case-studies/portazon-hero.png",
+  "haidacher":         "/images/case-studies/haidacher-hero.png",
+  "walter-de-gruyter": "/images/case-studies/degruyter-hero.png",
+};
 import { caseStudiesFallback, caseStudiesOrder } from "../../lib/case-studies-data";
 
 const cmsCases = await getCaseStudies();
@@ -28,12 +35,12 @@ const cases = cmsCases.length > 0
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {cases.map(cs => (
           <a href={`/case-studies/${cs.slug}`} class="group bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-            {cs.hero_image
-              ? <img src={getAssetUrl(cs.hero_image, 800)} alt={cs.title} class="w-full aspect-video object-cover" loading="lazy" />
-              : <div class="w-full aspect-video bg-gray-100 flex items-center justify-center">
-                  <span class="text-gray-300 text-sm font-mono">Bild folgt</span>
-                </div>
-            }
+            <img
+              src={cs.hero_image ? getAssetUrl(cs.hero_image, 800) : (heroFallbacks[cs.slug] ?? "")}
+              alt={cs.title}
+              class="w-full aspect-video object-cover"
+              loading="lazy"
+            />
             <div class="p-6">
               <div class="flex flex-wrap gap-2 mb-3">
                 {cs.tags.split(',').map(t => (
