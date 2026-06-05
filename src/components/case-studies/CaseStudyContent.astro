@@ -9,9 +9,10 @@ interface Props {
   zielesRightTitle: string; zielesRightText: string;
   vorgehenItems: VorgehenItem[];
   ergebnisText: string;
+  learningsText?: string;
   kpis: KPI[];
 }
-const { ausgangslageText, logoSrc, kundeName, zielesLeftTitle, zielesLeftText, zielesRightTitle, zielesRightText, vorgehenItems, ergebnisText, kpis } = Astro.props;
+const { ausgangslageText, logoSrc, kundeName, zielesLeftTitle, zielesLeftText, zielesRightTitle, zielesRightText, vorgehenItems, ergebnisText, learningsText, kpis } = Astro.props;
 
 function renderText(text: string, dark = false) {
   const lines = text.split('\n').filter(l => l.trim());
@@ -120,13 +121,31 @@ const pClass        = (dark: boolean, sm = false) => `leading-relaxed mb-3 ${sm 
 <!-- Ergebnis -->
 <section class="bg-white">
   <div class="max-w-7xl mx-auto px-6 py-16">
-    <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-8">Ergebnis & Learnings</h2>
-    <div class="max-w-3xl">
-      {renderText(ergebnisText).segments.map(s =>
-        s.type === 'bullets'
-          ? <ul class={ulClass(false)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
-          : <p class={pClass(false)}>{s.items[0]}</p>
+    <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-10">Ergebnis & Learnings</h2>
+    <div class={`grid grid-cols-1 gap-8 ${learningsText ? 'md:grid-cols-2' : ''}`}>
+
+      <!-- Ergebnis der Zusammenarbeit -->
+      <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+        <h3 class="font-semibold text-[#1a1a1a] mb-4">Ergebnis der Zusammenarbeit</h3>
+        {renderText(ergebnisText).segments.map(s =>
+          s.type === 'bullets'
+            ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+            : <p class={pClass(false, true)}>{s.items[0]}</p>
+        )}
+      </div>
+
+      <!-- Learnings & Mehrwert -->
+      {learningsText && (
+        <div class="bg-gray-50 rounded-xl p-8 border border-gray-100">
+          <h3 class="font-semibold text-[#1a1a1a] mb-4">Learnings & Mehrwert</h3>
+          {renderText(learningsText).segments.map(s =>
+            s.type === 'bullets'
+              ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+              : <p class={pClass(false, true)}>{s.items[0]}</p>
+          )}
+        </div>
       )}
+
     </div>
   </div>
 </section>

@@ -132,6 +132,7 @@ export interface CaseStudy {
   ziele_right_title: string; ziele_right_text: string;
   vorgehen_items: VorgehenItem[];
   ergebnis_text: string;
+  learnings_text?: string;
   kpis: KPI[];
 }
 
