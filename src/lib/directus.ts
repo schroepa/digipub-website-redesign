@@ -100,6 +100,22 @@ export async function getPost(slug: string) {
   } catch { return null; }
 }
 
+// ── Referenzen ───────────────────────────────────────────────────────────────
+
+export interface Referenz {
+  id: number; status: string; name: string;
+  logo?: string; url?: string; sort: number;
+}
+
+export async function getReferenzen(): Promise<Referenz[]> {
+  try {
+    return (await directus.request(readItems("digipub_referenzen" as any, {
+      filter: { status: { _eq: "published" } },
+      sort: ["sort"],
+    }))) as Referenz[];
+  } catch { return []; }
+}
+
 // ── Case Studies ─────────────────────────────────────────────────────────────
 
 export interface VorgehenItem { title: string; text: string; }

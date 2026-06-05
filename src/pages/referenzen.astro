@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getReferenzen } from "../lib/directus";
+
+const referenzen = await getReferenzen();
+
+// Lokale Bild-Fallbacks (Name → Datei in /images/referenzen/)
+const logoFiles: Record<string, string> = {
+  "Weber Grill":                    "weber-grill.jpg",
+  "Sander Catering":                "sander-catering.jpg",
+  "Cornelsen Verlag":               "cornelsen.jpg",
+  "A EINS Digital Innovation":      "aeins.jpeg",
+  "Portazon":                       "portazon.png",
+  "Stadtwerke Trier":               "stadtwerke-trier.png",
+  "Ecomex":                         "ecomex.png",
+  "Edelman Deutschland":            "edelman.jpg",
+  "Franz Cornelsen Bildungsholding":"cornelsen-bildungsholding.jpg",
+  "Westermann":                     "westermann.png",
+  "Vetinäre":                       "vetinare.jpg",
+  "Walter de Gruyter":              "walter-de-gruyter.jpg",
+  "Bliner Ideenlabor":              "bliner.jpg",
+  "Welance":                        "welance.jpg",
+  "Limebit":                        "limebit.png",
+  "Fridays for Future":             "fridays-for-future.png",
+  "Gemeinsam für Afrika":           "gemeinsam-fuer-afrika.jpg",
+  "Caseking":                       "caseking.jpg",
+  "Basics09 Grafikagentur":         "basics09.png",
+  "Ophelis":                        "ophelis.png",
+  "Initiative Handarbeit":          "initiative-handarbeit.jpg",
+  "Deutsche Musik":                 "deutsche-musik.png",
+  "Connemara Fashion":              "connemara.png",
+  "Fashion Council Germany":        "fashion-council.png",
+  "Klax Kindergartenpädagogik":     "klax.jpg",
+  "Badisches Staatstheater":        "badisches-staatstheater.png",
+  "LAI FU Berlin":                  "lai-fu.png",
+  "Tischlerei Haidacher":           "haidacher.webp",
+};
+---
+
+<Layout
+  title="Referenzen | DigiPub"
+  description="Unternehmen, die mit DigiPub sichtbarer, klarer und digitaler geworden sind."
+>
+
+  <!-- Hero -->
+  <section class="bg-white py-16 text-center border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">Vertrauen in Zahlen</p>
+      <h1 class="text-5xl md:text-7xl font-semibold text-[#1a1a1a] tracking-tight mb-4">Referenzen</h1>
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto">
+        Unternehmen, mit denen wir zusammengearbeitet haben – von Startups bis zu internationalen Marken.
+      </p>
+    </div>
+  </section>
+
+  <!-- Logo-Grid -->
+  <section class="bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-20">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-px bg-gray-100 border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+        {referenzen.map((ref) => {
+          const file = logoFiles[ref.name];
+          const src = file ? `/images/referenzen/${file}` : null;
+
+          return ref.url ? (
+            <a
+              href={ref.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group bg-white flex items-center justify-center p-6 min-h-[100px] hover:bg-gray-50 transition-colors"
+              aria-label={ref.name}
+              title={ref.name}
+            >
+              {src
+                ? <img src={src} alt={ref.name} class="max-h-10 max-w-[140px] w-auto object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" loading="lazy" />
+                : <span class="text-xs text-gray-400 text-center">{ref.name}</span>
+              }
+            </a>
+          ) : (
+            <div
+              class="group bg-white flex items-center justify-center p-6 min-h-[100px]"
+              title={ref.name}
+            >
+              {src
+                ? <img src={src} alt={ref.name} class="max-h-10 max-w-[140px] w-auto object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" loading="lazy" />
+                : <span class="text-xs text-gray-400 text-center">{ref.name}</span>
+              }
+            </div>
+          );
+        })}
+      </div>
+      <p class="text-center text-xs text-gray-400 font-mono mt-6">{referenzen.length} Referenzen</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gray-50 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-16 text-center">
+      <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-4">Auch dabei sein?</h2>
+      <p class="text-gray-500 mb-8 max-w-xl mx-auto">Lass uns gemeinsam herausfinden, wie wir deinen Mehrwert sichtbar machen können.</p>
+      <a
+        href="mailto:kontakt@digipub.de"
+        style="background:#1a1a1a;"
+        class="inline-flex items-center gap-2 px-6 py-3 text-white text-sm font-medium rounded hover:opacity-80 transition-opacity"
+      >
+        Kontakt aufnehmen
+      </a>
+    </div>
+  </section>
+
+</Layout>
