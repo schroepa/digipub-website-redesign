@@ -13,7 +13,7 @@ interface Props {
 }
 const { ausgangslageText, logoSrc, kundeName, zielesLeftTitle, zielesLeftText, zielesRightTitle, zielesRightText, vorgehenItems, ergebnisText, kpis } = Astro.props;
 
-function renderText(text: string) {
+function renderText(text: string, dark = false) {
   const lines = text.split('\n').filter(l => l.trim());
   const out: Array<{type:'text'|'bullets', items:string[]}> = [];
   let bullets: string[] = [];
@@ -22,35 +22,32 @@ function renderText(text: string) {
     else { if (bullets.length) { out.push({type:'bullets',items:[...bullets]}); bullets=[]; } out.push({type:'text',items:[l]}); }
   }
   if (bullets.length) out.push({type:'bullets',items:bullets});
-  return out;
+  return { segments: out, dark };
 }
+
+const ulClass       = (dark: boolean, sm = false) => `list-disc pl-5 space-y-1.5 leading-relaxed mb-4 ${sm ? 'text-sm' : ''} ${dark ? 'text-white/60' : 'text-gray-600'}`;
+const liClass       = "pl-1";
+const pClass        = (dark: boolean, sm = false) => `leading-relaxed mb-3 ${sm ? 'text-sm' : ''} ${dark ? 'text-white/60' : 'text-gray-600'}`;
 ---
 
 <!-- Ausgangslage -->
 <section class="bg-gray-50 border-y border-gray-200">
   <div class="max-w-7xl mx-auto px-6 py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-      <!-- Links: Logo -->
       <div class="flex items-center justify-center">
         {logoSrc
           ? <img src={logoSrc} alt={kundeName} class="max-h-32 max-w-[280px] w-auto object-contain" loading="lazy" />
-          : <div class="w-full h-32 bg-gray-200 rounded-lg flex items-center justify-center">
-              <span class="text-gray-400 text-sm font-medium">{kundeName}</span>
-            </div>
+          : <div class="w-full h-32 bg-gray-200 rounded-lg flex items-center justify-center"><span class="text-gray-400 text-sm font-medium">{kundeName}</span></div>
         }
       </div>
-
-      <!-- Rechts: Text -->
       <div>
         <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-6">Ausgangslage</h2>
-        {renderText(ausgangslageText).map(s =>
+        {renderText(ausgangslageText).segments.map(s =>
           s.type === 'bullets'
-            ? <ul class="list-disc list-inside space-y-2 text-gray-600 leading-relaxed mb-4">{s.items.map(i=><li>{i}</li>)}</ul>
-            : <p class="text-gray-600 leading-relaxed mb-4">{s.items[0]}</p>
+            ? <ul class={ulClass(false)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+            : <p class={pClass(false)}>{s.items[0]}</p>
         )}
       </div>
-
     </div>
   </div>
 </section>
@@ -62,18 +59,18 @@ function renderText(text: string) {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
         <h3 class="font-semibold text-[#1a1a1a] mb-4">{zielesLeftTitle}</h3>
-        {renderText(zielesLeftText).map(s =>
+        {renderText(zielesLeftText).segments.map(s =>
           s.type === 'bullets'
-            ? <ul class="list-disc list-inside space-y-2 text-gray-600 text-sm leading-relaxed">{s.items.map(i=><li>{i}</li>)}</ul>
-            : <p class="text-gray-600 text-sm leading-relaxed mb-2">{s.items[0]}</p>
+            ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+            : <p class={pClass(false, true)}>{s.items[0]}</p>
         )}
       </div>
       <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
         <h3 class="font-semibold text-[#1a1a1a] mb-4">{zielesRightTitle}</h3>
-        {renderText(zielesRightText).map(s =>
+        {renderText(zielesRightText).segments.map(s =>
           s.type === 'bullets'
-            ? <ul class="list-disc list-inside space-y-2 text-gray-600 text-sm leading-relaxed">{s.items.map(i=><li>{i}</li>)}</ul>
-            : <p class="text-gray-600 text-sm leading-relaxed mb-2">{s.items[0]}</p>
+            ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+            : <p class={pClass(false, true)}>{s.items[0]}</p>
         )}
       </div>
     </div>
@@ -89,9 +86,13 @@ function renderText(text: string) {
         <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-white/30 transition-colors">
           <div class="flex items-start gap-4">
             <span class="text-xs font-mono text-gray-500 mt-1 shrink-0">{String(i+1).padStart(2,'0')}</span>
-            <div>
-              <h3 class="font-semibold text-white mb-2">{item.title}</h3>
-              <p class="text-white/60 text-sm leading-relaxed">{item.text}</p>
+            <div class="flex-1">
+              <h3 class="font-semibold text-white mb-3">{item.title}</h3>
+              {renderText(item.text, true).segments.map(s =>
+                s.type === 'bullets'
+                  ? <ul class={ulClass(true, true)}>{s.items.map(li => <li class={liClass}>{li}</li>)}</ul>
+                  : <p class={pClass(true, true)}>{s.items[0]}</p>
+              )}
             </div>
           </div>
         </div>
@@ -100,7 +101,7 @@ function renderText(text: string) {
   </div>
 </section>
 
-<!-- KPIs (wenn vorhanden) -->
+<!-- KPIs -->
 {kpis.length > 0 && (
   <section class="bg-gray-50 border-y border-gray-200">
     <div class="max-w-7xl mx-auto px-6 py-12">
@@ -121,10 +122,10 @@ function renderText(text: string) {
   <div class="max-w-7xl mx-auto px-6 py-16">
     <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-8">Ergebnis & Learnings</h2>
     <div class="max-w-3xl">
-      {renderText(ergebnisText).map(s =>
+      {renderText(ergebnisText).segments.map(s =>
         s.type === 'bullets'
-          ? <ul class="list-disc list-inside space-y-2 text-gray-600 leading-relaxed mb-4">{s.items.map(i=><li>{i}</li>)}</ul>
-          : <p class="text-gray-600 leading-relaxed mb-4">{s.items[0]}</p>
+          ? <ul class={ulClass(false)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+          : <p class={pClass(false)}>{s.items[0]}</p>
       )}
     </div>
   </div>
