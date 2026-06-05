@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Kontakt | DigiPub Berlin"
+  description="Lass uns über dein Projekt sprechen. Kostenloses Erstgespräch buchen oder direkt schreiben."
+>
+
+  <!-- Hero -->
+  <section class="bg-white py-16 text-center border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">Lass uns sprechen</p>
+      <h1 class="text-5xl md:text-7xl font-semibold text-[#1a1a1a] tracking-tight mb-4">Kontakt</h1>
+      <p class="text-xl text-gray-500 max-w-xl mx-auto">
+        Kein Pitch, kein Verkauf – wir hören erstmal zu.
+      </p>
+    </div>
+  </section>
+
+  <!-- Kontakt-Optionen -->
+  <section class="bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+        <!-- Links: Infos + E-Mail -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-6 leading-snug">
+            Wer kennt deinen Mehrwert<br />besser als
+            <span class="font-black" style="font-size:3.5rem;line-height:1;display:block;">DU?</span>
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            Erzähl uns von deinem Projekt, deinen Zielen und wo der Schuh drückt.
+            Wir schauen gemeinsam, wo und wie wir ansetzen können.
+          </p>
+
+          <div class="space-y-4 mb-10">
+            <div class="flex items-center gap-3 text-gray-600">
+              <span class="text-xs font-mono text-gray-400 uppercase tracking-widest w-20">E-Mail</span>
+              <a href="mailto:kontakt@digipub.de" class="hover:text-[#1a1a1a] transition-colors">kontakt@digipub.de</a>
+            </div>
+            <div class="flex items-center gap-3 text-gray-600">
+              <span class="text-xs font-mono text-gray-400 uppercase tracking-widest w-20">Telefon</span>
+              <a href="tel:+491773688415" class="hover:text-[#1a1a1a] transition-colors">+49 (0)177 3688415</a>
+            </div>
+            <div class="flex items-center gap-3 text-gray-600">
+              <span class="text-xs font-mono text-gray-400 uppercase tracking-widest w-20">Adresse</span>
+              <span>Moosdorfstr. 7–9, 12435 Berlin</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="mailto:kontakt@digipub.de"
+              style="background:#1a1a1a;"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 text-white text-sm font-medium rounded hover:opacity-80 transition-opacity"
+            >
+              E-Mail schreiben
+            </a>
+            <!-- Calendly Popup Button -->
+            <button
+              onclick="Calendly.initPopupWidget({url:'https://calendly.com/nigronet?embed_domain=digipub.de&embed_type=popup'});return false;"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 text-[#1a1a1a] text-sm font-medium rounded border border-gray-300 hover:border-[#1a1a1a] transition-colors cursor-pointer"
+            >
+              Termin buchen
+            </button>
+          </div>
+        </div>
+
+        <!-- Rechts: Über uns -->
+        <div class="bg-gray-50 rounded-xl p-8 border border-gray-100">
+          <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">DigiPub Berlin</p>
+          <h3 class="font-semibold text-[#1a1a1a] text-xl mb-4">Nicolas Grossman</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            DigiPub begleitet Unternehmen bei digitalem Markenaufbau, SEO/GEO, Designsystemen, Automatisierung und KI-Implementierung. Wir arbeiten vom aktuellen Reifegrad aus – ohne Hype, mit Substanz.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://www.linkedin.com/company/digipub-de/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#1a1a1a] transition-colors text-sm">LinkedIn</a>
+            <a href="https://www.instagram.com/digipub.de/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#1a1a1a] transition-colors text-sm">Instagram</a>
+            <a href="https://www.facebook.com/DigiPubSeo" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#1a1a1a] transition-colors text-sm">Facebook</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendly CSS + JS -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script is:inline src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+</Layout>
