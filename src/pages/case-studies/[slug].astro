@@ -23,6 +23,13 @@ const heroFallbacks: Record<string, string> = {
   "haidacher":         "/images/case-studies/haidacher-hero.png",
   "walter-de-gruyter": "/images/case-studies/degruyter-hero.png",
 };
+
+const logoFallbacks: Record<string, string> = {
+  "smart-catering":    "/images/case-studies/smart-catering-logo.jpeg",
+  "portazon":          "/images/case-studies/portazon-logo.png",
+  "haidacher":         "/images/referenzen/haidacher.webp",
+  "walter-de-gruyter": "/images/case-studies/degruyter-logo.jpg",
+};
 ---
 
 <Layout title={`${d.title} | DigiPub`} description={d.excerpt}>
@@ -41,6 +48,8 @@ const heroFallbacks: Record<string, string> = {
 
   <CaseStudyContent
     ausgangslageText={d.ausgangslage_text}
+    logoSrc={logoFallbacks[slug]}
+    kundeName={d.kunde}
     zielesLeftTitle={d.ziele_left_title}
     zielesLeftText={d.ziele_left_text}
     zielesRightTitle={d.ziele_right_title}
