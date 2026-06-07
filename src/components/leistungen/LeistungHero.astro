@@ -1,18 +1,29 @@
 ---
 interface Props {
   number: string;
+  breadcrumb?: string;
   title: string;
   subtitle: string;
   heroText: string;
   heroText2: string;
+  prevHref?: string | null;
+  nextHref?: string | null;
 }
-const { number, title, subtitle, heroText, heroText2 } = Astro.props;
+const { number, breadcrumb, title, subtitle, heroText, heroText2, prevHref, nextHref } = Astro.props;
 ---
-<section class="bg-white py-16 text-center border-b border-gray-200">
+<section id="section-hero" class="bg-white py-16 text-center border-b border-gray-200">
   <div class="max-w-7xl mx-auto px-6">
-    <p class="text-sm text-gray-400 mb-4">
-      <a href="/leistungen" class="hover:text-gray-600">&larr; Leistungen</a>
-      &middot; {number}
+    <p class="text-sm text-gray-400 mb-4 inline-flex items-center gap-2">
+      {prevHref && (
+        <a href={prevHref} aria-label="Vorherige Leistung" class="hover:text-gray-600">&larr;</a>
+      )}
+      <span>
+        <a href="/leistungen" class="hover:text-gray-600">Leistungen</a>
+        &middot; {breadcrumb || title}
+      </span>
+      {nextHref && (
+        <a href={nextHref} aria-label="Nächste Leistung" class="hover:text-gray-600">&rarr;</a>
+      )}
     </p>
     <h1 class="text-5xl md:text-7xl font-semibold text-[#1a1a1a] tracking-tight mb-4">{title}</h1>
     <p class="text-xl text-gray-500 mb-10">{subtitle}</p>

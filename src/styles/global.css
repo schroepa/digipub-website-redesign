@@ -20,3 +20,16 @@ h1,h2,h3,h4 { letter-spacing: -0.02em; line-height: 1.1; }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #f5f5f5; }
 ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+
+/* Rich-Text aus Directus WYSIWYG */
+.rich-text p { margin-bottom: 0.75rem; line-height: 1.7; }
+.rich-text p:last-child { margin-bottom: 0; }
+.rich-text ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 0.75rem; }
+.rich-text ol { list-style: decimal; padding-left: 1.25rem; margin-bottom: 0.75rem; }
+.rich-text li { margin-bottom: 0.375rem; line-height: 1.6; }
+.rich-text strong { font-weight: 600; color: #1a1a1a; }
+.rich-text em { font-style: italic; }
+.rich-text h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; margin-top: 1rem; }
+.rich-text h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.375rem; margin-top: 0.75rem; }
+/* Dunkler Hintergrund */
+.rich-text.text-white\/70 strong { color: white; }

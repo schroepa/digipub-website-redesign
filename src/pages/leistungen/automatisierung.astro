@@ -1,8 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getLeistung } from "../../lib/directus";
-import { leistungenFallback } from "../../lib/leistungen-data";
-import LeistungProgress from "../../components/leistungen/LeistungProgress.astro";
+import { leistungenFallback, leistungenOrder } from "../../lib/leistungen-data";
+import LeistungTagsNav from "../../components/leistungen/LeistungTagsNav.astro";
 import LeistungHero from "../../components/leistungen/LeistungHero.astro";
 import LeistungIntro from "../../components/leistungen/LeistungIntro.astro";
 import KeyTakeaways from "../../components/leistungen/KeyTakeaways.astro";
@@ -18,21 +18,29 @@ import CalendlySection from "../../components/leistungen/CalendlySection.astro";
 const slug = "automatisierung";
 const cms = await getLeistung(slug);
 const d = cms ?? leistungenFallback[slug];
+const _idx = leistungenOrder.indexOf(slug);
+const prevSlug = _idx > 0 ? leistungenOrder[_idx - 1] : null;
+const nextSlug = _idx >= 0 ? leistungenOrder[(_idx + 1) % leistungenOrder.length] : null;
+const prevHref = prevSlug ? `/leistungen/${prevSlug}` : null;
+const nextHref = nextSlug ? `/leistungen/${nextSlug}` : null;
 ---
 
 <Layout
   title="Prozess-Automatisierung | Mehr Zeit für das Wesentliche | DigiPub"
   description="Automatisierung hilft Unternehmen, Zeit zu sparen, Qualität zu sichern und Engpässe zu lösen."
 >
-  <LeistungProgress />
-
   <LeistungHero
     number={d.number}
+    breadcrumb={d.breadcrumb}
+    prevHref={prevHref}
+    nextHref={nextHref}
     title={d.title}
     subtitle={d.subtitle}
     heroText={d.hero_text}
     heroText2={d.intro_text_2}
   />
+
+  <LeistungTagsNav introLabel={d.nav_intro_label || d.breadcrumb || d.title} />
 
   <LeistungIntro
     imageId={d.intro_image}
@@ -40,7 +48,7 @@ const d = cms ?? leistungenFallback[slug];
     imageAlt="Prozess-Automatisierung"
   />
 
-  <KeyTakeaways items={d.key_takeaways} />
+  <KeyTakeaways items={d.key_takeaways} variant="table" />
 
   <TitelBalken title={d.intro_title} />
 
@@ -54,7 +62,7 @@ const d = cms ?? leistungenFallback[slug];
     text1={d.ansatz_text_1}
     text2={d.ansatz_text_2}
     imageId={d.ansatz_image}
-    imageFallback="/images/leistungen/automatisierung-section1.png"
+    imageFallback="https://www.digipub.de/wp-content/uploads/2026/01/u2637499129_httpss.jpg"
     imageAlt="Unser Ansatz Automatisierung"
   />
 

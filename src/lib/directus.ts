@@ -33,6 +33,8 @@ export interface Leistung {
   status: string;
   slug: string;
   number: string;           // z.B. "01 / 05"
+  breadcrumb?: string;      // Pfadnavi-Label, z.B. "Markenaufbau"
+  nav_intro_label?: string; // Label für 1. Punkt der Sekundärnavi (Sprung zum Seitenanfang)
   title: string;            // H1 Hero
   subtitle: string;         // Hero-Untertitel
   hero_text: string;        // Hero-Beschreibung
@@ -76,7 +78,11 @@ export const directus = createDirectus<DirectusSchema>(directusUrl)
   .with(staticToken(directusToken)).with(rest());
 
 export function getAssetUrl(id: string, width?: number) {
-  return `${directusUrl}/assets/${id}${width ? `?width=${width}&format=webp` : ""}`;
+  const params = new URLSearchParams();
+  if (width) { params.set("width", String(width)); params.set("format", "webp"); }
+  if (directusToken) params.set("access_token", directusToken);
+  const qs = params.toString();
+  return `${directusUrl}/assets/${id}${qs ? `?${qs}` : ""}`;
 }
 
 // ── Posts ────────────────────────────────────────────────────────────────────

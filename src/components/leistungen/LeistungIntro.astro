@@ -9,7 +9,7 @@ interface Props {
 const { imageId, imageFallback, imageAlt } = Astro.props;
 const imgSrc = imageId ? getAssetUrl(imageId, 1200) : imageFallback;
 ---
-<section class="bg-white pt-12 pb-0">
+<section id="section-intro" class="bg-white pt-12 pb-0">
   <div class="max-w-7xl mx-auto px-6">
     <div class="rounded-xl overflow-hidden shadow-md">
       <img src={imgSrc} alt={imageAlt} class="w-full object-cover max-h-[500px]" loading="eager" />

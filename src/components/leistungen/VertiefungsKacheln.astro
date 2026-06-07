@@ -40,8 +40,8 @@ function renderText(text: string) {
         <h3 class="text-xl font-semibold text-[#1a1a1a] mb-4 leading-snug">{left.title}</h3>
         {renderText(left.text).map(seg =>
           seg.type === 'bullets'
-            ? <ul class="list-disc list-inside space-y-1 text-gray-600 text-sm leading-relaxed mb-4">
-                {seg.items.map(item => <li>{item}</li>)}
+            ? <ul class="list-disc list-outside pl-5 space-y-1 text-gray-600 text-sm leading-relaxed mb-4">
+                {seg.items.map(item => <li class="pl-1">{item}</li>)}
               </ul>
             : <p class="text-gray-600 leading-relaxed mb-4">{seg.items[0]}</p>
         )}
@@ -53,8 +53,8 @@ function renderText(text: string) {
         <h3 class="text-xl font-semibold text-[#1a1a1a] mb-4 leading-snug">{right.title}</h3>
         {renderText(right.text).map(seg =>
           seg.type === 'bullets'
-            ? <ul class="list-disc list-inside space-y-1 text-gray-600 text-sm leading-relaxed mb-4">
-                {seg.items.map(item => <li>{item}</li>)}
+            ? <ul class="list-disc list-outside pl-5 space-y-1 text-gray-600 text-sm leading-relaxed mb-4">
+                {seg.items.map(item => <li class="pl-1">{item}</li>)}
               </ul>
             : <p class="text-gray-600 leading-relaxed mb-4">{seg.items[0]}</p>
         )}

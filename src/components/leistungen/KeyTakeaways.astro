@@ -3,19 +3,38 @@ import type { KeyTakeaway } from "../../lib/directus";
 
 interface Props {
   items: KeyTakeaway[];
+  variant?: "cards" | "table";
 }
-const { items } = Astro.props;
+const { items, variant = "cards" } = Astro.props;
 ---
-<section id="section-takeaways" class="bg-gray-50 border-y border-gray-200">
-  <div class="max-w-7xl mx-auto px-6 py-16">
-    <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-10">Key-Takeaways</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {items.map((item) => (
-        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-          <h3 class="font-semibold text-[#1a1a1a] mb-2">{item.title}</h3>
-          <p class="text-gray-500 text-sm leading-relaxed">{item.text}</p>
-        </div>
-      ))}
+{variant === "table" ? (
+  <section id="section-takeaways" class="bg-gray-50 py-20 border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-10">Key Takeaways</p>
+      <div class="space-y-0">
+        {items.map((item, i) => (
+          <div class="grid grid-cols-12 gap-6 py-6 border-t border-gray-200 items-start">
+            <span class="col-span-1 font-mono text-xs text-gray-300 pt-1">0{i + 1}</span>
+            <strong class="col-span-4 text-[#1a1a1a] font-semibold">{item.title}</strong>
+            <p class="col-span-7 text-gray-600 leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+        <div class="border-t border-gray-200"></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+) : (
+  <section id="section-takeaways" class="bg-gray-50 border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-10">Key-Takeaways</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {items.map((item) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <h3 class="font-semibold text-[#1a1a1a] mb-2">{item.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

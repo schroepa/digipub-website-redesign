@@ -1,0 +1,84 @@
+---
+interface Props {
+  introLabel?: string;
+}
+const { introLabel = "Intro" } = Astro.props;
+
+const sections = [
+  { id: "section-hero",       target: "section-hero",       label: introLabel },
+  { id: "section-takeaways",  target: "section-takeaways",  label: "Key-Takeaways" },
+  { id: "section-ansatz",     target: "section-ansatz",     label: "Unser Ansatz" },
+  { id: "section-leistungen", target: "section-leistungen", label: "Leistungen" },
+  { id: "section-wieso",      target: "section-wieso",      label: "Wieso mit DigiPub?" },
+];
+---
+
+<!-- Sekundärnavigation: Tags über dem Hero-Bild, hakt sich beim Scrollen unter dem Header ein -->
+<nav id="leistung-tags-nav" aria-label="Seitennavigation" class="sticky-tags-nav bg-white border-b border-gray-200 z-40">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex gap-1 overflow-x-auto py-3" style="scrollbar-width:none;">
+      {sections.map((s) => (
+        <a href={`#${s.id}`} data-target={s.id} class="tag-pill">{s.label}</a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  .sticky-tags-nav {
+    position: sticky;
+    top: 64px; /* Höhe des Headers (h-16) */
+  }
+  /* Damit Sektionstitel beim Anspringen nicht von Header + Tags-Navi verdeckt werden */
+  :global(#section-hero),
+  :global(#section-takeaways),
+  :global(#section-ansatz),
+  :global(#section-leistungen),
+  :global(#section-wieso) {
+    scroll-margin-top: 116px; /* Header (64px) + Tags-Navi (~52px) */
+  }
+  .tag-pill {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    color: #666;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .tag-pill:hover { background: #f0f0f0; color: #1a1a1a; }
+  .tag-pill.active { background: #1a1a1a; color: #fff; }
+</style>
+
+<script>
+  const pills = document.querySelectorAll<HTMLAnchorElement>(".tag-pill");
+  const ids = Array.from(pills).map((p) => p.dataset.target!);
+
+  pills.forEach((pill) => {
+    pill.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.target!);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          pills.forEach((p) => p.classList.toggle("active", p.dataset.target === id));
+        }
+      });
+    },
+    { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+  );
+
+  ids.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  if (pills[0]) pills[0].classList.add("active");
+</script>

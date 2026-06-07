@@ -14,6 +14,12 @@ interface Props {
 }
 const { ausgangslageText, logoSrc, kundeName, zielesLeftTitle, zielesLeftText, zielesRightTitle, zielesRightText, vorgehenItems, ergebnisText, learningsText, kpis } = Astro.props;
 
+// Erkennt ob ein String HTML enthält oder Plaintext (mit "- " Bullets) ist
+function isHtml(text: string) {
+  return /<[a-z][\s\S]*>/i.test(text);
+}
+
+// Für Plaintext-Fallback (statische Daten)
 function renderText(text: string, dark = false) {
   const lines = text.split('\n').filter(l => l.trim());
   const out: Array<{type:'text'|'bullets', items:string[]}> = [];
@@ -29,6 +35,7 @@ function renderText(text: string, dark = false) {
 const ulClass       = (dark: boolean, sm = false) => `list-disc pl-5 space-y-1.5 leading-relaxed mb-4 ${sm ? 'text-sm' : ''} ${dark ? 'text-white/60' : 'text-gray-600'}`;
 const liClass       = "pl-1";
 const pClass        = (dark: boolean, sm = false) => `leading-relaxed mb-3 ${sm ? 'text-sm' : ''} ${dark ? 'text-white/60' : 'text-gray-600'}`;
+const htmlClass     = (dark: boolean, sm = false) => `rich-text leading-relaxed ${sm ? 'text-sm' : ''} ${dark ? 'text-white/70' : 'text-gray-600'}`;
 ---
 
 <!-- Ausgangslage -->
@@ -37,17 +44,20 @@ const pClass        = (dark: boolean, sm = false) => `leading-relaxed mb-3 ${sm 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div class="flex items-center justify-center">
         {logoSrc
-          ? <img src={logoSrc} alt={kundeName} class="max-h-32 max-w-[280px] w-auto object-contain" loading="lazy" />
-          : <div class="w-full h-32 bg-gray-200 rounded-lg flex items-center justify-center"><span class="text-gray-400 text-sm font-medium">{kundeName}</span></div>
+          ? <img src={logoSrc} alt={kundeName} class="max-h-64 max-w-[420px] w-auto object-contain" loading="lazy" />
+          : <div class="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center"><span class="text-gray-400 text-sm font-medium">{kundeName}</span></div>
         }
       </div>
       <div>
         <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-6">Ausgangslage</h2>
-        {renderText(ausgangslageText).segments.map(s =>
-          s.type === 'bullets'
-            ? <ul class={ulClass(false)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
-            : <p class={pClass(false)}>{s.items[0]}</p>
-        )}
+        {isHtml(ausgangslageText)
+          ? <div class={htmlClass(false)} set:html={ausgangslageText} />
+          : renderText(ausgangslageText).segments.map(s =>
+              s.type === 'bullets'
+                ? <ul class={ulClass(false)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+                : <p class={pClass(false)}>{s.items[0]}</p>
+            )
+        }
       </div>
     </div>
   </div>
@@ -60,19 +70,25 @@ const pClass        = (dark: boolean, sm = false) => `leading-relaxed mb-3 ${sm 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
         <h3 class="font-semibold text-[#1a1a1a] mb-4">{zielesLeftTitle}</h3>
-        {renderText(zielesLeftText).segments.map(s =>
-          s.type === 'bullets'
-            ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
-            : <p class={pClass(false, true)}>{s.items[0]}</p>
-        )}
+        {isHtml(zielesLeftText)
+          ? <div class={htmlClass(false, true)} set:html={zielesLeftText} />
+          : renderText(zielesLeftText).segments.map(s =>
+              s.type === 'bullets'
+                ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+                : <p class={pClass(false, true)}>{s.items[0]}</p>
+            )
+        }
       </div>
       <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
         <h3 class="font-semibold text-[#1a1a1a] mb-4">{zielesRightTitle}</h3>
-        {renderText(zielesRightText).segments.map(s =>
-          s.type === 'bullets'
-            ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
-            : <p class={pClass(false, true)}>{s.items[0]}</p>
-        )}
+        {isHtml(zielesRightText)
+          ? <div class={htmlClass(false, true)} set:html={zielesRightText} />
+          : renderText(zielesRightText).segments.map(s =>
+              s.type === 'bullets'
+                ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+                : <p class={pClass(false, true)}>{s.items[0]}</p>
+            )
+        }
       </div>
     </div>
   </div>
@@ -89,11 +105,14 @@ const pClass        = (dark: boolean, sm = false) => `leading-relaxed mb-3 ${sm 
             <span class="text-xs font-mono text-gray-500 mt-1 shrink-0">{String(i+1).padStart(2,'0')}</span>
             <div class="flex-1">
               <h3 class="font-semibold text-white mb-3">{item.title}</h3>
-              {renderText(item.text, true).segments.map(s =>
-                s.type === 'bullets'
-                  ? <ul class={ulClass(true, true)}>{s.items.map(li => <li class={liClass}>{li}</li>)}</ul>
-                  : <p class={pClass(true, true)}>{s.items[0]}</p>
-              )}
+              {isHtml(item.text)
+                ? <div class={htmlClass(true, true)} set:html={item.text} />
+                : renderText(item.text, true).segments.map(s =>
+                    s.type === 'bullets'
+                      ? <ul class={ulClass(true, true)}>{s.items.map(li => <li class={liClass}>{li}</li>)}</ul>
+                      : <p class={pClass(true, true)}>{s.items[0]}</p>
+                  )
+              }
             </div>
           </div>
         </div>
@@ -127,22 +146,28 @@ const pClass        = (dark: boolean, sm = false) => `leading-relaxed mb-3 ${sm 
       <!-- Ergebnis der Zusammenarbeit -->
       <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
         <h3 class="font-semibold text-[#1a1a1a] mb-4">Ergebnis der Zusammenarbeit</h3>
-        {renderText(ergebnisText).segments.map(s =>
-          s.type === 'bullets'
-            ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
-            : <p class={pClass(false, true)}>{s.items[0]}</p>
-        )}
+        {isHtml(ergebnisText)
+          ? <div class={htmlClass(false, true)} set:html={ergebnisText} />
+          : renderText(ergebnisText).segments.map(s =>
+              s.type === 'bullets'
+                ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+                : <p class={pClass(false, true)}>{s.items[0]}</p>
+            )
+        }
       </div>
 
       <!-- Learnings & Mehrwert -->
       {learningsText && (
         <div class="bg-gray-50 rounded-xl p-8 border border-gray-100">
           <h3 class="font-semibold text-[#1a1a1a] mb-4">Learnings & Mehrwert</h3>
-          {renderText(learningsText).segments.map(s =>
-            s.type === 'bullets'
-              ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
-              : <p class={pClass(false, true)}>{s.items[0]}</p>
-          )}
+          {isHtml(learningsText)
+            ? <div class={htmlClass(false, true)} set:html={learningsText} />
+            : renderText(learningsText).segments.map(s =>
+                s.type === 'bullets'
+                  ? <ul class={ulClass(false, true)}>{s.items.map(i => <li class={liClass}>{i}</li>)}</ul>
+                  : <p class={pClass(false, true)}>{s.items[0]}</p>
+              )
+          }
         </div>
       )}
 

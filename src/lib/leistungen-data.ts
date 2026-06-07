@@ -1,11 +1,22 @@
 import type { Leistung } from "./directus";
 
+// Reihenfolge der Leistungsseiten für die Pfadnavi-Pfeile (Pagination)
+export const leistungenOrder = [
+  "markenaufbau-branding",
+  "seo-geo",
+  "designsystem",
+  "automatisierung",
+  "ki-implementierung",
+];
+
 export const leistungenFallback: Record<string, Leistung> = {
 
   "markenaufbau-branding": {
     id: 1, status: "published",
     slug: "markenaufbau-branding",
     number: "01 / 05",
+    breadcrumb: "Markenaufbau",
+    nav_intro_label: "Markenaufbau",
     title: "Digitaler Markenaufbau heute",
     subtitle: "Warum moderne Markenführung digitaler wird",
     hero_text: "Markenaufbau heute bedeutet, den echten Mehrwert eines Unternehmens über alle analogen und digitalen Touchpoints hinweg sichtbar, erlebbar und vertrauenswürdig zu machen.",
@@ -64,6 +75,8 @@ export const leistungenFallback: Record<string, Leistung> = {
     id: 2, status: "published",
     slug: "seo-geo",
     number: "02 / 05",
+    breadcrumb: "SEO / GEO",
+    nav_intro_label: "SEO / GEO",
     title: "SEO/GEO in KI-Zeiten",
     subtitle: "Warum SEO/GEO heute relevant ist",
     hero_text: "SEO (Search Engine Optimization) bleibt die Grundlage und GEO (Generative Engine Optimization) ergänzt sie: Wir sorgen dafür, dass deine Inhalte nicht nur ranken, sondern auch in generativen Antworten zitiert, empfohlen und korrekt wiedergegeben werden.",
@@ -122,6 +135,8 @@ export const leistungenFallback: Record<string, Leistung> = {
     id: 3, status: "published",
     slug: "designsystem",
     number: "03 / 05",
+    breadcrumb: "Designsystem",
+    nav_intro_label: "Designsystem",
     title: "Vom Mehrwert zur konsistenten Gestaltung mit Designsystem",
     subtitle: "Konsistenz über alle Touchpoints",
     hero_text: "Marken entstehen heute über viele Berührungspunkte: Websites, Social Media, Präsentationen, Angebote, Screens oder Newsletter. Damit diese Touchpoints nicht auseinanderlaufen, braucht Gestaltung ein klares System.",
@@ -180,6 +195,8 @@ export const leistungenFallback: Record<string, Leistung> = {
     id: 4, status: "published",
     slug: "automatisierung",
     number: "04 / 05",
+    breadcrumb: "Automatisierung",
+    nav_intro_label: "Automatisierung",
     title: "Prozess-Automatisierung",
     subtitle: "Mehr Zeit für das, was wirklich zählt",
     hero_text: "Automatisierung hilft Unternehmen, Zeit zu sparen, Qualität zu sichern und Engpässe zu lösen, dort wo reale Probleme den Arbeitsalltag bremsen.",
@@ -238,6 +255,8 @@ export const leistungenFallback: Record<string, Leistung> = {
     id: 5, status: "published",
     slug: "ki-implementierung",
     number: "05 / 05",
+    breadcrumb: "KI-Implementierung",
+    nav_intro_label: "KI-Implementierung",
     title: "Fortschritt mit Augenmaß. Sicherheit statt Risiko.",
     subtitle: "Klarheit vor Technologie. Mehrwert statt Aktionismus.",
     hero_text: "KI im Unternehmen bedeutet nicht, möglichst viele Tools einzuführen, sondern die richtigen nächsten Schritte zu identifizieren. Wir helfen Unternehmen dabei, aus den unendlichen Möglichkeiten genau dort anzusetzen, wo KI datengetrieben, nachvollziehbar und schrittweise konkreten, messbaren Mehrwert schafft.",
