@@ -13,7 +13,7 @@ import { caseStudiesFallback, caseStudiesOrder } from "../../lib/case-studies-da
 const cmsCases = await getCaseStudies();
 const cases = cmsCases.length > 0
   ? cmsCases
-  : caseStudiesOrder.map(slug => caseStudiesFallback[slug]);
+  : caseStudiesOrder.map(slug => caseStudiesFallback[slug]).filter(Boolean);
 ---
 
 <Layout title="Case Studies | DigiPub" description="Einblicke in unsere Projekte: Markenaufbau, SEO, Designsysteme, Automatisierung und KI.">
