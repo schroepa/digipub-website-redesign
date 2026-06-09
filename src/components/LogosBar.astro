@@ -1,0 +1,28 @@
+---
+// Kundenlogos als Text-Platzhalter bis echte SVG/PNG-Dateien vorliegen
+const logos = [
+  { name: "Portazon", href: "/case-studies/portazon" },
+  { name: "Walter de Gruyter", href: "/case-studies/walter-de-gruyter" },
+  { name: "Smart Catering", href: "/case-studies/smart-catering" },
+  { name: "Tischlerei Haidacher", href: "/case-studies/haidacher" },
+];
+---
+
+<section class="bg-white border-b border-gray-100 py-10">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-xs font-mono text-gray-400 uppercase tracking-widest text-center mb-8">
+      Unternehmen, die uns vertrauen
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+      {logos.map((logo) => (
+        <a
+          href={logo.href}
+          class="logo-item text-sm font-semibold text-gray-300 hover:text-[#1a1a1a] transition-colors duration-300 whitespace-nowrap"
+          style="letter-spacing: 0.05em;"
+        >
+          {logo.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
