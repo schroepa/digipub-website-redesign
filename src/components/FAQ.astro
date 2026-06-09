@@ -1,0 +1,101 @@
+---
+const faqs = [
+  {
+    frage: "Was kostet eine Zusammenarbeit mit DigiPub?",
+    antwort: "Projektbasiert, kein Abomodell. Nach einem kostenlosen Erstgespr&auml;ch erstellen wir ein konkretes Angebot &ndash; transparent, ohne versteckte Kosten. Die Investition h&auml;ngt vom Umfang ab, nicht von einer Pauschale.",
+  },
+  {
+    frage: "F&uuml;r welche Unternehmen arbeitet ihr?",
+    antwort: "F&uuml;r mittelst&auml;ndische Unternehmen, die verstanden haben, dass digitale Sichtbarkeit kein Zufall ist &ndash; und bereit sind, das zu &auml;ndern. Branche ist zweitrangig, Haltung ist entscheidend.",
+  },
+  {
+    frage: "Wie lange dauert es, bis wir erste Ergebnisse sehen?",
+    antwort: "Das h&auml;ngt vom Bereich ab. SEO: erste messbare Bewegung nach 6&ndash;12 Wochen. KI und Automatisierung: erste Entlastung oft nach wenigen Wochen. Markenaufbau: ein laufender Prozess, keine Einmalma&szlig;nahme.",
+  },
+  {
+    frage: "Arbeitet ihr remote oder vor Ort?",
+    antwort: "Beides. Strategische Gespr&auml;che und Workshops gerne vor Ort oder per Video &ndash; die t&auml;gliche Arbeit l&auml;uft remote. Wir sind in Berlin, arbeiten aber mit Unternehmen aus dem gesamten deutschsprachigen Raum.",
+  },
+  {
+    frage: "Was unterscheidet euch von einer klassischen Werbeagentur?",
+    antwort: "Wir verkaufen keine Kampagnen. Wir bauen Systeme &ndash; Marken, Prozesse, Strukturen, die ohne uns funktionieren. Unser Ziel ist nicht Abh&auml;ngigkeit, sondern Kompetenzaufbau.",
+  },
+];
+---
+
+<section class="bg-gray-50 border-y border-gray-200 py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-12">
+
+      <!-- Left: Sticky Statement -->
+      <div class="md:col-span-2 md:sticky md:top-24 self-start">
+        <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-4">FAQ</p>
+        <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] leading-snug mb-4">
+          H&auml;ufige Fragen.
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Was Unternehmen uns am h&auml;ufigsten fragen, bevor wir zusammenarbeiten.
+        </p>
+      </div>
+
+      <!-- Right: Accordion -->
+      <div class="md:col-span-3 flex flex-col" id="faq-list">
+        {faqs.map((item, i) => (
+          <div class="faq-item border-b border-gray-200" data-index={i}>
+            <button
+              class="faq-trigger w-full flex items-center justify-between py-5 text-left gap-4"
+              aria-expanded="false"
+            >
+              <span class="font-semibold text-[#1a1a1a] text-base" set:html={item.frage} />
+              <span class="faq-icon shrink-0 text-gray-400 transition-transform duration-300">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <line x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="faq-line-v"/>
+                  <line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-content overflow-hidden" style="max-height: 0; transition: max-height 0.3s ease;">
+              <p class="text-gray-600 leading-relaxed pb-5 pr-8" set:html={item.antwort} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const items = document.querySelectorAll('.faq-item');
+
+  items.forEach((item) => {
+    const trigger = item.querySelector('.faq-trigger') as HTMLButtonElement;
+    const content = item.querySelector('.faq-content') as HTMLElement;
+    const lineV = item.querySelector('.faq-line-v') as SVGLineElement;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all
+      items.forEach((other) => {
+        const otherTrigger = other.querySelector('.faq-trigger') as HTMLButtonElement;
+        const otherContent = other.querySelector('.faq-content') as HTMLElement;
+        const otherLineV = other.querySelector('.faq-line-v') as SVGLineElement;
+        otherTrigger.setAttribute('aria-expanded', 'false');
+        otherContent.style.maxHeight = '0';
+        (other as HTMLElement).style.borderLeft = '';
+        (other as HTMLElement).style.paddingLeft = '';
+        if (otherLineV) otherLineV.style.opacity = '1';
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        trigger.setAttribute('aria-expanded', 'true');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        (item as HTMLElement).style.borderLeft = '2px solid #2563eb';
+        (item as HTMLElement).style.paddingLeft = '12px';
+        if (lineV) lineV.style.opacity = '0';
+      }
+    });
+  });
+</script>
