@@ -1,12 +1,21 @@
 ---
 const year = new Date().getFullYear();
+
+const prompt = encodeURIComponent("Was macht DigiPub und wie können sie mir bei SEO, Markenaufbau und KI helfen?");
+
+const aiTools = [
+  { name: "ChatGPT", href: `https://chatgpt.com/?q=${prompt}`, icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>` },
+  { name: "Claude", href: `https://claude.ai/new?q=${prompt}`, icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-1.485-.121-.242-.097.17-.436.706-.267 1.703.073 2.339.097 2.485.097.717.049h.389l.073-.234-.024-.128-3.785-2.282-2.509-1.593-1.606-1.03-.546-.436-.048-.34.34-.388.388.024.979.606 1.655 1.078 2.484 1.582 3.59 2.358.26.146h.156l.134-.196-.06-.229-1.897-4.048-1.03-2.18-.51-1.727-.097-.898.243-.316.388.049.34.461.485 1.412.972 2.316L9.2 8.954l.79 1.897.401.972.137.304.212.116.156-.09.08-.243V11.6l-.104-2.73-.073-2.876-.024-1.969.097-.9.243-.34h.437l.34.462-.049.85-.048 2.06.072 2.777.086 2.146v.468l.055.158.157.103.2-.079.164-.178 2.103-3.824 1.315-2.12.849-1.17.667-.728.34-.17.412.267-.049.437-.607.85-.946 1.473-1.664 2.754-1.267 2.102-.23.473.043.18.182.13h.17l4.211-1.124 1.946-.401 1.63-.146.51.17.097.412-.34.388-1.824.388-2.485.534-3.2.801-.329.14-.1.2.067.2 3.152 1.854 2.06 1.267 1.606 1.127.485.533.024.388-.34.267-.51-.097-2.254-1.606-2.254-1.533-1.945-1.345-.317-.2h-.2l-.128.14-.025.23 1.267 3.588.801 2.157.34 1.63v.729l-.243.267-.34-.049-.34-.388-.413-1.267-.85-2.278-1.17-3.127-.292-.78-.2-.21-.23.013-.13.2.049.34.412 4.26.34 2.157.048 1.412-.17.607-.316.243-.292-.097-.34-.51-.243-1.75-.413-3.006-.315-3.055v-.34l-.097-.194-.2-.079-.19.14-.107.2-1.124 4.066-.947 2.777-.85 1.848-.667.923-.413.146-.267-.34.097-.461.85-1.63.825-2.17 1.267-4.26.17-.667-.013-.2-.157-.128h-.2z"/></svg>` },
+  { name: "Gemini", href: `https://gemini.google.com/app?q=${prompt}`, icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24A14.304 14.304 0 0 0 0 12 14.304 14.304 0 0 0 12 0a14.305 14.305 0 0 0 12 12 14.305 14.305 0 0 0-12 12"/></svg>` },
+  { name: "Perplexity", href: `https://www.perplexity.ai/?q=${prompt}`, icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.197 0h-2.518v6.386l-5.486 5.517H7.712V6.386H5.194V11.9H0v2.518h5.194v5.197h2.518v-5.197h6.48l5.487 5.516V24h2.518v-6.39l-4.165-4.185 4.165-4.18zm-14.485 12v-.1h5.367l-5.367 5.394zm5.367-1.803H7.712l5.367-5.394z"/></svg>` },
+];
 ---
 
 <footer style="background:#1a1a1a;">
   <div class="max-w-7xl mx-auto px-6 py-16">
 
     <!-- Top: Logo + Tagline -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 pb-12 border-b border-white/10">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 pb-10">
       <a href="/">
         <img src="/logo.svg" alt="DigiPub" class="h-6 w-auto brightness-0 invert" loading="lazy" />
       </a>
@@ -15,8 +24,8 @@ const year = new Date().getFullYear();
       </p>
     </div>
 
-    <!-- 4-Column Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+    <!-- Columns -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
 
       <!-- Leistungen -->
       <div>
@@ -42,15 +51,24 @@ const year = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Kontakt -->
+      <!-- Kontakt + Social -->
       <div>
         <p class="text-xs font-mono text-white/40 uppercase tracking-widest mb-4">Kontakt</p>
-        <ul class="flex flex-col gap-2">
+        <ul class="flex flex-col gap-2 mb-4">
           <li><a href="mailto:kontakt@digipub.de" class="text-white/60 text-sm hover:text-white transition-colors">kontakt@digipub.de</a></li>
-          <li><a href="https://www.linkedin.com/company/digipub-de/" class="text-white/60 text-sm hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/digipub.de/" class="text-white/60 text-sm hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-          <li><a href="https://www.facebook.com/DigiPubSeo" class="text-white/60 text-sm hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">Facebook</a></li>
         </ul>
+        <!-- Social Icons -->
+        <div class="flex items-center gap-3">
+          <a href="https://www.linkedin.com/company/digipub-de/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-white/40 hover:text-white transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.instagram.com/digipub.de/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white/40 hover:text-white transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/DigiPubSeo" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-white/40 hover:text-white transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
       </div>
 
       <!-- Rechtliches -->
@@ -62,10 +80,30 @@ const year = new Date().getFullYear();
         </ul>
       </div>
 
+      <!-- DigiPub + KI -->
+      <div>
+        <p class="text-xs font-mono text-white/40 uppercase tracking-widest mb-4">DigiPub + KI</p>
+        <ul class="flex flex-col gap-3">
+          {aiTools.map((tool) => (
+            <li>
+              <a
+                href={tool.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2 text-white/60 text-sm hover:text-white transition-colors group"
+              >
+                <span class="text-white/30 group-hover:text-white/60 transition-colors" set:html={tool.icon} />
+                {tool.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
     </div>
 
     <!-- Bottom Bar -->
-    <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+    <div class="pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
       <p class="text-xs text-white/30">&copy; {year} DigiPub. Alle Rechte vorbehalten.</p>
       <p class="text-xs text-white/30">Made with &#9825; in Berlin</p>
     </div>

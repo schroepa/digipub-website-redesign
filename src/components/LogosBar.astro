@@ -1,10 +1,9 @@
 ---
-// Kundenlogos als Text-Platzhalter bis echte SVG/PNG-Dateien vorliegen
 const logos = [
-  { name: "Portazon", href: "/case-studies/portazon" },
-  { name: "Walter de Gruyter", href: "/case-studies/walter-de-gruyter" },
-  { name: "Smart Catering", href: "/case-studies/smart-catering" },
-  { name: "Tischlerei Haidacher", href: "/case-studies/haidacher" },
+  { name: "Portazon", href: "/case-studies/portazon", file: "/images/referenzen/portazon.png" },
+  { name: "Walter de Gruyter", href: "/case-studies/walter-de-gruyter", file: "/images/referenzen/walter-de-gruyter.jpg" },
+  { name: "Smart Catering", href: "/case-studies/smart-catering", file: "/images/referenzen/sander-catering.jpg" },
+  { name: "Tischlerei Haidacher", href: "/case-studies/haidacher", file: "/images/referenzen/haidacher.webp" },
 ];
 ---
 
@@ -17,10 +16,17 @@ const logos = [
       {logos.map((logo) => (
         <a
           href={logo.href}
-          class="logo-item text-sm font-semibold text-gray-300 hover:text-[#1a1a1a] transition-colors duration-300 whitespace-nowrap"
-          style="letter-spacing: 0.05em;"
+          class="transition-all duration-300"
+          style="filter: grayscale(1) opacity(0.45);"
+          onmouseover="this.style.filter='grayscale(0) opacity(1)'"
+          onmouseout="this.style.filter='grayscale(1) opacity(0.45)'"
         >
-          {logo.name}
+          <img
+            src={logo.file}
+            alt={logo.name}
+            class="max-h-10 max-w-[140px] w-auto object-contain"
+            loading="lazy"
+          />
         </a>
       ))}
     </div>

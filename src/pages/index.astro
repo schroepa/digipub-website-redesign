@@ -33,14 +33,25 @@ const posts = await getPosts(3);
   <FAQ />
 
   <!-- 7. AKTUELLES -->
-  <section style="background:#1a1a1a;">
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-3xl font-semibold text-white mb-10">Aktuelles</h2>
+  <section class="bg-white border-t border-gray-100 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-3">Aktuelles</p>
+          <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] leading-snug">
+            Was uns besch&auml;ftigt.
+          </h2>
+        </div>
+        <a href="/aktuelles" class="hidden md:inline-flex text-sm font-medium text-[#2563eb] hover:opacity-70 transition-opacity">
+          Alle Artikel &rarr;
+        </a>
+      </div>
 
       {posts.length > 0 ? (
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {posts.map((post) => (
-            <a href={`/aktuelles/${post.slug}`} class="group bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-white/30 transition-colors">
+            <a href={`/aktuelles/${post.slug}`} class="group flex flex-col bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
               {post.cover_image && (
                 <img
                   src={`https://directus.deutsche-musik.de/assets/${post.cover_image}?width=600&format=webp`}
@@ -49,20 +60,20 @@ const posts = await getPosts(3);
                   loading="lazy"
                 />
               )}
-              <div class="p-6">
-                <p class="font-mono text-xs text-white/40 mb-3">
+              <div class="p-6 flex flex-col flex-1">
+                <p class="font-mono text-xs text-gray-400 mb-3">
                   {new Date(post.date_created).toLocaleDateString("de-DE", { day: "2-digit", month: "short", year: "numeric" })}
                   {post.read_time && ` · ${post.read_time} min`}
                 </p>
-                <h3 class="text-white font-semibold group-hover:text-white/70 transition-colors leading-snug mb-2">{post.title}</h3>
-                <p class="text-white/50 text-sm leading-relaxed line-clamp-2">{post.excerpt}</p>
+                <h3 class="font-semibold text-[#1a1a1a] group-hover:text-gray-600 transition-colors leading-snug mb-2">{post.title}</h3>
+                <p class="text-gray-500 text-sm leading-relaxed line-clamp-2 flex-1">{post.excerpt}</p>
               </div>
             </a>
           ))}
         </div>
       ) : (
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <a href="/aktuelles/relaunch-seo" class="group bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-white/30 transition-colors">
+          <a href="/aktuelles/relaunch-seo" class="group flex flex-col bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
             <img
               src="https://www.digipub.de/wp-content/uploads/2025/04/u2637499129_Bitte_kreire_mir_ein_Bild_zum_Thema_Relaunch_SEO._c0329f22-7da5-4fc7-a629-f331caee7e41_2-1-1024x574.png"
               alt="Relaunch SEO"
@@ -70,16 +81,25 @@ const posts = await getPosts(3);
               loading="lazy"
             />
             <div class="p-6">
-              <h3 class="text-white font-semibold group-hover:text-white/70 transition-colors leading-snug mb-2">
+              <p class="font-mono text-xs text-gray-400 mb-3">Apr 2025 &middot; 5 min</p>
+              <h3 class="font-semibold text-[#1a1a1a] group-hover:text-gray-600 transition-colors leading-snug mb-2">
                 Mit SEO besser durch den Relaunch
               </h3>
-              <p class="text-white/50 text-sm leading-relaxed">
+              <p class="text-gray-500 text-sm leading-relaxed">
                 Ein Website Relaunch bringt neue Strukturen, Inhalte und Technik &ndash; doch genau das birgt Risiken f&uuml;r Sichtbarkeit und Rankings.
               </p>
             </div>
           </a>
         </div>
       )}
+
+      <!-- Mobile: Alle Artikel Link -->
+      <div class="mt-8 md:hidden">
+        <a href="/aktuelles" class="text-sm font-medium text-[#2563eb] hover:opacity-70 transition-opacity">
+          Alle Artikel &rarr;
+        </a>
+      </div>
+
     </div>
   </section>
 
