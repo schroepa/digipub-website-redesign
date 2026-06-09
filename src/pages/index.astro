@@ -2,98 +2,37 @@
 import Layout from "../layouts/Layout.astro";
 import { getPosts } from "../lib/directus";
 import HeroCanvas from "../components/HeroCanvas.astro";
+import LogosBar from "../components/LogosBar.astro";
+import Leistungen3 from "../components/Leistungen3.astro";
+import Ergebnisse from "../components/Ergebnisse.astro";
+import Team from "../components/Team.astro";
+import FAQ from "../components/FAQ.astro";
+import CTACalendly from "../components/CTACalendly.astro";
 
 const posts = await getPosts(3);
-
-const leistungen = [
-  {
-    title: "Markenaufbau neu gedacht",
-    text: "Wir helfen Unternehmen, ihren echten Mehrwert strategisch, digital und über alle Touchpoints hinweg sichtbar zu machen. Von der Positionierung über Sprache bis hin zu Design entwickeln wir Marken, die relevant sind, Vertrauen schaffen und im Wandel wachsen.",
-    bold: "Mehrwert ist Marke. Und Marke entsteht, wenn Menschen, Prozesse und digitale Systeme zusammenfinden.",
-    link: "/leistungen/markenaufbau-branding",
-    linkLabel: "zum Markenaufbau",
-    img: "https://www.digipub.de/wp-content/uploads/2025/11/u2637499129_Aufsteigende_Digitale_Treppe_in_den_Himmel_-ar_1_82697a3c-1fc2-462e-9cb1-95b02a9d72c2_1-1024x574.png",
-    imgAlt: "Der Digitale Markenaufbau",
-    imgRight: true,
-  },
-  {
-    title: "Vom Mehrwert zur konsistenten Gestaltung mit Designsystemen.",
-    text: "Gestaltung wirkt nur dann, wenn Inhalte strukturiert und verständlich sind. Ein Designsystem macht diese Struktur sichtbar, über alle Anwendungen hinweg.",
-    bold: "DigiPub entwickelt Gestaltungssysteme, die Marken klarer machen, Konsistenz schaffen und als gemeinsame Arbeitsgrundlage funktionieren.",
-    link: "/leistungen/designsystem",
-    linkLabel: "mehr zum Designsystem",
-    img: "https://www.digipub.de/wp-content/uploads/2025/11/u2637499129_Netzwerk_aus_Knoten_und_Kanten_in_Wolkenform_-ar_e39ad9a2-5a17-4a91-a5d9-f27d771febfe_2-1024x574.png",
-    imgAlt: "Design-System",
-    imgRight: false,
-  },
-  {
-    title: "Künstliche Intelligenz beginnt mit der richtigen Frage.",
-    text: "Echte Wirkung entsteht durch den gezielten Einsatz von KI. Wir identifizieren passende Use Cases und setzen sie erfolgreich um. So entlastet KI spürbar im Arbeitsalltag und verbessert die Qualität von Prozessen und Ergebnissen. KI zeigt dort Wirkung, wo Automatisierung an ihre Grenzen stößt.",
-    bold: "KI um jeden Preis ergibt oft keinen Mehrwert.",
-    link: "/leistungen/ki-implementierung",
-    linkLabel: "mehr zu KI-Implementierung",
-    img: "https://www.digipub.de/wp-content/uploads/2025/11/u2637499129_digitale_Matrix_dreht_sich_um_zufriedenen_Nutzer__083b13f9-3139-4de5-9ac3-47d2e29efa3c_0-1024x574.png",
-    imgAlt: "KI-Mitarbeiter",
-    imgRight: true,
-  },
-  {
-    title: "Automatisierung für dein Unternehmen",
-    text: "Weniger manuelle Arbeit und mehr Fokus auf das Kerngeschäft: Wir helfen dir dabei, analoge Prozesse Schritt für Schritt zu automatisieren, effizient, nachhaltig und verständlich erklärt. Mit flexiblen Tools wie n8n verbinden wir Systeme, digitalisieren Routineaufgaben und schaffen messbare Entlastung im Arbeitsalltag.",
-    bold: "Für Unternehmen, die bereit sind, analoges Handwerk mit digitaler Effizienz zu verbinden.",
-    link: "/leistungen/automatisierung",
-    linkLabel: "zur Automatisierung",
-    img: "https://www.digipub.de/wp-content/uploads/2025/11/u2637499129_httpss.mj_.runp0dDZhJI-sA_Bitte_ein_Agent_workflow_75aa457d-7289-4910-8b5c-85549dd31453_0-1024x574.png",
-    imgAlt: "Automatisierung Nodes",
-    imgRight: false,
-  },
-  {
-    title: "SEO/GEO: Sichtbarkeit in KI-Zeiten",
-    text: "KI verändert die Suche. Wir verbinden klassische Suchmaschinenoptimierung mit Generative Engine Optimization und machen Unternehmen auch in KI-basierten Suchsystemen sichtbar. Grundlage ist echter Mehrwert, den wir gemeinsam herausarbeiten und in relevante Inhalte übersetzen.",
-    bold: "Von Menschen verstanden. Von Maschinen zitiert.",
-    link: "/leistungen/seo-geo",
-    linkLabel: "Mehr zu SEO & GEO",
-    img: "https://www.digipub.de/wp-content/uploads/2025/11/u2637499129_Aufsteigende_Digitale_Treppe_in_den_Himmel_-ar_1_1092d6df-3801-4deb-af05-16387df12f0c_0-1024x574.png",
-    imgAlt: "SEO Treppe",
-    imgRight: true,
-  },
-];
 ---
 
 <Layout>
 
-  <!-- HERO -->
+  <!-- 1. HERO -->
   <HeroCanvas />
 
-  <!-- LEISTUNGEN -->
-  <section class="bg-white">
-    <div class="max-w-7xl mx-auto px-6 py-20">
-      <div class="space-y-20">
-        {leistungen.map((l) => (
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class={l.imgRight ? "order-1" : "order-2 md:order-2"}>
-              <h2 class="text-2xl md:text-3xl font-semibold text-[#1a1a1a] mb-4 leading-snug">
-                {l.title}
-              </h2>
-              <p class="text-gray-600 leading-relaxed mb-4">{l.text}</p>
-              <p class="font-semibold text-[#1a1a1a] mb-6">{l.bold}</p>
-              <a
-                href={l.link}
-                style="background:#1a1a1a;"
-                class="inline-flex items-center gap-2 px-5 py-2.5 text-white text-sm font-medium rounded hover:opacity-80 transition-opacity"
-              >
-                {l.linkLabel}
-              </a>
-            </div>
-            <div class={`rounded-xl overflow-hidden shadow-md ${l.imgRight ? "order-2" : "order-1 md:order-1"}`}>
-              <img src={l.img} alt={l.imgAlt} class="w-full object-cover" loading="lazy" />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- 2. LOGOS BAR -->
+  <LogosBar />
 
-  <!-- AKTUELLES -->
+  <!-- 3. LEISTUNGEN (3 kompakte Kacheln) -->
+  <Leistungen3 />
+
+  <!-- 4. ERGEBNISSE IN ZAHLEN -->
+  <Ergebnisse />
+
+  <!-- 5. TEAM / FACES -->
+  <Team />
+
+  <!-- 6. FAQ -->
+  <FAQ />
+
+  <!-- 7. AKTUELLES -->
   <section style="background:#1a1a1a;">
     <div class="max-w-7xl mx-auto px-6 py-16">
       <h2 class="text-3xl font-semibold text-white mb-10">Aktuelles</h2>
@@ -122,7 +61,6 @@ const leistungen = [
           ))}
         </div>
       ) : (
-        <!-- Statischer Fallback bis Directus befüllt ist -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <a href="/aktuelles/relaunch-seo" class="group bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-white/30 transition-colors">
             <img
@@ -136,35 +74,16 @@ const leistungen = [
                 Mit SEO besser durch den Relaunch
               </h3>
               <p class="text-white/50 text-sm leading-relaxed">
-                Ein Website Relaunch bringt neue Strukturen, Inhalte und Technik – doch genau das birgt Risiken für Sichtbarkeit und Rankings.
+                Ein Website Relaunch bringt neue Strukturen, Inhalte und Technik &ndash; doch genau das birgt Risiken f&uuml;r Sichtbarkeit und Rankings.
               </p>
             </div>
           </a>
         </div>
       )}
-
-
     </div>
   </section>
 
-  <!-- USPs -->
-  <section class="bg-gray-50 border-y border-gray-200">
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          ["Dein Unternehmen", "System, das individuell auf Dich und Dein Unternehmen zugeschnitten ist – für nachhaltigen Erfolg."],
-          ["Dein Mehrwert", "Wir nehmen jedes Projekt persönlich und arbeiten mit Dir zusammen, um Deine Ziele zu erreichen."],
-          ["Deine Einzigartigkeit", "Keine Massenabfertigung – jedes Projekt ist einzigartig, weil auch Du und Dein Unternehmen einzigartig sind."],
-          ["Unser Netzwerk", "Mit jahrelanger Erfahrung und einem Netzwerk von Experten haben wir erfolgreich mit großen und kleinen Unternehmen zusammengearbeitet."],
-          ["Unsere Erfahrung", "Wir stehen Dir mit unserer Expertise zur Seite, wenn es darum geht, deine Ziele zu erreichen."],
-        ].map(([title, text]) => (
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <h3 class="font-semibold text-[#1a1a1a] mb-2">{title}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">{text}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- 8. FINALER CTA / CALENDLY -->
+  <CTACalendly />
 
 </Layout>
