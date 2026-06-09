@@ -2,18 +2,73 @@
 const year = new Date().getFullYear();
 ---
 
-<footer style="background:#1a1a1a;" class="mt-0">
+<footer style="background:#1a1a1a;">
+  <div class="max-w-7xl mx-auto px-6 py-16">
 
-  <!-- Bottom bar -->
-  <div class="border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-white/30 text-xs font-mono">© DigiPub {year}</p>
-      <div class="flex gap-6">
-        <a href="/kontakt" class="text-white/30 hover:text-white/60 text-xs transition-colors">Kontakt</a>
-        <a href="/impressum" class="text-white/30 hover:text-white/60 text-xs transition-colors">Impressum</a>
-        <a href="/datenschutzerklaerung" class="text-white/30 hover:text-white/60 text-xs transition-colors">Datenschutzerklärung</a>
-        <a href="/cookie-richtlinie" class="text-white/30 hover:text-white/60 text-xs transition-colors">Cookie-Richtlinie</a>
-      </div>
+    <!-- Top: Logo + Tagline -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12 pb-12 border-b border-white/10">
+      <a href="/">
+        <img src="/logo.svg" alt="DigiPub" class="h-6 w-auto brightness-0 invert" loading="lazy" />
+      </a>
+      <p class="text-white/50 text-sm max-w-sm">
+        Sichtbarkeit ist kein Zufall. Wir machen sie zur Strategie.
+      </p>
     </div>
+
+    <!-- 4-Column Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+
+      <!-- Leistungen -->
+      <div>
+        <p class="text-xs font-mono text-white/40 uppercase tracking-widest mb-4">Leistungen</p>
+        <ul class="flex flex-col gap-2">
+          <li><a href="/leistungen/markenaufbau-branding" class="text-white/60 text-sm hover:text-white transition-colors">Markenaufbau</a></li>
+          <li><a href="/leistungen/seo-geo" class="text-white/60 text-sm hover:text-white transition-colors">SEO / GEO</a></li>
+          <li><a href="/leistungen/designsystem" class="text-white/60 text-sm hover:text-white transition-colors">Designsystem</a></li>
+          <li><a href="/leistungen/automatisierung" class="text-white/60 text-sm hover:text-white transition-colors">Automatisierung</a></li>
+          <li><a href="/leistungen/ki-implementierung" class="text-white/60 text-sm hover:text-white transition-colors">KI-Implementierung</a></li>
+        </ul>
+      </div>
+
+      <!-- Seiten -->
+      <div>
+        <p class="text-xs font-mono text-white/40 uppercase tracking-widest mb-4">Seiten</p>
+        <ul class="flex flex-col gap-2">
+          <li><a href="/" class="text-white/60 text-sm hover:text-white transition-colors">Home</a></li>
+          <li><a href="/case-studies" class="text-white/60 text-sm hover:text-white transition-colors">Case Studies</a></li>
+          <li><a href="/referenzen" class="text-white/60 text-sm hover:text-white transition-colors">Referenzen</a></li>
+          <li><a href="/aktuelles" class="text-white/60 text-sm hover:text-white transition-colors">Aktuelles</a></li>
+          <li><a href="/kontakt" class="text-white/60 text-sm hover:text-white transition-colors">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <!-- Kontakt -->
+      <div>
+        <p class="text-xs font-mono text-white/40 uppercase tracking-widest mb-4">Kontakt</p>
+        <ul class="flex flex-col gap-2">
+          <li><a href="mailto:kontakt@digipub.de" class="text-white/60 text-sm hover:text-white transition-colors">kontakt@digipub.de</a></li>
+          <li><a href="https://www.linkedin.com/company/digipub-de/" class="text-white/60 text-sm hover:text-white transition-colors" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/digipub.de/" class="text-white/60 text-sm hover:text-white transition-colors" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/DigiPubSeo" class="text-white/60 text-sm hover:text-white transition-colors" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+
+      <!-- Rechtliches -->
+      <div>
+        <p class="text-xs font-mono text-white/40 uppercase tracking-widest mb-4">Rechtliches</p>
+        <ul class="flex flex-col gap-2">
+          <li><a href="/impressum" class="text-white/60 text-sm hover:text-white transition-colors">Impressum</a></li>
+          <li><a href="/datenschutzerklaerung" class="text-white/60 text-sm hover:text-white transition-colors">Datenschutz</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+      <p class="text-xs text-white/30">&copy; {year} DigiPub. Alle Rechte vorbehalten.</p>
+      <p class="text-xs text-white/30">Made with &#9825; in Berlin</p>
+    </div>
+
   </div>
 </footer>
