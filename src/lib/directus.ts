@@ -38,6 +38,7 @@ export interface Leistung {
   title: string;            // H1 Hero
   subtitle: string;         // Hero-Untertitel
   hero_text: string;        // Hero-Beschreibung
+  hero_text_3?: string;     // Optionaler dritter Absatz (volle Breite, zentriert)
 
   intro_title: string;
   intro_text_1: string;
@@ -61,6 +62,8 @@ export interface Leistung {
   ansatz_bold: string;
   ansatz_image?: string;
 
+  takeaways_title?: string;
+  takeaways_subtitle?: string;
   leistungen_title: string;
   key_takeaways: KeyTakeaway[];
   leistungen_cards: LeistungCard[];
