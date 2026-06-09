@@ -13,6 +13,7 @@ import StatementBar from "../../components/leistungen/StatementBar.astro";
 import SimpleCTA from "../../components/leistungen/SimpleCTA.astro";
 import LeistungKacheln from "../../components/leistungen/LeistungKacheln.astro";
 import WiesoDigiPub from "../../components/leistungen/WiesoDigiPub.astro";
+import FAQ from "../../components/leistungen/FAQ.astro";
 import CalendlySection from "../../components/leistungen/CalendlySection.astro";
 
 const slug = "seo-geo";
@@ -70,5 +71,8 @@ const nextHref = nextSlug ? `/leistungen/${nextSlug}` : null;
   <SimpleCTA />
   <LeistungKacheln title={d.leistungen_title} cards={d.leistungen_cards} />
   <WiesoDigiPub title={d.wieso_title} subtitle={d.wieso_subtitle} items={d.wieso_items} />
+  {d.faq_items && d.faq_items.length > 0 && (
+    <FAQ items={d.faq_items} />
+  )}
   <CalendlySection />
 </Layout>

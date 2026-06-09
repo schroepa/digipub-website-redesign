@@ -1,4 +1,4 @@
-import { createDirectus, rest, staticToken, readItems } from "@directus/sdk";
+import { createDirectus, rest, staticToken, readItems, readItem } from "@directus/sdk";
 
 // ── Typen ────────────────────────────────────────────────────────────────────
 
@@ -67,6 +67,7 @@ export interface Leistung {
   wieso_title: string;
   wieso_subtitle: string;
   wieso_items: WiesoItem[];
+  faq_items?: { question: string; answer: string }[];
 }
 
 // ── Client ───────────────────────────────────────────────────────────────────
@@ -179,4 +180,12 @@ export async function getLeistungen(): Promise<Leistung[]> {
       sort: ["number"],
     }))) as Leistung[];
   } catch { return []; }
+}
+
+// ── Settings (Singleton) ─────────────────────────────────────────────────────
+
+export async function getSettings(): Promise<{ ai_prompt?: string }> {
+  try {
+    return (await directus.request(readItem("digipub_settings" as any, 1))) as { ai_prompt?: string };
+  } catch { return {}; }
 }
