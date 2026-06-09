@@ -10,9 +10,11 @@ interface Props {
   vorgehenItems: VorgehenItem[];
   ergebnisText: string;
   learningsText?: string;
+  chartImageSrc?: string;
+  chartCaption?: string;
   kpis: KPI[];
 }
-const { ausgangslageText, logoSrc, kundeName, zielesLeftTitle, zielesLeftText, zielesRightTitle, zielesRightText, vorgehenItems, ergebnisText, learningsText, kpis } = Astro.props;
+const { ausgangslageText, logoSrc, kundeName, zielesLeftTitle, zielesLeftText, zielesRightTitle, zielesRightText, vorgehenItems, ergebnisText, learningsText, chartImageSrc, chartCaption, kpis } = Astro.props;
 
 // Erkennt ob ein String HTML enthält oder Plaintext (mit "- " Bullets) ist
 function isHtml(text: string) {
@@ -125,7 +127,7 @@ const htmlClass     = (dark: boolean, sm = false) => `rich-text leading-relaxed 
 {kpis.length > 0 && (
   <section class="bg-gray-50 border-y border-gray-200">
     <div class="max-w-7xl mx-auto px-6 py-12">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="flex flex-wrap justify-center gap-12">
         {kpis.map(kpi => (
           <div class="text-center">
             <p class="text-3xl md:text-4xl font-black text-[#1a1a1a] mb-1">{kpi.value}</p>
@@ -133,6 +135,18 @@ const htmlClass     = (dark: boolean, sm = false) => `rich-text leading-relaxed 
           </div>
         ))}
       </div>
+    </div>
+  </section>
+)}
+
+{chartImageSrc && (
+  <section class="bg-gray-50 border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-6">Sichtbarkeitsentwicklung</p>
+      <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+        <img src={chartImageSrc} alt={chartCaption || 'Sichtbarkeitskurve'} class="w-full object-contain" loading="lazy" />
+      </div>
+      {chartCaption && <p class="text-sm text-gray-500 mt-4 text-center">{chartCaption}</p>}
     </div>
   </section>
 )}

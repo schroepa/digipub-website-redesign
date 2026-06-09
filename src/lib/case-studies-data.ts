@@ -119,4 +119,4 @@ export const caseStudiesFallback: Record<string, CaseStudy> = {
   },
 };
 
-export const caseStudiesOrder = ["smart-catering", "portazon", "haidacher", "walter-de-gruyter"];
+export const caseStudiesOrder = ["smart-catering", "portazon", "haidacher", "walter-de-gruyter", "initiative-handarbeit"];

@@ -70,6 +70,9 @@ const nextHref = nextSlug ? `/leistungen/${nextSlug}` : null;
   <StatementBar text={d.ansatz_bold} />
   <SimpleCTA />
   <LeistungKacheln title={d.leistungen_title} cards={d.leistungen_cards} />
+  {d.leistungen_cards_2 && d.leistungen_cards_2.length > 0 && (
+    <LeistungKacheln title={d.leistungen_title_2 || ''} cards={d.leistungen_cards_2} />
+  )}
   <WiesoDigiPub title={d.wieso_title} subtitle={d.wieso_subtitle} items={d.wieso_items} />
   {d.faq_items && d.faq_items.length > 0 && (
     <FAQ items={d.faq_items} />

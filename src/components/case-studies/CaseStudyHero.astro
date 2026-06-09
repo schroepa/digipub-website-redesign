@@ -5,14 +5,26 @@ interface Props {
   kunde: string; branche: string; tags: string;
   heroImageId?: string; heroImageFallback: string;
   kundeLogoId?: string;
+  breadcrumb?: string;
+  prevHref?: string | null;
+  nextHref?: string | null;
 }
-const { title, subtitle, description, kunde, branche, tags, heroImageId, heroImageFallback, kundeLogoId } = Astro.props;
+const { title, subtitle, description, kunde, branche, tags, heroImageId, heroImageFallback, kundeLogoId, breadcrumb, prevHref, nextHref } = Astro.props;
 const imgSrc = heroImageId ? getAssetUrl(heroImageId, 1200) : heroImageFallback;
 ---
 <section class="bg-white pt-16 pb-8 border-b border-gray-200">
   <div class="max-w-7xl mx-auto px-6">
-    <p class="text-sm text-gray-400 mb-4">
-      <a href="/case-studies" class="hover:text-gray-600">&larr; Case Studies</a>
+    <p class="text-sm text-gray-400 mb-4 inline-flex items-center gap-2">
+      {prevHref && (
+        <a href={prevHref} aria-label="Vorherige Case Study" class="hover:text-gray-600">&larr;</a>
+      )}
+      <span>
+        <a href="/case-studies" class="hover:text-gray-600">Case Studies</a>
+        &middot; {breadcrumb || title}
+      </span>
+      {nextHref && (
+        <a href={nextHref} aria-label="Nächste Case Study" class="hover:text-gray-600">&rarr;</a>
+      )}
     </p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-0">
       <div>

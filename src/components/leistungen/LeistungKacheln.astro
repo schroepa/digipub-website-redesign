@@ -6,6 +6,23 @@ interface Props {
   cards: LeistungCard[];
 }
 const { title, cards } = Astro.props;
+
+function renderText(text: string) {
+  const lines = text.split('\n').filter(l => l.trim());
+  const segments: Array<{ type: 'text' | 'bullets'; items: string[] }> = [];
+  let currentBullets: string[] = [];
+  for (const line of lines) {
+    const trimmed = line.trimStart();
+    if (trimmed.startsWith('- ')) {
+      currentBullets.push(trimmed.slice(2));
+    } else {
+      if (currentBullets.length) { segments.push({ type: 'bullets', items: [...currentBullets] }); currentBullets = []; }
+      segments.push({ type: 'text', items: [line] });
+    }
+  }
+  if (currentBullets.length) segments.push({ type: 'bullets', items: currentBullets });
+  return segments;
+}
 ---
 <section id="section-leistungen" class="bg-white">
   <div class="max-w-7xl mx-auto px-6 py-20">
@@ -14,7 +31,15 @@ const { title, cards } = Astro.props;
       {cards.map((card) => (
         <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
           <h3 class="font-semibold text-[#1a1a1a] mb-3">{card.title}</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-4">{card.text}</p>
+          <div class="text-gray-500 text-sm leading-relaxed mb-4">
+            {renderText(card.text).map(seg =>
+              seg.type === 'bullets'
+                ? <ul class="list-disc list-outside pl-4 space-y-1">
+                    {seg.items.map(item => <li class="pl-1">{item}</li>)}
+                  </ul>
+                : <p class="mb-2">{seg.items[0]}</p>
+            )}
+          </div>
           <p class="text-sm font-semibold text-[#1a1a1a] border-t border-gray-100 pt-3">Ziel: {card.ziel}</p>
         </div>
       ))}

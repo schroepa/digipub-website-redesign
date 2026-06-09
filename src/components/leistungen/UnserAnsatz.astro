@@ -14,21 +14,26 @@ const imgSrc = imageId ? getAssetUrl(imageId, 1024) : imageFallback;
 
 function renderText(text: string) {
   const lines = text.split('\n').filter(l => l.trim());
-  const segments: Array<{ type: 'text' | 'bullets'; items: string[] }> = [];
+  const segments: Array<{ type: 'text' | 'bullets' | 'numbered'; items: string[] }> = [];
   let currentBullets: string[] = [];
+  let currentNumbered: string[] = [];
 
   for (const line of lines) {
-    if (line.trimStart().startsWith('- ')) {
-      currentBullets.push(line.trimStart().slice(2));
+    const trimmed = line.trimStart();
+    if (trimmed.startsWith('- ')) {
+      if (currentNumbered.length) { segments.push({ type: 'numbered', items: [...currentNumbered] }); currentNumbered = []; }
+      currentBullets.push(trimmed.slice(2));
+    } else if (/^\d+\.\s/.test(trimmed)) {
+      if (currentBullets.length) { segments.push({ type: 'bullets', items: [...currentBullets] }); currentBullets = []; }
+      currentNumbered.push(trimmed.replace(/^\d+\.\s/, ''));
     } else {
-      if (currentBullets.length) {
-        segments.push({ type: 'bullets', items: [...currentBullets] });
-        currentBullets = [];
-      }
+      if (currentBullets.length) { segments.push({ type: 'bullets', items: [...currentBullets] }); currentBullets = []; }
+      if (currentNumbered.length) { segments.push({ type: 'numbered', items: [...currentNumbered] }); currentNumbered = []; }
       segments.push({ type: 'text', items: [line] });
     }
   }
   if (currentBullets.length) segments.push({ type: 'bullets', items: currentBullets });
+  if (currentNumbered.length) segments.push({ type: 'numbered', items: currentNumbered });
   return segments;
 }
 ---
@@ -45,6 +50,10 @@ function renderText(text: string) {
             ? <ul class="list-disc list-outside pl-5 space-y-2 text-gray-600 leading-relaxed mb-4">
                 {seg.items.map(item => <li class="pl-1">{item}</li>)}
               </ul>
+            : seg.type === 'numbered'
+            ? <ol class="list-decimal list-outside pl-5 space-y-2 text-gray-600 leading-relaxed mb-4">
+                {seg.items.map(item => <li class="pl-1">{item}</li>)}
+              </ol>
             : <p class="text-gray-600 leading-relaxed mb-4">{seg.items[0]}</p>
         )}
         {text2 && <p class="text-gray-600 leading-relaxed mt-2">{text2}</p>}

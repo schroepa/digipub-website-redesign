@@ -65,6 +65,8 @@ export interface Leistung {
   takeaways_title?: string;
   takeaways_subtitle?: string;
   leistungen_title: string;
+  leistungen_title_2?: string;
+  leistungen_cards_2?: LeistungCard[];
   key_takeaways: KeyTakeaway[];
   leistungen_cards: LeistungCard[];
   wieso_title: string;
@@ -143,6 +145,8 @@ export interface CaseStudy {
   vorgehen_items: VorgehenItem[];
   ergebnis_text: string;
   learnings_text?: string;
+  chart_image?: string;
+  chart_caption?: string;
   kpis: KPI[];
 }
 

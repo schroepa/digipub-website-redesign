@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getCaseStudy } from "../../lib/directus";
+import { getCaseStudy, getAssetUrl } from "../../lib/directus";
 import { caseStudiesFallback, caseStudiesOrder } from "../../lib/case-studies-data";
 import CaseStudyHero from "../../components/case-studies/CaseStudyHero.astro";
 import CaseStudyContent from "../../components/case-studies/CaseStudyContent.astro";
@@ -17,11 +17,18 @@ const d = cms ?? caseStudiesFallback[slug];
 
 if (!d) return Astro.redirect('/case-studies');
 
+const _idx = caseStudiesOrder.indexOf(slug);
+const prevSlug = _idx > 0 ? caseStudiesOrder[_idx - 1] : null;
+const nextSlug = _idx >= 0 && _idx < caseStudiesOrder.length - 1 ? caseStudiesOrder[_idx + 1] : null;
+const prevHref = prevSlug ? `/case-studies/${prevSlug}` : null;
+const nextHref = nextSlug ? `/case-studies/${nextSlug}` : null;
+
 const heroFallbacks: Record<string, string> = {
   "smart-catering":    "/images/case-studies/smart-catering-hero.jpg",
   "portazon":          "/images/case-studies/portazon-hero.png",
   "haidacher":         "/images/case-studies/haidacher-hero.png",
   "walter-de-gruyter": "/images/case-studies/degruyter-hero.png",
+  "initiative-handarbeit": "/images/case-studies/smart-catering-hero.jpg",
 };
 
 const logoFallbacks: Record<string, string> = {
@@ -44,13 +51,16 @@ const logoFallbacks: Record<string, string> = {
     heroImageId={d.hero_image}
     heroImageFallback={heroFallbacks[slug] ?? "/images/case-studies/smart-catering-hero.jpg"}
     kundeLogoId={d.kunde_logo}
+    breadcrumb={d.kunde}
+    prevHref={prevHref}
+    nextHref={nextHref}
   />
 
   {d.intro_text && <CaseStudyIntroText text={d.intro_text} />}
 
   <CaseStudyContent
     ausgangslageText={d.ausgangslage_text}
-    logoSrc={logoFallbacks[slug]}
+    logoSrc={d.kunde_logo ? getAssetUrl(d.kunde_logo) : logoFallbacks[slug]}
     kundeName={d.kunde}
     zielesLeftTitle={d.ziele_left_title}
     zielesLeftText={d.ziele_left_text}
@@ -59,6 +69,8 @@ const logoFallbacks: Record<string, string> = {
     vorgehenItems={d.vorgehen_items}
     ergebnisText={d.ergebnis_text}
     learningsText={d.learnings_text}
+    chartImageSrc={d.chart_image ? getAssetUrl(d.chart_image) : undefined}
+    chartCaption={d.chart_caption}
     kpis={d.kpis}
   />
 
