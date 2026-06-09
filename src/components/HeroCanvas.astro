@@ -1,0 +1,290 @@
+---
+// Keine Props nötig – Inhalte sind statisch
+---
+
+<section
+  id="hero"
+  class="relative bg-white overflow-hidden border-b border-gray-200"
+  style="min-height: clamp(520px, 80vh, 800px);"
+>
+  <!-- Canvas liegt hinter dem Inhalt -->
+  <canvas
+    id="hero-canvas"
+    class="absolute inset-0 w-full h-full"
+    aria-hidden="true"
+  ></canvas>
+
+  <!-- Inhalt -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 flex items-center h-full"
+       style="min-height: inherit;">
+    <div class="max-w-2xl py-24">
+
+      <!-- Label -->
+      <p
+        id="hero-label"
+        class="text-xs font-mono uppercase tracking-widest text-gray-400 mb-6 opacity-0"
+      >
+        Digitalagentur &middot; Marke &middot; KI &middot; Automatisierung
+      </p>
+
+      <!-- Headline -->
+      <h1 class="font-bold text-[#1a1a1a] leading-tight tracking-tight mb-3"
+          style="font-size: clamp(2.2rem, 5vw, 3.5rem);">
+        <span id="hero-line1" class="block opacity-0" style="transform: translateY(16px);">
+          Sichtbarkeit ist kein Zufall.
+        </span>
+        <span id="hero-line2" class="block opacity-0" style="transform: translateY(16px);">
+          Wir machen sie zur Strategie.
+        </span>
+      </h1>
+
+      <!-- Kinetische Zeile -->
+      <p class="font-bold text-[#1a1a1a] mb-6 opacity-0"
+         id="hero-kinetic"
+         style="font-size: clamp(2.2rem, 5vw, 3.5rem); transform: translateY(16px); line-height: 1.2;">
+        Wir machen dich
+        <span
+          id="hero-word"
+          style="border-bottom: 3px solid #1a1a1a; padding-bottom: 2px; display: inline-block;"
+        >sichtbar</span>.
+      </p>
+
+      <!-- Subtext -->
+      <p
+        id="hero-sub"
+        class="text-base text-gray-600 leading-relaxed mb-8 max-w-lg opacity-0"
+      >
+        Wir verbinden Markenaufbau, KI-Implementierung und Automatisierung
+        &ndash; damit dein Unternehmen nicht nur sichtbar wird, sondern wirkt.
+      </p>
+
+      <!-- CTA + Trust -->
+      <div id="hero-cta" class="opacity-0">
+        <a
+          href="/kontakt"
+          class="inline-flex items-center gap-2 px-6 py-3 text-white text-sm font-bold rounded-lg hover:opacity-80 transition-opacity mb-4"
+          style="background: #1a1a1a;"
+        >
+          Los geht&rsquo;s
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+        <div class="flex flex-wrap gap-x-5 gap-y-1 text-xs text-gray-400">
+          <span>&#10003; Kostenlose Erstberatung</span>
+          <span>&#10003; Kein Bullshit</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+// ── 1. Simplex Noise 2D (inline, keine externe Library) ──────────────────────
+function buildNoise() {
+  const perm = new Uint8Array(256);
+  for (let i = 0; i < 256; i++) perm[i] = i;
+  for (let i = 255; i > 0; i--) {
+    const j = (Math.random() * (i + 1)) | 0;
+    const tmp = perm[i]; perm[i] = perm[j]; perm[j] = tmp;
+  }
+  const p = new Uint8Array(512);
+  for (let i = 0; i < 512; i++) p[i] = perm[i & 255];
+  const G = [[1,1],[-1,1],[1,-1],[-1,-1],[1,0],[-1,0],[0,1],[0,-1]];
+  const F2 = 0.5 * (Math.sqrt(3) - 1);
+  const G2 = (3 - Math.sqrt(3)) / 6;
+
+  function simplex2(x, y) {
+    const s = (x + y) * F2;
+    const i = Math.floor(x + s) | 0;
+    const j = Math.floor(y + s) | 0;
+    const t0 = (i + j) * G2;
+    const x0 = x - (i - t0), y0 = y - (j - t0);
+    const i1 = x0 > y0 ? 1 : 0, j1 = x0 > y0 ? 0 : 1;
+    const x1 = x0 - i1 + G2, y1 = y0 - j1 + G2;
+    const x2 = x0 - 1 + 2 * G2, y2 = y0 - 1 + 2 * G2;
+    const g0 = p[(i + p[j & 255]) & 255] & 7;
+    const g1 = p[(i + i1 + p[(j + j1) & 255]) & 255] & 7;
+    const g2 = p[(i + 1 + p[(j + 1) & 255]) & 255] & 7;
+    function contrib(tx, ty, gx, gy, gidx) {
+      const t = 0.5 - tx*tx - ty*ty;
+      return t < 0 ? 0 : t*t*t*t * (G[gidx][0]*gx + G[gidx][1]*gy);
+    }
+    return 70 * (contrib(x0,y0,x0,y0,g0) + contrib(x1,y1,x1,y1,g1) + contrib(x2,y2,x2,y2,g2));
+  }
+
+  // fBm: 5 Oktaven
+  return function fbm(x, y) {
+    let v = 0, amp = 0.5, freq = 1, max = 0;
+    for (let i = 0; i < 5; i++) {
+      v += simplex2(x * freq, y * freq) * amp;
+      max += amp;
+      amp *= 0.5;
+      freq *= 2.1;
+    }
+    return v / max;
+  };
+}
+
+// ── 2. Canvas Setup ───────────────────────────────────────────────────────────
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+const fbm = buildNoise();
+
+const off = document.createElement('canvas');
+const octx = off.getContext('2d');
+
+function resizeCanvas() {
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth;
+  const H = canvas.offsetHeight;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  off.width = W;
+  off.height = H;
+  ctx.scale(dpr, dpr);
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// ── 3. Cloud-Definitionen (Soft Pastel) ──────────────────────────────────────
+const CLOUDS = [
+  { cx: 0.78, cy: 0.28, r: 200, g: 210, b: 255, opacity: 1.05, scale: 2.2, speed: 0.40, blur: 14, falloff: 2.2, px: 0.08, py: 0.05 },
+  { cx: 0.85, cy: 0.68, r: 185, g: 245, b: 220, opacity: 0.90, scale: 2.5, speed: 0.30, blur: 12, falloff: 2.0, px: 0.06, py: 0.07 },
+  { cx: 0.58, cy: 0.38, r: 235, g: 215, b: 255, opacity: 0.80, scale: 1.8, speed: 0.50, blur: 16, falloff: 2.5, px: 0.10, py: 0.04 },
+];
+
+// ── 4. Parallax State ─────────────────────────────────────────────────────────
+let mx = 0.5, my = 0.5, tmx = 0.5, tmy = 0.5;
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+if (!isMobile) {
+  window.addEventListener('mousemove', (e) => {
+    tmx = e.clientX / window.innerWidth;
+    tmy = e.clientY / window.innerHeight;
+  });
+}
+
+// ── 5. Render Loop ────────────────────────────────────────────────────────────
+let t = 0;
+
+function renderClouds() {
+  const W = canvas.offsetWidth;
+  const H = canvas.offsetHeight;
+
+  mx += (tmx - mx) * 0.04;
+  my += (tmy - my) * 0.04;
+
+  ctx.clearRect(0, 0, W, H);
+
+  CLOUDS.forEach((c) => {
+    const px = (c.cx + (mx - 0.5) * c.px) * W;
+    const py = (c.cy + (my - 0.5) * c.py) * H;
+    const opacityMult = isMobile ? 0.7 : 1.0;
+
+    const imgD = octx.createImageData(W, H);
+    const d = imgD.data;
+
+    for (let iy = 0; iy < H; iy += 2) {
+      for (let ix = 0; ix < W; ix += 2) {
+        const fx = (ix / W - px / W) * c.scale;
+        const fy = (iy / H - py / H) * c.scale;
+        let n = fbm(fx + t * c.speed, fy + t * c.speed * 0.7);
+        n = (n + 0.5) * 0.5;
+
+        const dx = (ix - px) / W * 0.8;
+        const dy = (iy - py) / H * 0.8;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const falloff = Math.max(0, 1 - dist * c.falloff);
+
+        let alpha = Math.max(0, (n - 0.28) * 2.5 * falloff) * c.opacity * opacityMult;
+        alpha = Math.min(1, alpha);
+        const a = Math.round(alpha * 255);
+        if (a < 2) continue;
+
+        for (let oy = 0; oy < 2; oy++) {
+          for (let ox = 0; ox < 2; ox++) {
+            const idx = ((iy + oy) * W + (ix + ox)) * 4;
+            d[idx]     = c.r;
+            d[idx + 1] = c.g;
+            d[idx + 2] = c.b;
+            d[idx + 3] = a;
+          }
+        }
+      }
+    }
+
+    octx.putImageData(imgD, 0, 0);
+    ctx.filter = `blur(${c.blur}px)`;
+    ctx.drawImage(off, 0, 0);
+    ctx.filter = 'none';
+  });
+
+  t += 0.003;
+  requestAnimationFrame(renderClouds);
+}
+
+renderClouds();
+
+// ── 6. Kinetic Typography ─────────────────────────────────────────────────────
+const WORDS = ['sichtbar', 'relevant', 'messbar', 'wirksam', 'unverwechselbar'];
+const SCRAMBLE_CHARS = '!@#$%^&*<>?abcdefghijklmnopqrstuvwxyz';
+const wordEl = document.getElementById('hero-word');
+let wordIndex = 0;
+
+function scrambleIn(target, onDone) {
+  let iteration = 0;
+  const maxIter = target.length * 5;
+  const iv = setInterval(() => {
+    wordEl.textContent = target.split('').map((char, i) => {
+      if (i < Math.floor(iteration / 4)) return char;
+      return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+    }).join('');
+    iteration++;
+    if (iteration > maxIter) {
+      clearInterval(iv);
+      wordEl.textContent = target;
+      onDone();
+    }
+  }, 30);
+}
+
+function blurMorphTo(next) {
+  wordEl.style.transition = 'filter 0.35s ease, opacity 0.35s ease';
+  wordEl.style.filter = 'blur(8px)';
+  wordEl.style.opacity = '0';
+  setTimeout(() => {
+    wordEl.textContent = next;
+    wordEl.style.filter = 'blur(0px)';
+    wordEl.style.opacity = '1';
+  }, 360);
+}
+
+function startCycling() {
+  setInterval(() => {
+    wordIndex = (wordIndex + 1) % WORDS.length;
+    blurMorphTo(WORDS[wordIndex]);
+  }, 2500);
+}
+
+// ── 7. Staggered Entrance Animation ──────────────────────────────────────────
+function animateIn(el, delay, slide = false) {
+  if (!el) return;
+  el.style.transition = `opacity 0.6s ease ${delay}ms${slide ? `, transform 0.6s ease ${delay}ms` : ''}`;
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      el.style.opacity = '1';
+      if (slide) el.style.transform = 'translateY(0)';
+    });
+  });
+}
+
+animateIn(document.getElementById('hero-label'),    0);
+animateIn(document.getElementById('hero-line1'),  100, true);
+animateIn(document.getElementById('hero-line2'),  200, true);
+animateIn(document.getElementById('hero-kinetic'),300, true);
+animateIn(document.getElementById('hero-sub'),    450);
+animateIn(document.getElementById('hero-cta'),    600);
+
+// Scramble beim ersten Render, dann Cycling starten
+scrambleIn(WORDS[0], startCycling);
+</script>
