@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getPosts } from "../lib/directus";
+import HeroCanvas from "../components/HeroCanvas.astro";
 
 const posts = await getPosts(3);
 
@@ -61,17 +62,7 @@ const leistungen = [
 <Layout>
 
   <!-- HERO -->
-  <section class="bg-white py-16 text-center border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-6">
-      <h1 class="text-5xl md:text-7xl font-semibold text-[#1a1a1a] tracking-tight mb-4">
-        Mehrwert ist Marke
-      </h1>
-      <p class="text-xl text-gray-500 mb-12">
-        Sichtbarkeit & Digitalisierung für dein Unternehmen
-      </p>
-
-    </div>
-  </section>
+  <HeroCanvas />
 
   <!-- LEISTUNGEN -->
   <section class="bg-white">
