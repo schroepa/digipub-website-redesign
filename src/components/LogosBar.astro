@@ -4,15 +4,21 @@ const logos = [
   { name: "Walter de Gruyter", href: "/case-studies/walter-de-gruyter", file: "/images/referenzen/walter-de-gruyter.jpg" },
   { name: "Smart Catering", href: "/case-studies/smart-catering", file: "/images/referenzen/sander-catering.jpg" },
   { name: "Tischlerei Haidacher", href: "/case-studies/haidacher", file: "/images/referenzen/haidacher.webp" },
+  { name: "Cornelsen Verlag", href: "/referenzen", file: "/images/referenzen/cornelsen.jpg" },
+  { name: "Westermann", href: "/referenzen", file: "/images/referenzen/westermann.png" },
+  { name: "Edelman Deutschland", href: "/referenzen", file: "/images/referenzen/edelman.jpg" },
+  { name: "A EINS Digital Innovation", href: "/referenzen", file: "/images/referenzen/aeins.jpeg" },
+  { name: "Stadtwerke Trier", href: "/referenzen", file: "/images/referenzen/stadtwerke-trier.png" },
+  { name: "Limebit", href: "/referenzen", file: "/images/referenzen/limebit.png" },
 ];
 ---
 
 <section class="bg-white border-b border-gray-100 py-10">
   <div class="max-w-7xl mx-auto px-6">
-    <p class="text-xs font-mono text-gray-400 uppercase tracking-widest text-center mb-8">
+    <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-8">
       Unternehmen, die uns vertrauen
     </p>
-    <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+    <div class="flex flex-wrap items-center justify-start gap-10 md:gap-16">
       {logos.map((logo) => (
         <a
           href={logo.href}
