@@ -1,0 +1,17 @@
+---
+interface Props {
+  id: string;
+  class?: string;
+}
+
+const { id, class: className = "" } = Astro.props;
+---
+
+<section id={id} class={`bg-background ${className}`}>
+  <div
+    class="mx-auto"
+    style="max-width: var(--container-max); padding-inline: var(--container-px); padding-block: var(--section-gap);"
+  >
+    <slot />
+  </div>
+</section>
