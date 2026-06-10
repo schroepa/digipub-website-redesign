@@ -13,16 +13,19 @@ const logos = [
 ];
 ---
 
-<section class="bg-white border-b border-gray-100 py-10">
+<section class="bg-white py-10">
   <div class="max-w-7xl mx-auto px-6">
     <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-8">
       Unternehmen, die uns vertrauen
     </p>
-    <div class="flex flex-wrap items-center justify-start gap-10 md:gap-16">
-      {logos.map((logo) => (
+  </div>
+
+  <div class="logos-marquee">
+    <div class="logos-track">
+      {[...logos, ...logos].map((logo) => (
         <a
           href={logo.href}
-          class="transition-all duration-300"
+          class="logos-item"
           style="filter: grayscale(1) opacity(0.45);"
           onmouseover="this.style.filter='grayscale(0) opacity(1)'"
           onmouseout="this.style.filter='grayscale(1) opacity(0.45)'"
@@ -38,3 +41,58 @@ const logos = [
     </div>
   </div>
 </section>
+
+<style>
+  .logos-marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 5%,
+      #000 95%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 5%,
+      #000 95%,
+      transparent
+    );
+  }
+
+  .logos-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 4rem;
+    padding-left: 1.5rem;
+    animation: logos-scroll 40s linear infinite;
+  }
+
+  .logos-track:hover {
+    animation-play-state: paused;
+  }
+
+  .logos-item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    transition: filter 0.3s ease;
+  }
+
+  @keyframes logos-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 2rem));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logos-track {
+      animation: none;
+    }
+  }
+</style>
