@@ -9,7 +9,41 @@ import Team from "../components/Team.astro";
 import FAQ from "../components/FAQ.astro";
 import CTACalendly from "../components/CTACalendly.astro";
 
-const posts = await getPosts(3);
+const fetchedPosts = await getPosts(3);
+
+const fallbackPosts = [
+  {
+    slug: "relaunch-seo",
+    cover: "https://www.digipub.de/wp-content/uploads/2025/04/u2637499129_Bitte_kreire_mir_ein_Bild_zum_Thema_Relaunch_SEO._c0329f22-7da5-4fc7-a629-f331caee7e41_2-1-1024x574.png",
+    date: "Apr 2025 · 5 min",
+    title: "Mit SEO besser durch den Relaunch",
+    excerpt: "Ein Website Relaunch bringt neue Strukturen, Inhalte und Technik – doch genau das birgt Risiken für Sichtbarkeit und Rankings.",
+  },
+  {
+    slug: "ki-im-arbeitsalltag",
+    cover: "https://www.digipub.de/wp-content/uploads/2025/11/u2637499129_digitale_Matrix_dreht_sich_um_zufriedenen_Nutzer__083b13f9-3139-4de5-9ac3-47d2e29efa3c_0-1024x574.png",
+    date: "Mai 2025 · 4 min",
+    title: "KI im Arbeitsalltag – wo der Hebel wirklich ansetzt",
+    excerpt: "Die meisten KI-Projekte scheitern nicht an der Technik, sondern an der Auswahl der Use Cases. Wir zeigen, wie man die richtigen findet.",
+  },
+  {
+    slug: "designsysteme-skalieren-marken",
+    cover: "https://www.digipub.de/wp-content/uploads/2025/11/u2637499129_Netzwerk_aus_Knoten_und_Kanten_in_Wolkenform_-ar_e39ad9a2-5a17-4a91-a5d9-f27d771febfe_2-1024x574.png",
+    date: "Jun 2025 · 6 min",
+    title: "Wie Designsysteme Marken skalierbar machen",
+    excerpt: "Ein konsistentes Designsystem spart nicht nur Zeit in der Umsetzung – es stärkt auch die Wiedererkennbarkeit einer Marke über alle Kanäle hinweg.",
+  },
+];
+
+const posts = fetchedPosts.length > 0
+  ? fetchedPosts.map((post) => ({
+      slug: post.slug,
+      cover: post.cover_image ? `https://directus.deutsche-musik.de/assets/${post.cover_image}?width=600&format=webp` : null,
+      date: `${new Date(post.date_created).toLocaleDateString("de-DE", { day: "2-digit", month: "short", year: "numeric" })}${post.read_time ? ` · ${post.read_time} min` : ""}`,
+      title: post.title,
+      excerpt: post.excerpt,
+    }))
+  : fallbackPosts;
 ---
 
 <Layout>
@@ -48,50 +82,25 @@ const posts = await getPosts(3);
         </a>
       </div>
 
-      {posts.length > 0 ? (
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <a href={`/aktuelles/${post.slug}`} class="group flex flex-col bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-              {post.cover_image && (
-                <img
-                  src={`https://directus.deutsche-musik.de/assets/${post.cover_image}?width=600&format=webp`}
-                  alt={post.title}
-                  class="w-full aspect-video object-cover"
-                  loading="lazy"
-                />
-              )}
-              <div class="p-6 flex flex-col flex-1">
-                <p class="font-mono text-xs text-gray-400 mb-3">
-                  {new Date(post.date_created).toLocaleDateString("de-DE", { day: "2-digit", month: "short", year: "numeric" })}
-                  {post.read_time && ` · ${post.read_time} min`}
-                </p>
-                <h3 class="font-semibold text-[#1a1a1a] group-hover:text-gray-600 transition-colors leading-snug mb-2">{post.title}</h3>
-                <p class="text-gray-500 text-sm leading-relaxed line-clamp-2 flex-1">{post.excerpt}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      ) : (
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <a href="/aktuelles/relaunch-seo" class="group flex flex-col bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-            <img
-              src="https://www.digipub.de/wp-content/uploads/2025/04/u2637499129_Bitte_kreire_mir_ein_Bild_zum_Thema_Relaunch_SEO._c0329f22-7da5-4fc7-a629-f331caee7e41_2-1-1024x574.png"
-              alt="Relaunch SEO"
-              class="w-full aspect-video object-cover"
-              loading="lazy"
-            />
-            <div class="p-6">
-              <p class="font-mono text-xs text-gray-400 mb-3">Apr 2025 &middot; 5 min</p>
-              <h3 class="font-semibold text-[#1a1a1a] group-hover:text-gray-600 transition-colors leading-snug mb-2">
-                Mit SEO besser durch den Relaunch
-              </h3>
-              <p class="text-gray-500 text-sm leading-relaxed">
-                Ein Website Relaunch bringt neue Strukturen, Inhalte und Technik &ndash; doch genau das birgt Risiken f&uuml;r Sichtbarkeit und Rankings.
-              </p>
+      <div class="divide-y divide-gray-200 border-t border-b border-gray-200">
+        {posts.map((post) => (
+          <a href={`/aktuelles/${post.slug}`} class="group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center py-8">
+            {post.cover && (
+              <img
+                src={post.cover}
+                alt={post.title}
+                class="md:col-span-3 w-full aspect-video object-cover rounded-lg"
+                loading="lazy"
+              />
+            )}
+            <div class={post.cover ? "md:col-span-9" : "md:col-span-12"}>
+              <p class="font-mono text-xs text-gray-400 mb-2">{post.date}</p>
+              <h3 class="font-semibold text-[#1a1a1a] group-hover:text-[#2563eb] transition-colors leading-snug mb-2">{post.title}</h3>
+              <p class="text-gray-500 text-sm leading-relaxed line-clamp-2">{post.excerpt}</p>
             </div>
           </a>
-        </div>
-      )}
+        ))}
+      </div>
 
       <!-- Mobile: Alle Artikel Link -->
       <div class="mt-8 md:hidden">
