@@ -4,7 +4,7 @@
 
 <section
   id="hero"
-  class="relative bg-white overflow-hidden border-b border-gray-200"
+  class="relative bg-background overflow-hidden border-b border-border"
   style="min-height: clamp(520px, 80vh, 800px);"
 >
   <!-- Canvas für Noise Clouds (CSS-blur wird per JS gesetzt) -->
@@ -23,13 +23,13 @@
       <!-- Label -->
       <p
         id="hero-label"
-        class="text-xs font-mono uppercase tracking-widest text-gray-400 mb-6 opacity-0"
+        class="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-6 opacity-0"
       >
         Digitalagentur &middot; Marke &middot; KI &middot; Automatisierung
       </p>
 
       <!-- Headline -->
-      <h1 class="font-bold text-[#1a1a1a] leading-tight tracking-tight mb-3"
+      <h1 class="font-bold text-foreground leading-tight tracking-tight mb-3"
           style="font-size: clamp(2rem, 4.2vw, 3.2rem);">
         <span
           id="hero-line1"
@@ -46,19 +46,19 @@
       <!-- Kinetische Zeile -->
       <p
         id="hero-kinetic"
-        class="font-bold text-[#1a1a1a] mb-8 opacity-0 whitespace-nowrap"
+        class="font-bold text-foreground mb-8 opacity-0 whitespace-nowrap"
         style="font-size: clamp(2rem, 4.2vw, 3.2rem); transform: translateY(16px); line-height: 1.2;"
       >
         Wir machen dich <span
           id="hero-word"
-          style="border-bottom: 3px solid #1a1a1a; padding-bottom: 3px; display: inline-block;"
+          style="border-bottom: 3px solid hsl(var(--foreground)); padding-bottom: 3px; display: inline-block;"
         >sichtbar</span>.
       </p>
 
       <!-- Subtext -->
       <p
         id="hero-sub"
-        class="text-base text-gray-600 leading-relaxed mb-8 max-w-lg opacity-0"
+        class="text-base text-muted-foreground leading-relaxed mb-8 max-w-lg opacity-0"
       >
         Wir verbinden Markenaufbau, KI-Implementierung und Automatisierung
         &ndash; damit dein Unternehmen nicht nur sichtbar wird, sondern wirkt.
@@ -68,13 +68,12 @@
       <div id="hero-cta" class="opacity-0">
         <a
           href="/kontakt"
-          class="inline-flex items-center gap-2 px-6 py-3 text-white text-sm font-bold rounded-lg hover:opacity-80 transition-opacity mb-4"
-          style="background: #1a1a1a;"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-bold rounded-lg hover:opacity-80 transition-opacity mb-4"
         >
           Los geht&rsquo;s
           <span aria-hidden="true">&rarr;</span>
         </a>
-        <div class="flex flex-wrap gap-x-5 gap-y-1 text-xs text-gray-400">
+        <div class="flex flex-wrap gap-x-5 gap-y-1 text-xs text-muted-foreground">
           <span>&#10003; Kostenlose Erstberatung</span>
           <span>&#10003; Kein Bullshit</span>
         </div>
