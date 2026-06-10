@@ -1,0 +1,58 @@
+---
+import Section from "../ui/Section.astro";
+---
+
+<Section id="strukturproblem">
+  <div class="max-w-2xl">
+    <h2
+      style="font-size: var(--text-section);"
+      class="font-bold text-foreground mb-8"
+    >
+      Warum gute Unternehmen<br />digital unsichtbar bleiben.
+    </h2>
+
+    <p class="text-muted-foreground mb-6" style="font-size: var(--text-body);">
+      Es sind fast immer dieselben Muster:
+    </p>
+
+    <div
+      class="space-y-4 text-foreground"
+      style="font-size: var(--text-body); line-height: 1.7;"
+    >
+      <p data-animate style="opacity: 0; transform: translateY(30px);">
+        Inhalte, die über Jahre gewachsen sind &ndash; ohne roten Faden.
+      </p>
+      <p data-animate style="opacity: 0; transform: translateY(30px);">
+        Zielgruppen, die nicht klar voneinander getrennt adressiert werden.
+      </p>
+      <p data-animate style="opacity: 0; transform: translateY(30px);">
+        Navigationen, die die interne Struktur spiegeln, nicht die Fragen der Besucher.
+      </p>
+      <p data-animate style="opacity: 0; transform: translateY(30px);">
+        Prozesse, die nicht sauber ineinandergreifen.
+      </p>
+      <p data-animate style="opacity: 0; transform: translateY(30px);">
+        Ein Mehrwert, der intern selbstverständlich ist &ndash; aber nach außen einfach nicht ankommt.
+      </p>
+    </div>
+
+    <div style="margin-top: var(--peak-space);">
+      <p
+        class="font-bold text-foreground"
+        style="font-size: var(--text-peak); line-height: 1.3; opacity: 0; transform: translateY(30px);"
+        data-animate
+      >
+        Das ist kein Versagen.<br />
+        Das ist das, was passiert, wenn ein Unternehmen wächst &ndash;<br />
+        und die digitale Struktur nicht mitgewachsen ist.
+      </p>
+    </div>
+  </div>
+</Section>
+
+<script>
+  import { initScrollAnimate } from "../../lib/scrollAnimate";
+
+  const section = document.getElementById("strukturproblem");
+  if (section) initScrollAnimate(section);
+</script>
