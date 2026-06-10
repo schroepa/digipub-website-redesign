@@ -7,10 +7,101 @@
   --font-mono: "Geist Mono", ui-monospace, monospace;
 }
 
+:root {
+  --background:           0 0% 100%;
+  --foreground:           0 0% 4%;
+  --card:                 0 0% 100%;
+  --card-foreground:      0 0% 4%;
+  --popover:              0 0% 100%;
+  --popover-foreground:   0 0% 4%;
+  --primary:              217 91% 60%;
+  --primary-foreground:   0 0% 100%;
+  --secondary:            0 0% 96%;
+  --secondary-foreground: 0 0% 9%;
+  --muted:                0 0% 96%;
+  --muted-foreground:     0 0% 45%;
+  --accent:               0 0% 96%;
+  --accent-foreground:    0 0% 9%;
+  --border:               0 0% 90%;
+  --input:                0 0% 90%;
+  --ring:                 0 0% 64%;
+  --destructive:          0 72% 51%;
+  --success:              142 72% 29%;
+  --warning:              38 92% 50%;
+  --info:                 199 89% 40%;
+
+  --text-hero:    clamp(3rem, 2rem + 5vw, 5rem);
+  --text-section: clamp(2.25rem, 1.6rem + 3.25vw, 3.5rem);
+  --text-peak:    clamp(1.875rem, 1.4rem + 2.38vw, 2.75rem);
+  --text-body:    clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+
+  --section-gap:   clamp(64px, 5vw + 40px, 128px);
+  --container-px:  clamp(16px, 4vw, 40px);
+  --container-max: 1200px;
+  --peak-space:    80px;
+}
+
+.dark {
+  --background:           0 0% 4%;
+  --foreground:           0 0% 98%;
+  --card:                 0 0% 9%;
+  --card-foreground:      0 0% 98%;
+  --popover:              0 0% 9%;
+  --popover-foreground:   0 0% 98%;
+  --primary:              0 0% 90%;
+  --primary-foreground:   221 74% 41%;
+  --secondary:            0 0% 15%;
+  --secondary-foreground: 0 0% 98%;
+  --muted:                0 0% 15%;
+  --muted-foreground:     0 0% 64%;
+  --accent:               0 0% 15%;
+  --accent-foreground:    0 0% 98%;
+  --border:               0 0% 100% / 0.10;
+  --input:                0 0% 100% / 0.15;
+  --ring:                 0 0% 45%;
+  --destructive:          0 91% 71%;
+  --success:              142 72% 29%;
+  --warning:              38 92% 50%;
+  --info:                 199 89% 40%;
+}
+
+@theme inline {
+  --color-background:           hsl(var(--background));
+  --color-foreground:           hsl(var(--foreground));
+  --color-card:                 hsl(var(--card));
+  --color-card-foreground:      hsl(var(--card-foreground));
+  --color-popover:              hsl(var(--popover));
+  --color-popover-foreground:   hsl(var(--popover-foreground));
+  --color-primary:              hsl(var(--primary));
+  --color-primary-foreground:   hsl(var(--primary-foreground));
+  --color-secondary:            hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted:                hsl(var(--muted));
+  --color-muted-foreground:     hsl(var(--muted-foreground));
+  --color-accent:               hsl(var(--accent));
+  --color-accent-foreground:    hsl(var(--accent-foreground));
+  --color-border:               hsl(var(--border));
+  --color-input:                hsl(var(--input));
+  --color-ring:                 hsl(var(--ring));
+  --color-destructive:          hsl(var(--destructive));
+  --color-success:              hsl(var(--success));
+  --color-warning:              hsl(var(--warning));
+  --color-info:                 hsl(var(--info));
+
+  --radius-xs:  2px;
+  --radius-sm:  6px;
+  --radius-md:  8px;
+  --radius-lg:  10px;
+  --radius-xl:  14px;
+  --radius-2xl: 18px;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 * { box-sizing: border-box; }
 body {
-  background-color: #f5f5f5;
-  color: #1a1a1a;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
