@@ -35,21 +35,25 @@ const leistungen = [
       </h2>
     </div>
 
-    <!-- 3-Column Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Editorial list, no cards -->
+    <div class="divide-y divide-gray-200 border-t border-b border-gray-200">
       {leistungen.map((l) => (
-        <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100 flex flex-col gap-4">
-          <p class="text-xs font-mono text-gray-400 uppercase tracking-widest">{l.label}</p>
-          <div class="text-[#1a1a1a]" set:html={l.icon} />
-          <h3 class="text-lg font-semibold text-[#1a1a1a]" set:html={l.title} />
-          <p class="text-gray-600 text-sm leading-relaxed flex-1" set:html={l.text} />
-          <a
-            href={l.href}
-            class="text-sm font-medium text-[#2563eb] hover:opacity-70 transition-opacity"
-          >
-            Mehr erfahren &rarr;
-          </a>
-        </div>
+        <a
+          href={l.href}
+          class="group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center py-8 md:py-10"
+        >
+          <div class="md:col-span-1 text-[#1a1a1a]" set:html={l.icon} />
+          <div class="md:col-span-3">
+            <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-1">{l.label}</p>
+            <h3 class="text-lg font-semibold text-[#1a1a1a]" set:html={l.title} />
+          </div>
+          <p class="md:col-span-7 text-gray-600 text-sm leading-relaxed" set:html={l.text} />
+          <div class="md:col-span-1 flex md:justify-end">
+            <span class="text-sm font-medium text-[#2563eb] group-hover:translate-x-1 transition-transform inline-block">
+              &rarr;
+            </span>
+          </div>
+        </a>
       ))}
     </div>
 
