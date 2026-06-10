@@ -36,8 +36,10 @@ export function initScrollAnimate(
           const delay = i * staggerMs;
           el.style.transition = `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`;
           requestAnimationFrame(() => {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
+            requestAnimationFrame(() => {
+              el.style.opacity = "1";
+              el.style.transform = "translateY(0)";
+            });
           });
         });
 
@@ -95,7 +97,9 @@ export function initConnectionDiagram(svg: SVGSVGElement, staggerMs = 100): void
           const delay = i * staggerMs;
           line.style.transition = `stroke-dashoffset 0.6s ease ${delay}ms`;
           requestAnimationFrame(() => {
-            line.style.strokeDashoffset = "0";
+            requestAnimationFrame(() => {
+              line.style.strokeDashoffset = "0";
+            });
           });
         });
 
@@ -103,7 +107,9 @@ export function initConnectionDiagram(svg: SVGSVGElement, staggerMs = 100): void
           const delay = i * staggerMs;
           node.style.transition = `opacity 0.6s ease ${delay}ms`;
           requestAnimationFrame(() => {
-            node.style.opacity = "1";
+            requestAnimationFrame(() => {
+              node.style.opacity = "1";
+            });
           });
         });
 
