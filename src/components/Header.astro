@@ -62,18 +62,16 @@ const currentPath = Astro.url.pathname;
       ))}
     </nav>
 
-    <!-- Theme Toggle (Desktop) -->
-    <div class="hidden md:block">
+    <!-- Theme Toggle + Kontakt CTA (Desktop) -->
+    <div class="hidden md:flex items-center gap-3">
       <ThemeToggle />
+      <a
+        href="/kontakt"
+        class="inline-flex items-center px-5 py-2 text-sm font-medium bg-foreground text-background rounded hover:opacity-80 transition-opacity"
+      >
+        Kontakt
+      </a>
     </div>
-
-    <!-- Kontakt CTA (Desktop) -->
-    <a
-      href="/kontakt"
-      class="hidden md:inline-flex items-center px-5 py-2 text-sm font-medium bg-foreground text-background rounded hover:opacity-80 transition-opacity"
-    >
-      Kontakt
-    </a>
 
     <!-- Hamburger Button (Mobile) -->
     <button id="mob-btn" class="md:hidden p-2 text-muted-foreground relative w-9 h-9 flex items-center justify-center" aria-label="Menü öffnen">
