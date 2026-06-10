@@ -6,6 +6,7 @@
   class="w-full h-64 lg:h-full"
   role="img"
   aria-label="Schematische Darstellung verbundener Punkte, die ein Netzwerk aus Fragen symbolisieren"
+  data-connection-diagram
   xmlns="http://www.w3.org/2000/svg"
 >
   <g stroke="hsl(var(--border))" stroke-width="2" fill="none">
@@ -27,7 +28,7 @@
 <script>
   import { initConnectionDiagram } from "../../lib/scrollAnimate";
 
-  document.querySelectorAll<SVGSVGElement>("svg[aria-label^='Schematische Darstellung']").forEach((svg) => {
+  document.querySelectorAll<SVGSVGElement>("svg[data-connection-diagram]").forEach((svg) => {
     initConnectionDiagram(svg);
   });
 </script>
