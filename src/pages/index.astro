@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { getPosts } from "../lib/directus";
 import HeroCanvas from "../components/HeroCanvas.astro";
+import Strukturproblem from "../components/sections/Strukturproblem.astro";
+import Denkweise from "../components/sections/Denkweise.astro";
 import LogosBar from "../components/LogosBar.astro";
 import Leistungen3 from "../components/Leistungen3.astro";
 import Ergebnisse from "../components/Ergebnisse.astro";
@@ -51,7 +53,13 @@ const posts = fetchedPosts.length > 0
   <!-- 1. HERO -->
   <HeroCanvas />
 
-  <!-- 2. LOGOS BAR -->
+  <!-- 2. STRUKTURPROBLEM -->
+  <Strukturproblem />
+
+  <!-- 3. DENKWEISE -->
+  <Denkweise />
+
+  <!-- LOGOS BAR -->
   <LogosBar />
 
   <!-- 3. LEISTUNGEN (3 kompakte Kacheln) -->
