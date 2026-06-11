@@ -54,7 +54,7 @@ const cases = [
   <div class="divide-y divide-border border-t border-b border-border">
     {cases.map((c) => (
       <div data-animate class="py-12 md:py-16" style="opacity: 0; transform: translateY(30px);">
-        <p class="font-mono text-xs text-muted-foreground uppercase tracking-widest mb-6">
+        <p class="font-bold text-xs text-muted-foreground uppercase tracking-widest mb-6">
           {c.nr} — {c.name}{c.subtitle && ` · ${c.subtitle}`}
         </p>
 
@@ -73,15 +73,15 @@ const cases = [
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <div>
-            <h3 class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Ausgangslage</h3>
+            <h3 class="font-bold text-xs uppercase tracking-widest text-muted-foreground mb-2">Ausgangslage</h3>
             <p class="text-foreground" style="font-size: var(--text-body);">{c.ausgangslage}</p>
           </div>
           <div>
-            <h3 class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Was wir taten</h3>
+            <h3 class="font-bold text-xs uppercase tracking-widest text-muted-foreground mb-2">Was wir taten</h3>
             <p class="text-foreground" style="font-size: var(--text-body);">{c.massnahme}</p>
           </div>
           <div>
-            <h3 class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Jetzt</h3>
+            <h3 class="font-bold text-xs uppercase tracking-widest text-muted-foreground mb-2">Jetzt</h3>
             <p class="text-foreground" style="font-size: var(--text-body);">{c.ergebnis}</p>
           </div>
         </div>
