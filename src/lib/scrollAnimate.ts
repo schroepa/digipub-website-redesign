@@ -156,7 +156,7 @@ export function initLineGrow(el: HTMLElement): void {
         obs.unobserve(entry.target);
       });
     },
-    { threshold: 0.2 },
+    { threshold: 0 },
   );
 
   observer.observe(el);
