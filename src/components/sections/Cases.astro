@@ -1,0 +1,115 @@
+---
+import Section from "../ui/Section.astro";
+
+const cases = [
+  {
+    nr: "01",
+    name: "Portazon",
+    subtitle: "Smart City Super App, Trier",
+    ausgangslage: "Eine neue Plattform mit großer Idee – aber ohne Struktur, die sie trägt.",
+    massnahme: "Wir haben Content-Architektur, Partnerstrategie und Monitoring aufgebaut.",
+    ergebnis: "Portazon ist heute sichtbar – lokal verankert, digital durchdacht.",
+    href: "/case-studies/portazon",
+  },
+  {
+    nr: "02",
+    name: "Haidacher",
+    subtitle: "Tischlerei, Südtirol",
+    ausgangslage: "Eine exklusive Handwerkstradition, die online schlicht nicht zu finden war.",
+    massnahme: "Sichtbarkeit aufgebaut – ohne das Erscheinungsbild anzutasten.",
+    ergebnis: "Erstmals relevante Rankings. Doppelte Sichtbarkeit. Ganz im Stil des Hauses.",
+    href: "/case-studies/haidacher",
+  },
+  {
+    nr: "03",
+    name: "De Gruyter",
+    subtitle: "Wissenschaftsverlag",
+    ausgangslage: "Ein traditionsreicher Verlag mit gewachsenen Systemen und unklaren Entscheidungsgrundlagen.",
+    massnahme: "Klarheit in Redaktion, Technik und Content-Management geschaffen.",
+    ergebnis: "Bessere Entscheidungen. Mehr Sichtbarkeit. Ohne den Prozess zu stören.",
+    href: "/case-studies/walter-de-gruyter",
+  },
+  {
+    nr: "04",
+    name: "Initiative Handarbeit",
+    subtitle: "",
+    ausgangslage: "Sichtbarkeit verloren in einem hart umkämpften Markt.",
+    massnahme: "Strategie, Struktur und neue Inhaltstypen gemeinsam mit dem Team entwickelt.",
+    ergebnis: "Rankings zurückgewonnen. Neues Wachstum planbar gemacht.",
+    href: null,
+  },
+];
+---
+
+<Section id="cases">
+  <div class="max-w-2xl mb-12">
+    <h2 style="font-size: var(--text-section);" class="font-bold text-foreground mb-4">
+      Was daraus entsteht.
+    </h2>
+    <p class="text-muted-foreground" style="font-size: var(--text-body);">
+      Unternehmen, die ihre Stärke<br />jetzt auch zeigen können.
+    </p>
+  </div>
+
+  <div class="divide-y divide-border border-t border-b border-border">
+    {cases.map((c) => (
+      <div data-animate class="py-12 md:py-16">
+        <p class="font-mono text-xs text-muted-foreground uppercase tracking-widest mb-6">
+          {c.nr} — {c.name}{c.subtitle && ` · ${c.subtitle}`}
+        </p>
+
+        <svg
+          viewBox="0 0 600 90"
+          class="w-full h-auto mb-8"
+          role="img"
+          aria-label={`Prozess: ${c.ausgangslage} → ${c.massnahme} → ${c.ergebnis}`}
+          data-connection-diagram
+        >
+          <line data-line x1="20" y1="45" x2="580" y2="45" stroke="hsl(var(--border))" stroke-width="1.5" />
+          <circle data-node cx="20" cy="45" r="6" fill="hsl(var(--border))" />
+          <circle data-node cx="300" cy="45" r="6" fill="hsl(var(--foreground))" />
+          <circle data-node cx="580" cy="45" r="8" fill="hsl(var(--foreground))" />
+        </svg>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div>
+            <h3 class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Ausgangslage</h3>
+            <p class="text-foreground" style="font-size: var(--text-body);">{c.ausgangslage}</p>
+          </div>
+          <div>
+            <h3 class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Was wir taten</h3>
+            <p class="text-foreground" style="font-size: var(--text-body);">{c.massnahme}</p>
+          </div>
+          <div>
+            <h3 class="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">Jetzt</h3>
+            <p class="text-foreground" style="font-size: var(--text-body);">{c.ergebnis}</p>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          {c.href ? (
+            <a href={c.href} class="text-sm font-medium text-foreground hover:opacity-70 transition-opacity">
+              → Zur Case Study
+            </a>
+          ) : (
+            <span aria-disabled="true" class="text-sm font-medium text-muted-foreground">
+              → Zur Case Study (in Kürze)
+            </span>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</Section>
+
+<script>
+  import { initScrollAnimate, initConnectionDiagram } from "../../lib/scrollAnimate";
+
+  const section = document.getElementById("cases");
+  if (section) {
+    initScrollAnimate(section);
+    section
+      .querySelectorAll<SVGSVGElement>("svg[data-connection-diagram]")
+      .forEach((svg) => initConnectionDiagram(svg));
+  }
+</script>
