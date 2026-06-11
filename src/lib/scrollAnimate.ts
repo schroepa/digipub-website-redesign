@@ -121,3 +121,43 @@ export function initConnectionDiagram(svg: SVGSVGElement, staggerMs = 100): void
 
   observer.observe(svg);
 }
+
+/**
+ * Aktiviert die Wachstums-Animation für die vertikale Verbindungslinie
+ * in `Leistungen.astro`: `el` startet mit `transform: scaleY(0)` (siehe
+ * Markup, `origin-top`) und animiert beim ersten Eintritt in den Viewport
+ * zu `scaleY(1)`.
+ *
+ * Respektiert `prefers-reduced-motion: reduce` (sofort vollständig sichtbar,
+ * kein Observer, keine Transition).
+ */
+export function initLineGrow(el: HTMLElement): void {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (prefersReducedMotion) {
+    el.style.transform = "scaleY(1)";
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        el.style.transition = "transform 1s ease";
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            el.style.transform = "scaleY(1)";
+          });
+        });
+
+        obs.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.2 },
+  );
+
+  observer.observe(el);
+}
