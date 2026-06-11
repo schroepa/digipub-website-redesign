@@ -30,10 +30,11 @@
   --warning:              38 92% 50%;
   --info:                 199 89% 40%;
 
-  --text-hero:    clamp(3rem, 2rem + 5vw, 5rem);
-  --text-section: clamp(2.25rem, 1.6rem + 3.25vw, 3.5rem);
-  --text-peak:    clamp(1.875rem, 1.4rem + 2.38vw, 2.75rem);
-  --text-body:    clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-hero:      clamp(3rem, 2rem + 5vw, 5rem);
+  --text-section:   clamp(2.25rem, 1.6rem + 3.25vw, 3.5rem);
+  --text-peak:      clamp(1.875rem, 1.4rem + 2.38vw, 2.75rem);
+  --text-statement: clamp(1.75rem, 1.1rem + 3.5vw, 3.75rem);
+  --text-body:      clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
 
   --section-gap:   clamp(64px, 5vw + 40px, 128px);
   --container-px:  clamp(16px, 4vw, 40px);
