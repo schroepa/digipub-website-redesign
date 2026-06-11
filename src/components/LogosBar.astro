@@ -1,4 +1,6 @@
 ---
+import Section from "./ui/Section.astro";
+
 const logos = [
   { name: "Portazon", href: "/case-studies/portazon", file: "/images/referenzen/portazon.png" },
   { name: "Walter de Gruyter", href: "/case-studies/walter-de-gruyter", file: "/images/referenzen/walter-de-gruyter.jpg" },
@@ -13,14 +15,8 @@ const logos = [
 ];
 ---
 
-<section class="bg-white py-10">
-  <div class="max-w-7xl mx-auto px-6">
-    <p class="text-xs font-mono text-gray-400 uppercase tracking-widest mb-8">
-      Unternehmen, die uns vertrauen
-    </p>
-  </div>
-
-  <div class="logos-marquee">
+<Section id="logos">
+  <div class="logos-marquee w-screen relative left-1/2 -translate-x-1/2">
     <div class="logos-track">
       {[...logos, ...logos].map((logo) => (
         <a
@@ -40,7 +36,7 @@ const logos = [
       ))}
     </div>
   </div>
-</section>
+</Section>
 
 <style>
   .logos-marquee {
