@@ -5,23 +5,22 @@
   viewBox="0 0 400 300"
   class="w-full h-64 lg:h-full"
   role="img"
-  aria-label="Schematische Darstellung verbundener Punkte, die ein Netzwerk aus Fragen symbolisieren"
+  aria-label="Schematische Darstellung von vier Fragen, die in einer gemeinsamen Lösung zusammenlaufen"
   data-connection-diagram
   xmlns="http://www.w3.org/2000/svg"
 >
   <g stroke="hsl(var(--border))" stroke-width="2" fill="none">
-    <line data-line x1="60" y1="60" x2="200" y2="40" />
-    <line data-line x1="200" y1="40" x2="320" y2="100" />
-    <line data-line x1="200" y1="40" x2="120" y2="180" />
-    <line data-line x1="120" y1="180" x2="280" y2="220" />
-    <line data-line x1="320" y1="100" x2="280" y2="220" />
+    <line data-line x1="60" y1="50" x2="300" y2="150" />
+    <line data-line x1="60" y1="120" x2="300" y2="150" />
+    <line data-line x1="60" y1="190" x2="300" y2="150" />
+    <line data-line x1="60" y1="250" x2="300" y2="150" />
   </g>
   <g fill="hsl(var(--foreground))">
-    <circle data-node cx="60" cy="60" r="8" />
-    <circle data-node cx="200" cy="40" r="8" />
-    <circle data-node cx="320" cy="100" r="8" />
-    <circle data-node cx="120" cy="180" r="8" />
-    <circle data-node cx="280" cy="220" r="8" />
+    <circle data-node cx="60" cy="50" r="8" />
+    <circle data-node cx="60" cy="120" r="8" />
+    <circle data-node cx="60" cy="190" r="8" />
+    <circle data-node cx="60" cy="250" r="8" />
+    <circle data-node cx="300" cy="150" r="16" />
   </g>
 </svg>
 
@@ -32,3 +31,21 @@
     initConnectionDiagram(svg);
   });
 </script>
+
+<style>
+  @keyframes connection-diagram-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+  }
+
+  :global(.connection-diagram-pulse) {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: connection-diagram-pulse 0.4s ease;
+  }
+</style>

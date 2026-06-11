@@ -111,6 +111,12 @@ export function initConnectionDiagram(svg: SVGSVGElement, staggerMs = 100): void
               node.style.opacity = "1";
             });
           });
+
+          if (i === nodes.length - 1) {
+            setTimeout(() => {
+              node.classList.add("connection-diagram-pulse");
+            }, delay + 600);
+          }
         });
 
         obs.unobserve(entry.target);
