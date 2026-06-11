@@ -6,6 +6,7 @@ import Strukturproblem from "../components/sections/Strukturproblem.astro";
 import Denkweise from "../components/sections/Denkweise.astro";
 import LogosBar from "../components/LogosBar.astro";
 import Leistungen from "../components/sections/Leistungen.astro";
+import Cases from "../components/sections/Cases.astro";
 import Ergebnisse from "../components/Ergebnisse.astro";
 import Team from "../components/Team.astro";
 import FAQ from "../components/FAQ.astro";
@@ -65,16 +66,19 @@ const posts = fetchedPosts.length > 0
   <!-- 5. LEISTUNGEN -->
   <Leistungen />
 
-  <!-- 6. ERGEBNISSE IN ZAHLEN -->
+  <!-- 6. CASES -->
+  <Cases />
+
+  <!-- 7. ERGEBNISSE IN ZAHLEN -->
   <Ergebnisse />
 
-  <!-- 7. TEAM / FACES -->
+  <!-- 8. TEAM / FACES -->
   <Team />
 
-  <!-- 8. FAQ -->
+  <!-- 9. FAQ -->
   <FAQ />
 
-  <!-- 9. AKTUELLES -->
+  <!-- 10. AKTUELLES -->
   <section class="bg-white border-t border-gray-100 py-16">
     <div class="max-w-7xl mx-auto px-6">
 
@@ -120,7 +124,7 @@ const posts = fetchedPosts.length > 0
     </div>
   </section>
 
-  <!-- 10. FINALER CTA / CALENDLY -->
+  <!-- 11. FINALER CTA / CALENDLY -->
   <CTACalendly />
 
 </Layout>
