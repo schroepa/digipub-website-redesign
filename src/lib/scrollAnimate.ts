@@ -130,6 +130,10 @@ export function initConnectionDiagram(svg: SVGSVGElement, staggerMs = 100): void
  *
  * Respektiert `prefers-reduced-motion: reduce` (sofort vollständig sichtbar,
  * kein Observer, keine Transition).
+ *
+ * `threshold: 0` (statt 0.2 wie bei den anderen Helpers): `el` ist die volle
+ * Höhe der Leistungen-Liste (deutlich größer als der Viewport), daher würde
+ * ein Threshold von 20% ggf. nie erreicht.
  */
 export function initLineGrow(el: HTMLElement): void {
   const prefersReducedMotion = window.matchMedia(
