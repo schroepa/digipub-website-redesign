@@ -1,0 +1,104 @@
+---
+import Section from "../ui/Section.astro";
+import { Network, Sparkles, LayoutGrid, Search, BrainCircuit, Workflow } from "lucide-astro";
+
+const leistungen = [
+  {
+    title: "Informationsarchitektur",
+    text: "Struktur, die für Besucher funktioniert – nicht für interne Zuständigkeiten.",
+    href: "/leistungen",
+    icon: Network,
+  },
+  {
+    title: "Markenaufbau",
+    text: "Den echten Mehrwert in Sprache, Haltung und Gestaltung übersetzen.",
+    href: "/leistungen/markenaufbau-branding",
+    icon: Sparkles,
+  },
+  {
+    title: "Designsysteme",
+    text: "Konsistenz, die skaliert – über alle Kanäle und Touchpoints.",
+    href: "/leistungen/designsystem",
+    icon: LayoutGrid,
+  },
+  {
+    title: "SEO / GEO",
+    text: "Nachfrage verstehen – in klassischen und KI-basierten Suchsystemen.",
+    href: "/leistungen/seo-geo",
+    icon: Search,
+  },
+  {
+    title: "KI-Implementierung",
+    text: "Dort einsetzen, wo KI echte Entlastung bringt.",
+    href: "/leistungen/ki-implementierung",
+    icon: BrainCircuit,
+  },
+  {
+    title: "Automatisierung",
+    text: "Wiederkehrende Prozesse digitalisieren – damit der Fokus beim Kerngeschäft bleibt.",
+    href: "/leistungen/automatisierung",
+    icon: Workflow,
+  },
+];
+---
+
+<Section id="leistungen">
+  <div class="max-w-2xl mb-12">
+    <h2 style="font-size: var(--text-section);" class="font-bold text-foreground mb-4">
+      Was wir einsetzen.
+    </h2>
+    <p class="text-muted-foreground" style="font-size: var(--text-body);">
+      Keine isolierten Leistungen.<br />
+      Dieselbe Denkweise. Die richtigen Werkzeuge.
+    </p>
+  </div>
+
+  <div class="relative">
+    <div
+      data-line
+      class="absolute top-0 bottom-0 w-px bg-border origin-top scale-y-0"
+      style="left: 20px;"
+      aria-hidden="true"
+    ></div>
+
+    <div class="divide-y divide-border border-t border-b border-border">
+      {leistungen.map(({ title, text, href, icon: Icon }) => (
+        <a
+          href={href}
+          data-animate
+          class="group grid grid-cols-[40px_1fr_24px] items-start gap-4 py-8"
+          style="opacity: 0; transform: translateY(30px);"
+        >
+          <span class="relative z-10 flex items-center justify-center w-10 h-10 rounded-full border border-border bg-background">
+            <Icon class="w-5 h-5 text-foreground" stroke-width={1.5} aria-hidden="true" />
+          </span>
+          <div>
+            <h3 class="font-bold text-foreground mb-1" style="font-size: var(--text-body);">
+              {title}
+            </h3>
+            <p class="text-muted-foreground" style="font-size: var(--text-body);">
+              {text}
+            </p>
+          </div>
+          <span
+            class="self-center text-muted-foreground transition-transform group-hover:translate-x-1"
+            aria-hidden="true"
+          >
+            &rarr;
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Section>
+
+<script>
+  import { initScrollAnimate, initLineGrow } from "../../lib/scrollAnimate";
+
+  const section = document.getElementById("leistungen");
+  if (section) {
+    initScrollAnimate(section);
+    const line = section.querySelector<HTMLElement>("[data-line]");
+    if (line) initLineGrow(line);
+  }
+</script>
