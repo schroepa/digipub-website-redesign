@@ -1,0 +1,96 @@
+---
+import Section from "../ui/Section.astro";
+---
+
+<Section id="haltung">
+  <div data-animate style="opacity: 0; transform: translateY(30px);">
+    <div class="max-w-2xl mb-12">
+      <h2 style="font-size: var(--text-section);" class="font-bold text-foreground mb-4">
+        Mehrwert ist Marke.
+      </h2>
+      <p class="text-muted-foreground mb-4" style="font-size: var(--text-body);">
+        Nicht Design macht Marke. Nicht Werbung macht Marke.
+        Marke entsteht, wenn ein Unternehmen seinen echten Mehrwert
+        sichtbar, verständlich und nutzbar macht.
+      </p>
+      <p class="text-muted-foreground" style="font-size: var(--text-body);">
+        Das ist es, wofür wir arbeiten.
+        Mit jedem, der offen ist, diesen Weg zu gehen.
+      </p>
+    </div>
+
+    <div class="border-t border-border pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <p class="text-muted-foreground max-w-md" style="font-size: var(--text-body);">
+        Dein Unternehmen hat diesen Mehrwert. Lass uns gemeinsam
+        herausfinden, wie wir ihn sichtbar machen.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <button
+          id="haltung-calendly-btn"
+          type="button"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-semibold rounded-lg hover:opacity-80 transition-opacity"
+        >
+          Gespräch anfangen →
+        </button>
+        <a
+          href="mailto:kontakt@digipub.de"
+          class="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground text-sm font-semibold rounded-lg hover:opacity-70 transition-opacity"
+        >
+          E-Mail schreiben
+        </a>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<script>
+  import { initScrollAnimate } from "../../lib/scrollAnimate";
+
+  declare global {
+    interface Window {
+      Calendly?: {
+        initPopupWidget: (options: { url: string }) => void;
+      };
+    }
+  }
+
+  const section = document.getElementById("haltung");
+  if (section) {
+    initScrollAnimate(section);
+  }
+
+  const CALENDLY_URL = "https://calendly.com/nigronet";
+
+  function openCalendly() {
+    window.Calendly?.initPopupWidget({ url: CALENDLY_URL });
+  }
+
+  function loadCalendlyAndOpen() {
+    if (!document.querySelector('link[href*="calendly.com/assets/external/widget.css"]')) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "https://assets.calendly.com/assets/external/widget.css";
+      document.head.appendChild(link);
+    }
+
+    const existingScript = document.querySelector<HTMLScriptElement>(
+      'script[src*="calendly.com/assets/external/widget.js"]'
+    );
+
+    if (existingScript) {
+      if (window.Calendly) {
+        openCalendly();
+      } else {
+        existingScript.addEventListener("load", openCalendly, { once: true });
+      }
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.addEventListener("load", openCalendly, { once: true });
+    document.head.appendChild(script);
+  }
+
+  document.getElementById("haltung-calendly-btn")?.addEventListener("click", loadCalendlyAndOpen);
+</script>
