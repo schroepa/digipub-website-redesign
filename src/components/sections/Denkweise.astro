@@ -33,26 +33,30 @@ import ConnectionDiagram from "../diagrams/ConnectionDiagram.astro";
           Erst danach entstehen Lösungen.
         </p>
       </div>
-
-      <div style="margin-top: var(--peak-space);">
-        <p
-          class="font-bold text-foreground"
-          style="font-size: var(--text-peak); line-height: 1.3; opacity: 0; transform: translateY(30px);"
-          data-animate
-        >
-          Die meisten fangen bei den Maßnahmen an.<br />
-          Wir fangen davor an.
-        </p>
-      </div>
     </div>
 
     <ConnectionDiagram />
+  </div>
+
+  <div style="margin-top: var(--peak-space);">
+    <p
+      data-statement
+      class="font-bold text-foreground"
+      style="font-size: var(--text-statement); line-height: 1.3;"
+    >
+      Die meisten fangen bei den Maßnahmen an.<br />
+      Wir fangen davor an.
+    </p>
   </div>
 </Section>
 
 <script>
   import { initScrollAnimate } from "../../lib/scrollAnimate";
+  import { initWordReveal } from "../../lib/wordReveal";
 
   const section = document.getElementById("denkweise");
   if (section) initScrollAnimate(section);
+
+  const statement = document.querySelector<HTMLElement>("#denkweise [data-statement]");
+  if (statement) initWordReveal(statement);
 </script>
