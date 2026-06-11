@@ -84,8 +84,7 @@ async function initDesktopScrub(
   wrapper.appendChild(el);
 
   el.style.position = "sticky";
-  el.style.top = "50%";
-  el.style.transform = "translateY(-50%)";
+  el.style.top = "calc(64px + 10vh)";
 
   gsap.to(words, {
     opacity: 1,
