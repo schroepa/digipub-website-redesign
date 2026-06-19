@@ -1,0 +1,129 @@
+---
+interface Props {
+  /**
+   * Tailwind-Farb-Token für die Punkte, z. B. "stone-700" oder ein
+   * Design-Token wie "foreground" (passt sich automatisch an Dark Mode an).
+   */
+  color?: string;
+  amplitude?: number;
+  timeSpeed?: number;
+  pixelSize?: number;
+  gooeyness?: number;
+  contrast?: number;
+  bias?: number;
+  invert?: boolean;
+  waveAmplitude?: number;
+  waveFrequency?: number;
+  waveTimeSpeed?: number;
+  maxDpr?: number;
+  class?: string;
+}
+
+const {
+  color = "primary",
+  amplitude = 1.53,
+  timeSpeed = 0.0065,
+  pixelSize = 8,
+  gooeyness = 0,
+  contrast = 0.9,
+  bias = -0.25,
+  invert = false,
+  waveAmplitude = 0.29,
+  waveFrequency = 3.9,
+  waveTimeSpeed = 0,
+  maxDpr = 1,
+  class: className,
+} = Astro.props;
+---
+
+<div
+  class:list={["absolute inset-0 -z-10 overflow-hidden pointer-events-none", className]}
+  aria-hidden="true"
+>
+  <div
+    class="halftone-shader-color-probe"
+    style={`display: none; background-color: var(--color-${color}, #78716c);`}
+  ></div>
+  <canvas
+    class="halftone-shader-canvas block h-full w-full"
+    data-amplitude={amplitude}
+    data-time-speed={timeSpeed}
+    data-pixel-size={pixelSize}
+    data-gooeyness={gooeyness}
+    data-contrast={contrast}
+    data-bias={bias}
+    data-invert={invert ? "1" : "0"}
+    data-wave-amplitude={waveAmplitude}
+    data-wave-frequency={waveFrequency}
+    data-wave-time-speed={waveTimeSpeed}
+    data-max-dpr={maxDpr}
+  ></canvas>
+</div>
+
+<script>
+  import { initHalftoneShader } from "../lib/webgl/halftoneShader";
+
+  const FALLBACK_COLOR: [number, number, number] = [0.42, 0.4, 0.37];
+
+  function parseColor(probe: HTMLElement): [number, number, number] {
+    const computed = getComputedStyle(probe).backgroundColor;
+    const channels = computed.match(/[\d.]+/g);
+    if (!channels || channels.length < 3) return FALLBACK_COLOR;
+    const [r, g, b] = channels.map(Number);
+    return [r / 255, g / 255, b / 255];
+  }
+
+  function mount(canvas: HTMLCanvasElement) {
+    // Save-Data: kein WebGL auf langsamen Verbindungen.
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } })
+      .connection;
+    if (connection?.saveData) {
+      canvas.style.display = "none";
+      return;
+    }
+
+    let started = false;
+    const start = () => {
+      if (started) return;
+      started = true;
+
+      const probe = canvas.previousElementSibling as HTMLElement | null;
+      const color = probe ? parseColor(probe) : FALLBACK_COLOR;
+      const data = canvas.dataset;
+
+      void initHalftoneShader(canvas, {
+        amplitude: Number(data.amplitude),
+        timeSpeed: Number(data.timeSpeed),
+        pixelSize: Number(data.pixelSize),
+        gooeyness: Number(data.gooeyness),
+        contrast: Number(data.contrast),
+        bias: Number(data.bias),
+        invert: data.invert === "1",
+        waveAmplitude: Number(data.waveAmplitude),
+        waveFrequency: Number(data.waveFrequency),
+        waveTimeSpeed: Number(data.waveTimeSpeed),
+        maxDpr: Number(data.maxDpr),
+        color,
+      });
+    };
+
+    // Lazy: Three.js erst laden/initialisieren, wenn der Canvas (fast) im Viewport ist.
+    const lazyObserver = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0]?.isIntersecting) return;
+        lazyObserver.disconnect();
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(start);
+        } else {
+          setTimeout(start, 1);
+        }
+      },
+      { threshold: 0, rootMargin: "200px" },
+    );
+    lazyObserver.observe(canvas);
+  }
+
+  document
+    .querySelectorAll<HTMLCanvasElement>(".halftone-shader-canvas")
+    .forEach(mount);
+</script>

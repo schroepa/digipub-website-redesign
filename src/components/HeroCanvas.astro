@@ -1,19 +1,20 @@
 ---
+import HeroShaderBackground from "./HeroShaderBackground.astro";
 // Keine Props nötig – Inhalte sind statisch
 ---
 
 <section
   id="hero"
-  class="relative bg-background overflow-hidden border-b border-border"
-  style="min-height: clamp(520px, 80vh, 800px);"
+  class="relative isolate bg-background overflow-hidden"
+  style="min-height: 100vh;"
 >
-  <!-- Canvas für Noise Clouds (CSS-blur wird per JS gesetzt) -->
-  <canvas
-    id="hero-canvas"
-    class="absolute inset-0 w-full h-full"
+  <HeroShaderBackground color="primary" class="opacity-40 dark:opacity-10" />
+
+  <!-- Verlauf: oben transparent -> unten Hintergrundfarbe -->
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-transparent to-background pointer-events-none"
     aria-hidden="true"
-    style="filter: blur(70px); opacity: 0.85;"
-  ></canvas>
+  ></div>
 
   <!-- Inhalt -->
   <div class="relative z-10 max-w-7xl mx-auto px-6 flex items-center h-full"
@@ -30,7 +31,7 @@
 
       <!-- Headline -->
       <h1 class="font-bold text-foreground leading-tight tracking-tight mb-3"
-          style="font-size: clamp(2rem, 4.2vw, 3.2rem);">
+          style="font-size: clamp(1.5rem, 4.2vw, 3.2rem);">
         <span
           id="hero-line1"
           class="block opacity-0 whitespace-nowrap"
@@ -47,7 +48,7 @@
       <p
         id="hero-kinetic"
         class="font-bold text-foreground mb-8 opacity-0 whitespace-nowrap"
-        style="font-size: clamp(2rem, 4.2vw, 3.2rem); transform: translateY(16px); line-height: 1.2;"
+        style="font-size: clamp(1.5rem, 4.2vw, 3.2rem); transform: translateY(16px); line-height: 1.2;"
       >
         Wir machen dich <span
           id="hero-word"
@@ -84,136 +85,7 @@
 </section>
 
 <script>
-// ── 1. Simplex Noise 2D ───────────────────────────────────────────────────────
-function buildNoise() {
-  const perm = new Uint8Array(256);
-  for (let i = 0; i < 256; i++) perm[i] = i;
-  for (let i = 255; i > 0; i--) {
-    const j = (Math.random() * (i + 1)) | 0;
-    const tmp = perm[i]; perm[i] = perm[j]; perm[j] = tmp;
-  }
-  const p = new Uint8Array(512);
-  for (let i = 0; i < 512; i++) p[i] = perm[i & 255];
-  const G2d = [[1,1],[-1,1],[1,-1],[-1,-1],[1,0],[-1,0],[0,1],[0,-1]];
-  const F2 = 0.5 * (Math.sqrt(3) - 1);
-  const G2 = (3 - Math.sqrt(3)) / 6;
-
-  return function sn(x, y) {
-    const s = (x + y) * F2;
-    const i = Math.floor(x + s) | 0;
-    const j = Math.floor(y + s) | 0;
-    const t0 = (i + j) * G2;
-    const x0 = x - (i - t0), y0 = y - (j - t0);
-    const i1 = x0 > y0 ? 1 : 0, j1 = x0 > y0 ? 0 : 1;
-    const x1 = x0 - i1 + G2, y1 = y0 - j1 + G2;
-    const x2 = x0 - 1 + 2*G2, y2 = y0 - 1 + 2*G2;
-    const g0 = p[(i + p[j & 255]) & 255] & 7;
-    const g1 = p[(i + i1 + p[(j + j1) & 255]) & 255] & 7;
-    const g2 = p[(i + 1 + p[(j + 1) & 255]) & 255] & 7;
-    const c = (tx, ty, gi) => { const t = 0.5 - tx*tx - ty*ty; return t < 0 ? 0 : t*t*t*t*(G2d[gi][0]*tx + G2d[gi][1]*ty); };
-    return 70 * (c(x0,y0,g0) + c(x1,y1,g1) + c(x2,y2,g2));
-  };
-}
-
-const noise = buildNoise();
-
-// ── 2. Canvas Setup ───────────────────────────────────────────────────────────
-const canvas = document.getElementById('hero-canvas');
-const ctx = canvas.getContext('2d');
-
-function resizeCanvas() {
-  // Niedrigere Auflösung reicht – Canvas ist ohnehin gebluret
-  const W = canvas.offsetWidth;
-  const H = canvas.offsetHeight;
-  canvas.width = W;
-  canvas.height = H;
-}
-resizeCanvas();
-window.addEventListener('resize', () => { resizeCanvas(); });
-
-// ── 3. Cloud-Definitionen ─────────────────────────────────────────────────────
-// cx/cy: Position (0–1 relativ zur Canvas-Größe)
-// baseR: Basis-Radius in px
-// color: [r, g, b]
-// speed: Morphing-Geschwindigkeit
-// noiseScale: Wie stark die Form variiert
-// amplitude: Wie weit die Form von baseR abweicht (0–1)
-// parallaxFactor: Stärke der Maus-Reaktion
-const CLOUDS = [
-  { cx: 0.78, cy: 0.22, baseR: 220, color: [200, 210, 255], alpha: 0.92, speed: 0.35, noiseScale: 1.6, amplitude: 0.32, noiseOff: 0,  px: 0.07, py: 0.04 },
-  { cx: 0.88, cy: 0.72, baseR: 260, color: [185, 245, 225], alpha: 0.80, speed: 0.25, noiseScale: 1.4, amplitude: 0.28, noiseOff: 10, px: 0.05, py: 0.06 },
-  { cx: 0.60, cy: 0.45, baseR: 180, color: [230, 210, 255], alpha: 0.75, speed: 0.45, noiseScale: 1.8, amplitude: 0.35, noiseOff: 20, px: 0.09, py: 0.03 },
-];
-
-// ── 4. Blob zeichnen ──────────────────────────────────────────────────────────
-function drawBlob(cx, cy, c, t) {
-  const steps = 80;
-  ctx.beginPath();
-  for (let i = 0; i <= steps; i++) {
-    const angle = (i / steps) * Math.PI * 2;
-    const nx = Math.cos(angle);
-    const ny = Math.sin(angle);
-    // Noise-Wert für diesen Winkel → Radius variiert organisch
-    const n = noise(
-      nx * c.noiseScale + c.noiseOff,
-      ny * c.noiseScale + t * c.speed + c.noiseOff
-    );
-    const r = c.baseR * (1 + n * c.amplitude);
-    const x = cx + nx * r;
-    const y = cy + ny * r;
-    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-  }
-  ctx.closePath();
-
-  // Radialer Gradient: kräftig in der Mitte, transparent am Rand
-  const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, c.baseR * 1.4);
-  grd.addColorStop(0,   `rgba(${c.color[0]}, ${c.color[1]}, ${c.color[2]}, ${c.alpha})`);
-  grd.addColorStop(0.5, `rgba(${c.color[0]}, ${c.color[1]}, ${c.color[2]}, ${c.alpha * 0.5})`);
-  grd.addColorStop(1,   `rgba(${c.color[0]}, ${c.color[1]}, ${c.color[2]}, 0)`);
-  ctx.fillStyle = grd;
-  ctx.fill();
-}
-
-// ── 5. Parallax ───────────────────────────────────────────────────────────────
-let mx = 0.5, my = 0.5, tmx = 0.5, tmy = 0.5;
-const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-if (!isMobile) {
-  window.addEventListener('mousemove', (e) => {
-    tmx = e.clientX / window.innerWidth;
-    tmy = e.clientY / window.innerHeight;
-  });
-}
-
-// ── 6. Render Loop ────────────────────────────────────────────────────────────
-let t = 0;
-
-function render() {
-  const W = canvas.offsetWidth;
-  const H = canvas.offsetHeight;
-
-  // Smooth parallax interpolation
-  mx += (tmx - mx) * 0.035;
-  my += (tmy - my) * 0.035;
-
-  ctx.clearRect(0, 0, W, H);
-
-  CLOUDS.forEach((c) => {
-    // Parallax-Versatz
-    const offsetX = (mx - 0.5) * c.px * W;
-    const offsetY = (my - 0.5) * c.py * H;
-    const cx = c.cx * W + offsetX;
-    const cy = c.cy * H + offsetY;
-    drawBlob(cx, cy, c, t);
-  });
-
-  t += 0.004;
-  requestAnimationFrame(render);
-}
-
-render();
-
-// ── 7. Kinetic Typography ─────────────────────────────────────────────────────
+// ── Kinetic Typography ────────────────────────────────────────────────────────
 const WORDS = ['sichtbar', 'relevant', 'messbar', 'wirksam', 'unverwechselbar'];
 const SCRAMBLE_CHARS = '!@#$%^&*<>?abcdefghijklmnopqrstuvwxyz';
 const wordEl = document.getElementById('hero-word');
@@ -244,8 +116,29 @@ function blurMorphTo(next) {
     wordEl.textContent = next;
     wordEl.style.filter = 'blur(0px)';
     wordEl.style.opacity = '1';
+    fitTextToWidth(document.getElementById('hero-kinetic'));
   }, 360);
 }
+
+// ── Auto-Fit: Zeile schrumpft statt umzubrechen ──────────────────────────────
+function fitTextToWidth(el) {
+  if (!el) return;
+  el.style.fontSize = '';
+  const available = el.parentElement.clientWidth;
+  const natural = el.scrollWidth;
+  if (natural > available) {
+    const current = parseFloat(getComputedStyle(el).fontSize);
+    el.style.fontSize = `${current * (available / natural) * 0.98}px`;
+  }
+}
+
+function fitAllHeroText() {
+  ['hero-line1', 'hero-line2', 'hero-kinetic'].forEach((id) => {
+    fitTextToWidth(document.getElementById(id));
+  });
+}
+
+window.addEventListener('resize', fitAllHeroText);
 
 function startCycling() {
   setInterval(() => {
@@ -254,7 +147,7 @@ function startCycling() {
   }, 2500);
 }
 
-// ── 8. Staggered Entrance ─────────────────────────────────────────────────────
+// ── Staggered Entrance ────────────────────────────────────────────────────────
 function animateIn(el, delay, slide = false) {
   if (!el) return;
   el.style.transition = `opacity 0.6s ease ${delay}ms${slide ? `, transform 0.6s ease ${delay}ms` : ''}`;
@@ -271,5 +164,6 @@ animateIn(document.getElementById('hero-kinetic'),300, true);
 animateIn(document.getElementById('hero-sub'),    450);
 animateIn(document.getElementById('hero-cta'),    600);
 
+fitAllHeroText();
 scrambleIn(WORDS[0], startCycling);
 </script>
