@@ -8,7 +8,7 @@ import HeroShaderBackground from "./HeroShaderBackground.astro";
   class="relative isolate bg-background overflow-hidden"
   style="min-height: 100vh;"
 >
-  <HeroShaderBackground color="primary" class="opacity-40 dark:opacity-10" />
+  <HeroShaderBackground color="primary" class="opacity-40 dark:opacity-30" />
 
   <!-- Verlauf: oben transparent -> unten Hintergrundfarbe -->
   <div
@@ -17,7 +17,7 @@ import HeroShaderBackground from "./HeroShaderBackground.astro";
   ></div>
 
   <!-- Inhalt -->
-  <div class="relative z-10 max-w-7xl mx-auto px-6 flex items-center h-full"
+  <div class="relative z-10 max-w-7xl mx-auto px-6 flex items-center h-full pointer-events-none"
        style="min-height: inherit;">
     <div class="py-24" style="max-width: 780px;">
 
@@ -52,7 +52,7 @@ import HeroShaderBackground from "./HeroShaderBackground.astro";
       >
         Wir machen dich <span
           id="hero-word"
-          style="border-bottom: 3px solid hsl(var(--foreground)); padding-bottom: 3px; display: inline-block;"
+          style="border-bottom: 3px solid var(--foreground); padding-bottom: 3px; display: inline-block;"
         >sichtbar</span>.
       </p>
 
@@ -66,7 +66,7 @@ import HeroShaderBackground from "./HeroShaderBackground.astro";
       </p>
 
       <!-- CTA + Trust -->
-      <div id="hero-cta" class="opacity-0">
+      <div id="hero-cta" class="opacity-0 pointer-events-auto">
         <a
           href="/kontakt"
           class="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-bold rounded-lg hover:opacity-80 transition-opacity mb-4"

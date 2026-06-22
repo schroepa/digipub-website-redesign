@@ -16,13 +16,17 @@ interface Props {
   waveFrequency?: number;
   waveTimeSpeed?: number;
   maxDpr?: number;
+  /** Wie schnell der Maus-Ripple mit der Distanz abklingt (höher = enger um den Cursor). */
+  rippleSpread?: number;
+  /** Geschwindigkeit, mit der die Ripple-Wellen nach außen laufen. */
+  rippleSpeed?: number;
   class?: string;
 }
 
 const {
   color = "primary",
   amplitude = 1.53,
-  timeSpeed = 0.0065,
+  timeSpeed = 0.0035,
   pixelSize = 8,
   gooeyness = 0,
   contrast = 0.9,
@@ -32,6 +36,8 @@ const {
   waveFrequency = 3.9,
   waveTimeSpeed = 0,
   maxDpr = 1,
+  rippleSpread = 20,
+  rippleSpeed = 0.5,
   class: className,
 } = Astro.props;
 ---
@@ -45,7 +51,7 @@ const {
     style={`display: none; background-color: var(--color-${color}, #78716c);`}
   ></div>
   <canvas
-    class="halftone-shader-canvas block h-full w-full"
+    class="halftone-shader-canvas block h-full w-full pointer-events-auto"
     data-amplitude={amplitude}
     data-time-speed={timeSpeed}
     data-pixel-size={pixelSize}
@@ -57,6 +63,8 @@ const {
     data-wave-frequency={waveFrequency}
     data-wave-time-speed={waveTimeSpeed}
     data-max-dpr={maxDpr}
+    data-ripple-spread={rippleSpread}
+    data-ripple-speed={rippleSpeed}
   ></canvas>
 </div>
 
@@ -65,12 +73,24 @@ const {
 
   const FALLBACK_COLOR: [number, number, number] = [0.42, 0.4, 0.37];
 
+  // Rastert die berechnete Farbe via 2D-Canvas, statt sie aus dem CSS-String
+  // zu parsen – so ist es egal, ob der Browser rgb(), oklch() oder color()
+  // zurückgibt, das Ergebnis sind immer korrekte sRGB-Bytes.
   function parseColor(probe: HTMLElement): [number, number, number] {
     const computed = getComputedStyle(probe).backgroundColor;
-    const channels = computed.match(/[\d.]+/g);
-    if (!channels || channels.length < 3) return FALLBACK_COLOR;
-    const [r, g, b] = channels.map(Number);
-    return [r / 255, g / 255, b / 255];
+    try {
+      const c = document.createElement("canvas");
+      c.width = 1;
+      c.height = 1;
+      const ctx = c.getContext("2d");
+      if (!ctx) return FALLBACK_COLOR;
+      ctx.fillStyle = computed;
+      ctx.fillRect(0, 0, 1, 1);
+      const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
+      return [r / 255, g / 255, b / 255];
+    } catch {
+      return FALLBACK_COLOR;
+    }
   }
 
   function mount(canvas: HTMLCanvasElement) {
@@ -103,6 +123,8 @@ const {
         waveFrequency: Number(data.waveFrequency),
         waveTimeSpeed: Number(data.waveTimeSpeed),
         maxDpr: Number(data.maxDpr),
+        rippleSpread: Number(data.rippleSpread),
+        rippleSpeed: Number(data.rippleSpeed),
         color,
       });
     };

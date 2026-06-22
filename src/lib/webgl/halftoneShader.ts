@@ -24,6 +24,11 @@ export const fragmentShader = /* glsl */ `
   uniform float uWaveTime;
   uniform float uWaveFrequency;
   uniform float uWaveAmplitude;
+  uniform vec2 uMouse;
+  uniform float uMouseActive;
+  uniform float uRippleTime;
+  uniform float uRippleSpread;
+  uniform float uRippleSpeed;
 
   float fieldLuma(vec2 uv, float time) {
     vec2 c = 2.0 * uv - 1.0;
@@ -32,6 +37,15 @@ export const fragmentShader = /* glsl */ `
     c += ds * 0.2 * sin(5.2 * c.yx + vec2(3.5, 0.4) + time);
     c += ds * 0.3 * sin(3.5 * c.yx + vec2(1.2, 3.1) + time);
     c += ds * 1.6 * sin(0.4 * c.yx + vec2(0.8, 2.4) + time);
+
+    // Wasser-Ripple: konzentrische Wellen, die vom Mauszeiger ausgehen
+    // und mit der Distanz abklingen (uMouseActive steuert das Ein-/Ausklingen).
+    vec2 toMouse = uv - uMouse;
+    float distToMouse = length(toMouse);
+    float ripple = uMouseActive * exp(-distToMouse * uRippleSpread)
+      * sin(distToMouse * 32.0 - uRippleTime * uRippleSpeed);
+    c += ripple * 1.6;
+
     float L = length(c);
     float v = 0.0;
     for (int i = 0; i < 4; i++) {
@@ -97,6 +111,8 @@ export interface HalftoneShaderOptions {
   waveFrequency: number;
   waveTimeSpeed: number;
   maxDpr: number;
+  rippleSpread: number;
+  rippleSpeed: number;
   /** Normalisierte RGB-Farbe (0–1) für die Punkte. */
   color: [number, number, number];
 }
@@ -150,6 +166,11 @@ export async function initHalftoneShader(
     uWaveTime: { value: 0 },
     uWaveFrequency: { value: opts.waveFrequency },
     uWaveAmplitude: { value: opts.waveAmplitude },
+    uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+    uMouseActive: { value: 0 },
+    uRippleTime: { value: 0 },
+    uRippleSpread: { value: opts.rippleSpread },
+    uRippleSpeed: { value: opts.rippleSpeed },
   };
 
   const material = new THREE.ShaderMaterial({
@@ -176,9 +197,32 @@ export async function initHalftoneShader(
 
   let time = 0;
   let waveTime = 0;
+  let rippleTime = 0;
   let rafId: number | null = null;
   let inView = false;
   let tabHidden = document.hidden;
+
+  // Maus-Reaktivität: Zielwerte werden bei pointermove gesetzt, im Render-Loop
+  // sanft eingelerpt (statt hart zu springen) und beim Verlassen wieder zu 0.
+  const targetMouse = new THREE.Vector2(0.5, 0.5);
+  let targetActive = 0;
+
+  function onPointerMove(e: PointerEvent) {
+    const rect = canvas.getBoundingClientRect();
+    targetMouse.set(
+      (e.clientX - rect.left) / rect.width,
+      1 - (e.clientY - rect.top) / rect.height,
+    );
+    targetActive = 1;
+  }
+  function onPointerLeave() {
+    targetActive = 0;
+  }
+
+  if (!reduceMotion) {
+    canvas.addEventListener("pointermove", onPointerMove);
+    canvas.addEventListener("pointerleave", onPointerLeave);
+  }
 
   function renderFrame() {
     rafId = null;
@@ -187,6 +231,14 @@ export async function initHalftoneShader(
       waveTime += opts.waveTimeSpeed;
       uniforms.uTime.value = time;
       uniforms.uWaveTime.value = waveTime;
+
+      uniforms.uMouse.value.lerp(targetMouse, 0.08);
+      uniforms.uMouseActive.value +=
+        (targetActive - uniforms.uMouseActive.value) * 0.06;
+      if (uniforms.uMouseActive.value > 0.002) {
+        rippleTime += 1;
+        uniforms.uRippleTime.value = rippleTime * 0.05;
+      }
     }
     renderer.render(scene, camera);
     if (!reduceMotion) scheduleFrame();
@@ -221,6 +273,8 @@ export async function initHalftoneShader(
     resizeObserver.disconnect();
     intersectionObserver.disconnect();
     document.removeEventListener("visibilitychange", onVisibilityChange);
+    canvas.removeEventListener("pointermove", onPointerMove);
+    canvas.removeEventListener("pointerleave", onPointerLeave);
     geometry.dispose();
     material.dispose();
     renderer.dispose();
