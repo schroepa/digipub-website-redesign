@@ -113,8 +113,8 @@ export async function initParticleNetwork(
   );
   const particleMaterial = new THREE.PointsMaterial({
     color: new THREE.Color(...opts.color),
-    size: 0.025,
-    sizeAttenuation: true,
+    size: 3 * dpr,
+    sizeAttenuation: false,
     transparent: true,
     opacity: 0.85,
   });
@@ -130,8 +130,8 @@ export async function initParticleNetwork(
     );
     const material = new THREE.PointsMaterial({
       color: new THREE.Color(...opts.color),
-      size: 0.09,
-      sizeAttenuation: true,
+      size: 11 * dpr,
+      sizeAttenuation: false,
       transparent: true,
       opacity: 0,
     });
@@ -165,8 +165,8 @@ export async function initParticleNetwork(
   );
   const pulseMaterial = new THREE.PointsMaterial({
     color: new THREE.Color(...opts.color),
-    size: 0.14,
-    sizeAttenuation: true,
+    size: 16 * dpr,
+    sizeAttenuation: false,
     transparent: true,
     opacity: 0,
   });
