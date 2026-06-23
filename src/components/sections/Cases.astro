@@ -7,8 +7,8 @@ const cases = [
     name: "Portazon",
     subtitle: "Smart City Super App, Trier",
     ausgangslage: "Eine neue Plattform mit großer Idee – aber ohne Struktur, die sie trägt.",
-    massnahme: "Wir haben Content-Architektur, Partnerstrategie und Monitoring aufgebaut.",
-    ergebnis: "Portazon ist heute sichtbar – lokal verankert, digital durchdacht.",
+    massnahme: "Content-Architektur, Partnerstrategie und Monitoring aufgebaut.",
+    ergebnis: "Heute sichtbar – lokal verankert, digital durchdacht.",
     href: "/case-studies/portazon",
   },
   {
@@ -34,73 +34,117 @@ const cases = [
     name: "Initiative Handarbeit",
     subtitle: "",
     ausgangslage: "Sichtbarkeit verloren in einem hart umkämpften Markt.",
-    massnahme: "Strategie, Struktur und neue Inhaltstypen gemeinsam mit dem Team entwickelt.",
+    massnahme: "Strategie, Struktur und neue Inhaltstypen mit dem Team entwickelt.",
     ergebnis: "Rankings zurückgewonnen. Neues Wachstum planbar gemacht.",
     href: null,
   },
 ];
+
+const dreiklang = ["Ausgangslage", "Was wir taten", "Jetzt"];
 ---
 
-<Section id="cases">
-  <div class="max-w-2xl mb-12">
-    <h2 style="font-size: var(--text-section);" class="font-bold text-foreground mb-4">
+<Section id="cases" class="border-t border-border">
+  <div class="max-w-3xl">
+    <p
+      data-animate
+      class="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary"
+      style="opacity: 0; transform: translateY(30px);"
+    >
+      <span class="text-muted-foreground">06</span> &nbsp;·&nbsp; Cases
+    </p>
+    <h2
+      data-animate
+      class="font-bold text-foreground"
+      style="font-size: var(--text-section); line-height: 1.08; letter-spacing: -0.02em; opacity: 0; transform: translateY(30px);"
+    >
       Was daraus entsteht.
     </h2>
-    <p class="text-muted-foreground" style="font-size: var(--text-body);">
-      Unternehmen, die ihre Stärke<br />jetzt auch zeigen können.
+    <p
+      data-animate
+      class="mt-6 text-muted-foreground"
+      style="font-size: var(--text-body); line-height: 1.6; opacity: 0; transform: translateY(30px);"
+    >
+      Unternehmen, die ihre Stärke jetzt auch zeigen können.
     </p>
   </div>
 
-  <div class="divide-y divide-border border-t border-b border-border">
+  <div class="mt-14 border-t border-border">
     {cases.map((c) => (
-      <div data-animate class="py-12 md:py-16" style="opacity: 0; transform: translateY(30px);">
-        <p class="font-bold text-xs text-muted-foreground uppercase tracking-widest mb-6">
-          {c.nr} — {c.name}{c.subtitle && ` · ${c.subtitle}`}
-        </p>
-
-        <svg
-          viewBox="0 0 600 90"
-          class="w-full h-auto mb-8"
-          role="img"
-          aria-label={`Prozess: ${c.ausgangslage} → ${c.massnahme} → ${c.ergebnis}`}
-          data-connection-diagram
-        >
-          <line data-line x1="20" y1="45" x2="580" y2="45" stroke="var(--border)" stroke-width="1.5" />
-          <circle data-node cx="20" cy="45" r="6" fill="var(--border)" />
-          <circle data-node cx="300" cy="45" r="6" fill="var(--foreground)" />
-          <circle data-node cx="580" cy="45" r="8" fill="var(--foreground)" />
-        </svg>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <div>
-            <h3 class="font-bold text-xs uppercase tracking-widest text-muted-foreground mb-2">Ausgangslage</h3>
-            <p class="text-foreground" style="font-size: var(--text-body);">{c.ausgangslage}</p>
-          </div>
-          <div>
-            <h3 class="font-bold text-xs uppercase tracking-widest text-muted-foreground mb-2">Was wir taten</h3>
-            <p class="text-foreground" style="font-size: var(--text-body);">{c.massnahme}</p>
-          </div>
-          <div>
-            <h3 class="font-bold text-xs uppercase tracking-widest text-muted-foreground mb-2">Jetzt</h3>
-            <p class="text-foreground" style="font-size: var(--text-body);">{c.ergebnis}</p>
-          </div>
-        </div>
-
-        <div class="mt-6">
-          {c.href ? (
-            <a href={c.href} class="text-sm font-medium text-foreground hover:opacity-70 transition-opacity">
-              → Zur Case Study
-            </a>
-          ) : (
-            <span aria-disabled="true" class="text-sm font-medium text-muted-foreground">
-              → Zur Case Study (in Kürze)
-            </span>
+      <article
+        data-animate
+        class="border-b border-border py-12 md:py-16"
+        style="opacity: 0; transform: translateY(30px);"
+      >
+        <!-- Kopf: Index + Name + Subtitle -->
+        <div class="mb-8 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+          <span class="font-mono text-sm tabular-nums text-muted-foreground">{c.nr}</span>
+          <h3 class="font-bold text-foreground" style="font-size: var(--text-peak); line-height: 1.1; letter-spacing: -0.02em;">
+            {c.name}
+          </h3>
+          {c.subtitle && (
+            <span class="text-muted-foreground" style="font-size: var(--text-body);">{c.subtitle}</span>
           )}
         </div>
-      </div>
+
+        <!-- Dreiklang: Ausgangslage → Was wir taten → Jetzt -->
+        <svg
+          viewBox="0 0 600 40"
+          class="mb-8 hidden h-auto w-full md:block"
+          role="img"
+          aria-label={`Verlauf: ${c.ausgangslage} – ${c.massnahme} – ${c.ergebnis}`}
+          data-connection-diagram
+        >
+          <line data-line x1="14" y1="20" x2="586" y2="20" stroke="var(--border)" stroke-width="1.5" />
+          <circle data-node cx="14" cy="20" r="6" fill="var(--background)" stroke="var(--muted-foreground)" stroke-width="1.5" />
+          <circle data-node cx="300" cy="20" r="6" fill="var(--background)" stroke="var(--muted-foreground)" stroke-width="1.5" />
+          <circle data-node cx="586" cy="20" r="7" fill="var(--primary)" />
+        </svg>
+
+        <div class="grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-3">
+          {[c.ausgangslage, c.massnahme, c.ergebnis].map((text, i) => (
+            <div>
+              <p class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">
+                {dreiklang[i]}
+              </p>
+              <p
+                class:list={[i === 2 ? "text-foreground" : "text-muted-foreground"]}
+                style="font-size: var(--text-body); line-height: 1.55;"
+              >
+                {text}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-8">
+          {c.href ? (
+            <a
+              href={c.href}
+              class="group inline-flex items-center gap-2 font-mono text-sm text-foreground transition-opacity hover:opacity-70"
+            >
+              <span class="transition-transform group-hover:translate-x-1">→</span> Zur Case Study
+            </a>
+          ) : (
+            <span class="font-mono text-sm text-muted-foreground">→ Zur Case Study (in Kürze)</span>
+          )}
+        </div>
+      </article>
     ))}
   </div>
 </Section>
+
+<style>
+  @keyframes cases-node-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+  }
+  :global(#cases .connection-diagram-pulse) {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: cases-node-pulse 0.5s ease;
+  }
+</style>
 
 <script>
   import { initScrollAnimate, initConnectionDiagram } from "../../lib/scrollAnimate";

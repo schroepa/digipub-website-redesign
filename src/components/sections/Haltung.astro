@@ -2,39 +2,62 @@
 import Section from "../ui/Section.astro";
 ---
 
-<Section id="haltung">
-  <div data-animate style="opacity: 0; transform: translateY(30px);">
-    <div class="max-w-2xl mb-12">
-      <h2 style="font-size: var(--text-section);" class="font-bold text-foreground mb-4">
-        Mehrwert ist Marke.
-      </h2>
-      <p class="text-muted-foreground mb-4" style="font-size: var(--text-body);">
-        Nicht Design macht Marke. Nicht Werbung macht Marke.
-        Marke entsteht, wenn ein Unternehmen seinen echten Mehrwert
-        sichtbar, verständlich und nutzbar macht.
+<Section id="haltung" class="border-t border-border">
+  <p
+    data-animate
+    class="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-primary"
+    style="opacity: 0; transform: translateY(30px);"
+  >
+    <span class="text-muted-foreground">07</span> &nbsp;·&nbsp; Haltung
+  </p>
+
+  <!-- Statement steht allein, maximaler Weißraum -->
+  <h2
+    data-animate
+    class="max-w-4xl font-bold text-foreground"
+    style="font-size: var(--text-statement); line-height: 1.05; letter-spacing: -0.03em; opacity: 0; transform: translateY(30px);"
+  >
+    Mehrwert ist Marke.
+  </h2>
+
+  <div class="mt-12 grid gap-x-16 gap-y-10 lg:grid-cols-[1.1fr_0.9fr]">
+    <div
+      data-animate
+      class="space-y-5 text-muted-foreground"
+      style="font-size: var(--text-body); line-height: 1.7; opacity: 0; transform: translateY(30px);"
+    >
+      <p>
+        Nicht Design macht Marke. Nicht Werbung macht Marke. Marke entsteht, wenn
+        ein Unternehmen seinen echten Mehrwert sichtbar, verständlich und nutzbar
+        macht.
       </p>
-      <p class="text-muted-foreground" style="font-size: var(--text-body);">
-        Das ist es, wofür wir arbeiten.
-        Mit jedem, der offen ist, diesen Weg zu gehen.
+      <p class="text-foreground">
+        Das ist es, wofür wir arbeiten. Mit jedem, der offen ist, diesen Weg zu
+        gehen.
       </p>
     </div>
 
-    <div class="border-t border-border pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-      <p class="text-muted-foreground max-w-md" style="font-size: var(--text-body);">
-        Dein Unternehmen hat diesen Mehrwert. Lass uns gemeinsam
-        herausfinden, wie wir ihn sichtbar machen.
+    <!-- CTA -->
+    <div
+      data-animate
+      class="lg:border-l lg:border-border lg:pl-16"
+      style="opacity: 0; transform: translateY(30px);"
+    >
+      <p class="mb-6 text-foreground" style="font-size: var(--text-body); line-height: 1.6;">
+        Dein Unternehmen hat diesen Mehrwert. Lass uns gemeinsam herausfinden,
+        wie wir ihn sichtbar machen.
       </p>
       <div class="flex flex-wrap gap-3">
         <button
           id="haltung-calendly-btn"
           type="button"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-semibold rounded-lg hover:opacity-80 transition-opacity"
+          class="inline-flex items-center gap-2 rounded-lg bg-foreground px-6 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-80"
         >
           Gespräch anfangen →
         </button>
         <a
           href="mailto:kontakt@digipub.de"
-          class="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground text-sm font-semibold rounded-lg hover:opacity-70 transition-opacity"
+          class="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground transition-opacity hover:opacity-70"
         >
           E-Mail schreiben
         </a>
@@ -55,9 +78,7 @@ import Section from "../ui/Section.astro";
   }
 
   const section = document.getElementById("haltung");
-  if (section) {
-    initScrollAnimate(section);
-  }
+  if (section) initScrollAnimate(section);
 
   const CALENDLY_URL = "https://calendly.com/nigronet";
 
@@ -74,7 +95,7 @@ import Section from "../ui/Section.astro";
     }
 
     const existingScript = document.querySelector<HTMLScriptElement>(
-      'script[src*="calendly.com/assets/external/widget.js"]'
+      'script[src*="calendly.com/assets/external/widget.js"]',
     );
 
     if (existingScript) {
@@ -92,5 +113,7 @@ import Section from "../ui/Section.astro";
     document.head.appendChild(script);
   }
 
-  document.getElementById("haltung-calendly-btn")?.addEventListener("click", loadCalendlyAndOpen);
+  document
+    .getElementById("haltung-calendly-btn")
+    ?.addEventListener("click", loadCalendlyAndOpen);
 </script>
