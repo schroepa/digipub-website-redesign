@@ -1,51 +1,77 @@
 ---
 import Section from "../ui/Section.astro";
-import ConnectionDiagram from "../diagrams/ConnectionDiagram.astro";
+
+const questions = [
+  "Was leistet dein Unternehmen wirklich?",
+  "Wen willst du erreichen – und mit welchem Mehrwert?",
+  "Was existiert bereits, was fehlt, was bremst?",
+];
 ---
 
-<Section id="denkweise">
-  <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
-    <div class="max-w-2xl">
-      <h2
-        style="font-size: var(--text-section);"
-        class="font-bold text-foreground mb-8"
-      >
-        Wir beginnen nicht mit Maßnahmen.<br />Wir beginnen mit dem Verstehen.
-      </h2>
+<Section id="denkweise" class="border-t border-border">
+  <div class="max-w-3xl">
+    <p
+      data-animate
+      class="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary"
+      style="opacity: 0; transform: translateY(30px);"
+    >
+      <span class="text-muted-foreground">03</span> &nbsp;·&nbsp; Die Denkweise
+    </p>
+    <h2
+      data-animate
+      class="font-bold text-foreground"
+      style="font-size: var(--text-section); line-height: 1.08; letter-spacing: -0.02em; opacity: 0; transform: translateY(30px);"
+    >
+      Wir beginnen nicht mit Maßnahmen.<br />Wir beginnen mit dem Verstehen.
+    </h2>
 
-      <div
-        class="space-y-4 text-foreground"
-        style="font-size: var(--text-body); line-height: 1.7;"
-      >
-        <p data-animate style="opacity: 0; transform: translateY(30px);">
-          Bevor irgendwas gebaut, geschrieben oder automatisiert wird, stellen wir dieselben Fragen:
-        </p>
-        <p data-animate style="opacity: 0; transform: translateY(30px);">
-          Was leistet dein Unternehmen wirklich?
-        </p>
-        <p data-animate style="opacity: 0; transform: translateY(30px);">
-          Wen willst du erreichen &ndash; und mit welchem Mehrwert?
-        </p>
-        <p data-animate style="opacity: 0; transform: translateY(30px);">
-          Was existiert bereits, was fehlt, was bremst?
-        </p>
-        <p data-animate style="opacity: 0; transform: translateY(30px);">
-          Erst danach entstehen Lösungen.
-        </p>
-      </div>
-    </div>
-
-    <ConnectionDiagram />
+    <p
+      data-animate
+      class="mt-8 text-muted-foreground"
+      style="font-size: var(--text-body); line-height: 1.7; opacity: 0; transform: translateY(30px);"
+    >
+      Bevor irgendwas gebaut, geschrieben oder automatisiert wird, stellen wir
+      dieselben Fragen:
+    </p>
   </div>
 
-  <div style="margin-top: var(--peak-space);">
+  <!-- Die drei Fragen – groß, als Denkprozess gesetzt -->
+  <ol class="mt-12 max-w-4xl">
+    {questions.map((question, i) => (
+      <li
+        data-animate
+        class="grid grid-cols-[auto_1fr] items-baseline gap-6 border-t border-border py-7"
+        style="opacity: 0; transform: translateY(30px);"
+      >
+        <span class="font-mono text-sm text-primary tabular-nums">
+          {String(i + 1).padStart(2, "0")}
+        </span>
+        <span
+          class="font-medium text-foreground"
+          style="font-size: var(--text-peak); line-height: 1.2; letter-spacing: -0.01em;"
+        >
+          {question}
+        </span>
+      </li>
+    ))}
+  </ol>
+
+  <p
+    data-animate
+    class="mt-10 font-mono text-sm text-muted-foreground"
+    style="opacity: 0; transform: translateY(30px);"
+  >
+    → Erst danach entstehen Lösungen.
+  </p>
+
+  <!-- Abgrenzungssatz – allein, mutig -->
+  <div class="mt-[var(--peak-space)]">
     <p
       data-statement
-      class="font-bold text-foreground"
-      style="font-size: var(--text-statement); line-height: 1.3;"
+      class="max-w-3xl font-bold text-foreground"
+      style="font-size: var(--text-statement); line-height: 1.2; letter-spacing: -0.02em;"
     >
-      Die meisten fangen bei den Maßnahmen an.<br />
-      Wir fangen davor an.
+      Die meisten fangen bei den Maßnahmen an. Wir fangen davor an.
     </p>
   </div>
 </Section>
@@ -57,6 +83,8 @@ import ConnectionDiagram from "../diagrams/ConnectionDiagram.astro";
   const section = document.getElementById("denkweise");
   if (section) initScrollAnimate(section);
 
-  const statement = document.querySelector<HTMLElement>("#denkweise [data-statement]");
+  const statement = document.querySelector<HTMLElement>(
+    "#denkweise [data-statement]",
+  );
   if (statement) initWordReveal(statement);
 </script>

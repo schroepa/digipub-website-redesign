@@ -1,0 +1,201 @@
+---
+import Section from "../ui/Section.astro";
+
+const steps = [
+  { title: "Mehrwert erkennen", sub: "Was steckt wirklich dahinter?", accent: true },
+  { title: "Mehrwert ordnen", sub: "Wie wird es kommunizierbar?", accent: false },
+  { title: "Mehrwert sichtbar machen", sub: "Über welche Kanäle und Systeme?", accent: false },
+  { title: "Mehrwert automatisieren", sub: "Was soll dauerhaft und skalierbar laufen?", accent: false },
+];
+---
+
+<Section id="reihenfolge" class="border-t border-border">
+  <div class="max-w-3xl">
+    <p
+      data-animate
+      class="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary"
+      style="opacity: 0; transform: translateY(30px);"
+    >
+      <span class="text-muted-foreground">04</span> &nbsp;·&nbsp; Die Reihenfolge
+    </p>
+    <h2
+      data-animate
+      class="font-bold text-foreground"
+      style="font-size: var(--text-section); line-height: 1.08; letter-spacing: -0.02em; opacity: 0; transform: translateY(30px);"
+    >
+      Die Reihenfolge entscheidet.
+    </h2>
+  </div>
+
+  <!-- ── Signatur: Vier-Stufen-Flussdiagramm ──────────────────────────── -->
+  <div class="rf" data-rf style="margin-top: clamp(48px, 7vw, 96px);">
+    <!-- Desktop: horizontale Kette -->
+    <div class="hidden lg:block">
+      <div class="rf-rail relative">
+        <div class="rf-line-h" data-rf-line></div>
+        <div class="grid grid-cols-4">
+          {steps.map((step) => (
+            <div class="flex justify-center">
+              <span class:list={["rf-dot", step.accent && "rf-dot--accent"]} data-rf-dot></span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-7 grid grid-cols-4 gap-6">
+        {steps.map((step, i) => (
+          <div data-animate style="opacity: 0; transform: translateY(30px);">
+            <span class:list={["block font-mono text-sm tabular-nums mb-3", step.accent ? "text-primary" : "text-muted-foreground"]}>
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h3 class="font-bold text-foreground mb-1" style="font-size: var(--text-body); line-height: 1.25;">
+              {step.title}
+            </h3>
+            <p class="text-muted-foreground" style="font-size: var(--text-body); line-height: 1.5;">
+              {step.sub}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mobile: vertikale Kette -->
+    <ol class="relative lg:hidden">
+      <div class="rf-line-v" data-rf-line></div>
+      {steps.map((step, i) => (
+        <li class="relative pb-10 pl-9 last:pb-0" data-animate style="opacity: 0; transform: translateY(30px);">
+          <span class:list={["rf-dot rf-dot--v", step.accent && "rf-dot--accent"]} data-rf-dot></span>
+          <span class:list={["block font-mono text-sm tabular-nums mb-2", step.accent ? "text-primary" : "text-muted-foreground"]}>
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <h3 class="font-bold text-foreground mb-1" style="font-size: var(--text-body); line-height: 1.25;">
+            {step.title}
+          </h3>
+          <p class="text-muted-foreground" style="font-size: var(--text-body); line-height: 1.5;">
+            {step.sub}
+          </p>
+        </li>
+      ))}
+    </ol>
+  </div>
+
+  <!-- Positionierungs-Statement – kein CTA, den Gedanken sacken lassen -->
+  <div class="mt-[var(--peak-space)]">
+    <p
+      data-statement
+      class="max-w-3xl font-bold text-foreground"
+      style="font-size: var(--text-statement); line-height: 1.2; letter-spacing: -0.02em;"
+    >
+      Andere beginnen bei Schritt drei. Wir beginnen bei Schritt eins.
+    </p>
+  </div>
+</Section>
+
+<style>
+  .rf-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 9999px;
+    background: var(--color-background);
+    border: 1.5px solid var(--color-muted-foreground);
+    opacity: 0;
+    transform: scale(0.4);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .rf-dot--accent {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+  }
+  /* Horizontale Linie (Desktop) – wächst von links */
+  .rf-rail {
+    height: 13px;
+    margin-bottom: 4px;
+  }
+  .rf-line-h {
+    position: absolute;
+    top: 50%;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1.5px;
+    background: var(--color-border);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  /* Vertikale Linie (Mobile) – wächst von oben */
+  .rf-line-v {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    bottom: 6px;
+    width: 1.5px;
+    background: var(--color-border);
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .rf-dot--v {
+    position: absolute;
+    left: 0;
+    top: 2px;
+  }
+  .rf.is-visible .rf-line-h,
+  .rf.is-visible .rf-line-v {
+    transform: scale(1);
+  }
+  .rf.is-visible .rf-dot {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .rf.is-visible .rf-dot--v {
+    transform: scale(1);
+  }
+  .rf .rf-dot[data-rf-dot] { transition-delay: calc(var(--rf-i, 0) * 140ms + 250ms); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rf-dot, .rf-line-h, .rf-line-v {
+      transition: none !important;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  import { initScrollAnimate } from "../../lib/scrollAnimate";
+  import { initWordReveal } from "../../lib/wordReveal";
+
+  const section = document.getElementById("reihenfolge");
+  if (section) initScrollAnimate(section);
+
+  const statement = document.querySelector<HTMLElement>(
+    "#reihenfolge [data-statement]",
+  );
+  if (statement) initWordReveal(statement);
+
+  // Signatur-Diagramm: Linie + Knoten beim Eintritt animieren.
+  const rf = document.querySelector<HTMLElement>("[data-rf]");
+  if (rf) {
+    rf.querySelectorAll<HTMLElement>("[data-rf-dot]").forEach((dot, i) => {
+      dot.style.setProperty("--rf-i", String(i % 4));
+    });
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReduced) {
+      rf.classList.add("is-visible");
+    } else {
+      const io = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            rf.classList.add("is-visible");
+            obs.disconnect();
+          });
+        },
+        { threshold: 0.3 },
+      );
+      io.observe(rf);
+    }
+  }
+</script>
