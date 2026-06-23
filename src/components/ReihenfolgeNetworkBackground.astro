@@ -1,0 +1,144 @@
+---
+interface Props {
+  /** Tailwind-/Design-Token für die Punkte, Knoten und Linien, z. B. "primary". */
+  color?: string;
+  particleCount?: number;
+  maxDpr?: number;
+  class?: string;
+}
+
+const {
+  color = "primary",
+  particleCount = 120,
+  maxDpr = 1.5,
+  class: className,
+} = Astro.props;
+---
+
+<div
+  class:list={["absolute inset-0 -z-10 overflow-hidden pointer-events-none", className]}
+  aria-hidden="true"
+  aria-label="Animiertes Netzwerk-Diagramm, das sich beim Scrollen zu einer vier-stufigen Kette verbindet"
+>
+  <div
+    class="particle-network-color-probe"
+    style={`display: none; background-color: var(--color-${color}, #78716c);`}
+  ></div>
+  <canvas
+    class="particle-network-canvas block h-full w-full pointer-events-auto"
+    data-particle-count={particleCount}
+    data-max-dpr={maxDpr}
+  ></canvas>
+</div>
+
+<script>
+  import { initParticleNetwork } from "../lib/webgl/particleNetwork";
+  import type { ParticleNetworkHandle } from "../lib/webgl/particleNetwork";
+
+  const FALLBACK_COLOR: [number, number, number] = [0.42, 0.4, 0.37];
+
+  function parseColor(probe: HTMLElement): [number, number, number] {
+    const computed = getComputedStyle(probe).backgroundColor;
+    try {
+      const c = document.createElement("canvas");
+      c.width = 1;
+      c.height = 1;
+      const ctx = c.getContext("2d");
+      if (!ctx) return FALLBACK_COLOR;
+      ctx.fillStyle = computed;
+      ctx.fillRect(0, 0, 1, 1);
+      const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
+      return [r / 255, g / 255, b / 255];
+    } catch {
+      return FALLBACK_COLOR;
+    }
+  }
+
+  function wireStageObserver(canvas: HTMLCanvasElement, handle: ParticleNetworkHandle) {
+    const section = canvas.closest("section");
+    const labels = section
+      ? Array.from(section.querySelectorAll<HTMLElement>("[data-stage]"))
+      : [];
+    if (labels.length === 0) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion) {
+      handle.setStage(labels.length);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const stage = Number((entry.target as HTMLElement).dataset.stage);
+          handle.setStage(stage);
+          obs.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.2 },
+    );
+    labels.forEach((label) => observer.observe(label));
+  }
+
+  function wireMouse(canvas: HTMLCanvasElement, handle: ParticleNetworkHandle) {
+    const onMove = (e: PointerEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      handle.setMouse({
+        x: (e.clientX - rect.left) / rect.width,
+        y: 1 - (e.clientY - rect.top) / rect.height,
+      });
+    };
+    const onLeave = () => handle.setMouse(null);
+    canvas.addEventListener("pointermove", onMove);
+    canvas.addEventListener("pointerleave", onLeave);
+  }
+
+  function mount(canvas: HTMLCanvasElement) {
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } })
+      .connection;
+    if (connection?.saveData) {
+      canvas.style.display = "none";
+      return;
+    }
+
+    let started = false;
+    const start = () => {
+      if (started) return;
+      started = true;
+
+      const probe = canvas.previousElementSibling as HTMLElement | null;
+      const color = probe ? parseColor(probe) : FALLBACK_COLOR;
+      const data = canvas.dataset;
+
+      void initParticleNetwork(canvas, {
+        particleCount: Number(data.particleCount),
+        maxDpr: Number(data.maxDpr),
+        color,
+      }).then((handle) => {
+        wireStageObserver(canvas, handle);
+        wireMouse(canvas, handle);
+      });
+    };
+
+    const lazyObserver = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0]?.isIntersecting) return;
+        lazyObserver.disconnect();
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(start);
+        } else {
+          setTimeout(start, 1);
+        }
+      },
+      { threshold: 0, rootMargin: "200px" },
+    );
+    lazyObserver.observe(canvas);
+  }
+
+  document
+    .querySelectorAll<HTMLCanvasElement>(".particle-network-canvas")
+    .forEach(mount);
+</script>
