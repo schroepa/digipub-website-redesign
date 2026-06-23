@@ -295,9 +295,11 @@ export async function initParticleNetwork(
   let rafId: number | null = null;
   let inView = false;
   let tabHidden = document.hidden;
+  let destroyed = false;
 
   function renderFrame() {
     rafId = null;
+    if (destroyed) return;
 
     if (!reduceMotion) {
       time += 0.016;
@@ -357,6 +359,7 @@ export async function initParticleNetwork(
       }
     },
     destroy() {
+      destroyed = true;
       if (rafId !== null) cancelAnimationFrame(rafId);
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
