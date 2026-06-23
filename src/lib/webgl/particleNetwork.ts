@@ -54,15 +54,14 @@ function createParticles(count: number): Particle[] {
 }
 
 /**
- * Knoten-Positionen in NDC-artigen Koordinaten (-1..1), abhängig von der
- * Canvas-Ausrichtung: breiter als hoch -> horizontale Kette (Desktop),
- * sonst vertikale Kette (Mobile). Wird bei jedem Resize neu berechnet.
+ * Knoten-Positionen in NDC-artigen Koordinaten (-1..1). Die Ausrichtung
+ * folgt demselben Breakpoint wie die Tailwind-`lg:`-Klassen in
+ * Reihenfolge.astro (min-width: 1024px) – NICHT dem Seitenverhältnis des
+ * Canvas selbst, damit Text-Layout und Netzwerk-Ausrichtung niemals
+ * auseinanderlaufen können.
  */
-function computeNodePositions(
-  width: number,
-  height: number,
-): Array<[number, number]> {
-  const horizontal = width >= height;
+function computeNodePositions(): Array<[number, number]> {
+  const horizontal = window.matchMedia("(min-width: 1024px)").matches;
   const positions: Array<[number, number]> = [];
   for (let i = 0; i < NODE_COUNT; i++) {
     const t = i / (NODE_COUNT - 1); // 0..1
@@ -103,10 +102,7 @@ export async function initParticleNetwork(
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, -1, 1);
 
   const particles = createParticles(opts.particleCount);
-  let nodePositions = computeNodePositions(
-    canvas.clientWidth || 1,
-    canvas.clientHeight || 1,
-  );
+  let nodePositions = computeNodePositions();
 
   // ── Partikel (Points) ──────────────────────────────────────────────────
   const particlePositions = new Float32Array(particles.length * 3);
@@ -181,7 +177,7 @@ export async function initParticleNetwork(
     const width = canvas.clientWidth || 1;
     const height = canvas.clientHeight || 1;
     renderer.setSize(width, height, false);
-    nodePositions = computeNodePositions(width, height);
+    nodePositions = computeNodePositions();
 
     nodeMeshes.forEach(({ points }, i) => {
       const [x, y] = nodePositions[i];
@@ -207,6 +203,10 @@ export async function initParticleNetwork(
 
   const resizeObserver = new ResizeObserver(resize);
   resizeObserver.observe(canvas);
+
+  const breakpointQuery = window.matchMedia("(min-width: 1024px)");
+  const onBreakpointChange = () => resize();
+  breakpointQuery.addEventListener("change", onBreakpointChange);
 
   const reduceMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
@@ -362,6 +362,7 @@ export async function initParticleNetwork(
       destroyed = true;
       if (rafId !== null) cancelAnimationFrame(rafId);
       resizeObserver.disconnect();
+      breakpointQuery.removeEventListener("change", onBreakpointChange);
       intersectionObserver.disconnect();
       document.removeEventListener("visibilitychange", onVisibilityChange);
       particleGeometry.dispose();
