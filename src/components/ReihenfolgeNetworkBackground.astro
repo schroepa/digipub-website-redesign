@@ -19,6 +19,7 @@ const {
   class:list={["absolute inset-0 -z-10 overflow-hidden pointer-events-none", className]}
   aria-hidden="true"
   aria-label="Animiertes Netzwerk-Diagramm, das sich beim Scrollen zu einer vier-stufigen Kette verbindet"
+  role="img"
 >
   <div
     class="particle-network-color-probe"
@@ -32,7 +33,7 @@ const {
 </div>
 
 <script>
-  import { initParticleNetwork } from "../lib/webgl/particleNetwork";
+  import { initParticleNetwork, NODE_COUNT } from "../lib/webgl/particleNetwork";
   import type { ParticleNetworkHandle } from "../lib/webgl/particleNetwork";
 
   const FALLBACK_COLOR: [number, number, number] = [0.42, 0.4, 0.37];
@@ -54,12 +55,20 @@ const {
     }
   }
 
+  // Erwartet, dass der Canvas innerhalb der <section> liegt, die auch die
+  // [data-stage]-Elemente enthält (ein Element pro Netzwerk-Stufe, in
+  // Dokumentreihenfolge nummeriert 1..NODE_COUNT, siehe particleNetwork.ts).
   function wireStageObserver(canvas: HTMLCanvasElement, handle: ParticleNetworkHandle) {
     const section = canvas.closest("section");
     const labels = section
       ? Array.from(section.querySelectorAll<HTMLElement>("[data-stage]"))
       : [];
     if (labels.length === 0) return;
+    if (labels.length !== NODE_COUNT) {
+      console.warn(
+        `ReihenfolgeNetworkBackground: erwarte ${NODE_COUNT} [data-stage]-Elemente, gefunden: ${labels.length}`,
+      );
+    }
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -74,8 +83,9 @@ const {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           const stage = Number((entry.target as HTMLElement).dataset.stage);
-          handle.setStage(stage);
           obs.unobserve(entry.target);
+          if (Number.isNaN(stage)) return;
+          handle.setStage(stage);
         });
       },
       { threshold: 0.2 },

@@ -35,7 +35,7 @@ interface Particle {
   seed: number;
 }
 
-const NODE_COUNT = 4;
+export const NODE_COUNT = 4;
 const SEGMENT_COUNT = NODE_COUNT - 1;
 
 function createParticles(count: number): Particle[] {
