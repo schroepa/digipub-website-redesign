@@ -101,6 +101,34 @@ export async function initParticleNetwork(
   const scene = new THREE.Scene();
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, -1, 1);
 
+  // THREE.Points rastert ohne eigene Sprite-Textur eckige Quadrate. Eine
+  // kleine, einmalig erzeugte Radial-Gradient-Textur sorgt für weiche,
+  // runde Punkte für Partikel, Knoten und Puls.
+  function createDotTexture(): InstanceType<typeof THREE.CanvasTexture> {
+    const size = 64;
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    const gradient = ctx.createRadialGradient(
+      size / 2,
+      size / 2,
+      0,
+      size / 2,
+      size / 2,
+      size / 2,
+    );
+    gradient.addColorStop(0, "rgba(255,255,255,1)");
+    gradient.addColorStop(0.7, "rgba(255,255,255,1)");
+    gradient.addColorStop(1, "rgba(255,255,255,0)");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, size, size);
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+  }
+  const dotTexture = createDotTexture();
+
   const particles = createParticles(opts.particleCount);
   let nodePositions = computeNodePositions();
 
@@ -113,9 +141,12 @@ export async function initParticleNetwork(
   );
   const particleMaterial = new THREE.PointsMaterial({
     color: new THREE.Color(...opts.color),
-    size: 3 * dpr,
+    map: dotTexture,
+    alphaMap: dotTexture,
+    size: 5 * dpr,
     sizeAttenuation: false,
     transparent: true,
+    depthWrite: false,
     opacity: 0.85,
   });
   const particlePoints = new THREE.Points(particleGeometry, particleMaterial);
@@ -130,9 +161,12 @@ export async function initParticleNetwork(
     );
     const material = new THREE.PointsMaterial({
       color: new THREE.Color(...opts.color),
-      size: 11 * dpr,
+      map: dotTexture,
+      alphaMap: dotTexture,
+      size: 14 * dpr,
       sizeAttenuation: false,
       transparent: true,
+      depthWrite: false,
       opacity: 0,
     });
     const points = new THREE.Points(geometry, material);
@@ -165,9 +199,12 @@ export async function initParticleNetwork(
   );
   const pulseMaterial = new THREE.PointsMaterial({
     color: new THREE.Color(...opts.color),
-    size: 16 * dpr,
+    map: dotTexture,
+    alphaMap: dotTexture,
+    size: 18 * dpr,
     sizeAttenuation: false,
     transparent: true,
+    depthWrite: false,
     opacity: 0,
   });
   const pulsePoint = new THREE.Points(pulseGeometry, pulseMaterial);
@@ -377,6 +414,7 @@ export async function initParticleNetwork(
       });
       pulseGeometry.dispose();
       pulseMaterial.dispose();
+      dotTexture.dispose();
       renderer.dispose();
     },
   };
