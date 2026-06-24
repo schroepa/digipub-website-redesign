@@ -12,7 +12,7 @@ interface Props {
 
 const {
   color = "primary",
-  opacity = 0.55,
+  opacity = 0.32,
   freq = 14,
   chirp = 12,
   timeSpeed = 0.006,
@@ -41,6 +41,11 @@ const {
   <div
     class="pointer-events-none absolute inset-x-0 top-0"
     style="height: 38%; background: linear-gradient(to bottom, var(--color-background) 0%, transparent 100%);"
+  ></div>
+  <!-- Lesbarkeits-Maske: hinter der Textspalte links das Feld weich abdunkeln -->
+  <div
+    class="pointer-events-none absolute inset-y-0 left-0"
+    style="width: 62%; background: linear-gradient(to right, var(--color-background) 0%, color-mix(in oklch, var(--color-background) 55%, transparent) 45%, transparent 100%);"
   ></div>
 </div>
 
