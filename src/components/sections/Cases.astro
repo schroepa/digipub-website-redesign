@@ -86,19 +86,26 @@ const dreiklang = ["Ausgangslage", "Was wir taten", "Jetzt"];
           )}
         </div>
 
-        <!-- Dreiklang: Ausgangslage → Was wir taten → Jetzt -->
-        <svg
-          viewBox="0 0 600 40"
-          class="mb-8 hidden h-auto w-full md:block"
+        <!-- Dreiklang als Flow-Verlauf: Ausgangslage → Was wir taten → Jetzt -->
+        <div
+          data-flow
+          class="relative mb-8 hidden items-center md:flex"
+          style="height: 14px;"
           role="img"
           aria-label={`Verlauf: ${c.ausgangslage} – ${c.massnahme} – ${c.ergebnis}`}
-          data-connection-diagram
         >
-          <line data-line x1="14" y1="20" x2="586" y2="20" stroke="var(--border)" stroke-width="1.5" />
-          <circle data-node cx="14" cy="20" r="6" fill="var(--background)" stroke="var(--muted-foreground)" stroke-width="1.5" />
-          <circle data-node cx="300" cy="20" r="6" fill="var(--background)" stroke="var(--muted-foreground)" stroke-width="1.5" />
-          <circle data-node cx="586" cy="20" r="7" fill="var(--primary)" />
-        </svg>
+          <div
+            data-flow-line
+            data-dir="h"
+            class="absolute top-1/2 -translate-y-1/2"
+            style="left: 7px; right: 7px;"
+          ></div>
+          <div class="relative flex w-full items-center justify-between">
+            <span data-flow-node data-at="0"></span>
+            <span data-flow-node data-at="0.5"></span>
+            <span data-flow-node data-at="1" data-flow-result></span>
+          </div>
+        </div>
 
         <div class="grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-3">
           {[c.ausgangslage, c.massnahme, c.ergebnis].map((text, i) => (
@@ -133,27 +140,14 @@ const dreiklang = ["Ausgangslage", "Was wir taten", "Jetzt"];
   </div>
 </Section>
 
-<style>
-  @keyframes cases-node-pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.5); }
-    100% { transform: scale(1); }
-  }
-  :global(#cases .connection-diagram-pulse) {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: cases-node-pulse 0.5s ease;
-  }
-</style>
-
 <script>
-  import { initScrollAnimate, initConnectionDiagram } from "../../lib/scrollAnimate";
+  import { initScrollAnimate } from "../../lib/scrollAnimate";
+  import { initFlowLines } from "../../lib/flowLine";
 
   const section = document.getElementById("cases");
   if (section) {
     initScrollAnimate(section);
-    section
-      .querySelectorAll<SVGSVGElement>("svg[data-connection-diagram]")
-      .forEach((svg) => initConnectionDiagram(svg));
+    // Jeder Case hat sein eigenes [data-flow]-Diagramm.
+    initFlowLines(section, { durationMs: 1300, threshold: 0.5 });
   }
 </script>

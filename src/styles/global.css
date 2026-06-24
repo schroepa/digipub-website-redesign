@@ -124,3 +124,69 @@ h1,h2,h3,h4 { letter-spacing: -0.02em; line-height: 1.1; }
 .rich-text h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.375rem; margin-top: 0.75rem; }
 /* Dunkler Hintergrund */
 .rich-text.text-white\/70 strong { color: white; }
+
+/* ── Flow-Lines (Progress-Diagramme: Reihenfolge, Cases) ──────────────────
+   Gestrichelte Linie, deren Striche kontinuierlich Richtung der Knoten
+   "fließen" (Marching Ants → bringt stetig Infos zu den Punkten). Die Linie
+   wird über die Custom Property --flow-p (0..1) per JS beim Scrollen
+   freigelegt; erreicht die Front einen Knoten, pulsiert er einmalig. */
+[data-flow-line] {
+  --flow-dash: 5px;
+  --flow-gap: 7px;
+  --flow-thick: 1.5px;
+  background-color: transparent;
+}
+[data-flow-line][data-dir="h"] {
+  height: var(--flow-thick);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-primary) 0 var(--flow-dash),
+    transparent var(--flow-dash) calc(var(--flow-dash) + var(--flow-gap))
+  );
+  background-size: calc(var(--flow-dash) + var(--flow-gap)) 100%;
+  clip-path: inset(0 calc((1 - var(--flow-p, 0)) * 100%) 0 0);
+  animation: flow-march-h 0.7s linear infinite;
+}
+[data-flow-line][data-dir="v"] {
+  width: var(--flow-thick);
+  background-image: repeating-linear-gradient(
+    180deg,
+    var(--color-primary) 0 var(--flow-dash),
+    transparent var(--flow-dash) calc(var(--flow-dash) + var(--flow-gap))
+  );
+  background-size: 100% calc(var(--flow-dash) + var(--flow-gap));
+  clip-path: inset(0 0 calc((1 - var(--flow-p, 0)) * 100%) 0);
+  animation: flow-march-v 0.7s linear infinite;
+}
+@keyframes flow-march-h {
+  to { background-position-x: calc(var(--flow-dash) + var(--flow-gap)); }
+}
+@keyframes flow-march-v {
+  to { background-position-y: calc(var(--flow-dash) + var(--flow-gap)); }
+}
+
+[data-flow-node] {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: var(--color-background);
+  border: 1.5px solid var(--color-muted-foreground);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+[data-flow-node].is-on {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+[data-flow-node][data-flow-result] { width: 14px; height: 14px; }
+[data-flow-node].pulse {
+  animation: flow-pulse 0.7s ease-out;
+}
+@keyframes flow-pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--color-primary) 55%, transparent); }
+  100% { box-shadow: 0 0 0 16px color-mix(in oklch, var(--color-primary) 0%, transparent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-flow-line] { animation: none !important; }
+  [data-flow-node].pulse { animation: none !important; }
+}
