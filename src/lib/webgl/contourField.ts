@@ -25,10 +25,9 @@ export const fragmentShader = /* glsl */ `
     vec2 uv = gl_FragCoord.xy / uResolution.xy;          // 0..1 (y: 0 unten, 1 oben)
     float aspect = uResolution.x / uResolution.y;
 
-    // Fokuspunkt knapp OBERHALB der Oberkante → die konzentrischen Ringe
-    // laufen dort zusammen: das Feld verjüngt sich nach oben (CSS-Maske blendet
-    // den Scheitel weich in den Hintergrund).
-    vec2 d = uv - vec2(0.5, 1.18);
+    // Fokuspunkt knapp UNTERHALB der Unterkante (im Footer-Bereich) → die
+    // konzentrischen Ringe wachsen von unten heraus und fächern nach oben auf.
+    vec2 d = uv - vec2(0.5, -0.16);
     d.x *= aspect;
     float dist = length(d);
 
@@ -44,8 +43,8 @@ export const fragmentShader = /* glsl */ `
 
     // Überdichte Regionen ausblenden (Anti-Moiré).
     line *= smoothstep(3.2, 1.0, grad);
-    // Unterkante sanft ausblenden (Top-Übergang macht die CSS-Maske).
-    line *= smoothstep(0.0, 0.22, uv.y);
+    // Nach oben hin sanft auslaufen (stark am Footer unten, dissolviert oben).
+    line *= smoothstep(1.15, 0.45, uv.y);
     line *= smoothstep(0.015, 0.16, dist);
 
     gl_FragColor = vec4(uColor, line * uOpacity);
