@@ -12,9 +12,9 @@ interface Props {
 
 const {
   color = "primary",
-  opacity = 0.6,
-  freq = 17,
-  chirp = 24,
+  opacity = 0.55,
+  freq = 14,
+  chirp = 12,
   timeSpeed = 0.006,
   maxDpr = 1.5,
   class: className,
@@ -37,6 +37,11 @@ const {
     data-time-speed={timeSpeed}
     data-max-dpr={maxDpr}
   ></canvas>
+  <!-- Weicher Übergang oben: Feld blendet in den Seitenhintergrund (keine Kante) -->
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0"
+    style="height: 38%; background: linear-gradient(to bottom, var(--color-background) 0%, transparent 100%);"
+  ></div>
 </div>
 
 <script>

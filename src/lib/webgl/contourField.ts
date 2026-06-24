@@ -22,28 +22,30 @@ export const fragmentShader = /* glsl */ `
   uniform float uChirp;
 
   void main() {
-    vec2 uv = gl_FragCoord.xy / uResolution.xy;          // 0..1
+    vec2 uv = gl_FragCoord.xy / uResolution.xy;          // 0..1 (y: 0 unten, 1 oben)
     float aspect = uResolution.x / uResolution.y;
 
-    // Zentrum knapp unterhalb der Unterkante → Linien laufen nach oben aus.
+    // Fokuspunkt knapp OBERHALB der Oberkante → die konzentrischen Ringe
+    // laufen dort zusammen: das Feld verjüngt sich nach oben (CSS-Maske blendet
+    // den Scheitel weich in den Hintergrund).
     vec2 d = uv - vec2(0.5, 1.18);
     d.x *= aspect;
     float dist = length(d);
 
-    // Verjüngung: Frequenz steigt mit der Distanz (Chirp) → Linien bündeln
-    // sich nach außen/unten. Zeit + Scroll verschieben das Feld nach innen.
+    // Verjüngung: Frequenz steigt mit der Distanz (Chirp).
+    // Zeit + Scroll verschieben das Feld sanft.
     float phase = dist * uFreq + dist * dist * uChirp;
     phase -= uTime * 0.5 + uScroll * 7.0;
 
     float rings = sin(phase);
     float grad = fwidth(phase) + 1e-4;
-    // Dünne, knackige Linien (1.0 auf der Linie, 0.0 dazwischen).
-    float line = 1.0 - smoothstep(0.0, grad * 2.2, abs(rings));
+    // Weich gefederte Linien (breiter Smoothstep = weichgezeichnet).
+    float line = 1.0 - smoothstep(0.0, grad * 6.0, abs(rings));
 
     // Überdichte Regionen ausblenden (Anti-Moiré).
     line *= smoothstep(3.2, 1.0, grad);
-    // Nach oben ausblenden, Zentrum nicht zukleistern.
-    line *= smoothstep(0.0, 0.6, uv.y);
+    // Unterkante sanft ausblenden (Top-Übergang macht die CSS-Maske).
+    line *= smoothstep(0.0, 0.22, uv.y);
     line *= smoothstep(0.015, 0.16, dist);
 
     gl_FragColor = vec4(uColor, line * uOpacity);
