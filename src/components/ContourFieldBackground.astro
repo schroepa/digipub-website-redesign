@@ -1,0 +1,110 @@
+---
+interface Props {
+  /** Design-Token für die Linienfarbe, z. B. "primary". */
+  color?: string;
+  opacity?: number;
+  freq?: number;
+  chirp?: number;
+  timeSpeed?: number;
+  maxDpr?: number;
+  class?: string;
+}
+
+const {
+  color = "primary",
+  opacity = 0.6,
+  freq = 17,
+  chirp = 24,
+  timeSpeed = 0.006,
+  maxDpr = 1.5,
+  class: className,
+} = Astro.props;
+---
+
+<div
+  class:list={["absolute inset-0 -z-10 overflow-hidden pointer-events-none", className]}
+  aria-hidden="true"
+>
+  <div
+    class="contour-field-color-probe"
+    style={`display: none; background-color: var(--color-${color}, #78716c);`}
+  ></div>
+  <canvas
+    class="contour-field-canvas block h-full w-full"
+    data-opacity={opacity}
+    data-freq={freq}
+    data-chirp={chirp}
+    data-time-speed={timeSpeed}
+    data-max-dpr={maxDpr}
+  ></canvas>
+</div>
+
+<script>
+  import { initContourField } from "../lib/webgl/contourField";
+
+  const FALLBACK_COLOR: [number, number, number] = [0.42, 0.4, 0.37];
+
+  function parseColor(probe: HTMLElement): [number, number, number] {
+    const computed = getComputedStyle(probe).backgroundColor;
+    try {
+      const c = document.createElement("canvas");
+      c.width = 1;
+      c.height = 1;
+      const ctx = c.getContext("2d");
+      if (!ctx) return FALLBACK_COLOR;
+      ctx.fillStyle = computed;
+      ctx.fillRect(0, 0, 1, 1);
+      const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
+      return [r / 255, g / 255, b / 255];
+    } catch {
+      return FALLBACK_COLOR;
+    }
+  }
+
+  function mount(canvas: HTMLCanvasElement) {
+    const connection = (
+      navigator as Navigator & { connection?: { saveData?: boolean } }
+    ).connection;
+    if (connection?.saveData) {
+      canvas.style.display = "none";
+      return;
+    }
+
+    let started = false;
+    const start = () => {
+      if (started) return;
+      started = true;
+
+      const probe = canvas.previousElementSibling as HTMLElement | null;
+      const color = probe ? parseColor(probe) : FALLBACK_COLOR;
+      const data = canvas.dataset;
+
+      void initContourField(canvas, {
+        opacity: Number(data.opacity),
+        freq: Number(data.freq),
+        chirp: Number(data.chirp),
+        timeSpeed: Number(data.timeSpeed),
+        maxDpr: Number(data.maxDpr),
+        color,
+      });
+    };
+
+    const lazyObserver = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0]?.isIntersecting) return;
+        lazyObserver.disconnect();
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(start);
+        } else {
+          setTimeout(start, 1);
+        }
+      },
+      { threshold: 0, rootMargin: "300px" },
+    );
+    lazyObserver.observe(canvas);
+  }
+
+  document
+    .querySelectorAll<HTMLCanvasElement>(".contour-field-canvas")
+    .forEach(mount);
+</script>

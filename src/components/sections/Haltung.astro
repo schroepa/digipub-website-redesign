@@ -1,8 +1,14 @@
 ---
 import Section from "../ui/Section.astro";
+import ContourFieldBackground from "../ContourFieldBackground.astro";
 ---
 
-<Section id="haltung" class="border-t border-border">
+<Section
+  id="haltung"
+  class="relative isolate overflow-hidden border-t border-border"
+>
+  <ContourFieldBackground color="primary" class="opacity-70 dark:opacity-60" />
+
   <p
     data-animate
     class="mb-8 font-mono text-xs uppercase tracking-[0.2em] text-primary"
