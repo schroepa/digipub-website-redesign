@@ -1,0 +1,23 @@
+---
+interface Cell {
+  label: string;
+  value: string;
+  sub?: string;
+}
+interface Props {
+  cells: Cell[];
+}
+const { cells } = Astro.props;
+const cols =
+  cells.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-4";
+---
+
+<div class:list={["grid border-l border-t border-border", cols]}>
+  {cells.map((cell) => (
+    <div class="border-b border-r border-border px-5 py-6">
+      <p class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">{cell.label}</p>
+      <p class="font-bold text-foreground" style="font-size: var(--text-body);">{cell.value}</p>
+      {cell.sub && <p class="mt-1 text-sm leading-relaxed text-muted-foreground">{cell.sub}</p>}
+    </div>
+  ))}
+</div>
