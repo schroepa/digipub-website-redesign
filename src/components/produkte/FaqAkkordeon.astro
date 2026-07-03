@@ -1,0 +1,53 @@
+---
+interface FaqItem {
+  frage: string;
+  antwort: string;
+}
+interface Props {
+  items: FaqItem[];
+  title?: string;
+}
+const { items, title = "Häufige Fragen" } = Astro.props;
+---
+
+{items.length > 0 && (
+  <div class="faq-akkordeon">
+    <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">{title}</h2>
+    <div>
+      {items.map((item, i) => (
+        <div class="faq-item border-t border-border">
+          <button
+            type="button"
+            class="faq-trigger grid w-full grid-cols-[auto_1fr_auto] items-baseline gap-4 py-5 text-left"
+            aria-expanded="false"
+          >
+            <span class="font-mono text-sm text-muted-foreground tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+            <span class="font-bold text-foreground" style="font-size: var(--text-body);">{item.frage}</span>
+            <span class="faq-indicator font-mono text-sm text-muted-foreground" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer hidden pb-6 pl-10 pr-8">
+            <p class="max-w-2xl leading-relaxed text-muted-foreground" style="font-size: var(--text-body);">{item.antwort}</p>
+          </div>
+        </div>
+      ))}
+      <div class="border-t border-border"></div>
+    </div>
+  </div>
+)}
+
+<script>
+  document.querySelectorAll<HTMLElement>(".faq-akkordeon").forEach((root) => {
+    root.querySelectorAll<HTMLButtonElement>(".faq-trigger").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        if (!item) return;
+        const answer = item.querySelector(".faq-answer");
+        const indicator = btn.querySelector(".faq-indicator");
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!isOpen));
+        answer?.classList.toggle("hidden", isOpen);
+        if (indicator) indicator.textContent = isOpen ? "+" : "−";
+      });
+    });
+  });
+</script>

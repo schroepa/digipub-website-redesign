@@ -1,0 +1,45 @@
+---
+interface Row {
+  kriterium: string;
+  ohne: string;
+  mit: string;
+}
+interface Props {
+  rows: Row[];
+  ohneLabel?: string;
+  mitLabel?: string;
+  caption?: string;
+}
+const {
+  rows,
+  ohneLabel = "Ohne DigiPub",
+  mitLabel = "Mit DigiPub",
+  caption,
+} = Astro.props;
+---
+
+<figure class="m-0">
+  <div class="overflow-x-auto">
+    <table class="w-full border-collapse text-left">
+      <thead>
+        <tr>
+          <th scope="col" class="border-b border-border px-4 py-3 font-mono text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground">Kriterium</th>
+          <th scope="col" class="border-b border-border px-4 py-3 font-mono text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground">{ohneLabel}</th>
+          <th scope="col" class="border-b border-border px-4 py-3 font-mono text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground">{mitLabel}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr>
+            <td class="border-b border-border px-4 py-4 text-sm text-muted-foreground">{row.kriterium}</td>
+            <td class="border-b border-border px-4 py-4 text-sm text-foreground">{row.ohne}</td>
+            <td class="border-b border-border px-4 py-4 text-sm font-semibold text-primary">{row.mit}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  {caption && (
+    <figcaption class="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">{caption}</figcaption>
+  )}
+</figure>
