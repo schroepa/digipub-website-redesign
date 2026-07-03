@@ -129,6 +129,28 @@ export const leistungenFallback: Record<string, Leistung> = {
       { text: "Wir messen Wirkung auch dort, wo Search sich verändert: Mentions, Citations, Share of Voice." },
       { text: "Wir arbeiten iterativ, weil KI-Ergebnisse volatil sind und bleiben dran." },
     ],
+    faq_items: [
+      {
+        question: "Was ist der Unterschied zwischen SEO und GEO?",
+        answer:
+          "SEO optimiert Seiten für klassische Suchmaschinen wie Google – mit dem Ziel, in den organischen Ergebnissen zu erscheinen. GEO (Generative Engine Optimization) geht weiter: es optimiert Inhalte so, dass KI-Systeme wie ChatGPT, Perplexity oder Google AI Overviews sie als vertrauenswürdige Quelle zitieren. Entscheidend: Ohne solides technisches SEO-Fundament kann keine GEO-Maßnahme greifen. Die Reihenfolge ist keine Empfehlung, sondern eine technische Voraussetzung.",
+      },
+      {
+        question: "Für welche Unternehmensgrößen ist DigiPub geeignet?",
+        answer:
+          "Primär für KMU und Mittelstand im DACH-Raum mit 10 bis 1.500 Mitarbeitenden – von Startups, die ein solides digitales Fundament benötigen, bis zu Mittelständlern oder Verlagen. DigiPub arbeitet als Einzelberater oder mit einem flexiblen Netzwerk – ohne die Fixkosten einer Agentur, mit der Tiefe eines Senior-Profils.",
+      },
+      {
+        question: "Wie lange dauert ein typisches SEO-Projekt bei DigiPub?",
+        answer:
+          "Ein SEO-Grundlagen-Audit ist in 2–3 Wochen abgeschlossen und liefert einen priorisierten Maßnahmenplan. Sprint-Projekte laufen 4–8 Wochen. Für nachhaltige Sichtbarkeit empfiehlt sich ein monatliches Steuerungsmandat – die ersten messbaren Ergebnisse sind bei konsequenter Umsetzung nach 3–6 Monaten sichtbar.",
+      },
+      {
+        question: "Arbeitet DigiPub auch mit unserer bestehenden Webagentur zusammen?",
+        answer:
+          "Ja – das ist der häufigste Fall. DigiPub liefert die strategische und technische SEO-Grundlage als Briefing-Dokument, das die Agentur direkt umsetzen kann. Eine direkte Abstimmung mit der Agentur ist auf Wunsch möglich.",
+      },
+    ],
   },
 
   "designsystem": {
