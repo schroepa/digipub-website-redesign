@@ -16,6 +16,8 @@ interface Props {
   cases: CaseStudy[];
 }
 const { title = "DigiPub-Projekte", cases } = Astro.props;
+// Instanz-Präfix gegen ID-Kollisionen bei mehreren Tab-Gruppen pro Seite.
+const uid = Math.random().toString(36).slice(2, 8);
 ---
 
 <div class="case-tabs">
@@ -26,9 +28,10 @@ const { title = "DigiPub-Projekte", cases } = Astro.props;
         <button
           type="button"
           role="tab"
-          id={`case-tab-${i}`}
-          aria-controls={`case-panel-${i}`}
+          id={`case-tab-${uid}-${i}`}
+          aria-controls={`case-panel-${uid}-${i}`}
           aria-selected={i === 0 ? "true" : "false"}
+          tabindex={i === 0 ? 0 : -1}
           class="case-tab px-4 py-3 text-left font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           {c.name}
@@ -39,8 +42,9 @@ const { title = "DigiPub-Projekte", cases } = Astro.props;
       {cases.map((c, i) => (
         <div
           role="tabpanel"
-          id={`case-panel-${i}`}
-          aria-labelledby={`case-tab-${i}`}
+          id={`case-panel-${uid}-${i}`}
+          aria-labelledby={`case-tab-${uid}-${i}`}
+          tabindex="0"
           class:list={["case-panel", i !== 0 && "hidden"]}
         >
           <h3 class="mb-6 font-bold text-foreground" style="font-size: var(--text-body);">{c.headline}</h3>
@@ -85,10 +89,30 @@ const { title = "DigiPub-Projekte", cases } = Astro.props;
   document.querySelectorAll<HTMLElement>(".case-tabs").forEach((root) => {
     const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>("[role='tab']"));
     const panels = Array.from(root.querySelectorAll<HTMLElement>("[role='tabpanel']"));
+
+    function activate(i: number, focus = false) {
+      tabs.forEach((t, j) => {
+        t.setAttribute("aria-selected", String(i === j));
+        t.tabIndex = i === j ? 0 : -1;
+      });
+      panels.forEach((p, j) => p.classList.toggle("hidden", i !== j));
+      if (focus) tabs[i]?.focus();
+    }
+
     tabs.forEach((tab, i) => {
-      tab.addEventListener("click", () => {
-        tabs.forEach((t, j) => t.setAttribute("aria-selected", String(i === j)));
-        panels.forEach((p, j) => p.classList.toggle("hidden", i !== j));
+      tab.addEventListener("click", () => activate(i));
+      // APG-Tabs-Pattern: Pfeiltasten/Home/End navigieren innerhalb der Tab-Liste.
+      tab.addEventListener("keydown", (e) => {
+        const last = tabs.length - 1;
+        let next: number | null = null;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") next = i === last ? 0 : i + 1;
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = i === 0 ? last : i - 1;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = last;
+        if (next !== null) {
+          e.preventDefault();
+          activate(next, true);
+        }
       });
     });
   });
