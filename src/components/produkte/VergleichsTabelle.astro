@@ -31,7 +31,7 @@ const {
       <tbody>
         {rows.map((row) => (
           <tr>
-            <td class="border-b border-border px-4 py-4 text-sm text-muted-foreground">{row.kriterium}</td>
+            <th scope="row" class="border-b border-border px-4 py-4 text-sm font-normal text-muted-foreground">{row.kriterium}</th>
             <td class="border-b border-border px-4 py-4 text-sm text-foreground">{row.ohne}</td>
             <td class="border-b border-border px-4 py-4 text-sm font-semibold text-primary">{row.mit}</td>
           </tr>

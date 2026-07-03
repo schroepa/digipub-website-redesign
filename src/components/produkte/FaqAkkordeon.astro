@@ -8,6 +8,8 @@ interface Props {
   title?: string;
 }
 const { items, title = "Häufige Fragen" } = Astro.props;
+// Instanz-Präfix, damit mehrere Akkordeons auf einer Seite keine ID-Kollisionen erzeugen.
+const uid = Math.random().toString(36).slice(2, 8);
 ---
 
 {items.length > 0 && (
@@ -20,12 +22,13 @@ const { items, title = "Häufige Fragen" } = Astro.props;
             type="button"
             class="faq-trigger grid w-full grid-cols-[auto_1fr_auto] items-baseline gap-4 py-5 text-left"
             aria-expanded="false"
+            aria-controls={`faq-${uid}-${i}`}
           >
             <span class="font-mono text-sm text-muted-foreground tabular-nums">{String(i + 1).padStart(2, "0")}</span>
             <span class="font-bold text-foreground" style="font-size: var(--text-body);">{item.frage}</span>
             <span class="faq-indicator font-mono text-sm text-muted-foreground" aria-hidden="true">+</span>
           </button>
-          <div class="faq-answer hidden pb-6 pl-10 pr-8">
+          <div class="faq-answer hidden pb-6 pl-10 pr-8" id={`faq-${uid}-${i}`}>
             <p class="max-w-2xl leading-relaxed text-muted-foreground" style="font-size: var(--text-body);">{item.antwort}</p>
           </div>
         </div>
