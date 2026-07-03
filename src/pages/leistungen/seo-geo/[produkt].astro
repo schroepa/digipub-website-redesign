@@ -1,0 +1,225 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Section from "../../../components/ui/Section.astro";
+import Breadcrumb from "../../../components/produkte/Breadcrumb.astro";
+import ProduktDetails from "../../../components/produkte/ProduktDetails.astro";
+import VergleichsTabelle from "../../../components/produkte/VergleichsTabelle.astro";
+import FaqAkkordeon from "../../../components/produkte/FaqAkkordeon.astro";
+import ProduktNavigation from "../../../components/produkte/ProduktNavigation.astro";
+import { produkte, seoGeoKatalog, type Produkt } from "../../../lib/produkte-data";
+import { needs } from "../../../lib/needs-data";
+import {
+  buildBreadcrumbSchema,
+  buildFaqPageSchema,
+  buildServiceSchema,
+} from "../../../lib/schemaOrg";
+
+export function getStaticPaths() {
+  return produkte.map((p) => ({
+    params: { produkt: p.slug },
+    props: { produkt: p },
+  }));
+}
+
+interface Props {
+  produkt: Produkt;
+}
+const { produkt: p } = Astro.props;
+
+const pfad = `/leistungen/seo-geo/${p.slug}`;
+const pageUrl = new URL(pfad, Astro.site).href;
+
+const needCards = p.needCards.map((card) => ({
+  title: card.title,
+  quote: card.quote,
+  href: card.needSlug ? `${pfad}/${card.needSlug}` : "#",
+  cta: "Mehr dazu",
+}));
+
+const verwandte = seoGeoKatalog.filter(
+  (e) => e.slug !== p.slug && e.tag !== "Individuell",
+);
+
+const serviceSchema = buildServiceSchema(p, pageUrl);
+const faqSchema = buildFaqPageSchema(p.faq);
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { label: "DigiPub", url: new URL("/", Astro.site).href },
+  { label: "SEO/GEO", url: new URL("/leistungen/seo-geo", Astro.site).href },
+  { label: p.name, url: pageUrl },
+]);
+---
+
+<Layout
+  title={`${p.name} | SEO/GEO | DigiPub`}
+  description={p.answerFirst.slice(0, 155)}
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Section id="produkt">
+    <Breadcrumb
+      items={[
+        { label: "DigiPub", href: "/" },
+        { label: "SEO/GEO", href: "/leistungen/seo-geo" },
+        { label: p.name },
+      ]}
+    />
+
+    <p class="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary">
+      <span class="text-muted-foreground">{p.format} · {p.dauer}</span> &nbsp;·&nbsp; {p.name}
+    </p>
+
+    <!-- H1 + Answer-First: GEO-Pflicht – kein Element zwischen H1 und Antwort-Absatz -->
+    <h1
+      class="max-w-4xl font-bold text-foreground"
+      style="font-size: var(--text-section); line-height: 1.08; letter-spacing: -0.02em;"
+    >
+      {p.title}
+    </h1>
+    <p
+      class="mt-6 max-w-2xl border-l-2 border-primary pl-5 leading-relaxed text-foreground/75"
+      style="font-size: var(--text-body);"
+    >
+      {p.answerFirst}
+    </p>
+
+    <!-- Kontext -->
+    <div class="mt-14 max-w-3xl">
+      <h2 class="mb-3 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Warum dieses Problem entsteht</h2>
+      <p class="leading-relaxed text-muted-foreground" style="font-size: var(--text-body);">{p.kontextText}</p>
+    </div>
+
+    <!-- Produkt-Details -->
+    <div class="mt-14">
+      <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Produkt-Details</h2>
+      <ProduktDetails
+        cells={[
+          { label: "Format", value: p.format, sub: p.dauer },
+          { label: "Preisrahmen", value: p.preisrahmen, sub: p.preisHinweis },
+          { label: "Deliverables", value: `${p.deliverables.length} Dokumente`, sub: p.deliverables.join(" · ") },
+        ]}
+      />
+      <div class="grid gap-x-8 gap-y-4 border-b border-border py-6 sm:grid-cols-2">
+        <div>
+          <h3 class="mb-2 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Geeignet für</h3>
+          <ul class="space-y-1">
+            {p.geeignetFuer.map((eintrag) => (
+              <li class="text-foreground" style="font-size: var(--text-body);">{eintrag}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-2 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Nicht geeignet für</h3>
+          <ul class="space-y-1">
+            {p.nichtGeeignetFuer.map((eintrag) => (
+              <li class="text-muted-foreground" style="font-size: var(--text-body);">{eintrag}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vergleich -->
+    <div class="mt-14">
+      <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Ohne DigiPub vs. mit DigiPub</h2>
+      <VergleichsTabelle
+        rows={p.vergleich}
+        ohneLabel="Ohne SEO-Begleitung"
+        mitLabel="Mit DigiPub-Begleitung"
+        caption={p.vergleichCaption}
+      />
+    </div>
+
+    <!-- Ablauf -->
+    <div class="mt-14 max-w-3xl">
+      <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Wie die Zusammenarbeit funktioniert</h2>
+      <ol>
+        {p.ablauf.map((schritt, i) => (
+          <li class="grid grid-cols-[auto_1fr] items-baseline gap-5 border-t border-border py-5">
+            <span class="font-mono text-sm text-primary tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+            <div>
+              <h3 class="mb-1 font-bold text-foreground" style="font-size: var(--text-body);">{schritt.titel}</h3>
+              <p class="leading-relaxed text-muted-foreground" style="font-size: var(--text-body);">{schritt.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <!-- Case Study (DOM-Text, GEO-Pflicht) -->
+    <div class="mt-14">
+      <h2 class="mb-3 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Case Study</h2>
+      <h3 class="mb-6 max-w-3xl font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">
+        {p.caseStudy.kunde}
+      </h3>
+      <div class="grid gap-x-8 gap-y-6 md:grid-cols-3">
+        {[
+          { label: "Ausgangslage", text: p.caseStudy.ausgangslage },
+          { label: "Vorgehen", text: p.caseStudy.vorgehen },
+          { label: "Ergebnis", text: p.caseStudy.ergebnis },
+        ].map((block) => (
+          <div>
+            <p class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">{block.label}</p>
+            <p class="leading-relaxed text-foreground" style="font-size: var(--text-body);">{block.text}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 flex flex-wrap gap-x-8 gap-y-2 border-t border-border pt-4">
+        {[
+          { label: "Branche", value: p.caseStudy.branche },
+          { label: "Umfang", value: p.caseStudy.seitenanzahl },
+          { label: "Dauer", value: p.caseStudy.dauer },
+          { label: "Messbar", value: p.caseStudy.messbar },
+        ].map((m) => (
+          <p class="text-sm text-muted-foreground">
+            <span class="font-mono text-xs uppercase tracking-[0.1em]">{m.label}:</span> {m.value}
+          </p>
+        ))}
+      </div>
+    </div>
+
+    <!-- Need-Cards -->
+    <div class="mt-14">
+      <ProduktNavigation
+        title="Typische Situationen, die zu diesem Produkt führen"
+        cards={needCards}
+      />
+    </div>
+
+    <!-- FAQ -->
+    <div class="mt-14">
+      <FaqAkkordeon items={p.faq} title="Häufige Fragen zum Produkt" />
+    </div>
+
+    <!-- Verwandte Produkte -->
+    <div class="mt-14 border-t border-border pt-8">
+      <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Weitere Produkte im Leistungsbereich</h2>
+      <div class="flex flex-wrap gap-3">
+        {verwandte.map((e) => (
+          <a
+            href={e.slug ? `/leistungen/seo-geo/${e.slug}` : "/leistungen/seo-geo"}
+            class="border border-border px-4 py-2 font-mono text-sm text-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            {e.title} →
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA + Rücklink -->
+    <div class="mt-16 border-t border-border pt-10">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <a
+          href="/kontakt"
+          class="inline-flex w-fit items-center gap-2 rounded-lg bg-foreground px-6 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-80"
+        >
+          {p.ctaLabel} →
+        </a>
+        <a href="/leistungen/seo-geo" class="font-mono text-sm text-muted-foreground transition-colors hover:text-foreground">
+          Oder zurück zur Übersicht: SEO/GEO – alle Produkte →
+        </a>
+      </div>
+    </div>
+  </Section>
+</Layout>
