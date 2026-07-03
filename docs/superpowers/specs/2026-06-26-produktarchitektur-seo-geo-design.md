@@ -141,3 +141,9 @@ Inhalte für das jeweils eine Beispiel je Datei werden direkt aus den vier Wiref
 - i18n/Mehrsprachigkeit (aktuell nicht implementiert, nicht Teil dieses Slices).
 - Änderungen an der globalen Header-Navigation (bestehender "Leistungen"-Link bleibt unverändert).
 - Automatisierte Tests (kein Test-Framework im Projekt; Verifikation erfolgt manuell im Dev-Server, wie im Rest dieses Projekts üblich).
+
+## Umsetzungs-Abweichungen (nach finalem Review dokumentiert, 2026-07-03)
+
+1. **Answer-First auf der Produktübersicht:** §3 forderte den Answer-First-Block "auf allen drei Seiten", §2 fror gleichzeitig die bestehenden Pillar-Blöcke ein (Nutzer-Entscheidung: "Neue Struktur ERGÄNZT die alte"). Umgesetzt wurde §2: Der bestehende `LeistungHero` (H1 → Subtitle → Hero-Text) blieb unverändert; den Answer-First-Block mit Primary-Border haben nur die zwei NEUEN Seitentypen (Produktseite, Need-Seite). Follow-up-Option: `LeistungHero` GEO-konform umbauen (Antwort-Absatz direkt nach H1) — betrifft alle 5 Leistungsbereiche und ist ein eigener Schnitt.
+2. **`ablauf[].deliverable`:** Als optionales Feld angelegt, aber weder befüllt noch gerendert — die Wireframe-Schritttexte enthalten die Deliverables bereits prosaisch, und das ProduktDetails-Grid listet sie gesammelt. Wird befüllt, sobald ein Produkt Schritt-Deliverables braucht, die nicht im Text stehen.
+3. **Kleinere, schema-korrektere Umsetzungen:** `Offer` nutzt `priceSpecification.minPrice` statt wörtlich "priceRange"; `provider`/`areaServed` hängen am `Service` statt am `Offer`; Need-FAQPage bündelt Kernfrage + FAQ in einem einzigen FAQPage-Block (Google-Vorgabe: ein FAQPage pro Seite).
