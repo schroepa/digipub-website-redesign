@@ -20,6 +20,9 @@ export interface Need {
   loesungsweg: string[];
   vorherNachher: { kriterium: string; ohne: string; mit: string }[];
   vorherNachherCaption: string;
+  /** Spaltenlabels der Vorher/Nachher-Tabelle – falls nicht gesetzt, greifen
+   *  die generischen Defaults der VergleichsTabelle ("Ohne/Mit DigiPub"). */
+  vergleichsLabels?: { ohne: string; mit: string };
   warumDigipub: string;
   /** Nur bei typ "latent": provokanter, teilbarer Satz (LinkedIn-Einstieg). */
   socialHook?: string;
@@ -59,6 +62,7 @@ export const needs: Need[] = [
     ],
     vorherNachherCaption:
       "Die Tabelle vergleicht einen Relaunch ohne SEO-Briefing mit dem strukturierten DigiPub-Ansatz. Ohne frühzeitiges SEO-Briefing übernimmt die Webagentur URL-Entscheidungen ohne Sichtbarkeits-Logik – mit dem typischen Ergebnis von 3–6 Monaten Ranking-Verlust nach Launch.",
+    vergleichsLabels: { ohne: "Ohne SEO-Briefing", mit: "Mit DigiPub-Briefing" },
     warumDigipub:
       "DigiPub hat Relaunches für Unternehmen verschiedener Größen begleitet – von mittelständischen Webauftritten bis zu mehrsprachigen EMEA-Rollouts. Das Briefing-Dokument, das dabei entstanden ist, hat sich als Standard-Werkzeug bewährt: verständlich genug für die Agentur, präzise genug für die Entwickler, nachvollziehbar genug für den internen Entscheider. Kein generischer Checklisten-Download – ein auf Ihr Projekt zugeschnittenes Konzept.",
     socialHook:

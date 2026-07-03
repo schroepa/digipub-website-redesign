@@ -127,8 +127,8 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Vorher / Nachher</h2>
       <VergleichsTabelle
         rows={n.vorherNachher}
-        ohneLabel="Ohne SEO-Briefing"
-        mitLabel="Mit DigiPub-Briefing"
+        ohneLabel={n.vergleichsLabels?.ohne}
+        mitLabel={n.vergleichsLabels?.mit}
         caption={n.vorherNachherCaption}
       />
     </div>
