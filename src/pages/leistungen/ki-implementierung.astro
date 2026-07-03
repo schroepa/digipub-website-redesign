@@ -13,7 +13,7 @@ import StatementBar from "../../components/leistungen/StatementBar.astro";
 import SimpleCTA from "../../components/leistungen/SimpleCTA.astro";
 import LeistungKacheln from "../../components/leistungen/LeistungKacheln.astro";
 import WiesoDigiPub from "../../components/leistungen/WiesoDigiPub.astro";
-import FAQ from "../../components/leistungen/FAQ.astro";
+import FaqAkkordeon from "../../components/produkte/FaqAkkordeon.astro";
 import CalendlySection from "../../components/leistungen/CalendlySection.astro";
 
 const slug = "ki-implementierung";
@@ -73,7 +73,11 @@ const nextHref = nextSlug ? `/leistungen/${nextSlug}` : null;
   <LeistungKacheln title={d.leistungen_title} cards={d.leistungen_cards} />
   <WiesoDigiPub title={d.wieso_title} subtitle={d.wieso_subtitle} items={d.wieso_items} />
   {d.faq_items && d.faq_items.length > 0 && (
-    <FAQ items={d.faq_items} />
+    <section class="border-y border-border bg-background">
+      <div class="mx-auto max-w-3xl px-6 py-20">
+        <FaqAkkordeon items={d.faq_items.map((f) => ({ frage: f.question, antwort: f.answer }))} />
+      </div>
+    </section>
   )}
   <CalendlySection />
 </Layout>
