@@ -7,7 +7,6 @@ import VergleichsTabelle from "../../../components/produkte/VergleichsTabelle.as
 import FaqAkkordeon from "../../../components/produkte/FaqAkkordeon.astro";
 import ProduktNavigation from "../../../components/produkte/ProduktNavigation.astro";
 import { produkte, seoGeoKatalog, type Produkt } from "../../../lib/produkte-data";
-import { needs } from "../../../lib/needs-data";
 import {
   buildBreadcrumbSchema,
   buildFaqPageSchema,
@@ -33,7 +32,9 @@ const needCards = p.needCards.map((card) => ({
   title: card.title,
   quote: card.quote,
   href: card.needSlug ? `${pfad}/${card.needSlug}` : "#",
-  cta: "Mehr dazu",
+  // Nur verlinkte Karten bewerben "Mehr dazu" – unverlinkte fallen auf
+  // ProduktNavigations Default "In Vorbereitung" zurück.
+  cta: card.needSlug ? "Mehr dazu" : undefined,
 }));
 
 const verwandte = seoGeoKatalog.filter(
