@@ -1,0 +1,95 @@
+---
+interface CaseMeta {
+  label: string;
+  value: string;
+}
+interface CaseStudy {
+  name: string;
+  headline: string;
+  ausgangslage: string;
+  vorgehen: string;
+  ergebnis: string;
+  meta: CaseMeta[];
+}
+interface Props {
+  title?: string;
+  cases: CaseStudy[];
+}
+const { title = "DigiPub-Projekte", cases } = Astro.props;
+---
+
+<div class="case-tabs">
+  <h2 class="mb-8 font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">{title}</h2>
+  <div class="grid gap-10 lg:grid-cols-[0.3fr_0.7fr]">
+    <div role="tablist" aria-label="Projekte" class="flex flex-col">
+      {cases.map((c, i) => (
+        <button
+          type="button"
+          role="tab"
+          id={`case-tab-${i}`}
+          aria-controls={`case-panel-${i}`}
+          aria-selected={i === 0 ? "true" : "false"}
+          class="case-tab px-4 py-3 text-left font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          {c.name}
+        </button>
+      ))}
+    </div>
+    <div>
+      {cases.map((c, i) => (
+        <div
+          role="tabpanel"
+          id={`case-panel-${i}`}
+          aria-labelledby={`case-tab-${i}`}
+          class:list={["case-panel", i !== 0 && "hidden"]}
+        >
+          <h3 class="mb-6 font-bold text-foreground" style="font-size: var(--text-body);">{c.headline}</h3>
+          <div class="space-y-4">
+            {[
+              { label: "Ausgangslage", text: c.ausgangslage },
+              { label: "Vorgehen", text: c.vorgehen },
+              { label: "Ergebnis", text: c.ergebnis },
+            ].map((block) => (
+              <div>
+                <p class="mb-1 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">{block.label}</p>
+                <p class="leading-relaxed text-foreground" style="font-size: var(--text-body);">{block.text}</p>
+              </div>
+            ))}
+          </div>
+          {c.meta.length > 0 && (
+            <div class="mt-6 flex flex-wrap gap-x-8 gap-y-2 border-t border-border pt-4">
+              {c.meta.map((m) => (
+                <p class="text-sm text-muted-foreground">
+                  <span class="font-mono text-xs uppercase tracking-[0.1em]">{m.label}:</span> {m.value}
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .case-tab {
+    border-left: 2px solid var(--color-border);
+  }
+  .case-tab[aria-selected="true"] {
+    border-left-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".case-tabs").forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>("[role='tab']"));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>("[role='tabpanel']"));
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t, j) => t.setAttribute("aria-selected", String(i === j)));
+        panels.forEach((p, j) => p.classList.toggle("hidden", i !== j));
+      });
+    });
+  });
+</script>

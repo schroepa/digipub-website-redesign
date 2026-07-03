@@ -1,0 +1,63 @@
+---
+interface Stufe {
+  title: string;
+  sub: string;
+}
+interface Props {
+  stufen: Stufe[];
+  caption: string;
+}
+const { stufen, caption } = Astro.props;
+const at = (i: number) => (stufen.length > 1 ? i / (stufen.length - 1) : 1);
+const edge = 50 / stufen.length; // Linie beginnt/endet unter den Zentren der Randspalten
+---
+
+<figure class="system-diagramm m-0">
+  <!-- Desktop/Tablet: horizontale Kette -->
+  <div class="hidden sm:block">
+    <div data-flow class="relative mb-6 flex items-center" style="height: 14px;">
+      <div
+        data-flow-line
+        data-dir="h"
+        class="absolute top-1/2 -translate-y-1/2"
+        style={`left: ${edge}%; right: ${edge}%;`}
+      ></div>
+      <div class="relative grid w-full" style={`grid-template-columns: repeat(${stufen.length}, 1fr);`}>
+        {stufen.map((_, i) => (
+          <div class="flex justify-center">
+            <span data-flow-node data-at={at(i)}></span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="grid gap-6" style={`grid-template-columns: repeat(${stufen.length}, 1fr);`}>
+      {stufen.map((stufe) => (
+        <div class="text-center">
+          <h3 class="mb-1 font-bold text-foreground" style="font-size: var(--text-body);">{stufe.title}</h3>
+          <p class="text-sm text-muted-foreground">{stufe.sub}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Mobile: vertikale Kette -->
+  <ol data-flow class="relative sm:hidden">
+    <div data-flow-line data-dir="v" class="absolute" style="left: 6px; top: 6px; bottom: 6px;"></div>
+    {stufen.map((stufe, i) => (
+      <li class="relative pb-8 pl-9 last:pb-0">
+        <span data-flow-node data-at={at(i)} class="absolute left-0 top-1"></span>
+        <h3 class="mb-1 font-bold text-foreground" style="font-size: var(--text-body);">{stufe.title}</h3>
+        <p class="text-sm text-muted-foreground">{stufe.sub}</p>
+      </li>
+    ))}
+  </ol>
+
+  <figcaption class="mt-8 max-w-3xl text-sm leading-relaxed text-muted-foreground">{caption}</figcaption>
+</figure>
+
+<script>
+  import { initFlowLine } from "../../lib/flowLine";
+  document
+    .querySelectorAll<HTMLElement>(".system-diagramm [data-flow]")
+    .forEach((el) => initFlowLine(el, { durationMs: 1400 }));
+</script>
