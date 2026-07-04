@@ -5,12 +5,22 @@ const nav = [
   {
     label: "Leistungen",
     href: "/leistungen",
+    teaser: "Wie wir denken und arbeiten",
     children: [
       { label: "Marken-Aufbau / Branding", href: "/leistungen/markenaufbau-branding" },
       { label: "SEO / GEO", href: "/leistungen/seo-geo" },
       { label: "Designsystem", href: "/leistungen/designsystem" },
       { label: "Automatisierung", href: "/leistungen/automatisierung" },
       { label: "KI-Implementierung", href: "/leistungen/ki-implementierung" },
+    ],
+  },
+  {
+    label: "Produkte",
+    href: "/produkte",
+    teaser: "Buchbare Sprints, Audits & Retainer – mit Preis und Umfang",
+    children: [
+      { label: "Alle Produkte", href: "/produkte" },
+      { label: "SEO / GEO", href: "/produkte/seo-geo" },
     ],
   },
   { label: "Case Studies", href: "/case-studies" },
@@ -46,6 +56,9 @@ const currentPath = Astro.url.pathname;
           {item.children && (
             <div class="absolute top-full left-0 pt-1 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150">
               <div class="bg-popover rounded-lg p-1 min-w-[220px] shadow-xl border border-border">
+                {item.teaser && (
+                  <p class="border-b border-border px-3 pb-2 pt-1.5 font-mono text-[11px] leading-snug text-muted-foreground">{item.teaser}</p>
+                )}
                 {item.children.map((child) => (
                   <a
                     href={child.href}
@@ -105,6 +118,9 @@ const currentPath = Astro.url.pathname;
         >
           {item.label}
         </a>
+        {item.teaser && (
+          <p class="pt-1 font-mono text-[11px] leading-snug text-muted-foreground">{item.teaser}</p>
+        )}
         {item.children && (
           <div class="flex flex-col pl-4 pt-1 pb-2 gap-0.5">
             {item.children.map((child) => (
