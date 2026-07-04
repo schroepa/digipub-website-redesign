@@ -1,0 +1,109 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/ui/Section.astro";
+import Breadcrumb from "../../components/produkte/Breadcrumb.astro";
+import ProduktNavigation from "../../components/produkte/ProduktNavigation.astro";
+import { seoGeoKatalog } from "../../lib/produkte-data";
+import { buildBreadcrumbSchema } from "../../lib/schemaOrg";
+
+const pageUrl = new URL("/produkte", Astro.site).href;
+
+const produktCards = seoGeoKatalog.map((e) => ({
+  tag: e.tag,
+  title: e.title,
+  quote: e.frage,
+  href: e.slug ? `/produkte/seo-geo/${e.slug}` : (e.href ?? "#"),
+  cta: e.cta,
+}));
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { label: "DigiPub", url: new URL("/", Astro.site).href },
+  { label: "Produkte", url: pageUrl },
+]);
+
+const weitereBereiche = [
+  { label: "Markenaufbau", href: "/leistungen/markenaufbau-branding" },
+  { label: "Designsystem", href: "/leistungen/designsystem" },
+  { label: "Automatisierung", href: "/leistungen/automatisierung" },
+  { label: "KI-Implementierung", href: "/leistungen/ki-implementierung" },
+];
+---
+
+<Layout
+  title="Produkte | Buchbare Sprints, Audits & Retainer | DigiPub"
+  description="Buchbare DigiPub-Produkte: Sprints, Audits und Retainer mit definiertem Format, Umfang und Preis. Den Anfang macht der Leistungsbereich SEO/GEO."
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Section id="produkte-einstieg">
+    <Breadcrumb
+      items={[
+        { label: "DigiPub", href: "/" },
+        { label: "Produkte" },
+      ]}
+    />
+
+    <p class="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary">
+      <span class="text-muted-foreground">Übersicht</span> &nbsp;·&nbsp; Produkte
+    </p>
+
+    <!-- H1 + Answer-First: erklärt die Leistungen/Produkte-Trennung (GEO-Faktoid) -->
+    <h1
+      class="max-w-4xl font-bold text-foreground"
+      style="font-size: var(--text-section); line-height: 1.08; letter-spacing: -0.02em;"
+    >
+      Buchbare Produkte.
+    </h1>
+    <p
+      class="mt-6 max-w-2xl border-l-2 border-primary pl-5 leading-relaxed text-foreground/75"
+      style="font-size: var(--text-body);"
+    >
+      Unsere Leistungsbereiche beschreiben, wie wir denken und arbeiten. Unsere
+      Produkte sind konkrete, buchbare Pakete daraus – Sprints, Audits und Retainer
+      mit definiertem Format, Umfang und Preis. Den Anfang macht der Bereich SEO/GEO;
+      weitere Leistungsbereiche folgen.
+    </p>
+
+    <!-- Bereich SEO/GEO -->
+    <div class="mt-14">
+      <div class="mb-8 flex flex-wrap items-baseline justify-between gap-4">
+        <h2 class="font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">SEO/GEO</h2>
+        <a href="/produkte/seo-geo" class="font-mono text-sm text-muted-foreground transition-colors hover:text-foreground">
+          Zur Bereichs-Übersicht →
+        </a>
+      </div>
+      <ProduktNavigation cards={produktCards} />
+    </div>
+
+    <!-- Weitere Bereiche: ehrlich als "in Vorbereitung" -->
+    <div class="mt-14">
+      <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Weitere Bereiche</h2>
+      <ul>
+        {weitereBereiche.map((bereich) => (
+          <li class="flex flex-wrap items-baseline justify-between gap-2 border-t border-border py-4">
+            <span class="font-bold text-foreground" style="font-size: var(--text-body);">{bereich.label}</span>
+            <span class="font-mono text-xs uppercase tracking-[0.1em] text-muted-foreground">
+              Produkte in Vorbereitung · <a href={bereich.href} class="underline decoration-border underline-offset-4 transition-colors hover:text-foreground">Zur Herangehensweise →</a>
+            </span>
+          </li>
+        ))}
+        <li class="border-t border-border"></li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 border-t border-border pt-10">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <a
+          href="/kontakt"
+          class="inline-flex w-fit items-center gap-2 rounded-lg bg-foreground px-6 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-80"
+        >
+          Gespräch anfragen →
+        </a>
+        <p class="text-sm text-muted-foreground">
+          Unsicher, welches Produkt passt? Ein kostenloses 45-Min-Gespräch klärt die Ausgangslage.
+        </p>
+      </div>
+    </div>
+  </Section>
+</Layout>
