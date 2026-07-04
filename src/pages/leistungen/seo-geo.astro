@@ -14,11 +14,7 @@ import SimpleCTA from "../../components/leistungen/SimpleCTA.astro";
 import LeistungKacheln from "../../components/leistungen/LeistungKacheln.astro";
 import WiesoDigiPub from "../../components/leistungen/WiesoDigiPub.astro";
 import FaqAkkordeon from "../../components/produkte/FaqAkkordeon.astro";
-import SystemDiagramm from "../../components/produkte/SystemDiagramm.astro";
-import ProduktNavigation from "../../components/produkte/ProduktNavigation.astro";
-import CaseStudyTabs from "../../components/produkte/CaseStudyTabs.astro";
-import { seoGeoKatalog } from "../../lib/produkte-data";
-import { buildBreadcrumbSchema, buildKatalogSchema } from "../../lib/schemaOrg";
+import { buildBreadcrumbSchema } from "../../lib/schemaOrg";
 import CalendlySection from "../../components/leistungen/CalendlySection.astro";
 
 const slug = "seo-geo";
@@ -32,80 +28,16 @@ const nextHref = nextSlug ? `/leistungen/${nextSlug}` : null;
 
 const uebersichtUrl = new URL("/leistungen/seo-geo", Astro.site).href;
 
-const produktCards = seoGeoKatalog.map((e) => ({
-  tag: e.tag,
-  title: e.title,
-  quote: e.frage,
-  href: e.slug ? `/leistungen/seo-geo/${e.slug}` : (e.href ?? "#"),
-  cta: e.cta,
-}));
-
-const katalogSchema = buildKatalogSchema(
-  seoGeoKatalog,
-  uebersichtUrl,
-  new URL("/leistungen/seo-geo", Astro.site).href,
-);
 const breadcrumbSchema = buildBreadcrumbSchema([
   { label: "DigiPub", url: new URL("/", Astro.site).href },
   { label: "SEO/GEO", url: uebersichtUrl },
 ]);
-
-// ⚠ Dev-Check: Cornelsen + Smart Catering ergänzen, sobald verifizierte
-// Case-Inhalte vorliegen (Wireframe sieht 5 Tabs vor).
-const caseStudies = [
-  {
-    name: "Weber-Grill EMEA",
-    headline: "Weber-Grill EMEA – Internationaler SEO-Rollout",
-    ausgangslage: "Rankings in 12 europäischen Märkten instabil, internationales Sichtbarkeits-Chaos nach mehreren Agenturwechseln.",
-    vorgehen: "Technisches SEO-Audit, hreflang-Bereinigung, Aufbau eines internen Redaktionsprozesses, Agentur-Koordination über 6 Monate.",
-    ergebnis: "Rankings in 12 Ländern gesichert und ausgebaut – ohne Relaunch, ohne Agenturwechsel.",
-    meta: [
-      { label: "Branche", value: "Konsumgüter" },
-      { label: "Scope", value: "EMEA, 12 Länder" },
-      { label: "Dauer", value: "6 Monate" },
-      { label: "Ergebnis", value: "Rankings stabilisiert" },
-    ],
-  },
-  {
-    name: "Haidacher",
-    headline: "Haidacher – Sichtbarkeit für exklusives Handwerk",
-    ausgangslage: "Eine exklusive Handwerkstradition, die online schlicht nicht zu finden war.",
-    vorgehen: "Sichtbarkeit systematisch aufgebaut – ohne das Erscheinungsbild anzutasten.",
-    ergebnis: "Erstmals relevante Rankings. Doppelte Sichtbarkeit. Ganz im Stil des Hauses.",
-    meta: [
-      { label: "Branche", value: "Handwerk" },
-      { label: "Scope", value: "Südtirol" },
-      { label: "Ergebnis", value: "Rankings ohne Redesign stabilisiert" },
-    ],
-  },
-  {
-    name: "Portazon",
-    headline: "Portazon – Smart City Super App",
-    ausgangslage: "Eine neue Plattform mit großer Idee – aber ohne Struktur, die sie trägt.",
-    vorgehen: "Content-Architektur, Partnerstrategie und Monitoring aufgebaut.",
-    ergebnis: "Portazon ist heute sichtbar – lokal verankert, digital durchdacht.",
-    meta: [
-      { label: "Branche", value: "Smart City" },
-      { label: "Scope", value: "Trier" },
-      { label: "Ergebnis", value: "Feature-Backlog aus Suchdaten" },
-    ],
-  },
-];
-
-const systemStufen = [
-  { title: "SEO-Grundlagen", sub: "Technisches Fundament und strukturierte Inhalte" },
-  { title: "Content-Architektur", sub: "Seitentypen entlang echter Suchintentionen" },
-  { title: "GEO/AEO", sub: "Sichtbarkeit in KI-gestützten Suchsystemen" },
-];
-const systemCaption =
-  "Das Diagramm zeigt das DigiPub-Sichtbarkeits-System: Technisches SEO und strukturierte Inhalte bilden die Grundlage. Darauf aufbauend optimiert GEO/AEO die Sichtbarkeit in KI-gestützten Suchanfragen (ChatGPT, Perplexity, Google AI Overviews). Ohne solides Fundament ist KI-Optimierung nicht möglich – diese Reihenfolge ist eine technische Notwendigkeit.";
 ---
 
 <Layout
   title="SEO/GEO in KI-Zeiten | Sichtbarkeit für Menschen und Maschinen | DigiPub"
   description="SEO bleibt die Grundlage, GEO ergänzt sie. Wir sorgen dafür, dass deine Inhalte ranken und in generativen Antworten zitiert werden."
 >
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(katalogSchema)} />
   <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <LeistungHero
     number={d.number}
@@ -125,6 +57,22 @@ const systemCaption =
     imageFallback="/images/leistungen/seo-hero.png"
     imageAlt="SEO und GEO in KI-Zeiten"
   />
+
+  <!-- Brücke zu den buchbaren Produkten (Anti-Bounce, im ersten Scroll sichtbar) -->
+  <section id="produkt-bruecke" class="bg-background">
+    <div class="mx-auto max-w-7xl px-6 py-10">
+      <a
+        href="/produkte/seo-geo"
+        class="group flex flex-col gap-2 border-y border-border py-6 sm:flex-row sm:items-baseline sm:justify-between"
+      >
+        <span class="font-mono text-xs uppercase tracking-[0.15em] text-primary">Direkt loslegen?</span>
+        <span class="font-bold text-foreground transition-colors group-hover:text-primary" style="font-size: var(--text-body);">
+          Buchbare SEO/GEO-Produkte – Sprints, Audits &amp; Retainer
+          <span class="ml-1 inline-block font-mono text-sm transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+        </span>
+      </a>
+    </div>
+  </section>
 
   <KeyTakeaways items={d.key_takeaways} variant="table" />
 
@@ -146,35 +94,9 @@ const systemCaption =
 
   <StatementBar text={d.ansatz_bold} />
 
-  <!-- Das Sichtbarkeits-System (Wireframe Block 4) -->
-  <section id="system-diagramm" class="bg-background">
-    <div class="mx-auto max-w-7xl px-6 py-20">
-      <h2 class="mb-10 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Das Sichtbarkeits-System</h2>
-      <SystemDiagramm stufen={systemStufen} caption={systemCaption} />
-    </div>
-  </section>
-
-  <!-- Produkt-Navigation (Wireframe Block 5) -->
-  <section id="produkte" class="border-t border-border bg-background">
-    <div class="mx-auto max-w-7xl px-6 py-20">
-      <ProduktNavigation
-        title="Was wir anbieten"
-        cards={produktCards}
-        note="Reihenfolge: Einstiegsprodukte zuerst, dann Sprints, dann Retainer. Preise werden auf den Produktseiten transparent genannt."
-      />
-    </div>
-  </section>
-
   <SimpleCTA />
   <LeistungKacheln title={d.leistungen_title} cards={d.leistungen_cards} />
   <WiesoDigiPub title={d.wieso_title} subtitle={d.wieso_subtitle} items={d.wieso_items} />
-
-  <!-- Case Studies (Wireframe Block 7, Tab-Komponente, alle Inhalte im DOM) -->
-  <section id="case-studies" class="border-t border-border bg-background">
-    <div class="mx-auto max-w-7xl px-6 py-20">
-      <CaseStudyTabs cases={caseStudies} />
-    </div>
-  </section>
 
   {d.faq_items && d.faq_items.length > 0 && (
     <section class="border-y border-border bg-background">
