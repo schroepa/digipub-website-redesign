@@ -1,0 +1,282 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Section from "../../../components/ui/Section.astro";
+import Breadcrumb from "../../../components/produkte/Breadcrumb.astro";
+import ProduktDetails from "../../../components/produkte/ProduktDetails.astro";
+import SystemDiagramm from "../../../components/produkte/SystemDiagramm.astro";
+import ProduktNavigation from "../../../components/produkte/ProduktNavigation.astro";
+import CaseStudyTabs from "../../../components/produkte/CaseStudyTabs.astro";
+import FaqAkkordeon from "../../../components/produkte/FaqAkkordeon.astro";
+import { seoGeoKatalog, seoGeoPillarFaq } from "../../../lib/produkte-data";
+import {
+  buildBreadcrumbSchema,
+  buildFaqPageSchema,
+  buildKatalogSchema,
+} from "../../../lib/schemaOrg";
+
+const pfad = "/produkte/seo-geo";
+const pageUrl = new URL(pfad, Astro.site).href;
+
+const produktCards = seoGeoKatalog.map((e) => ({
+  tag: e.tag,
+  title: e.title,
+  quote: e.frage,
+  href: e.slug ? `${pfad}/${e.slug}` : (e.href ?? "#"),
+  cta: e.cta,
+}));
+
+const katalogSchema = buildKatalogSchema(seoGeoKatalog, pageUrl, pageUrl);
+const faqSchema = buildFaqPageSchema(seoGeoPillarFaq);
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { label: "DigiPub", url: new URL("/", Astro.site).href },
+  { label: "Produkte", url: new URL("/produkte", Astro.site).href },
+  { label: "SEO/GEO", url: pageUrl },
+]);
+
+// ⚠ Dev-Check: Zahlen aus Case Studies verifizieren (Formel: konkrete Zahl
+// + benannte Entität, keine Hochrechnung ohne Quellenangabe).
+const metriken = [
+  { label: "Projekt", value: "12 Märkte", sub: "Weber-Grill EMEA: Rankings in 6 Monaten gesichert" },
+  { label: "Projekt", value: "0 Relaunch-Verlust", sub: "Haidacher: Rankings ohne Redesign stabilisiert" },
+  { label: "Projekt", value: "Inhouse-fähig", sub: "Cornelsen: SEO-Kompetenz im Team verankert" },
+  { label: "Methode", value: "Need-First", sub: "Portazon: Features aus Suchdaten priorisiert" },
+];
+
+const abgrenzung = {
+  nicht: [
+    "Klassische SEO-Agentur mit Junior-Teams",
+    "Retainer ohne Strategie",
+    "Copy-Paste aus US-Playbooks",
+    "„Holistische Lösungen“",
+  ],
+  sondern: [
+    "Strategischer Sparringspartner",
+    "Strategie und Umsetzung in einer Hand",
+    "DACH-Markt-Expertise",
+    "Netzwerk-Modell, das skaliert",
+  ],
+};
+
+const fuerWen = {
+  geeignet: [
+    "KMU und Mittelstand im DACH-Raum (10–1.500 MA)",
+    "Unternehmen, die Strategie und Umsetzung brauchen",
+    "Teams, die intern befähigt werden wollen",
+    "Startups mit Rundumbedarf (Analytics, Ads, SEO)",
+    "Mittelständler mit komplexen digitalen Projekten",
+  ],
+  wenigerGeeignet: [
+    "Unternehmen, die nur Texte produzieren lassen wollen",
+    "Suche nach der günstigsten SEO-Option ohne Strategie",
+    "Projekte ohne Bereitschaft zur internen Mitwirkung",
+  ],
+};
+
+// ⚠ Dev-Check: Cornelsen + Smart Catering ergänzen, sobald verifizierte
+// Case-Inhalte vorliegen (Wireframe sieht 5 Tabs vor).
+const caseStudies = [
+  {
+    name: "Weber-Grill EMEA",
+    headline: "Weber-Grill EMEA – Internationaler SEO-Rollout",
+    ausgangslage: "Rankings in 12 europäischen Märkten instabil, internationales Sichtbarkeits-Chaos nach mehreren Agenturwechseln.",
+    vorgehen: "Technisches SEO-Audit, hreflang-Bereinigung, Aufbau eines internen Redaktionsprozesses, Agentur-Koordination über 6 Monate.",
+    ergebnis: "Rankings in 12 Ländern gesichert und ausgebaut – ohne Relaunch, ohne Agenturwechsel.",
+    meta: [
+      { label: "Branche", value: "Konsumgüter" },
+      { label: "Scope", value: "EMEA, 12 Länder" },
+      { label: "Dauer", value: "6 Monate" },
+      { label: "Ergebnis", value: "Rankings stabilisiert" },
+    ],
+  },
+  {
+    name: "Haidacher",
+    headline: "Haidacher – Sichtbarkeit für exklusives Handwerk",
+    ausgangslage: "Eine exklusive Handwerkstradition, die online schlicht nicht zu finden war.",
+    vorgehen: "Sichtbarkeit systematisch aufgebaut – ohne das Erscheinungsbild anzutasten.",
+    ergebnis: "Erstmals relevante Rankings. Doppelte Sichtbarkeit. Ganz im Stil des Hauses.",
+    meta: [
+      { label: "Branche", value: "Handwerk" },
+      { label: "Scope", value: "Südtirol" },
+      { label: "Ergebnis", value: "Rankings ohne Redesign stabilisiert" },
+    ],
+  },
+  {
+    name: "Portazon",
+    headline: "Portazon – Smart City Super App",
+    ausgangslage: "Eine neue Plattform mit großer Idee – aber ohne Struktur, die sie trägt.",
+    vorgehen: "Content-Architektur, Partnerstrategie und Monitoring aufgebaut.",
+    ergebnis: "Portazon ist heute sichtbar – lokal verankert, digital durchdacht.",
+    meta: [
+      { label: "Branche", value: "Smart City" },
+      { label: "Scope", value: "Trier" },
+      { label: "Ergebnis", value: "Feature-Backlog aus Suchdaten" },
+    ],
+  },
+];
+
+const systemStufen = [
+  { title: "SEO-Grundlagen", sub: "Technisches Fundament und strukturierte Inhalte" },
+  { title: "Content-Architektur", sub: "Seitentypen entlang echter Suchintentionen" },
+  { title: "GEO/AEO", sub: "Sichtbarkeit in KI-gestützten Suchsystemen" },
+];
+const systemCaption =
+  "Das Diagramm zeigt das DigiPub-Sichtbarkeits-System: Technisches SEO und strukturierte Inhalte bilden die Grundlage. Darauf aufbauend optimiert GEO/AEO die Sichtbarkeit in KI-gestützten Suchanfragen (ChatGPT, Perplexity, Google AI Overviews). Ohne solides Fundament ist KI-Optimierung nicht möglich – diese Reihenfolge ist eine technische Notwendigkeit.";
+
+const andereBereiche = [
+  { label: "Markenaufbau", href: "/leistungen/markenaufbau-branding" },
+  { label: "Designsystem", href: "/leistungen/designsystem" },
+  { label: "Automatisierung", href: "/leistungen/automatisierung" },
+  { label: "KI-Implementierung", href: "/leistungen/ki-implementierung" },
+];
+---
+
+<Layout
+  title="SEO/GEO-Produkte | Buchbare Sprints, Audits & Retainer | DigiPub"
+  description="Digitale Sichtbarkeit für KMU und Mittelstand: buchbare SEO- und GEO-Produkte mit definiertem Format, Umfang und Preis – vom Grundlagen-Audit bis zum Retainer."
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(katalogSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Section id="produktuebersicht">
+    <Breadcrumb
+      items={[
+        { label: "DigiPub", href: "/" },
+        { label: "Produkte", href: "/produkte" },
+        { label: "SEO/GEO" },
+      ]}
+    />
+
+    <p class="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary">
+      <span class="text-muted-foreground">Produktübersicht</span> &nbsp;·&nbsp; SEO/GEO
+    </p>
+
+    <!-- H1 + Answer-First: GEO-Pflicht – kein Element zwischen H1 und Antwort -->
+    <h1
+      class="max-w-4xl font-bold text-foreground"
+      style="font-size: var(--text-section); line-height: 1.08; letter-spacing: -0.02em;"
+    >
+      Digitale Sichtbarkeit für KMU und Mittelstand – in Suchmaschinen und KI-Systemen.
+    </h1>
+    <p
+      class="mt-6 max-w-2xl border-l-2 border-primary pl-5 leading-relaxed text-foreground/75"
+      style="font-size: var(--text-body);"
+    >
+      DigiPub entwickelt SEO- und GEO-Strategien für Unternehmen im DACH-Raum, die
+      nicht nur bei Google ranken wollen, sondern auch in ChatGPT, Perplexity und
+      Google AI Overviews als Autorität zitiert werden. Grundlage ist immer das
+      technische und inhaltliche Fundament – ohne das ist jede KI-Optimierung wirkungslos.
+    </p>
+
+    <!-- Ergebnis-Metriken (Wireframe Block 2) -->
+    <div class="mt-14">
+      <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Ergebnisse aus Projekten</h2>
+      <ProduktDetails cells={metriken} />
+    </div>
+
+    <!-- Semantische Abgrenzung (Wireframe Block 3) -->
+    <div class="mt-14">
+      <h2 class="mb-6 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Was DigiPub ist – und was nicht</h2>
+      <div class="grid gap-x-12 gap-y-8 sm:grid-cols-2">
+        <div class="border-l-2 border-border pl-5">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">Nicht</p>
+          <ul class="space-y-2">
+            {abgrenzung.nicht.map((eintrag) => (
+              <li class="text-muted-foreground" style="font-size: var(--text-body);">{eintrag}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="border-l-2 border-primary pl-5">
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-primary">Sondern</p>
+          <ul class="space-y-2">
+            {abgrenzung.sondern.map((eintrag) => (
+              <li class="text-foreground" style="font-size: var(--text-body);">{eintrag}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Das Sichtbarkeits-System (Wireframe Block 4) -->
+    <div class="mt-14">
+      <h2 class="mb-10 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Das Sichtbarkeits-System</h2>
+      <SystemDiagramm stufen={systemStufen} caption={systemCaption} />
+    </div>
+
+    <!-- Produkt-Navigation (Wireframe Block 5) -->
+    <div class="mt-14 border-t border-border pt-14">
+      <ProduktNavigation
+        title="Was wir anbieten"
+        cards={produktCards}
+        note="Reihenfolge: Einstiegsprodukte zuerst, dann Sprints, dann Retainer. Preise werden auf den Produktseiten transparent genannt."
+      />
+    </div>
+
+    <!-- Für wen (Wireframe Block 6) -->
+    <div class="mt-14">
+      <h2 class="mb-6 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Für wen DigiPub passt – und für wen nicht</h2>
+      <div class="grid gap-x-12 gap-y-8 border-y border-border py-8 sm:grid-cols-2">
+        <div>
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-primary">Gut geeignet</p>
+          <ul class="space-y-2">
+            {fuerWen.geeignet.map((eintrag) => (
+              <li class="text-foreground" style="font-size: var(--text-body);">{eintrag}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p class="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">Weniger geeignet</p>
+          <ul class="space-y-2">
+            {fuerWen.wenigerGeeignet.map((eintrag) => (
+              <li class="text-muted-foreground" style="font-size: var(--text-body);">{eintrag}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case Studies (Wireframe Block 7) -->
+    <div class="mt-14">
+      <CaseStudyTabs cases={caseStudies} />
+    </div>
+
+    <!-- FAQ (Wireframe Block 8) -->
+    <div class="mt-14">
+      <FaqAkkordeon items={seoGeoPillarFaq} />
+    </div>
+
+    <!-- Andere Leistungsbereiche + Herangehensweise (Wireframe Block 9) -->
+    <div class="mt-14 border-t border-border pt-8">
+      <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Weitere DigiPub-Leistungen</h2>
+      <div class="flex flex-wrap gap-3">
+        {andereBereiche.map((bereich) => (
+          <a
+            href={bereich.href}
+            class="border border-border px-4 py-2 font-mono text-sm text-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            {bereich.label} →
+          </a>
+        ))}
+      </div>
+      <p class="mt-6 text-muted-foreground" style="font-size: var(--text-body);">
+        Du willst erst verstehen, wie wir denken?
+        <a href="/leistungen/seo-geo" class="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary">Unsere Herangehensweise im Bereich SEO/GEO →</a>
+      </p>
+    </div>
+
+    <!-- CTA (Wireframe Block 10) -->
+    <div class="mt-16 border-t border-border pt-10">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <a
+          href="/kontakt"
+          class="inline-flex w-fit items-center gap-2 rounded-lg bg-foreground px-6 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-80"
+        >
+          Sichtbarkeits-Analyse anfragen →
+        </a>
+        <p class="text-sm text-muted-foreground">
+          Kostenloses 45-Min-Gespräch. Keine generische Demo – eine Analyse Ihrer konkreten Ausgangslage.
+        </p>
+      </div>
+    </div>
+  </Section>
+</Layout>
