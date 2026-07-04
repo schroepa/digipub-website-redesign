@@ -25,7 +25,7 @@ interface Props {
 }
 const { produkt: p } = Astro.props;
 
-const pfad = `/leistungen/seo-geo/${p.slug}`;
+const pfad = `/produkte/seo-geo/${p.slug}`;
 const pageUrl = new URL(pfad, Astro.site).href;
 
 const needCards = p.needCards.map((card) => ({
@@ -45,7 +45,8 @@ const serviceSchema = buildServiceSchema(p, pageUrl);
 const faqSchema = buildFaqPageSchema(p.faq);
 const breadcrumbSchema = buildBreadcrumbSchema([
   { label: "DigiPub", url: new URL("/", Astro.site).href },
-  { label: "SEO/GEO", url: new URL("/leistungen/seo-geo", Astro.site).href },
+  { label: "Produkte", url: new URL("/produkte", Astro.site).href },
+  { label: "SEO/GEO", url: new URL("/produkte/seo-geo", Astro.site).href },
   { label: p.name, url: pageUrl },
 ]);
 ---
@@ -62,7 +63,8 @@ const breadcrumbSchema = buildBreadcrumbSchema([
     <Breadcrumb
       items={[
         { label: "DigiPub", href: "/" },
-        { label: "SEO/GEO", href: "/leistungen/seo-geo" },
+        { label: "Produkte", href: "/produkte" },
+        { label: "SEO/GEO", href: "/produkte/seo-geo" },
         { label: p.name },
       ]}
     />
@@ -199,7 +201,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       <div class="flex flex-wrap gap-3">
         {verwandte.map((e) => (
           <a
-            href={e.slug ? `/leistungen/seo-geo/${e.slug}` : "/leistungen/seo-geo"}
+            href={e.slug ? `/produkte/seo-geo/${e.slug}` : "/produkte/seo-geo"}
             class="border border-border px-4 py-2 font-mono text-sm text-foreground transition-colors hover:border-primary hover:text-primary"
           >
             {e.title} →
@@ -217,7 +219,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
         >
           {p.ctaLabel} →
         </a>
-        <a href="/leistungen/seo-geo" class="font-mono text-sm text-muted-foreground transition-colors hover:text-foreground">
+        <a href="/produkte/seo-geo" class="font-mono text-sm text-muted-foreground transition-colors hover:text-foreground">
           Oder zurück zur Übersicht: SEO/GEO – alle Produkte →
         </a>
       </div>

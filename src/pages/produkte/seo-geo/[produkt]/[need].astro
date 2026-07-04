@@ -32,7 +32,7 @@ interface Props {
 }
 const { need: n, produkt: p } = Astro.props;
 
-const produktPfad = `/leistungen/seo-geo/${p.slug}`;
+const produktPfad = `/produkte/seo-geo/${p.slug}`;
 const pfad = `${produktPfad}/${n.slug}`;
 const pageUrl = new URL(pfad, Astro.site).href;
 
@@ -44,7 +44,8 @@ const faqSchema = buildFaqPageSchema([
 const howToSchema = buildHowToSchema(`Lösungsweg: ${n.name}`, n.loesungsweg);
 const breadcrumbSchema = buildBreadcrumbSchema([
   { label: "DigiPub", url: new URL("/", Astro.site).href },
-  { label: "SEO/GEO", url: new URL("/leistungen/seo-geo", Astro.site).href },
+  { label: "Produkte", url: new URL("/produkte", Astro.site).href },
+  { label: "SEO/GEO", url: new URL("/produkte/seo-geo", Astro.site).href },
   { label: p.name, url: new URL(produktPfad, Astro.site).href },
   { label: n.name, url: pageUrl },
 ]);
@@ -62,7 +63,8 @@ const breadcrumbSchema = buildBreadcrumbSchema([
     <Breadcrumb
       items={[
         { label: "DigiPub", href: "/" },
-        { label: "SEO/GEO", href: "/leistungen/seo-geo" },
+        { label: "Produkte", href: "/produkte" },
+        { label: "SEO/GEO", href: "/produkte/seo-geo" },
         { label: p.name, href: produktPfad },
         { label: n.name },
       ]}
