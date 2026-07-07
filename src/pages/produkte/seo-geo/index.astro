@@ -180,7 +180,7 @@ const andereBereiche = [
       <div class="grid gap-x-12 gap-y-8 sm:grid-cols-2">
         <div class="border-l-2 border-border pl-5">
           <p class="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">Nicht</p>
-          <ul class="space-y-2">
+          <ul class="list-disc list-outside space-y-2 pl-5 marker:text-muted-foreground">
             {abgrenzung.nicht.map((eintrag) => (
               <li class="text-muted-foreground" style="font-size: var(--text-body);">{eintrag}</li>
             ))}
@@ -188,7 +188,7 @@ const andereBereiche = [
         </div>
         <div class="border-l-2 border-primary pl-5">
           <p class="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-primary">Sondern</p>
-          <ul class="space-y-2">
+          <ul class="list-disc list-outside space-y-2 pl-5 marker:text-primary">
             {abgrenzung.sondern.map((eintrag) => (
               <li class="text-foreground" style="font-size: var(--text-body);">{eintrag}</li>
             ))}
@@ -218,7 +218,7 @@ const andereBereiche = [
       <div class="grid gap-x-12 gap-y-8 border-y border-border py-8 sm:grid-cols-2">
         <div>
           <p class="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-primary">Gut geeignet</p>
-          <ul class="space-y-2">
+          <ul class="list-disc list-outside space-y-2 pl-5 marker:text-primary">
             {fuerWen.geeignet.map((eintrag) => (
               <li class="text-foreground" style="font-size: var(--text-body);">{eintrag}</li>
             ))}
@@ -226,7 +226,7 @@ const andereBereiche = [
         </div>
         <div>
           <p class="mb-3 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">Weniger geeignet</p>
-          <ul class="space-y-2">
+          <ul class="list-disc list-outside space-y-2 pl-5 marker:text-muted-foreground">
             {fuerWen.wenigerGeeignet.map((eintrag) => (
               <li class="text-muted-foreground" style="font-size: var(--text-body);">{eintrag}</li>
             ))}

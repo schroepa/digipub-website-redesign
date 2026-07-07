@@ -15,6 +15,8 @@ export interface Produkt {
   answerFirst: string;
   /** "Warum dieses Problem entsteht" – Kontext in der Sprache des Entscheiders. */
   kontextText: string;
+  /** Sprechende Sektionsüberschrift (h3) für den Kontext-Block – produktspezifisch, kein Kategorie-Label. */
+  kontextHeadline: string;
   format: "Sprint" | "Audit" | "Retainer" | "Individuell";
   dauer: string;
   preisrahmen: string;
@@ -22,12 +24,18 @@ export interface Produkt {
   preisMin?: number;
   preisHinweis: string;
   deliverables: string[];
+  /** Sprechende Sektionsüberschrift (h3) für den Produkt-Details-Block. */
+  detailsHeadline: string;
   geeignetFuer: string[];
   nichtGeeignetFuer: string[];
   vergleich: { kriterium: string; ohne: string; mit: string }[];
   /** figcaption der Vergleichstabelle – GEO-Pflicht (LLM-extrahierbare Textvariante). */
   vergleichCaption: string;
+  /** Sprechende Sektionsüberschrift (h3) für den Vergleichstabelle-Block. */
+  vergleichHeadline: string;
   ablauf: { titel: string; text: string; deliverable?: string }[];
+  /** Sprechende Sektionsüberschrift (h3) für den Ablauf-Block. */
+  ablaufHeadline: string;
   caseStudy: {
     kunde: string;
     ausgangslage: string;
@@ -70,6 +78,7 @@ export const produkte: Produkt[] = [
       "70% aller Website-Relaunches führen zu messbaren Sichtbarkeitsverlusten – weil SEO erst nach dem Launch berücksichtigt wird. DigiPub begleitet Relaunches von der URL-Struktur bis zur technischen Übergabe: mit einem Weiterleitungskonzept, einem strukturierten Migrations-Check und einem Monitoring-Setup direkt nach dem Launch.",
     kontextText:
       "Web-Agenturen denken in Design und Technik – nicht in Sichtbarkeit. Das Ergebnis: neue Website live, Rankings weg. Besonders kritisch: 301-Weiterleitungen fehlen, URL-Strukturen ändern sich ohne Konzept, Google muss die gesamte Seite neu indexieren. Bei größeren Websites mit 100+ URLs kann das 3–6 Monate dauern – in denen keine organischen Anfragen eingehen.",
+    kontextHeadline: "Design und Technik im Fokus – Sichtbarkeit bleibt auf der Strecke",
     format: "Sprint",
     dauer: "3–4 Wochen",
     preisrahmen: "ab 2.500 €",
@@ -81,6 +90,7 @@ export const produkte: Produkt[] = [
       "Technische Übergabe-Checkliste",
       "Post-Launch-Monitoring-Setup",
     ],
+    detailsHeadline: "Ein 3–4-wöchiger Sprint mit vier klaren Ergebnissen",
     geeignetFuer: [
       "Unternehmen, die eine neue Website planen oder gerade gelauncht haben",
     ],
@@ -96,6 +106,7 @@ export const produkte: Produkt[] = [
     ],
     vergleichCaption:
       "Die Tabelle vergleicht einen Website-Relaunch ohne SEO-Begleitung mit dem DigiPub-Relaunch-Sprint. Zentraler Unterschied: Mit strukturiertem URL-Mapping und Weiterleitungskonzept vor dem Launch wird der typische Sichtbarkeitsverlust von 3–6 Monaten auf ein Minimum reduziert – bei gleichzeitig geringerem internen Nacharbeitsaufwand.",
+    vergleichHeadline: "Der Unterschied: bis zu 6 Monate Ranking-Verlust vermeiden",
     ablauf: [
       { titel: "Bestands-Crawl", text: "Alle bestehenden URLs werden erfasst und bewertet: welche behalten, welche zusammenführen, welche entfernen." },
       { titel: "URL-Struktur-Konzept", text: "Neue, SEO-konforme Hierarchie als Briefing-Dokument für die Webagentur." },
@@ -103,6 +114,7 @@ export const produkte: Produkt[] = [
       { titel: "Übergabe-Checkliste", text: "Technische Prüfliste für den Launch-Tag: Indexierung, Canonicals, Search Console, Sitemap." },
       { titel: "Post-Launch-Monitoring", text: "2-wöchiges Monitoring nach Launch: Ranking-Entwicklung, Crawl-Fehler, Search Console Alerts." },
     ],
+    ablaufHeadline: "Fünf Schritte von der Bestandsaufnahme bis zum Monitoring",
     // ⚠ Dev-Check: Case-Inhalt an einem echten Relaunch-/Launch-Projekt
     // verifizieren bzw. ersetzen (Portazon-Inhalte aus Startseiten-Copy abgeleitet).
     caseStudy: {

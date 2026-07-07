@@ -6,6 +6,7 @@ import ProduktDetails from "../../../components/produkte/ProduktDetails.astro";
 import VergleichsTabelle from "../../../components/produkte/VergleichsTabelle.astro";
 import FaqAkkordeon from "../../../components/produkte/FaqAkkordeon.astro";
 import ProduktNavigation from "../../../components/produkte/ProduktNavigation.astro";
+import CaseStudyTabs from "../../../components/produkte/CaseStudyTabs.astro";
 import { produkte, seoGeoKatalog, type Produkt } from "../../../lib/produkte-data";
 import {
   buildBreadcrumbSchema,
@@ -40,6 +41,25 @@ const needCards = p.needCards.map((card) => ({
 const verwandte = seoGeoKatalog.filter(
   (e) => e.slug !== p.slug && e.tag !== "Individuell",
 );
+
+// Wiederverwendung von CaseStudyTabs (Klick-Liste links / Inhalt rechts), wie
+// auf der Produktübersicht und den Leistungsseiten. Aktuell ein Case – die
+// Komponente trägt weitere, sobald sie vorliegen.
+const caseStudiesForTabs = [
+  {
+    name: p.caseStudy.kunde.split(" – ")[0],
+    headline: p.caseStudy.kunde,
+    ausgangslage: p.caseStudy.ausgangslage,
+    vorgehen: p.caseStudy.vorgehen,
+    ergebnis: p.caseStudy.ergebnis,
+    meta: [
+      { label: "Branche", value: p.caseStudy.branche },
+      { label: "Umfang", value: p.caseStudy.seitenanzahl },
+      { label: "Dauer", value: p.caseStudy.dauer },
+      { label: "Messbar", value: p.caseStudy.messbar },
+    ],
+  },
+];
 
 const serviceSchema = buildServiceSchema(p, pageUrl);
 const faqSchema = buildFaqPageSchema(p.faq);
@@ -90,12 +110,14 @@ const breadcrumbSchema = buildBreadcrumbSchema([
     <!-- Kontext -->
     <div class="mt-14 max-w-3xl">
       <h2 class="mb-3 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Warum dieses Problem entsteht</h2>
+      <h3 class="mb-4 font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">{p.kontextHeadline}</h3>
       <p class="leading-relaxed text-muted-foreground" style="font-size: var(--text-body);">{p.kontextText}</p>
     </div>
 
     <!-- Produkt-Details -->
     <div class="mt-14">
-      <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Produkt-Details</h2>
+      <h2 class="mb-3 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Produkt-Details</h2>
+      <h3 class="mb-6 font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">{p.detailsHeadline}</h3>
       <ProduktDetails
         cells={[
           { label: "Format", value: p.format, sub: p.dauer },
@@ -106,7 +128,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       <div class="grid gap-x-8 gap-y-4 border-b border-border py-6 sm:grid-cols-2">
         <div>
           <h3 class="mb-2 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Geeignet für</h3>
-          <ul class="space-y-1">
+          <ul class="list-disc list-outside space-y-1 pl-5 marker:text-primary">
             {p.geeignetFuer.map((eintrag) => (
               <li class="text-foreground" style="font-size: var(--text-body);">{eintrag}</li>
             ))}
@@ -114,7 +136,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
         </div>
         <div>
           <h3 class="mb-2 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Nicht geeignet für</h3>
-          <ul class="space-y-1">
+          <ul class="list-disc list-outside space-y-1 pl-5 marker:text-muted-foreground">
             {p.nichtGeeignetFuer.map((eintrag) => (
               <li class="text-muted-foreground" style="font-size: var(--text-body);">{eintrag}</li>
             ))}
@@ -125,7 +147,8 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
     <!-- Vergleich -->
     <div class="mt-14">
-      <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Ohne DigiPub vs. mit DigiPub</h2>
+      <h2 class="mb-3 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Ohne DigiPub vs. mit DigiPub</h2>
+      <h3 class="mb-6 font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">{p.vergleichHeadline}</h3>
       <VergleichsTabelle
         rows={p.vergleich}
         ohneLabel="Ohne SEO-Begleitung"
@@ -136,7 +159,8 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 
     <!-- Ablauf -->
     <div class="mt-14 max-w-3xl">
-      <h2 class="mb-4 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Wie die Zusammenarbeit funktioniert</h2>
+      <h2 class="mb-3 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Wie die Zusammenarbeit funktioniert</h2>
+      <h3 class="mb-6 font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">{p.ablaufHeadline}</h3>
       <ol>
         {p.ablauf.map((schritt, i) => (
           <li class="grid grid-cols-[auto_1fr] items-baseline gap-5 border-t border-border py-5">
@@ -150,36 +174,9 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       </ol>
     </div>
 
-    <!-- Case Study (DOM-Text, GEO-Pflicht) -->
+    <!-- Case Study: CaseStudyTabs (Klick-Liste links / Inhalt rechts), wie auf Produktübersicht/Leistungsseiten -->
     <div class="mt-14">
-      <h2 class="mb-3 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Case Study</h2>
-      <h3 class="mb-6 max-w-3xl font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">
-        {p.caseStudy.kunde}
-      </h3>
-      <div class="grid gap-x-8 gap-y-6 md:grid-cols-3">
-        {[
-          { label: "Ausgangslage", text: p.caseStudy.ausgangslage },
-          { label: "Vorgehen", text: p.caseStudy.vorgehen },
-          { label: "Ergebnis", text: p.caseStudy.ergebnis },
-        ].map((block) => (
-          <div>
-            <p class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">{block.label}</p>
-            <p class="leading-relaxed text-foreground" style="font-size: var(--text-body);">{block.text}</p>
-          </div>
-        ))}
-      </div>
-      <div class="mt-6 flex flex-wrap gap-x-8 gap-y-2 border-t border-border pt-4">
-        {[
-          { label: "Branche", value: p.caseStudy.branche },
-          { label: "Umfang", value: p.caseStudy.seitenanzahl },
-          { label: "Dauer", value: p.caseStudy.dauer },
-          { label: "Messbar", value: p.caseStudy.messbar },
-        ].map((m) => (
-          <p class="text-sm text-muted-foreground">
-            <span class="font-mono text-xs uppercase tracking-[0.1em]">{m.label}:</span> {m.value}
-          </p>
-        ))}
-      </div>
+      <CaseStudyTabs title="Case Study" cases={caseStudiesForTabs} />
     </div>
 
     <!-- Need-Cards -->
