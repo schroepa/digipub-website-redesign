@@ -95,11 +95,14 @@ export function getAssetUrl(id: string, width?: number) {
 
 export async function getPosts(limit = 10) {
   try {
-    return await directus.request(readItems("digipub_posts", {
+    const posts = await directus.request(readItems("digipub_posts", {
       filter: { status: { _eq: "published" } },
       sort: ["-date_created"], limit,
       fields: ["id","title","slug","excerpt","date_created","cover_image","category","read_time"],
     }));
+    // Directus liefert bei Auth-/Berechtigungsfehlern mitunter ein Objekt statt
+    // eines Arrays zurück, ohne zu werfen – das würde getStaticPaths crashen.
+    return Array.isArray(posts) ? posts : [];
   } catch { return []; }
 }
 
@@ -121,10 +124,11 @@ export interface Referenz {
 
 export async function getReferenzen(): Promise<Referenz[]> {
   try {
-    return (await directus.request(readItems("digipub_referenzen" as any, {
+    const items = await directus.request(readItems("digipub_referenzen" as any, {
       filter: { status: { _eq: "published" } },
       sort: ["sort"],
-    }))) as Referenz[];
+    }));
+    return Array.isArray(items) ? (items as Referenz[]) : [];
   } catch { return []; }
 }
 
@@ -152,10 +156,11 @@ export interface CaseStudy {
 
 export async function getCaseStudies(): Promise<CaseStudy[]> {
   try {
-    return (await directus.request(readItems("digipub_case_studies" as any, {
+    const items = await directus.request(readItems("digipub_case_studies" as any, {
       filter: { status: { _eq: "published" } },
       sort: ["-date_created"],
-    }))) as CaseStudy[];
+    }));
+    return Array.isArray(items) ? (items as CaseStudy[]) : [];
   } catch { return []; }
 }
 
@@ -182,10 +187,11 @@ export async function getLeistung(slug: string): Promise<Leistung | null> {
 
 export async function getLeistungen(): Promise<Leistung[]> {
   try {
-    return (await directus.request(readItems("digipub_leistungen", {
+    const items = await directus.request(readItems("digipub_leistungen", {
       filter: { status: { _eq: "published" } },
       sort: ["number"],
-    }))) as Leistung[];
+    }));
+    return Array.isArray(items) ? (items as Leistung[]) : [];
   } catch { return []; }
 }
 
