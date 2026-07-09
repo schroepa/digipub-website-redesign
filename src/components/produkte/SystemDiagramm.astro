@@ -1,4 +1,6 @@
 ---
+import VisualisierungsFigure from "./VisualisierungsFigure.astro";
+
 interface Stufe {
   title: string;
   sub: string;
@@ -12,7 +14,8 @@ const at = (i: number) => (stufen.length > 1 ? i / (stufen.length - 1) : 1);
 const edge = 50 / stufen.length; // Linie beginnt/endet unter den Zentren der Randspalten
 ---
 
-<figure class="system-diagramm m-0">
+<VisualisierungsFigure caption={caption}>
+  <div class="system-diagramm">
   <!-- Desktop/Tablet: horizontale Kette -->
   <div class="hidden sm:block">
     <div data-flow class="relative mb-6 flex items-center" style="height: 14px;">
@@ -51,9 +54,8 @@ const edge = 50 / stufen.length; // Linie beginnt/endet unter den Zentren der Ra
       </li>
     ))}
   </ol>
-
-  <figcaption class="mt-8 max-w-3xl text-sm leading-relaxed text-muted-foreground">{caption}</figcaption>
-</figure>
+  </div>
+</VisualisierungsFigure>
 
 <script>
   import { initFlowLine } from "../../lib/flowLine";

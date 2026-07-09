@@ -1,0 +1,14 @@
+---
+// Wiederverwendbare Figure/Caption-Hülle für den Sichtbarkeits-System-Slot:
+// nicht auf die Flow-Line-Visualisierung (SystemDiagramm) festgelegt – ein
+// Chart oder Bild kann dieselbe Hülle über den Slot nutzen.
+interface Props {
+  caption: string;
+}
+const { caption } = Astro.props;
+---
+
+<figure class="m-0">
+  <slot />
+  <figcaption class="mt-8 max-w-3xl text-sm leading-relaxed text-muted-foreground">{caption}</figcaption>
+</figure>
