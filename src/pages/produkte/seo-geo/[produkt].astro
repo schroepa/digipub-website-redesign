@@ -120,11 +120,13 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       {p.answerFirst}
     </p>
 
-    <!-- Kontext -->
-    <div class="mt-14 max-w-3xl">
-      <h2 class="mb-3 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Warum dieses Problem entsteht</h2>
-      <h3 class="mb-4 font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">{p.kontextHeadline}</h3>
-      <p class="leading-relaxed text-muted-foreground" style="font-size: var(--text-body);">{p.kontextText}</p>
+    <!-- Kontext: Label links, H2 + Fließtext rechts (Wireframe-Layout) -->
+    <div class="mt-14 grid gap-x-8 gap-y-3 sm:grid-cols-[minmax(140px,0.22fr)_1fr]">
+      <p class="font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Warum dieses Problem entsteht</p>
+      <div class="max-w-2xl">
+        <h2 class="mb-4 font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">{p.kontextHeadline}</h2>
+        <p class="leading-relaxed text-muted-foreground" style="font-size: var(--text-body);">{p.kontextText}</p>
+      </div>
     </div>
 
     <!-- Produkt-Details -->
