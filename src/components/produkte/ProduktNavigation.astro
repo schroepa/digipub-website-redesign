@@ -5,6 +5,8 @@ interface Card {
   quote?: string;
   href: string;
   cta?: string;
+  /** Leichte visuelle Absetzung (z. B. "Individuell"-Karte, kein Katalog-Produkt). */
+  muted?: boolean;
 }
 interface Props {
   title?: string;
@@ -21,7 +23,7 @@ const { title, cards, note } = Astro.props;
   <div class="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
     {cards.map((card) =>
       card.href === "#" ? (
-        <div class="flex flex-col border-b border-r border-border p-6">
+        <div class:list={["flex flex-col border-b border-r border-border p-6", card.muted && "bg-muted/40"]}>
           {card.tag && (
             <span class="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">{card.tag}</span>
           )}
@@ -36,7 +38,7 @@ const { title, cards, note } = Astro.props;
           </span>
         </div>
       ) : (
-        <a href={card.href} class="group flex flex-col border-b border-r border-border p-6">
+        <a href={card.href} class:list={["group flex flex-col border-b border-r border-border p-6", card.muted && "bg-muted/40"]}>
           {card.tag && (
             <span class="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">{card.tag}</span>
           )}

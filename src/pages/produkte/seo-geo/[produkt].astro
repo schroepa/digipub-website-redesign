@@ -43,8 +43,10 @@ const verwandte = seoGeoKatalog.filter(
 );
 
 // Wiederverwendung von CaseStudyTabs (Klick-Liste links / Inhalt rechts), wie
-// auf der Produktübersicht und den Leistungsseiten. Aktuell ein Case – die
-// Komponente trägt weitere, sobald sie vorliegen.
+// auf der Produktübersicht und den Leistungsseiten – die Komponente ist immer
+// auf mehrere Cases ausgelegt.
+// ⚠ Dev-Check: Platzhalter-Case durch einen zweiten verifizierten
+// Relaunch-/Launch-Case ersetzen, sobald vorhanden.
 const caseStudiesForTabs = [
   {
     name: p.caseStudy.kunde.split(" – ")[0],
@@ -58,6 +60,14 @@ const caseStudiesForTabs = [
       { label: "Dauer", value: p.caseStudy.dauer },
       { label: "Messbar", value: p.caseStudy.messbar },
     ],
+  },
+  {
+    name: "Weiterer Case",
+    headline: "Weiterer Case folgt in Kürze",
+    ausgangslage: "Platzhalter – wird durch einen zweiten verifizierten Case für die SEO-Relaunch-Begleitung ersetzt.",
+    vorgehen: "Platzhalter.",
+    ergebnis: "Platzhalter.",
+    meta: [{ label: "Status", value: "In Vorbereitung" }],
   },
 ];
 
@@ -89,9 +99,12 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       ]}
     />
 
-    <p class="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary">
-      <span class="text-muted-foreground">{p.format} · {p.dauer}</span> &nbsp;·&nbsp; {p.name}
-    </p>
+    <!-- Meta-Tags: bewusst als Badges statt als Trenner-Zeile, damit sie nicht wie eine zweite Breadcrumb-Navigation wirken -->
+    <div class="mb-6 flex flex-wrap items-center gap-2">
+      <span class="border border-border px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">{p.format}</span>
+      <span class="border border-border px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">{p.dauer}</span>
+      <span class="border border-primary/40 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-primary">{p.name}</span>
+    </div>
 
     <!-- H1 + Answer-First: GEO-Pflicht – kein Element zwischen H1 und Antwort-Absatz -->
     <h1
@@ -119,6 +132,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
       <h2 class="mb-3 font-mono text-xs font-normal uppercase tracking-[0.15em] text-muted-foreground">Produkt-Details</h2>
       <h3 class="mb-6 font-bold text-foreground" style="font-size: var(--text-peak); letter-spacing: -0.01em;">{p.detailsHeadline}</h3>
       <ProduktDetails
+        cols={2}
         cells={[
           { label: "Format", value: p.format, sub: p.dauer },
           { label: "Preisrahmen", value: p.preisrahmen, sub: p.preisHinweis },

@@ -23,6 +23,8 @@ const produktCards = seoGeoKatalog.map((e) => ({
   quote: e.frage,
   href: e.slug ? `${pfad}/${e.slug}` : (e.href ?? "#"),
   cta: e.cta,
+  // Individuell-Karte setzt sich bewusst leicht ab – kein Katalog-Produkt, sondern ein Gesprächsangebot.
+  muted: e.tag === "Individuell",
 }));
 
 const katalogSchema = buildKatalogSchema(seoGeoKatalog, pageUrl, pageUrl);
@@ -208,7 +210,6 @@ const andereBereiche = [
       <ProduktNavigation
         title="Was wir anbieten"
         cards={produktCards}
-        note="Reihenfolge: Einstiegsprodukte zuerst, dann Sprints, dann Retainer. Preise werden auf den Produktseiten transparent genannt."
       />
     </div>
 

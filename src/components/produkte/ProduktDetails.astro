@@ -6,13 +6,18 @@ interface Cell {
 }
 interface Props {
   cells: Cell[];
+  /** Feste Spaltenzahl (überschreibt die automatische Cell-Count-Heuristik) – z. B. 2 für ein zweispaltig-zweizeiliges Layout. */
+  cols?: 2 | 3 | 4;
 }
-const { cells } = Astro.props;
-const cols =
-  cells.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-4";
+const { cells, cols: colsOverride } = Astro.props;
+const colsClass = colsOverride
+  ? { 2: "sm:grid-cols-2", 3: "sm:grid-cols-3", 4: "sm:grid-cols-2 lg:grid-cols-4" }[colsOverride]
+  : cells.length === 3
+    ? "sm:grid-cols-3"
+    : "sm:grid-cols-2 lg:grid-cols-4";
 ---
 
-<div class:list={["grid border-l border-t border-border", cols]}>
+<div class:list={["grid border-l border-t border-border", colsClass]}>
   {cells.map((cell) => (
     <div class="border-b border-r border-border px-5 py-6">
       <p class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">{cell.label}</p>
