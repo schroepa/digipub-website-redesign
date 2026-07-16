@@ -1,0 +1,371 @@
+- generic [active] [ref=e1]:
+  - link "Zum Inhalt springen" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "DigiPub" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "DigiPub" [ref=e6]
+      - navigation [ref=e7]:
+        - generic [ref=e8]:
+          - link "Leistungen" [ref=e9] [cursor=pointer]:
+            - /url: /leistungen
+            - text: Leistungen
+            - img [ref=e10]
+          - generic:
+            - generic:
+              - paragraph: Wie wir denken und arbeiten
+              - link "Marken-Aufbau / Branding":
+                - /url: /leistungen/markenaufbau-branding
+              - link "SEO / GEO":
+                - /url: /leistungen/seo-geo
+              - link "Designsystem":
+                - /url: /leistungen/designsystem
+              - link "Automatisierung":
+                - /url: /leistungen/automatisierung
+              - link "KI-Implementierung":
+                - /url: /leistungen/ki-implementierung
+        - generic [ref=e12]:
+          - link "Produkte" [ref=e13] [cursor=pointer]:
+            - /url: /produkte
+            - text: Produkte
+            - img [ref=e14]
+          - generic:
+            - generic:
+              - paragraph: Buchbare Sprints, Audits & Retainer – mit Preis und Umfang
+              - link "Alle Produkte":
+                - /url: /produkte
+              - link "SEO / GEO":
+                - /url: /produkte/seo-geo
+        - link "Case Studies" [ref=e17] [cursor=pointer]:
+          - /url: /case-studies
+        - link "Referenzen" [ref=e19] [cursor=pointer]:
+          - /url: /referenzen
+      - generic [ref=e20]:
+        - button "Heller/Dunkler Modus" [ref=e21]:
+          - img [ref=e22]
+        - link "Kontakt" [ref=e24] [cursor=pointer]:
+          - /url: /kontakt
+  - main [ref=e25]:
+    - generic [ref=e26]:
+      - generic:
+        - generic:
+          - paragraph: Digitalagentur · Marke · KI · Automatisierung
+          - heading "Sichtbarkeit ist kein Zufall. Wir machen sie zur Strategie." [level=1]:
+            - generic: Sichtbarkeit ist kein Zufall.
+            - generic: Wir machen sie zur Strategie.
+          - paragraph:
+            - text: Wir machen dich
+            - generic: ^cuvz&gv
+            - text: .
+          - paragraph: Wir verbinden Markenaufbau, KI-Implementierung und Automatisierung – damit dein Unternehmen nicht nur sichtbar wird, sondern wirkt.
+          - generic [ref=e28]:
+            - link "Los geht’s" [ref=e29] [cursor=pointer]:
+              - /url: /kontakt
+              - text: Los geht’s
+              - generic [ref=e30]: →
+            - generic [ref=e31]:
+              - generic [ref=e32]: ✓ Kostenlose Erstberatung
+              - generic [ref=e33]: ✓ Kein Bullshit
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - paragraph [ref=e38]: 02 · Das Strukturproblem
+          - heading "Warum gute Unternehmen digital unsichtbar bleiben." [level=2] [ref=e39]:
+            - text: Warum gute Unternehmen
+            - text: digital unsichtbar bleiben.
+        - generic [ref=e40]:
+          - paragraph [ref=e41]: "Es sind fast immer dieselben Muster:"
+          - list [ref=e42]:
+            - listitem [ref=e43]:
+              - generic [ref=e44]: "01"
+              - generic [ref=e45]: Inhalte, die über Jahre gewachsen sind – ohne roten Faden.
+            - listitem [ref=e46]:
+              - generic [ref=e47]: "02"
+              - generic [ref=e48]: Zielgruppen, die nicht klar voneinander getrennt adressiert werden.
+            - listitem [ref=e49]:
+              - generic [ref=e50]: "03"
+              - generic [ref=e51]: Navigationen, die die interne Struktur spiegeln, nicht die Fragen der Besucher.
+            - listitem [ref=e52]:
+              - generic [ref=e53]: "04"
+              - generic [ref=e54]: Prozesse, die nicht sauber ineinandergreifen.
+            - listitem [ref=e55]:
+              - generic [ref=e56]: "05"
+              - generic [ref=e57]: Ein Mehrwert, der intern selbstverständlich ist – aber nach außen nicht ankommt.
+      - paragraph [ref=e60]: Das ist kein Versagen. Das ist das, was passiert, wenn ein Unternehmen wächst – und die digitale Struktur nicht mitgewachsen ist.
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - paragraph [ref=e64]: 03 · Die Denkweise
+        - heading "Wir beginnen nicht mit Maßnahmen. Wir beginnen mit dem Verstehen." [level=2] [ref=e65]:
+          - text: Wir beginnen nicht mit Maßnahmen.
+          - text: Wir beginnen mit dem Verstehen.
+        - paragraph [ref=e66]: "Bevor irgendwas gebaut, geschrieben oder automatisiert wird, stellen wir dieselben Fragen:"
+      - list [ref=e67]:
+        - listitem [ref=e68]:
+          - generic [ref=e69]: "01"
+          - generic [ref=e70]: Was leistet dein Unternehmen wirklich?
+        - listitem [ref=e71]:
+          - generic [ref=e72]: "02"
+          - generic [ref=e73]: Wen willst du erreichen – und mit welchem Mehrwert?
+        - listitem [ref=e74]:
+          - generic [ref=e75]: "03"
+          - generic [ref=e76]: Was existiert bereits, was fehlt, was bremst?
+      - paragraph [ref=e77]: → Erst danach entstehen Lösungen.
+      - paragraph [ref=e80]: Die meisten fangen bei den Maßnahmen an. Wir fangen davor an.
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - paragraph [ref=e84]: 04 · Die Reihenfolge
+        - heading "Die Reihenfolge entscheidet." [level=2] [ref=e85]
+      - generic [ref=e99]:
+        - generic [ref=e100]:
+          - generic [ref=e101]: "01"
+          - heading "Mehrwert erkennen" [level=3] [ref=e102]
+          - paragraph [ref=e103]: Was steckt wirklich dahinter?
+        - generic [ref=e104]:
+          - generic [ref=e105]: "02"
+          - heading "Mehrwert ordnen" [level=3] [ref=e106]
+          - paragraph [ref=e107]: Wie wird es kommunizierbar?
+        - generic [ref=e108]:
+          - generic [ref=e109]: "03"
+          - heading "Mehrwert sichtbar machen" [level=3] [ref=e110]
+          - paragraph [ref=e111]: Über welche Kanäle und Systeme?
+        - generic [ref=e112]:
+          - generic [ref=e113]: "04"
+          - heading "Mehrwert automatisieren" [level=3] [ref=e114]
+          - paragraph [ref=e115]: Was soll dauerhaft und skalierbar laufen?
+      - paragraph [ref=e118]: Andere beginnen bei Schritt drei. Wir beginnen bei Schritt eins.
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - paragraph [ref=e122]: 05 · Leistungen
+        - heading "Was wir einsetzen." [level=2] [ref=e123]
+        - paragraph [ref=e124]: Keine isolierten Leistungen. Dieselbe Denkweise. Die richtigen Werkzeuge.
+      - generic [ref=e125]:
+        - link "01 Informationsarchitektur Struktur, die für Besucher funktioniert – nicht für interne Zuständigkeiten." [ref=e126] [cursor=pointer]:
+          - /url: /leistungen
+          - generic [ref=e127]: "01"
+          - heading "Informationsarchitektur" [level=3] [ref=e128]
+          - paragraph [ref=e129]: Struktur, die für Besucher funktioniert – nicht für interne Zuständigkeiten.
+          - generic [ref=e130]: →
+        - link "02 Markenaufbau Den echten Mehrwert in Sprache, Haltung und Gestaltung übersetzen." [ref=e133] [cursor=pointer]:
+          - /url: /leistungen/markenaufbau-branding
+          - generic [ref=e134]: "02"
+          - heading "Markenaufbau" [level=3] [ref=e135]
+          - paragraph [ref=e136]: Den echten Mehrwert in Sprache, Haltung und Gestaltung übersetzen.
+          - generic [ref=e137]: →
+        - link "03 Designsysteme Konsistenz, die skaliert – über alle Kanäle und Touchpoints." [ref=e138] [cursor=pointer]:
+          - /url: /leistungen/designsystem
+          - generic [ref=e139]: "03"
+          - heading "Designsysteme" [level=3] [ref=e140]
+          - paragraph [ref=e141]: Konsistenz, die skaliert – über alle Kanäle und Touchpoints.
+          - generic [ref=e142]: →
+        - link "04 SEO / GEO Nachfrage verstehen – in klassischen und KI-basierten Suchsystemen." [ref=e145] [cursor=pointer]:
+          - /url: /leistungen/seo-geo
+          - generic [ref=e146]: "04"
+          - heading "SEO / GEO" [level=3] [ref=e147]
+          - paragraph [ref=e148]: Nachfrage verstehen – in klassischen und KI-basierten Suchsystemen.
+          - generic [ref=e149]: →
+        - link "05 KI-Implementierung Dort einsetzen, wo KI echte Entlastung bringt." [ref=e150] [cursor=pointer]:
+          - /url: /leistungen/ki-implementierung
+          - generic [ref=e151]: "05"
+          - heading "KI-Implementierung" [level=3] [ref=e152]
+          - paragraph [ref=e153]: Dort einsetzen, wo KI echte Entlastung bringt.
+          - generic [ref=e154]: →
+        - link "06 Automatisierung Wiederkehrende Prozesse digitalisieren – damit der Fokus beim Kerngeschäft bleibt." [ref=e157] [cursor=pointer]:
+          - /url: /leistungen/automatisierung
+          - generic [ref=e158]: "06"
+          - heading "Automatisierung" [level=3] [ref=e159]
+          - paragraph [ref=e160]: Wiederkehrende Prozesse digitalisieren – damit der Fokus beim Kerngeschäft bleibt.
+          - generic [ref=e161]: →
+    - generic [ref=e163]:
+      - generic [ref=e164]:
+        - paragraph [ref=e165]: 06 · Cases
+        - heading "Was daraus entsteht." [level=2] [ref=e166]
+        - paragraph [ref=e167]: Unternehmen, die ihre Stärke jetzt auch zeigen können.
+      - generic [ref=e168]:
+        - article [ref=e169]:
+          - generic [ref=e170]:
+            - generic [ref=e171]: "01"
+            - heading "Portazon" [level=3] [ref=e172]
+            - generic [ref=e173]: Smart City Super App, Trier
+          - 'img "Verlauf: Eine neue Plattform mit großer Idee – aber ohne Struktur, die sie trägt. – Content-Architektur, Partnerstrategie und Monitoring aufgebaut. – Heute sichtbar – lokal verankert, digital durchdacht." [ref=e174]'
+          - generic [ref=e180]:
+            - generic [ref=e181]:
+              - paragraph [ref=e182]: Ausgangslage
+              - paragraph [ref=e183]: Eine neue Plattform mit großer Idee – aber ohne Struktur, die sie trägt.
+            - generic [ref=e184]:
+              - paragraph [ref=e185]: Was wir taten
+              - paragraph [ref=e186]: Content-Architektur, Partnerstrategie und Monitoring aufgebaut.
+            - generic [ref=e187]:
+              - paragraph [ref=e188]: Jetzt
+              - paragraph [ref=e189]: Heute sichtbar – lokal verankert, digital durchdacht.
+          - link "→ Zur Case Study" [ref=e191] [cursor=pointer]:
+            - /url: /case-studies/portazon
+            - generic [ref=e192]: →
+            - text: Zur Case Study
+        - article [ref=e193]:
+          - generic [ref=e194]:
+            - generic [ref=e195]: "02"
+            - heading "Haidacher" [level=3] [ref=e196]
+            - generic [ref=e197]: Tischlerei, Südtirol
+          - 'img "Verlauf: Eine exklusive Handwerkstradition, die online schlicht nicht zu finden war. – Sichtbarkeit aufgebaut – ohne das Erscheinungsbild anzutasten. – Erstmals relevante Rankings. Doppelte Sichtbarkeit. Ganz im Stil des Hauses." [ref=e198]'
+          - generic [ref=e204]:
+            - generic [ref=e205]:
+              - paragraph [ref=e206]: Ausgangslage
+              - paragraph [ref=e207]: Eine exklusive Handwerkstradition, die online schlicht nicht zu finden war.
+            - generic [ref=e208]:
+              - paragraph [ref=e209]: Was wir taten
+              - paragraph [ref=e210]: Sichtbarkeit aufgebaut – ohne das Erscheinungsbild anzutasten.
+            - generic [ref=e211]:
+              - paragraph [ref=e212]: Jetzt
+              - paragraph [ref=e213]: Erstmals relevante Rankings. Doppelte Sichtbarkeit. Ganz im Stil des Hauses.
+          - link "→ Zur Case Study" [ref=e215] [cursor=pointer]:
+            - /url: /case-studies/haidacher
+            - generic [ref=e216]: →
+            - text: Zur Case Study
+        - article [ref=e217]:
+          - generic [ref=e218]:
+            - generic [ref=e219]: "03"
+            - heading "De Gruyter" [level=3] [ref=e220]
+            - generic [ref=e221]: Wissenschaftsverlag
+          - 'img "Verlauf: Ein traditionsreicher Verlag mit gewachsenen Systemen und unklaren Entscheidungsgrundlagen. – Klarheit in Redaktion, Technik und Content-Management geschaffen. – Bessere Entscheidungen. Mehr Sichtbarkeit. Ohne den Prozess zu stören." [ref=e222]'
+          - generic [ref=e228]:
+            - generic [ref=e229]:
+              - paragraph [ref=e230]: Ausgangslage
+              - paragraph [ref=e231]: Ein traditionsreicher Verlag mit gewachsenen Systemen und unklaren Entscheidungsgrundlagen.
+            - generic [ref=e232]:
+              - paragraph [ref=e233]: Was wir taten
+              - paragraph [ref=e234]: Klarheit in Redaktion, Technik und Content-Management geschaffen.
+            - generic [ref=e235]:
+              - paragraph [ref=e236]: Jetzt
+              - paragraph [ref=e237]: Bessere Entscheidungen. Mehr Sichtbarkeit. Ohne den Prozess zu stören.
+          - link "→ Zur Case Study" [ref=e239] [cursor=pointer]:
+            - /url: /case-studies/walter-de-gruyter
+            - generic [ref=e240]: →
+            - text: Zur Case Study
+        - article [ref=e241]:
+          - generic [ref=e242]:
+            - generic [ref=e243]: "04"
+            - heading "Initiative Handarbeit" [level=3] [ref=e244]
+          - 'img "Verlauf: Sichtbarkeit verloren in einem hart umkämpften Markt. – Strategie, Struktur und neue Inhaltstypen mit dem Team entwickelt. – Rankings zurückgewonnen. Neues Wachstum planbar gemacht." [ref=e245]'
+          - generic [ref=e251]:
+            - generic [ref=e252]:
+              - paragraph [ref=e253]: Ausgangslage
+              - paragraph [ref=e254]: Sichtbarkeit verloren in einem hart umkämpften Markt.
+            - generic [ref=e255]:
+              - paragraph [ref=e256]: Was wir taten
+              - paragraph [ref=e257]: Strategie, Struktur und neue Inhaltstypen mit dem Team entwickelt.
+            - generic [ref=e258]:
+              - paragraph [ref=e259]: Jetzt
+              - paragraph [ref=e260]: Rankings zurückgewonnen. Neues Wachstum planbar gemacht.
+          - generic [ref=e261]: → Zur Case Study (in Kürze)
+    - generic [ref=e263]:
+      - paragraph [ref=e264]: 07 · Haltung
+      - heading "Mehrwert ist Marke." [level=2] [ref=e265]
+      - generic [ref=e266]:
+        - generic [ref=e267]:
+          - paragraph [ref=e268]: Nicht Design macht Marke. Nicht Werbung macht Marke. Marke entsteht, wenn ein Unternehmen seinen echten Mehrwert sichtbar, verständlich und nutzbar macht.
+          - paragraph [ref=e269]: Das ist es, wofür wir arbeiten. Mit jedem, der offen ist, diesen Weg zu gehen.
+        - generic [ref=e270]:
+          - paragraph [ref=e271]: Dein Unternehmen hat diesen Mehrwert. Lass uns gemeinsam herausfinden, wie wir ihn sichtbar machen.
+          - generic [ref=e272]:
+            - button "Gespräch anfangen →" [ref=e273]
+            - link "E-Mail schreiben" [ref=e274] [cursor=pointer]:
+              - /url: mailto:kontakt@digipub.de
+  - contentinfo [ref=e275]:
+    - generic [ref=e276]:
+      - generic [ref=e277]:
+        - link "DigiPub" [ref=e278] [cursor=pointer]:
+          - /url: /
+          - img "DigiPub" [ref=e279]
+        - paragraph [ref=e280]: Mehrwert ist Marke. Lass uns ihn gemeinsam sichtbar machen.
+      - generic [ref=e281]:
+        - generic [ref=e282]:
+          - paragraph [ref=e283]: Leistungen
+          - list [ref=e284]:
+            - listitem [ref=e285]:
+              - link "Markenaufbau" [ref=e286] [cursor=pointer]:
+                - /url: /leistungen/markenaufbau-branding
+            - listitem [ref=e287]:
+              - link "SEO / GEO" [ref=e288] [cursor=pointer]:
+                - /url: /leistungen/seo-geo
+            - listitem [ref=e289]:
+              - link "Designsystem" [ref=e290] [cursor=pointer]:
+                - /url: /leistungen/designsystem
+            - listitem [ref=e291]:
+              - link "Automatisierung" [ref=e292] [cursor=pointer]:
+                - /url: /leistungen/automatisierung
+            - listitem [ref=e293]:
+              - link "KI-Implementierung" [ref=e294] [cursor=pointer]:
+                - /url: /leistungen/ki-implementierung
+        - generic [ref=e295]:
+          - paragraph [ref=e296]: Seiten
+          - list [ref=e297]:
+            - listitem [ref=e298]:
+              - link "Home" [ref=e299] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e300]:
+              - link "Produkte" [ref=e301] [cursor=pointer]:
+                - /url: /produkte
+            - listitem [ref=e302]:
+              - link "Case Studies" [ref=e303] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=e304]:
+              - link "Referenzen" [ref=e305] [cursor=pointer]:
+                - /url: /referenzen
+            - listitem [ref=e306]:
+              - link "Aktuelles" [ref=e307] [cursor=pointer]:
+                - /url: /aktuelles
+            - listitem [ref=e308]:
+              - link "Kontakt" [ref=e309] [cursor=pointer]:
+                - /url: /kontakt
+        - generic [ref=e310]:
+          - paragraph [ref=e311]: Kontakt
+          - list [ref=e312]:
+            - listitem [ref=e313]:
+              - link "kontakt@digipub.de" [ref=e314] [cursor=pointer]:
+                - /url: mailto:kontakt@digipub.de
+          - generic [ref=e315]:
+            - link "LinkedIn" [ref=e316] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/digipub-de/
+              - img [ref=e317]
+            - link "Instagram" [ref=e321] [cursor=pointer]:
+              - /url: https://www.instagram.com/digipub.de/
+              - img [ref=e322]
+            - link "Facebook" [ref=e325] [cursor=pointer]:
+              - /url: https://www.facebook.com/DigiPubSeo
+              - img [ref=e326]
+        - generic [ref=e328]:
+          - paragraph [ref=e329]: Rechtliches
+          - list [ref=e330]:
+            - listitem [ref=e331]:
+              - link "Impressum" [ref=e332] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e333]:
+              - link "Datenschutz" [ref=e334] [cursor=pointer]:
+                - /url: /datenschutzerklaerung
+        - generic [ref=e335]:
+          - paragraph [ref=e336]: DigiPub + KI
+          - list [ref=e337]:
+            - listitem [ref=e338]:
+              - link "ChatGPT" [ref=e339] [cursor=pointer]:
+                - /url: https://chatgpt.com/?q=Was%20macht%20DigiPub%20und%20wie%20k%C3%B6nnen%20sie%20mir%20bei%20SEO%2C%20Markenaufbau%20und%20KI%20helfen%3F
+                - img [ref=e341]
+                - text: ChatGPT
+            - listitem [ref=e343]:
+              - link "Claude" [ref=e344] [cursor=pointer]:
+                - /url: https://claude.ai/new?q=Was%20macht%20DigiPub%20und%20wie%20k%C3%B6nnen%20sie%20mir%20bei%20SEO%2C%20Markenaufbau%20und%20KI%20helfen%3F
+                - img [ref=e346]
+                - text: Claude
+            - listitem [ref=e348]:
+              - link "Gemini" [ref=e349] [cursor=pointer]:
+                - /url: https://gemini.google.com/app?q=Was%20macht%20DigiPub%20und%20wie%20k%C3%B6nnen%20sie%20mir%20bei%20SEO%2C%20Markenaufbau%20und%20KI%20helfen%3F
+                - img [ref=e351]
+                - text: Gemini
+            - listitem [ref=e353]:
+              - link "Perplexity" [ref=e354] [cursor=pointer]:
+                - /url: https://www.perplexity.ai/?q=Was%20macht%20DigiPub%20und%20wie%20k%C3%B6nnen%20sie%20mir%20bei%20SEO%2C%20Markenaufbau%20und%20KI%20helfen%3F
+                - img [ref=e356]
+                - text: Perplexity
+      - generic [ref=e358]:
+        - paragraph [ref=e359]: © 2026 DigiPub. Alle Rechte vorbehalten.
+        - paragraph [ref=e360]: Made with ♡ in Berlin

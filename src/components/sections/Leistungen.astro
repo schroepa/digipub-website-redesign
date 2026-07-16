@@ -1,123 +1,119 @@
 ---
 import Section from "../ui/Section.astro";
 
-// Platzhalterbild – wird pro Leistung ersetzt, sobald finale Motive vorliegen.
-const platzhalterBild = "/images/leistungen/placeholder-tunnel.webp";
-
 const leistungen = [
-  {
-    title: "Informationsarchitektur",
-    text: "Struktur, die für Besucher funktioniert – nicht für interne Zuständigkeiten.",
-    href: "/leistungen",
-    bild: platzhalterBild,
-  },
   {
     title: "Markenaufbau",
     text: "Den echten Mehrwert in Sprache, Haltung und Gestaltung übersetzen.",
     href: "/leistungen/markenaufbau-branding",
-    bild: platzhalterBild,
+    bild: "/images/leistungen/markenaufbau-hero.png",
   },
   {
     title: "Designsysteme",
     text: "Konsistenz, die skaliert – über alle Kanäle und Touchpoints.",
     href: "/leistungen/designsystem",
-    bild: platzhalterBild,
+    bild: "/images/leistungen/designsystem-section1.png",
   },
   {
     title: "SEO / GEO",
     text: "Nachfrage verstehen – in klassischen und KI-basierten Suchsystemen.",
     href: "/leistungen/seo-geo",
-    bild: platzhalterBild,
-  },
-  {
-    title: "KI-Implementierung",
-    text: "Dort einsetzen, wo KI echte Entlastung bringt.",
-    href: "/leistungen/ki-implementierung",
-    bild: platzhalterBild,
+    bild: "/images/leistungen/seo-hero.png",
   },
   {
     title: "Automatisierung",
     text: "Wiederkehrende Prozesse digitalisieren – damit der Fokus beim Kerngeschäft bleibt.",
     href: "/leistungen/automatisierung",
-    bild: platzhalterBild,
+    bild: "/images/leistungen/automatisierung-hero.png",
+  },
+  {
+    title: "KI-Implementierung",
+    text: "Dort einsetzen, wo KI echte Entlastung bringt.",
+    href: "/leistungen/ki-implementierung",
+    bild: "/images/leistungen/ki-hero.png",
   },
 ];
 ---
 
 <Section id="leistungen" class="border-t border-border">
-  <div class="max-w-3xl">
+  <div class="leistungen-intro max-w-3xl">
     <p
       data-animate
-      class="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary"
+      class="leistungen-kicker mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary"
       style="opacity: 0; transform: translateY(30px);"
     >
       <span class="text-muted-foreground">05</span> &nbsp;·&nbsp; Leistungen
     </p>
     <h2
       data-animate
-      class="font-bold text-foreground"
+      class="leistungen-heading font-bold text-foreground"
       style="font-size: var(--text-section); line-height: 1.08; letter-spacing: -0.02em; opacity: 0; transform: translateY(30px);"
     >
       Was wir einsetzen.
     </h2>
     <p
       data-animate
-      class="mt-6 text-muted-foreground"
+      class="leistungen-subhead mt-6 text-muted-foreground"
       style="font-size: var(--text-body); line-height: 1.6; opacity: 0; transform: translateY(30px);"
     >
       Keine isolierten Leistungen. Dieselbe Denkweise. Die richtigen Werkzeuge.
     </p>
   </div>
 
-  <!-- Editorial-Raster mit Hairline-Trennern, Text/Bild im Zickzack -->
-  <div class="mt-14 grid border-t border-border sm:grid-cols-2">
+  <!-- Kartenraster mit Hairline-Trennern zwischen Zeilen, Text/Bild im Zickzack -->
+  <div class="leistungen-grid mt-14 overflow-hidden rounded-xl border border-border">
     {leistungen.map(({ title, text, href, bild }, i) => {
-      const textCell = (
-        <a
-          href={href}
-          data-animate
-          class:list={[
-            "lst group relative flex flex-col border-b border-border py-8 transition-colors",
-            "sm:px-8 sm:[&:nth-child(odd)]:pl-0 sm:[&:nth-child(even)]:pr-0",
-          ]}
-          style="opacity: 0; transform: translateY(30px);"
-        >
-          <span class="mb-4 font-mono text-xs tabular-nums text-muted-foreground transition-colors group-hover:text-primary">
-            {String(i + 1).padStart(2, "0")}
-          </span>
-          <h3
-            class="mb-2 font-bold text-foreground transition-colors group-hover:text-primary"
-            style="font-size: var(--text-peak); line-height: 1.15; letter-spacing: -0.01em;"
-          >
-            {title}
-          </h3>
-          <p class="max-w-sm text-muted-foreground" style="font-size: var(--text-body); line-height: 1.55;">
-            {text}
-          </p>
-          <span
-            class="mt-5 inline-block font-mono text-sm text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground"
-            aria-hidden="true"
-          >
-            →
-          </span>
-        </a>
-      );
+      const textFirst = i % 2 === 0;
 
-      const imageCell = (
-        <div class="relative aspect-[560/251] overflow-hidden border-b border-border">
-          <img
-            src={bild}
-            alt=""
-            width="1456"
-            height="816"
-            loading="lazy"
-            decoding="async"
-            class="absolute inset-0 h-full w-full object-cover"
-          />
+      return (
+        <div class="leistung-row grid grid-cols-1 border-b border-border sm:grid-cols-2">
+          <a
+            href={href}
+            data-animate
+            class:list={[
+              "leistung-row__content group relative flex flex-col justify-center py-8 transition-colors sm:pl-8",
+              textFirst ? "order-first" : "order-last",
+            ]}
+            style="opacity: 0; transform: translateY(30px);"
+          >
+            <span class="leistung-row__index mb-4 font-mono text-xs tabular-nums text-muted-foreground transition-colors group-hover:text-primary">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <h3
+              class="leistung-row__title mb-2 font-bold text-foreground transition-colors group-hover:text-primary"
+              style="font-size: var(--text-peak); line-height: 1.15; letter-spacing: -0.01em;"
+            >
+              {title}
+            </h3>
+            <p class="leistung-row__text max-w-sm text-muted-foreground" style="font-size: var(--text-body); line-height: 1.55;">
+              {text}
+            </p>
+            <span
+              class="leistung-row__arrow mt-5 inline-block font-mono text-sm text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground"
+              aria-hidden="true"
+            >
+              →
+            </span>
+          </a>
+
+          <div
+            class:list={[
+              "leistung-row__media relative aspect-[560/251] overflow-hidden",
+              textFirst ? "order-last" : "order-first",
+            ]}
+          >
+            <img
+              src={bild}
+              alt=""
+              width="1024"
+              height="574"
+              loading="lazy"
+              decoding="async"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
         </div>
       );
-
-      return i % 2 === 0 ? [textCell, imageCell] : [imageCell, textCell];
     })}
   </div>
 </Section>
